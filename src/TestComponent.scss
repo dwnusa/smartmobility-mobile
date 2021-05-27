@@ -1,0 +1,14 @@
+@import "_variables";
+
+.MyComponent {
+  background: $blue;
+  color: black;
+  padding: 1rem;
+  .header01 {
+    background: $red;
+    color: black;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem;
+  }
+}
