@@ -36,6 +36,7 @@ function Contact({ match }: { match: any }) {
     const div2Center = div2Top + divEl2.current.offsetHeight / 2;
     const div3Top = divEl3.current.offsetTop;
     const div3Center = div3Top + divEl3.current.offsetHeight / 2;
+    // console.log(scrollY, currentScrollTop, div1Top, div2Top, div3Top);
 
     if (currentScrollTop <= div1Center) setPage(0);
     else if (currentScrollTop <= div2Center) setPage(1);
@@ -57,6 +58,7 @@ function Contact({ match }: { match: any }) {
   //   document.getElementsByClassName("board")[0].scrollTo(0, 0);
   // };
   const scrollToTop = (ref: any) => {
+    // console.log(ref, window.top);
     window.scrollTo({
       top: ref.current.offsetTop,
       behavior: "smooth",
@@ -73,9 +75,11 @@ function Contact({ match }: { match: any }) {
           {/* <button onClick={scrollToTop}>scrollToTop</button> */}
         </ul>
       </div>
+      {/* <div className="content"> */}
       <Map divEl={divEl1} />
       <News divEl={divEl2} />
       <Board divEl={divEl3} />
+      {/* </div> */}
     </div>
   );
 }

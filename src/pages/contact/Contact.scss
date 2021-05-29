@@ -1,14 +1,15 @@
 @import "_variables";
 .contact {
   scroll-snap-type: y mandatory;
-  // scroll-snap-type
-  // scroll-snap-align
-  overflow-y: scroll;
   padding: 0px 0px 0px 300px;
-  border: 1px purple solid;
+  border: 10px green solid;
   box-sizing: border-box;
   // height: 200vh;
   // max-height: 100vh;
+  // overflow: scroll;
+  // max-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll;
   .menu {
     position: fixed;
     top: 100px;
@@ -30,5 +31,10 @@
         // box-sizing: border-box;
       }
     }
+  }
+  .content {
+    overflow-y: hidden;
+    border: 5px red solid;
+    box-sizing: border-box;
   }
 }

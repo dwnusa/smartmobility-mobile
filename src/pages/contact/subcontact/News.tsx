@@ -11,14 +11,7 @@ function News({ divEl }: { divEl: any }) {
   // }, []);
   // useEffect(() => {}, []);
   return (
-    <div
-      className="news"
-      ref={divEl}
-      onClick={() => {
-        window.scrollTo(0, 0);
-        alert("hi");
-      }}
-    >
+    <div className="news" ref={divEl}>
       <h2>News</h2>
     </div>
   );
