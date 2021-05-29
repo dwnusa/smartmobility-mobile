@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-type Information = { name: string; description: string };
+
+type Information = {
+  name: string;
+  description: string;
+};
+
 function Counter() {
   const [info, setInformation] = useState<Information | null>(null);
   const [count, setCount] = useState<number>(0);
