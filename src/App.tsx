@@ -1,7 +1,8 @@
 import React from "react";
-import "./App.css";
-import { Route } from "react-router-dom";
+import "./App.scss";
+import { Route, Switch } from "react-router-dom";
 // import About from "About";
+import { Header } from "components";
 import { Home, About, Service, Study, Contact } from "pages";
 // import Greetings from "components/Greetings";
 // import Counter from "components/Counter";
@@ -14,11 +15,18 @@ function App() {
   // return <Greetings name="Hello" onClick={onClick} />;
   return (
     <div>
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/service" component={Service} />
-      <Route path="/study" component={Study} />
-      <Route path="/contact" component={Contact} />
+      <Header />
+      {/* <Menu /> */}
+      <div>
+        <Route exact path="/" component={Home} />
+        <Switch>
+          <Route path="/about/:name" component={About} />
+          <Route path="/about" component={About} />
+        </Switch>
+        <Route path="/service" component={Service} />
+        <Route path="/study" component={Study} />
+        <Route path="/contact" component={Contact} />
+      </div>
       {/* <React.Fragment>
         <Greetings name="Hello" onClick={onClick} />
         <Counter />

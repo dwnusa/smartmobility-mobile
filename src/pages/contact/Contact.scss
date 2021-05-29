@@ -1,0 +1,34 @@
+@import "_variables";
+.contact {
+  scroll-snap-type: y mandatory;
+  // scroll-snap-type
+  // scroll-snap-align
+  overflow-y: scroll;
+  padding: 0px 0px 0px 300px;
+  border: 1px purple solid;
+  box-sizing: border-box;
+  // height: 200vh;
+  // max-height: 100vh;
+  .menu {
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    width: 300px;
+    height: 100vh;
+    border: 1px green solid;
+    box-sizing: border-box;
+    ul {
+      border: 1px $blue solid;
+      box-sizing: border-box;
+      li {
+        display: block;
+        a {
+          text-decoration: none;
+          // color: $header-text-color-dark;
+        }
+        // border: 1px $blue solid;
+        // box-sizing: border-box;
+      }
+    }
+  }
+}

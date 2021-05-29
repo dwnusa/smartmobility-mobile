@@ -1,0 +1,22 @@
+@import "_variables";
+.home {
+  padding: 0px 0px 0px 300px;
+  border: 1px purple solid;
+  box-sizing: border-box;
+  background: skyblue;
+  h2 {
+    position: absolute;
+    top: 50%;
+    left: 150px;
+    width: 567px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 80px;
+    line-height: 98px;
+    color: black;
+
+    // border: 1px blue solid;
+    // box-sizing: border-box;
+  }
+}
