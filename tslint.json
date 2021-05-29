@@ -8,5 +8,5 @@
     "rules": {
         "semicolon": true
     },
-    "rulesDirectory": [],
+    "rulesDirectory": []
 }
