@@ -59,10 +59,15 @@ function Contact({ match }: { match: any }) {
   // };
   const scrollToTop = (ref: any) => {
     // console.log(ref, window.top);
-    window.scrollTo({
+    const contact = document.querySelector(".contact");
+    contact.scrollTo({
       top: ref.current.offsetTop,
       behavior: "smooth",
     });
+    // window.scrollTo({
+    //   top: ref.current.offsetTop,
+    //   behavior: "smooth",
+    // });
   };
   console.log(page);
   return (
