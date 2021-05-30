@@ -3,8 +3,9 @@ import "./About.scss";
 import { Greeting, Vision, History, Organization } from "./";
 // import smoothscroll from 'smoothscroll-polyfill';
 
-function About() {
-  const [currentPage, setPage] = useState<number>(0);
+function About({ match }: { match: any }) {
+  const targetPage = Number(match.params.page);
+  const [currentPage, setPage] = useState<number>(1);
   const divEl = useRef<HTMLDivElement | null>(null);
   const divEl1 = useRef<HTMLDivElement | null>(null);
   const divEl2 = useRef<HTMLDivElement | null>(null);
@@ -28,14 +29,38 @@ function About() {
     setDiv2Center(div2Center);
     setDiv3Center(div3Center);
     setDiv4Center(div4Center);
+    // console.log(page, typeof page, "step0");
   }, []);
+  useEffect(() => {
+    switch (targetPage) {
+      case 1:
+        divEl1.current.scrollIntoView({ behavior: "smooth" });
+        setPage(1);
+        break;
+      case 2:
+        divEl2.current.scrollIntoView({ behavior: "smooth" });
+        setPage(2);
+        break;
+      case 3:
+        divEl3.current.scrollIntoView({ behavior: "smooth" });
+        setPage(3);
+        break;
+      case 4:
+        divEl4.current.scrollIntoView({ behavior: "smooth" });
+        setPage(4);
+        break;
+      default:
+        divEl1.current.scrollIntoView({ behavior: "smooth" });
+        setPage(1);
+    }
+  }, [targetPage]);
 
   const onWheel = () => {
     const currentScrollTop = divEl.current.scrollTop;
-    if (currentScrollTop <= div1Center) setPage(0);
-    else if (currentScrollTop <= div2Center) setPage(1);
-    else if (currentScrollTop <= div3Center) setPage(2);
-    else if (currentScrollTop <= div4Center) setPage(3);
+    if (currentScrollTop <= div1Center) setPage(1);
+    else if (currentScrollTop <= div2Center) setPage(2);
+    else if (currentScrollTop <= div3Center) setPage(3);
+    else if (currentScrollTop <= div4Center) setPage(4);
   };
 
   const scrollToTop = (ref: any) => {
@@ -46,35 +71,35 @@ function About() {
     //   behavior: "smooth",
     // });
     ref.current.scrollIntoView({ behavior: "smooth" });
-    if (currentOffsetTop <= div1Center) setPage(0);
-    else if (currentOffsetTop <= div2Center) setPage(1);
-    else if (currentOffsetTop <= div3Center) setPage(2);
-    else if (currentOffsetTop <= div4Center) setPage(3);
+    if (currentOffsetTop <= div1Center) setPage(1);
+    else if (currentOffsetTop <= div2Center) setPage(2);
+    else if (currentOffsetTop <= div3Center) setPage(3);
+    else if (currentOffsetTop <= div4Center) setPage(4);
   };
   return (
     <div className="about" ref={divEl} onWheel={onWheel}>
       <div className="menu">
         <ul>
           <li
-            className={`${currentPage == 0 && "enabled"}`}
+            className={`${currentPage == 1 && "enabled"}`}
             onClick={() => scrollToTop(divEl1)}
           >
             인사말
           </li>
           <li
-            className={`${currentPage == 1 && "enabled"}`}
+            className={`${currentPage == 2 && "enabled"}`}
             onClick={() => scrollToTop(divEl2)}
           >
             비전
           </li>
           <li
-            className={`${currentPage == 2 && "enabled"}`}
+            className={`${currentPage == 3 && "enabled"}`}
             onClick={() => scrollToTop(divEl3)}
           >
             연혁
           </li>
           <li
-            className={`${currentPage == 3 && "enabled"}`}
+            className={`${currentPage == 4 && "enabled"}`}
             onClick={() => scrollToTop(divEl4)}
           >
             조직도

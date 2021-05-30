@@ -17,12 +17,34 @@ function App() {
       <div>
         <Route exact path="/" component={Home} />
         <Switch>
-          <Route path="/about/:name" component={About} />
+          {/* (props) => <Details required="some string" {...props} /> */}
+          <Route
+            path="/about/:page"
+            component={(props: any) => <About {...props} />}
+          />
           <Route path="/about" component={About} />
         </Switch>
-        <Route path="/service" component={Service} />
-        <Route path="/study" component={Study} />
-        <Route path="/contact" component={Contact} />
+        <Switch>
+          <Route
+            path="/service/:page"
+            component={(props: any) => <Service {...props} />}
+          />
+          <Route path="/service" component={Service} />
+        </Switch>
+        <Switch>
+          <Route
+            path="/study/:page"
+            component={(props: any) => <Study {...props} />}
+          />
+          <Route path="/study" component={Study} />
+        </Switch>
+        <Switch>
+          <Route
+            path="/contact/:page"
+            component={(props: any) => <Contact {...props} />}
+          />
+          <Route path="/contact" component={Contact} />
+        </Switch>
       </div>
       {/* <React.Fragment>
         <Greetings name="Hello" onClick={onClick} />

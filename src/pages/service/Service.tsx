@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Service.scss";
 import { HANDYCAP, Bogota } from "./";
-function Service() {
-  const [currentPage, setPage] = useState<number>(0);
+function Service({ match }: { match: any }) {
+  const targetPage = Number(match.params.page);
+  const [currentPage, setPage] = useState<number>(1);
   const divEl = useRef<HTMLDivElement | null>(null);
   const divEl1 = useRef<HTMLDivElement | null>(null);
   const divEl2 = useRef<HTMLDivElement | null>(null);
-  const divEl3 = useRef<HTMLDivElement | null>(null);
   const [div1Center, setDiv1Center] = useState<number>(0);
   const [div2Center, setDiv2Center] = useState<number>(0);
 
@@ -19,10 +19,25 @@ function Service() {
     setDiv2Center(div2Center);
   }, []);
 
+  useEffect(() => {
+    switch (targetPage) {
+      case 1:
+        divEl1.current.scrollIntoView({ behavior: "smooth" });
+        setPage(1);
+        break;
+      case 2:
+        divEl2.current.scrollIntoView({ behavior: "smooth" });
+        setPage(2);
+        break;
+      default:
+        divEl1.current.scrollIntoView({ behavior: "smooth" });
+        setPage(1);
+    }
+  }, [targetPage]);
   const onWheel = () => {
     const currentScrollTop = divEl.current.scrollTop;
-    if (currentScrollTop <= div1Center) setPage(0);
-    else if (currentScrollTop <= div2Center) setPage(1);
+    if (currentScrollTop <= div1Center) setPage(1);
+    else if (currentScrollTop <= div2Center) setPage(2);
   };
 
   const scrollToTop = (ref: any) => {
@@ -32,21 +47,21 @@ function Service() {
       top: ref.current.offsetTop,
       behavior: "smooth",
     });
-    if (currentOffsetTop <= div1Center) setPage(0);
-    else if (currentOffsetTop <= div2Center) setPage(1);
+    if (currentOffsetTop <= div1Center) setPage(1);
+    else if (currentOffsetTop <= div2Center) setPage(2);
   };
   return (
     <div className="service" ref={divEl} onWheel={onWheel}>
       <div className="menu">
         <ul>
           <li
-            className={`${currentPage == 0 && "enabled"}`}
+            className={`${currentPage == 1 && "enabled"}`}
             onClick={() => scrollToTop(divEl1)}
           >
             HANDYCAP
           </li>
           <li
-            className={`${currentPage == 1 && "enabled"}`}
+            className={`${currentPage == 2 && "enabled"}`}
             onClick={() => scrollToTop(divEl2)}
           >
             Bogota
