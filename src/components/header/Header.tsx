@@ -1,43 +1,41 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Header.scss";
-import logoBlack from "img/logo-black.png";
-import logoWhite from "img/logo-white.png";
+import { Nav } from "./";
+import logoBlack from "media/logo-black.png";
+import logoWhite from "media/logo-white.png";
 
 function Header() {
-  const activeStyle = {
-    color: "red",
-    // fontSize: "2rem",
-  };
+  const location = useLocation().pathname;
+  // console.log(location);
   return (
-    <div className="header">
-      <img src={logoBlack} />
+    <div className={`header ${location == "/" && "main"}`}>
+      <Link to="/">
+        <img src={location == "/" ? logoWhite : logoBlack} />
+      </Link>
       <ul>
         <li>
-          <NavLink exact to="/" activeStyle={activeStyle}>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact to="/about" activeStyle={activeStyle}>
+          <NavLink className={`${location == "/" && "main"}`} exact to="/about">
             About
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/service" activeStyle={activeStyle}>
+          <NavLink
+            className={`${location == "/" && "main"}`}
+            exact
+            to="/service"
+          >
             Service
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/study" activeStyle={activeStyle}>
+          <NavLink className={`${location == "/" && "main"}`} exact to="/study">
             Study
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/contact" activeStyle={activeStyle}>
-            Contact
-          </NavLink>
-        </li>
+        <div className={`modal ${location == "/" && "main"}`}>
+          <Nav />
+        </div>
       </ul>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./About.scss";
 import { Greeting, Vision, History, Organization } from "./";
+// import smoothscroll from 'smoothscroll-polyfill';
 
 function About() {
   const [currentPage, setPage] = useState<number>(0);
@@ -40,10 +41,11 @@ function About() {
   const scrollToTop = (ref: any) => {
     const currentOffsetTop = ref.current.offsetTop;
     const component = document.querySelector(".about");
-    component.scrollTo({
-      top: ref.current.offsetTop,
-      behavior: "smooth",
-    });
+    // component.scrollTo({
+    //   top: ref.current.offsetTop,
+    //   behavior: "smooth",
+    // });
+    ref.current.scrollIntoView({ behavior: "smooth" });
     if (currentOffsetTop <= div1Center) setPage(0);
     else if (currentOffsetTop <= div2Center) setPage(1);
     else if (currentOffsetTop <= div3Center) setPage(2);

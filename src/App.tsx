@@ -3,16 +3,13 @@ import "./App.scss";
 import { Route, Switch } from "react-router-dom";
 // import About from "About";
 import { Header } from "components";
+import { NavLink, useLocation } from "react-router-dom";
 import { Home, About, Service, Study, Contact } from "pages";
 // import Greetings from "components/Greetings";
 // import Counter from "components/Counter";
 // import TestComponent from "components/TestComponent";
 
 function App() {
-  const onClick = (name: string) => {
-    console.log(`${name} says hello`);
-  };
-  // return <Greetings name="Hello" onClick={onClick} />;
   return (
     <div>
       <Header />

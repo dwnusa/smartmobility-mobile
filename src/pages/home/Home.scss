@@ -1,8 +1,10 @@
 @import "styles/_variables";
 @import "styles/_mixins";
 .home {
-  padding: 0px 0px 0px 300px;
-  border: 1px purple solid;
+  // padding: 0px 0px 0px 300px;
+  // border: 20px blue solid;
+  // width: 100vw;
+  // height: 100vh;
   box-sizing: border-box;
   background: skyblue;
   h2 {
@@ -15,7 +17,7 @@
     font-weight: 900;
     font-size: 80px;
     line-height: 98px;
-    color: black;
+    color: white;
 
     // border: 1px blue solid;
     // box-sizing: border-box;
