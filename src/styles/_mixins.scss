@@ -1,0 +1,44 @@
+@import "styles/_buttons";
+
+@mixin commonSnapDivStyle {
+  scroll-snap-type: y mandatory;
+  padding: 0px 0px 0px 300px;
+  height: 100vh;
+  overflow-y: scroll;
+  // border: 10px green solid;
+  // box-sizing: border-box;
+}
+@mixin menuDivStyle() {
+  .menu {
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    width: 300px;
+    height: 100vh;
+    // border: 1px green solid;
+    // box-sizing: border-box;
+    ul {
+      // border: 1px $blue solid;
+      // box-sizing: border-box;
+      padding: 100px 0px 0px 70px;
+      li {
+        @extend %menuButton;
+        &:hover {
+          opacity: 1;
+        }
+        &.enabled {
+          border-left: 3px #121212 solid;
+          opacity: 1;
+        }
+        // border: 1px $blue solid;
+        // box-sizing: border-box;
+      }
+    }
+  }
+}
+@mixin subComponentsStyle {
+  scroll-snap-align: start;
+  padding-top: 100px;
+  // border: 1px red solid;
+  height: calc(100vh - 100px);
+}

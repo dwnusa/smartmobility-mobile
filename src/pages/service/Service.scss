@@ -1,28 +1,6 @@
-@import "_variables";
+@import "styles/_variables";
+@import "styles/_mixins";
 .service {
-  padding: 0px 0px 0px 300px;
-  border: 1px purple solid;
-  box-sizing: border-box;
-  .menu {
-    position: fixed;
-    top: 100px;
-    left: 0px;
-    width: 300px;
-    height: 100vh;
-    border: 1px green solid;
-    box-sizing: border-box;
-    ul {
-      border: 1px $blue solid;
-      box-sizing: border-box;
-      li {
-        display: block;
-        a {
-          text-decoration: none;
-          // color: $header-text-color-dark;
-        }
-        // border: 1px $blue solid;
-        // box-sizing: border-box;
-      }
-    }
-  }
+  @include commonSnapDivStyle();
+  @include menuDivStyle();
 }

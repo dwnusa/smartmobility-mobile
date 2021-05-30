@@ -1,35 +1,6 @@
-@import "_variables";
+@import "styles/_variables";
+@import "styles/_mixins";
 .contact {
-  scroll-snap-type: y mandatory;
-  padding: 0px 0px 0px 300px;
-  border: 10px green solid;
-  box-sizing: border-box;
-  // height: 200vh;
-  // max-height: 100vh;
-  // overflow: scroll;
-  // max-height: 100vh;
-  height: 100vh;
-  overflow-y: scroll;
-  .menu {
-    position: fixed;
-    top: 100px;
-    left: 0px;
-    width: 300px;
-    height: 100vh;
-    border: 1px green solid;
-    box-sizing: border-box;
-    ul {
-      border: 1px $blue solid;
-      box-sizing: border-box;
-      li {
-        display: block;
-        a {
-          text-decoration: none;
-          // color: $header-text-color-dark;
-        }
-        // border: 1px $blue solid;
-        // box-sizing: border-box;
-      }
-    }
-  }
+  @include commonSnapDivStyle();
+  @include menuDivStyle();
 }

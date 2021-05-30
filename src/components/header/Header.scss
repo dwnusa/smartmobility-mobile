@@ -1,4 +1,5 @@
-@import "_variables";
+@import "styles/_variables";
+@import "styles/_mixins";
 .header {
   position: fixed;
   top: 0px;
