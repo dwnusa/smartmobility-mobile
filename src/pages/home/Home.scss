@@ -4,22 +4,15 @@
   // padding: 0px 0px 0px 300px;
   // border: 20px blue solid;
   // width: 100vw;
-  // height: 100vh;
-  box-sizing: border-box;
-  background: skyblue;
-  h2 {
-    position: absolute;
-    top: 50%;
-    left: 150px;
-    width: 567px;
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 900;
-    font-size: 80px;
-    line-height: 98px;
-    color: white;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  // box-sizing: border-box;
+  // overflow: hidden;
+  // background: skyblue;
 
-    // border: 1px blue solid;
-    // box-sizing: border-box;
-  }
+  // &:hover {
+  //   border: 1px red solid;
+  // }
+  // border: 1px red solid;
 }

@@ -11,7 +11,7 @@ import { Home, About, Service, Study, Contact } from "pages";
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Header />
       {/* <Menu /> */}
       <div>
