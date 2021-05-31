@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Nav.scss";
 
-function Nav() {
+type BackgroundVideoProps = {
+  isBgShowing: boolean;
+};
+function Nav({ isBgShowing }: BackgroundVideoProps) {
   const location = useLocation().pathname;
   return (
-    <div className="navGrid">
+    <div className={`navGrid ${!isBgShowing && "turnColorBlack"}`}>
       <div className="about1">
         <NavLink exact to="/about/1">
           소개
@@ -122,4 +125,7 @@ function Nav() {
   );
 }
 
+Nav.defaultProps = {
+  isBgShowing: false,
+};
 export default Nav;

@@ -50,8 +50,12 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
             Study
           </NavLink>
         </li>
-        <div className={`modal ${location == "/" && "main"}`}>
-          <Nav />
+        <div
+          className={`modal ${location == "/" && "main"} ${
+            !isBgShowing && "turnBgWhite"
+          }`}
+        >
+          <Nav isBgShowing={isBgShowing} />
         </div>
       </ul>
     </div>

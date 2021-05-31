@@ -9,6 +9,10 @@
   grid-template-rows: repeat(3, 2fr) 3fr repeat(3, 2fr) 5fr repeat(5, 1fr) 1fr 2fr;
   // border: 1px yellow solid;
   // box-sizing: border-box;
+
+  &.turnColorBlack {
+    @include animation(0s, 3s, 1, forwards, turnColorBlack);
+  }
   div {
     display: flex;
     justify-content: center;

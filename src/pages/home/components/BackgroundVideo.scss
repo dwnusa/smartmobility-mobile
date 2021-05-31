@@ -50,19 +50,3 @@
     }
   }
 }
-@include keyframe(turnColorBlack) {
-  100% {
-    color: black;
-  }
-  0% {
-    color: white;
-  }
-}
-@include keyframe(fadeout) {
-  100% {
-    opacity: 0;
-  }
-  0% {
-    opacity: 1;
-  }
-}
