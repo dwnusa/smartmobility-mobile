@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Study.scss";
+import { Header } from "components";
 import { RnD, Outsourcing, Patent } from "./";
 function Study({ match }: { match: any }) {
   const targetPage = Number(match.params.page);
@@ -62,33 +63,36 @@ function Study({ match }: { match: any }) {
     else if (currentOffsetTop <= div3Center) setPage(3);
   };
   return (
-    <div className="study" ref={divEl} onWheel={onWheel}>
-      <div className="menu">
-        <ul>
-          <li
-            className={`${currentPage == 1 && "enabled"}`}
-            onClick={() => scrollToTop(divEl1)}
-          >
-            R&D
-          </li>
-          <li
-            className={`${currentPage == 2 && "enabled"}`}
-            onClick={() => scrollToTop(divEl2)}
-          >
-            용역
-          </li>
-          <li
-            className={`${currentPage == 3 && "enabled"}`}
-            onClick={() => scrollToTop(divEl3)}
-          >
-            특허/저작권
-          </li>
-        </ul>
+    <React.Fragment>
+      <Header />
+      <div className="study" ref={divEl} onWheel={onWheel}>
+        <div className="menu">
+          <ul>
+            <li
+              className={`${currentPage == 1 && "enabled"}`}
+              onClick={() => scrollToTop(divEl1)}
+            >
+              R&D
+            </li>
+            <li
+              className={`${currentPage == 2 && "enabled"}`}
+              onClick={() => scrollToTop(divEl2)}
+            >
+              용역
+            </li>
+            <li
+              className={`${currentPage == 3 && "enabled"}`}
+              onClick={() => scrollToTop(divEl3)}
+            >
+              특허/저작권
+            </li>
+          </ul>
+        </div>
+        <RnD divEl={divEl1} />
+        <Outsourcing divEl={divEl2} />
+        <Patent divEl={divEl3} />
       </div>
-      <RnD divEl={divEl1} />
-      <Outsourcing divEl={divEl2} />
-      <Patent divEl={divEl3} />
-    </div>
+    </React.Fragment>
   );
 }
 

@@ -5,7 +5,10 @@ import { Nav } from "./";
 import logoBlack from "media/logo-black.png";
 import logoWhite from "media/logo-white.png";
 
-function Header() {
+type BackgroundVideoProps = {
+  isBgShowing: boolean;
+};
+function Header({ isBgShowing }: BackgroundVideoProps) {
   const location = useLocation().pathname;
   // console.log(location);
   return (
@@ -15,13 +18,21 @@ function Header() {
       </Link>
       <ul>
         <li>
-          <NavLink className={`${location == "/" && "main"}`} exact to="/about">
+          <NavLink
+            className={`${location == "/" && "main"} ${
+              !isBgShowing && "turnColorBlack"
+            }`}
+            exact
+            to="/about"
+          >
             About
           </NavLink>
         </li>
         <li>
           <NavLink
-            className={`${location == "/" && "main"}`}
+            className={`${location == "/" && "main"} ${
+              !isBgShowing && "turnColorBlack"
+            }`}
             exact
             to="/service"
           >
@@ -29,7 +40,13 @@ function Header() {
           </NavLink>
         </li>
         <li>
-          <NavLink className={`${location == "/" && "main"}`} exact to="/study">
+          <NavLink
+            className={`${location == "/" && "main"} ${
+              !isBgShowing && "turnColorBlack"
+            }`}
+            exact
+            to="/study"
+          >
             Study
           </NavLink>
         </li>
@@ -41,4 +58,7 @@ function Header() {
   );
 }
 
+Header.defaultProps = {
+  isBgShowing: false,
+};
 export default Header;

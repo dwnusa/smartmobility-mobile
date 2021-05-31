@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Service.scss";
+import { Header } from "components";
 import { HANDYCAP, Bogota } from "./";
 function Service({ match }: { match: any }) {
   const targetPage = Number(match.params.page);
@@ -51,26 +52,29 @@ function Service({ match }: { match: any }) {
     else if (currentOffsetTop <= div2Center) setPage(2);
   };
   return (
-    <div className="service" ref={divEl} onWheel={onWheel}>
-      <div className="menu">
-        <ul>
-          <li
-            className={`${currentPage == 1 && "enabled"}`}
-            onClick={() => scrollToTop(divEl1)}
-          >
-            HANDYCAP
-          </li>
-          <li
-            className={`${currentPage == 2 && "enabled"}`}
-            onClick={() => scrollToTop(divEl2)}
-          >
-            Bogota
-          </li>
-        </ul>
+    <React.Fragment>
+      <Header />
+      <div className="service" ref={divEl} onWheel={onWheel}>
+        <div className="menu">
+          <ul>
+            <li
+              className={`${currentPage == 1 && "enabled"}`}
+              onClick={() => scrollToTop(divEl1)}
+            >
+              HANDYCAP
+            </li>
+            <li
+              className={`${currentPage == 2 && "enabled"}`}
+              onClick={() => scrollToTop(divEl2)}
+            >
+              Bogota
+            </li>
+          </ul>
+        </div>
+        <HANDYCAP divEl={divEl1} />
+        <Bogota divEl={divEl2} />
       </div>
-      <HANDYCAP divEl={divEl1} />
-      <Bogota divEl={divEl2} />
-    </div>
+    </React.Fragment>
   );
 }
 

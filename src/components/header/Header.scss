@@ -88,6 +88,9 @@
         color: black;
         &.main {
           color: white;
+          &.turnColorBlack {
+            @include animation(0s, 3s, 1, forwards, turnColorBlack);
+          }
         }
         &:hover {
           text-decoration: underline;
@@ -99,5 +102,14 @@
       // border: 1px $blue solid;
       // box-sizing: border-box;
     }
+  }
+}
+
+@include keyframe(turnColorBlack) {
+  100% {
+    color: black;
+  }
+  0% {
+    color: white;
   }
 }

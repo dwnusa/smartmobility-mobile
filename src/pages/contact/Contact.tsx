@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Contact.scss";
+import { Header } from "components";
 import { Map, News, Board } from "./";
 // type contactsType = { match: Number };
 
@@ -65,33 +66,36 @@ function Contact({ match }: { match: any }) {
   };
 
   return (
-    <div className="contact" ref={divEl} onWheel={onWheel}>
-      <div className="menu">
-        <ul>
-          <li
-            className={`${currentPage == 1 && "enabled"}`}
-            onClick={() => scrollToTop(divEl1)}
-          >
-            오시는길
-          </li>
-          <li
-            className={`${currentPage == 2 && "enabled"}`}
-            onClick={() => scrollToTop(divEl2)}
-          >
-            공지/채용
-          </li>
-          <li
-            className={`${currentPage == 3 && "enabled"}`}
-            onClick={() => scrollToTop(divEl3)}
-          >
-            문의하기
-          </li>
-        </ul>
+    <React.Fragment>
+      <Header />
+      <div className="contact" ref={divEl} onWheel={onWheel}>
+        <div className="menu">
+          <ul>
+            <li
+              className={`${currentPage == 1 && "enabled"}`}
+              onClick={() => scrollToTop(divEl1)}
+            >
+              오시는길
+            </li>
+            <li
+              className={`${currentPage == 2 && "enabled"}`}
+              onClick={() => scrollToTop(divEl2)}
+            >
+              공지/채용
+            </li>
+            <li
+              className={`${currentPage == 3 && "enabled"}`}
+              onClick={() => scrollToTop(divEl3)}
+            >
+              문의하기
+            </li>
+          </ul>
+        </div>
+        <Map divEl={divEl1} />
+        <News divEl={divEl2} />
+        <Board divEl={divEl3} />
       </div>
-      <Map divEl={divEl1} />
-      <News divEl={divEl2} />
-      <Board divEl={divEl3} />
-    </div>
+    </React.Fragment>
   );
 }
 

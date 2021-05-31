@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./About.scss";
+import { Header } from "components";
 import { Greeting, Vision, History, Organization } from "./";
 // import smoothscroll from 'smoothscroll-polyfill';
 
@@ -77,40 +78,43 @@ function About({ match }: { match: any }) {
     else if (currentOffsetTop <= div4Center) setPage(4);
   };
   return (
-    <div className="about" ref={divEl} onWheel={onWheel}>
-      <div className="menu">
-        <ul>
-          <li
-            className={`${currentPage == 1 && "enabled"}`}
-            onClick={() => scrollToTop(divEl1)}
-          >
-            인사말
-          </li>
-          <li
-            className={`${currentPage == 2 && "enabled"}`}
-            onClick={() => scrollToTop(divEl2)}
-          >
-            비전
-          </li>
-          <li
-            className={`${currentPage == 3 && "enabled"}`}
-            onClick={() => scrollToTop(divEl3)}
-          >
-            연혁
-          </li>
-          <li
-            className={`${currentPage == 4 && "enabled"}`}
-            onClick={() => scrollToTop(divEl4)}
-          >
-            조직도
-          </li>
-        </ul>
+    <React.Fragment>
+      <Header />
+      <div className="about" ref={divEl} onWheel={onWheel}>
+        <div className="menu">
+          <ul>
+            <li
+              className={`${currentPage == 1 && "enabled"}`}
+              onClick={() => scrollToTop(divEl1)}
+            >
+              인사말
+            </li>
+            <li
+              className={`${currentPage == 2 && "enabled"}`}
+              onClick={() => scrollToTop(divEl2)}
+            >
+              비전
+            </li>
+            <li
+              className={`${currentPage == 3 && "enabled"}`}
+              onClick={() => scrollToTop(divEl3)}
+            >
+              연혁
+            </li>
+            <li
+              className={`${currentPage == 4 && "enabled"}`}
+              onClick={() => scrollToTop(divEl4)}
+            >
+              조직도
+            </li>
+          </ul>
+        </div>
+        <Greeting divEl={divEl1} />
+        <Vision divEl={divEl2} />
+        <History divEl={divEl3} />
+        <Organization divEl={divEl4} />
       </div>
-      <Greeting divEl={divEl1} />
-      <Vision divEl={divEl2} />
-      <History divEl={divEl3} />
-      <Organization divEl={divEl4} />
-    </div>
+    </React.Fragment>
   );
 }
 
