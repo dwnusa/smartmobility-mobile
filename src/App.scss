@@ -40,7 +40,7 @@
 
 @include keyframe(fadein) {
   100% {
-    display: inherit;
+    // display: inherit;
     opacity: 1;
   }
 

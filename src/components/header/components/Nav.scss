@@ -1,4 +1,5 @@
 @import "styles/_mixins";
+
 .navGrid {
   margin-top: 125px;
   width: 500px;
@@ -13,55 +14,68 @@
   &.turnColorBlack {
     @include animation(0s, 3s, 1, forwards, turnColorBlack);
   }
+
   div {
     display: flex;
     justify-content: center;
     align-items: center;
+
     // background: #2ecc71;
     &.about1 {
       grid-row: 1/2;
       grid-column: 2/3;
     }
+
     &.about2 {
       grid-row: 2/3;
       grid-column: 2/3;
     }
+
     &.about3 {
       grid-row: 3/4;
       grid-column: 2/3;
     }
+
     &.service1 {
       grid-row: 1/2;
       grid-column: 3/4;
     }
+
     &.service2 {
       grid-row: 2/3;
       grid-column: 3/4;
     }
+
     &.study1 {
       grid-row: 1/2;
       grid-column: 4/5;
     }
+
     &.study2 {
       grid-row: 2/3;
       grid-column: 4/5;
     }
+
     &.study3 {
       grid-row: 3/4;
       grid-column: 4/5;
     }
+
     &.contact1 {
       grid-row: 5/6;
       grid-column: 2/3;
     }
+
     &.contact2 {
       grid-row: 6/7;
       grid-column: 2/3;
     }
+
     &.contact3 {
       grid-row: 7/8;
       grid-column: 2/3;
     }
+
     &.ceoInfo {
       padding-left: 8%;
       justify-content: flex-start;
@@ -70,6 +84,7 @@
       grid-row: 9/10;
       grid-column: 2/5;
     }
+
     &.companyInfo1 {
       padding-left: 8%;
       justify-content: flex-start;
@@ -78,6 +93,7 @@
       grid-row: 10/11;
       grid-column: 2/5;
     }
+
     &.companyInfo2 {
       padding-left: 8%;
       justify-content: flex-start;
@@ -86,6 +102,7 @@
       grid-row: 11/12;
       grid-column: 2/5;
     }
+
     &.phoneInfo {
       padding-left: 8%;
       justify-content: flex-start;
@@ -94,6 +111,7 @@
       grid-row: 12/13;
       grid-column: 2/5;
     }
+
     &.faxInfo {
       padding-left: 8%;
       justify-content: flex-start;
@@ -102,6 +120,7 @@
       grid-row: 13/14;
       grid-column: 2/5;
     }
+
     &.infoDivider {
       grid-row: 14/15;
       grid-column: 1/-1;
@@ -109,6 +128,7 @@
       opacity: 0.3;
       border-bottom: 3px gray solid;
     }
+
     &.copyright {
       padding-left: 8%;
       justify-content: flex-start;
@@ -117,44 +137,14 @@
       grid-row: 15/16;
       grid-column: 2/5;
     }
+
     a {
       color: inherit;
       text-decoration: inherit;
-    }
-  }
-}
 
-.nav {
-  margin-top: 125px;
-  display: flex;
-  justify-content: center;
-  width: 500px;
-  height: 80vh;
-  border: 1px yellow solid;
-  box-sizing: border-box;
-
-  div {
-    width: 135px;
-    display: block;
-    height: 60px;
-    // &.nav-about {
-    //   height: 200px;
-    //   border: 1px red solid;
-    //   box-sizing: border-box;
-    // }
-    // border: 1px white solid;
-    // box-sizing: border-box;
-    div {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      a {
-        // color: red;
-        color: inherit;
-        text-decoration: inherit;
-        // &.active {
-        //   text-decoration: underline;
-        // }
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 7px;
       }
     }
   }

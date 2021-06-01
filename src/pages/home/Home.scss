@@ -1,11 +1,15 @@
 @import "styles/_variables";
 @import "styles/_mixins";
+
 .home {
   // padding: 0px 0px 0px 300px;
   // border: 20px blue solid;
   // width: 100vw;
   position: relative;
   height: 100vh;
+  // background: white;
+  // z-index: -2;
+  // background: rgba(10, 52, 127, 0.98);
   overflow-x: hidden;
   // overflow: hidden;
   // box-sizing: border-box;
