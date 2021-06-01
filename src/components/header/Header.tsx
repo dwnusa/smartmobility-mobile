@@ -7,6 +7,7 @@ import logoWhite from "media/logo-white.png";
 
 type BackgroundVideoProps = {
   isBgShowing: boolean;
+  // setBgShowing: (value: boolean | ((prevVar: boolean) => boolean)) => void;
 };
 function Header({ isBgShowing }: BackgroundVideoProps) {
   const location = useLocation().pathname;
@@ -61,5 +62,6 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
 
 Header.defaultProps = {
   isBgShowing: false,
+  // setBgShowing: (arg: any) => void (0),
 };
 export default Header;

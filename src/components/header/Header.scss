@@ -11,8 +11,8 @@
   left: 0px;
   max-height: 100px;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  // grid-template-columns: 1fr 1fr;
   /* required */
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@
   }
 
   a {
-    grid-column: 1/2;
+    // grid-column: 1/2;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
