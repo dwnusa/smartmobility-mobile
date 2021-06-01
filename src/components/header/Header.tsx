@@ -14,14 +14,14 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
   return (
     <div className={`header ${location == "/" && "main"}`}>
       <Link to="/">
-        <img src={location == "/" ? logoWhite : logoBlack} />
+        <img className={`${!isBgShowing && "turnBlue"}`} src={logoWhite} />
+        <img className={`${!isBgShowing && "turnBlue"}`} src={logoBlack} />
       </Link>
       <ul>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
             to="/about"
           >
@@ -30,9 +30,8 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
         </li>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
             to="/service"
           >
@@ -41,9 +40,8 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
         </li>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
             to="/study"
           >
@@ -51,9 +49,8 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
           </NavLink>
         </li>
         <div
-          className={`modal ${location == "/" && "main"} ${
-            !isBgShowing && "turnBgWhite"
-          }`}
+          className={`modal ${location == "/" && "main"} ${!isBgShowing && "turnBgWhite"
+            }`}
         >
           <Nav isBgShowing={isBgShowing} />
         </div>
