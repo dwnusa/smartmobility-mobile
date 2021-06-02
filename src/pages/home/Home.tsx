@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Home.scss";
 import { Header } from "components";
 import { BackgroundVideo } from "./";
+import cardHandycap from "media/card-handycap.png";
+import cardBogota from "media/card-bogota.png";
+import cardAutomobile from "media/card-automobile.png";
 
 function Home() {
   const [isBgShowing, setBgShowing] = useState<boolean>(true);
@@ -36,14 +40,22 @@ function Home() {
             />
           </svg>
         </div>
-        <div style={{ overflow: "hidden", border: "0px black solid", position: "relative", top: "20vh", left: "50vw", width: "100vw", height: "70vh" }}>
-          <div style={{ overflow: "scroll", maxHeight: "110%", maxWidth: "110%", height: "110%", width: "110%", border: "0px red solid" }}>
-            <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "flex-start", width: "200%", height: "100%", border: "0px blue solid" }}>
-              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "100%", margin: "1rem" }}></div>
-              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "80%", margin: "1rem" }}></div>
-              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "75%", margin: "1rem" }}></div>
-              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "100%", margin: "1rem" }}></div>
-              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "90%", margin: "1rem" }}></div>
+        <div className={`cardWrapper ${!isBgShowing && "trigger"}`}>
+          <div className="cardContainer">
+            <div className="cardBox">
+              <div className="card">
+                <NavLink exact to="/service/1">
+                  <img src={cardHandycap} width="100%" />
+                </NavLink>
+              </div>
+              <div className="card">
+                <NavLink exact to="/service/2">
+                  <img src={cardBogota} width="100%" />
+                </NavLink>
+              </div>
+              <div className="card">
+                <img src={cardAutomobile} width="100%" />
+              </div>
             </div>
           </div>
         </div>
