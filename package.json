@@ -12,7 +12,7 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
     "cross-env": "^7.0.3",
-    "node-sass": "4.14.0",
+    "node-sass": "^4.14.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
@@ -23,6 +23,7 @@
   },
   "scripts": {
     "start": "NODE_PATH=src react-scripts start",
+    "dev-win": "set PORT=3222 && cross-env NODE_PATH=src react-scripts start",
     "dev-mac": "PORT=3222 NODE_PATH=src react-scripts start",
     "build": "NODE_PATH=src react-scripts build",
     "test": "react-scripts test",
