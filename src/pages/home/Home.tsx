@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useSpring, animated, config } from "react-spring";
 import "./Home.scss";
 import { Header } from "components";
 import { BackgroundVideo } from "./";
@@ -7,7 +6,6 @@ import { BackgroundVideo } from "./";
 function Home() {
   const [isBgShowing, setBgShowing] = useState<boolean>(true);
   const [active, setActive] = useState(false);
-  const { x } = useSpring({ config: { duration: 800 }, x: active ? 1 : 0 });
 
   // useEffect(() => {
   //   setActive(true);

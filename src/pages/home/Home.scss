@@ -18,7 +18,7 @@
       stroke-dasharray: 450;
       stroke-dashoffset: 450;
       &.trigger {
-        @include animation(3s, 3s, 1, forwards, draw);
+        @include animation(2s, 3s, 1, forwards, draw);
       }
     }
   }
