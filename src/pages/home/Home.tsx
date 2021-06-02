@@ -21,6 +21,7 @@ function Home() {
   return (
     <React.Fragment>
       <Header isBgShowing={isBgShowing} />
+      <BackgroundVideo isShowing={isBgShowing} />
       <div className="home" onClick={() => setBgShowing(false)}>
         <div className="svgtest">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 403.44 74.33">
@@ -35,7 +36,17 @@ function Home() {
             />
           </svg>
         </div>
-        <BackgroundVideo isShowing={isBgShowing} />
+        <div style={{ overflow: "hidden", border: "0px black solid", position: "relative", top: "20vh", left: "50vw", width: "100vw", height: "70vh" }}>
+          <div style={{ overflow: "scroll", maxHeight: "110%", maxWidth: "110%", height: "110%", width: "110%", border: "0px red solid" }}>
+            <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "flex-start", width: "200%", height: "100%", border: "0px blue solid" }}>
+              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "100%", margin: "1rem" }}></div>
+              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "80%", margin: "1rem" }}></div>
+              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "75%", margin: "1rem" }}></div>
+              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "100%", margin: "1rem" }}></div>
+              <div style={{ background: "rgba(255, 0, 0, 0.6)", width: "400px", height: "90%", margin: "1rem" }}></div>
+            </div>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );
