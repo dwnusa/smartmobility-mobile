@@ -7,22 +7,31 @@ import logoWhite from "media/logo-white.png";
 
 type BackgroundVideoProps = {
   isBgShowing: boolean;
-  // setBgShowing: (value: boolean | ((prevVar: boolean) => boolean)) => void;
+  setBgShowing: (value: boolean | ((prevVar: boolean) => boolean)) => void;
 };
-function Header({ isBgShowing }: BackgroundVideoProps) {
+function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
   const location = useLocation().pathname;
   // console.log(location);
   return (
-    <div className={`header ${location == "/" && "main"}`}>
+    <div
+      className={`header ${location == "/" && "main"} ${
+        !isBgShowing && "turnBgWhite"
+      }`}
+    >
       <Link to="/">
         <img className={`${!isBgShowing && "turnBlue"}`} src={logoWhite} />
-        <img className={`${!isBgShowing && "turnBlue"}`} src={logoBlack} />
+        <img
+          className={`${!isBgShowing && "turnBlue"}`}
+          src={logoBlack}
+          onClick={() => setBgShowing(true)}
+        />
       </Link>
       <ul>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
-              }`}
+            className={`${location == "/" && "main"} ${
+              !isBgShowing && "turnColorBlack"
+            }`}
             exact
             to="/about"
           >
@@ -31,8 +40,9 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
         </li>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
-              }`}
+            className={`${location == "/" && "main"} ${
+              !isBgShowing && "turnColorBlack"
+            }`}
             exact
             to="/service"
           >
@@ -41,8 +51,9 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
         </li>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
-              }`}
+            className={`${location == "/" && "main"} ${
+              !isBgShowing && "turnColorBlack"
+            }`}
             exact
             to="/study"
           >
@@ -50,8 +61,9 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
           </NavLink>
         </li>
         <div
-          className={`modal ${location == "/" && "main"} ${!isBgShowing && "turnBgWhite"
-            }`}
+          className={`modal ${location == "/" && "main"} ${
+            !isBgShowing && "turnBgWhite"
+          }`}
         >
           <Nav isBgShowing={isBgShowing} />
         </div>
@@ -62,6 +74,8 @@ function Header({ isBgShowing }: BackgroundVideoProps) {
 
 Header.defaultProps = {
   isBgShowing: false,
-  // setBgShowing: (arg: any) => void (0),
+  // setBgShowing: (value: boolean | ((prevVar: boolean) => boolean)) => void 0,
+  // setBgShowing: (value: any) => void 0,
+  setBgShowing: () => console.warn("setBgShowing not defined"),
 };
 export default Header;

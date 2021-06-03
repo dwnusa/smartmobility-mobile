@@ -1,7 +1,7 @@
 @import "styles/_mixins";
 
 .backgroundvideo {
-  position: absolute;
+  position: fixed;
   top: 0px;
   width: 100vw;
   height: 100vh;
@@ -9,6 +9,28 @@
   z-index: -1;
   color: white;
 
+  .svgtest {
+    position: absolute;
+    bottom: 10vh;
+    left: 10vw;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 100vw;
+
+    // border: 1px red solid;
+    .squiggle {
+      // display: none;
+      stroke-dasharray: 450;
+      stroke-dashoffset: 450;
+
+      &.trigger {
+        @include animation(2s, 3s, 1, forwards, draw);
+      }
+    }
+  }
   h2 {
     position: absolute;
     bottom: 10%;
@@ -49,7 +71,6 @@
   }
 
   video {
-
     &.fadeout {
       @include animation(0s, 3s, 1, forwards, fadeout);
     }
