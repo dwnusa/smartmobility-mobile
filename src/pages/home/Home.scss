@@ -10,17 +10,21 @@
   border: 0px red solid;
   box-sizing: border-box;
   overflow-x: scroll;
-  overflow-y: hidden;
+  // overflow-y: hidden;
   white-space: nowrap;
   .cardWrapper {
     // scroll-snap-align: start;
     position: relative;
-    border: 0px blue solid;
+    // border: 2px green solid;
     box-sizing: border-box;
     top: 20vh;
     left: 100vw;
+    // height: 80vh;
+    // width: 50vw;
+    // background: gray;
+    // bottom: 100vh;
     // width: 100vw;
-    height: 60vh;
+    // height: 60vh;
     // background: rgba(255, 0, 0, 0.3);
     // margin-bottom: 10vh;
     // height: 67vh;
@@ -29,15 +33,21 @@
       @include animation(0s, 3s, 1, forwards, slidein);
     }
     .cardContainer {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
+      display: flex;
+      // grid-template-columns: repeat(3, 1fr);
+      // grid-template-rows: 1fr;
+      // justify-items: stretch;
       // width: 50vw;
-      display: grid;
       // overflow: scroll;
-      white-space: nowrap;
-      border: 0px blue solid;
+      // white-space: nowrap;
+      // border: 2px blue solid;
       .card {
-        border: 0px green solid;
+        // border: 2px orange solid;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        // justify-self: center;
+        // width: 30%;
         // width: 27vw;
         // height: 70vh;
         // max-height: 70vh;
@@ -47,6 +57,7 @@
         img {
           // width: 27vw;
           // height: 70vh;
+          // object-fit: cover;
           -webkit-filter: brightness(100%);
           &:hover {
             -webkit-filter: brightness(50%);
