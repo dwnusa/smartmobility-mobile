@@ -1,5 +1,38 @@
 @import "styles/_variables";
 @import "styles/_mixins";
+
 .outsourcing {
   @include subComponentsStyle();
+
+  .outsourcing-grid {
+    display: grid;
+    border: 1px red solid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px;
+    justify-items: center;
+    overflow-y: scroll;
+    white-space: nowrap;
+    // justify-items: stretch;
+    // align-items: stretch;
+
+    img {
+      width: 55%;
+      // border: 1px red solid;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      // display: block;
+      // margin: 0px auto;
+
+      &:nth-child(odd) {
+        justify-self: end;
+      }
+
+      &:nth-child(even) {
+        justify-self: start;
+      }
+    }
+  }
 }

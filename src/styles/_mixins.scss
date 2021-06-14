@@ -9,35 +9,45 @@ $minIpadWidth: 750px;
 $maxIpadWidth: 1030px;
 $minIpadWidth-l: 1000px;
 $maxIpadWidth-l: 1400px;
+
 @mixin NavResponsiveExceptSmartphone() {
   @media screen and (min-width: 690px) {
     @content;
   }
+
   // @if $screenX > 1280px {
   //   color: red;
   // } @else if $screenX > 1920px {
   //   color: blue;
   // }
 }
+
 @mixin responsive($device) {
-  @if $device == "iphone" {
+  @if $device=="iphone" {
     @media screen and (min-width: $minIphoneWidth) and (max-width: $maxIphoneWidth) {
       @content;
     }
-  } @else if $device == "iphone-l" {
+  }
+
+  @else if $device=="iphone-l" {
     @media screen and (min-width: $minIphoneWidth-l) and (max-width: $maxIphoneWidth-l) and (min-height: $minIphoneHeight-l) and (max-height: $maxIphoneWidth-l) and (orientation: landscape) {
       @content;
     }
-  } @else if $device == "ipad" {
+  }
+
+  @else if $device=="ipad" {
     @media screen and (min-width: $minIpadWidth) and (max-width: $maxIpadWidth) {
       @content;
     }
-  } @else if $device == "ipad-l" {
+  }
+
+  @else if $device=="ipad-l" {
     @media screen and (min-width: $minIpadWidth-l) and (max-width: $maxIpadWidth-l) and (orientation: landscape) {
       @content;
     }
   }
 }
+
 @mixin commonSnapDivStyle {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -47,6 +57,7 @@ $maxIpadWidth-l: 1400px;
   // border: 10px green solid;
   // box-sizing: border-box;
 }
+
 @mixin menuDivStyle {
   .menu {
     position: fixed;
@@ -54,33 +65,40 @@ $maxIpadWidth-l: 1400px;
     left: 0px;
     width: 300px;
     height: 100vh;
+
     // border: 1px green solid;
     // box-sizing: border-box;
     ul {
       // border: 1px $blue solid;
       // box-sizing: border-box;
       padding: 100px 0px 0px 70px;
+
       li {
         @extend %menuButton;
+
         &:hover {
           opacity: 1;
         }
+
         &.enabled {
           border-left: 3px #121212 solid;
           opacity: 1;
         }
+
         // border: 1px $blue solid;
         // box-sizing: border-box;
       }
     }
   }
 }
+
 @mixin subComponentsStyle {
   scroll-snap-align: start;
   padding-top: 100px;
   // border: 1px red solid;
   height: calc(100vh - 100px);
 }
+
 @mixin animation($delay, $duration, $iter, $fill, $name) {
   animation-delay: $delay;
   animation-duration: $duration;
