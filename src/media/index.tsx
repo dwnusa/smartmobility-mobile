@@ -25,3 +25,10 @@ export { default as osrcg08_1 } from "media/OSRCG/osrcg08_1.png";
 export { default as osrcg08_2 } from "media/OSRCG/osrcg08_2.png";
 export { default as osrcg09_1 } from "media/OSRCG/osrcg09_1.png";
 export { default as osrcg09_2 } from "media/OSRCG/osrcg09_2.png";
+
+export { default as patent01 } from "media/PATENT/patent01.png";
+export { default as patent02 } from "media/PATENT/patent02.png";
+export { default as patent03 } from "media/PATENT/patent03.png";
+export { default as patent04 } from "media/PATENT/patent04.png";
+export { default as patent05 } from "media/PATENT/patent05.png";
+export { default as iconCheck } from "media/PATENT/icon-check.png";

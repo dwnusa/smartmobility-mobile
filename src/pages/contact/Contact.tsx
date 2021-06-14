@@ -75,13 +75,13 @@ function Contact({ match }: { match: any }) {
               className={`${currentPage == 1 && "enabled"}`}
               onClick={() => scrollToTop(divEl1)}
             >
-              오시는길
+              공지/채용
             </li>
             <li
               className={`${currentPage == 2 && "enabled"}`}
               onClick={() => scrollToTop(divEl2)}
             >
-              공지/채용
+              오시는길
             </li>
             <li
               className={`${currentPage == 3 && "enabled"}`}
@@ -91,8 +91,8 @@ function Contact({ match }: { match: any }) {
             </li>
           </ul>
         </div>
-        <Map divEl={divEl1} />
-        <News divEl={divEl2} />
+        <News divEl={divEl1} />
+        <Map divEl={divEl2} />
         <Board divEl={divEl3} />
       </div>
     </React.Fragment>

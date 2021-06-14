@@ -2,4 +2,111 @@
 @import "styles/_mixins";
 .news {
   @include subComponentsStyle();
+  display:block;
+  // border: 1px blue solid;
+  // justify-content:center;
+  // align-items:center;
+  .filterable-table-container{
+    margin:5%;
+    div{
+      &:nth-child(1){
+        .row{
+          &:nth-child(1){
+            &.header-row{
+              // border: 1px blue solid;
+              // background: gray;
+              display:flex;
+              justify-content:flex-end;
+              div{
+                &:nth-child(2){
+                  display:none;
+                }
+                &:nth-child(3){
+                  display:none;
+                }
+              }
+            }
+          }
+          &:nth-child(2){
+            display:none;
+          }
+        }
+      }
+      
+      &:nth-child(2){
+        &.table-container{
+          cursor: pointer;
+          div{
+            table{
+              width:100%;
+              tbody{
+                tr{
+                  white-space:nowrap;
+                  overflow:hidden;
+                  margin:auto;
+                  text-align:center;
+                  // justify-content:center;
+                  &:hover{
+                    // font-weight:600;
+                    text-decoration: underline;
+                  }
+                }
+              }
+            }
+          }
+          nav{
+            // background: gray;
+            // border: 2px red solid;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            .pagination{
+              list-style:none;
+              // border: 2px blue solid;
+              width:30%;
+              display: flex;
+              justify-content:center;
+              align-items:center;
+              li{
+                &.btn-first-page{
+                  display:none;
+                }
+                &.btn-last-page {
+                  display:none;
+                }
+                &.btn-prev-page{
+                  display:none;
+                }
+                &.btn-next-page {
+                  display:none;
+                }
+                border-radius: 50%;
+                margin: 5px;
+                a{
+                  display: flex;
+                  justify-content:center;
+                  align-items:center;
+                  cursor: pointer;
+                  width: 20px;
+                  height: 20px;
+                  padding: 8px;
+                }
+                // background: gray;
+                &.active{
+                  color:white;
+                  background: #0A347F;
+                }
+                &:hover{
+                  color:white;
+                  background: #0A347F;
+                  // border: 2px blue solid;
+                  // box-sizing:border-box;
+                }
+              }
+            }
+          }
+        }
+      }
+    } 
+  }
 }

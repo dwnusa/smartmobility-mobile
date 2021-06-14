@@ -9,7 +9,6 @@ import cardAutomobile from "media/card-automobile.png";
 
 function Home() {
   const [isBgShowing, setBgShowing] = useState<boolean>(true);
-  const [active, setActive] = useState(false);
 
   // useEffect(() => {
   //   setActive(true);
