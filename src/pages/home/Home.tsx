@@ -35,16 +35,16 @@ function Home() {
           <div className={`cardContainer`}>
             <div className="card">
               <NavLink exact to="/service/1">
-                <img src={cardHandycap} height="100%" />
+                <img src={cardHandycap} />
               </NavLink>
             </div>
             <div className="card">
               <NavLink exact to="/service/2">
-                <img src={cardBogota} height="80%" />
+                <img src={cardBogota} />
               </NavLink>
             </div>
             <div className="card">
-              <img src={cardAutomobile} height="100%" />
+              <img src={cardAutomobile} />
             </div>
           </div>
         </div>
