@@ -75,7 +75,7 @@ $maxIpadWidth-l: 1400px;
 
       li {
         @extend %menuButton;
-
+        
         &:hover {
           opacity: 1;
         }
@@ -93,10 +93,14 @@ $maxIpadWidth-l: 1400px;
 }
 
 @mixin subComponentsStyle {
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   padding-top: 100px;
-  // border: 1px red solid;
-  height: calc(100vh - 100px);
+  padding-bottom:35px;
+  // border: 4px red solid;
+  // height: calc(100vh - 100px);
+  // height: calc(100vh - 20vh);
+  // @include animation(0s, 4s, 1, forwards, fadein);
+  @include animation(0s, 1s, 1, forwards, slideup_fadein);
 }
 
 @mixin animation($delay, $duration, $iter, $fill, $name) {

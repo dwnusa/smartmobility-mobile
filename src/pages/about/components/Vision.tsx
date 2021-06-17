@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Vision.scss";
 import aboutVision1 from "media/about-vision-1.png";
 
-function Vision({ divEl }: { divEl: any }) {
+function Vision() {
   return (
-    <div className="vision" ref={divEl}>
+    <div className="vision">
       <div className="contents">
         <div>
           <h2>VISION</h2>

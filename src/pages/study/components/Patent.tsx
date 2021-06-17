@@ -10,7 +10,7 @@ type patentContentType = {
   description: string;
   inventor: string;
 }
-function Patent({ divEl }: { divEl: any }) {
+function Patent() {
   const [activeItem, setActiveItem] = useState<number>(1);
   const [item, setItem] = React.useState<
       Array<{
@@ -40,7 +40,7 @@ function Patent({ divEl }: { divEl: any }) {
   ]
   console.log(item[1].name);
   return (
-    <div className="patent" ref={divEl}>
+    <div className="patent">
       <div className="patent-grid">
         <div className="main-left">
           <img src={imageItem[activeItem]} height="100%"/>
@@ -62,6 +62,8 @@ function Patent({ divEl }: { divEl: any }) {
             <div className="content-inventor-right">{item[activeItem].inventor}</div>
           </div>
         </div>
+        <div className="menu-patent">특허권</div>
+        <div className="menu-copyright">저작권</div>
         <div className="menu-bottom" onClick={e=>{setActiveItem(1)}}>
           <img className={`menu-thumbnail ${activeItem === 1 && "activated"}`} src={patent01} width="100%"/>
           {activeItem === 1 && <img className="menu-check" src={iconCheck}/>}

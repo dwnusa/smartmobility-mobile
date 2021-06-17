@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./HANDYCAP.scss";
 
-function HANDYCAP({ divEl }: { divEl: any }) {
+function HANDYCAP() {
   return (
-    <div className="handycap" ref={divEl}>
+    <div className="handycap">
       <h2>HANDYCAP</h2>
     </div>
   );

@@ -7,16 +7,53 @@
   // justify-content:center;
   // align-items:center;
   .filterable-table-container{
-    margin:5%;
+    // border: 1px red solid;
+    margin:5% 5% 0% 5%;
     div{
       &:nth-child(1){
         .row{
           &:nth-child(1){
+            // border: 1px blue solid;
             &.header-row{
-              // border: 1px blue solid;
-              // background: gray;
+              // background:gray;
+              margin-bottom: 23px;
               display:flex;
               justify-content:flex-end;
+              align-items:stretch;
+              div{
+                &:nth-child(4){
+                  display:flex;
+                  justify-items: center;
+                  align-items:center;
+                  background:#0A347F;
+                  color:white;
+                  padding: 0px 20px;
+                  font-family: "Noto Sans KR";
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 20px;
+                  margin: 0px 0px 0px 10px;
+                  cursor:pointer;
+                  // border:1px white solid;
+                  // box-sizing:border-box;
+                  // &:hover{
+                  //   border:1px #0A347F solid;
+                  //   box-sizing:border-box;
+                  // }
+                }
+              }
+              .filter-container{
+                // border: 1px blue solid;
+                height: 34px;
+                // width: 160px;
+                display:flex;
+                input{
+                  width:160px;
+                }
+                .clear-filter{
+                  display:none;
+                }
+              }
               div{
                 &:nth-child(2){
                   display:none;
@@ -35,20 +72,80 @@
       
       &:nth-child(2){
         &.table-container{
-          cursor: pointer;
+          // border: 4px blue solid;
           div{
             table{
               width:100%;
+              border-collapse: collapse;
+              thead{
+                tr{
+                  cursor: default;
+                  user-select:none;
+                  // background:gray;
+                  height: 4rem;
+                  border-top: 2px rgba(0,0,0,0.7) solid;
+                  border-bottom: 0.5px rgba(0,0,0,0.5) solid;
+                  th{
+                    font-family: "Noto Sans KR";
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 29px;
+                    color: #333333;
+                    &:nth-child(1){
+                      // color:red;
+                    }
+                    &:nth-child(2){
+                      text-align: left;
+                      padding: 0px 90px;
+                    }
+                  }
+                }
+              }
               tbody{
                 tr{
+                  cursor: pointer;
+                  user-select:none;
+                  // background:gray;
+                  border-bottom: 0.5px rgba(0,0,0,0.5) solid;
+                  height: 4rem;
                   white-space:nowrap;
                   overflow:hidden;
                   margin:auto;
                   text-align:center;
-                  // justify-content:center;
+                  td{
+                    font-family: "Noto Sans KR";
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 20px;
+                    line-height: 29px;
+                    color: #333333;
+                    &:nth-child(1){
+                      font-family: "Montserrat";
+                      font-style: normal;
+                      font-weight: normal;
+                      font-size: 18px;
+                      line-height: 22px;
+                    }
+                    &:nth-child(2){
+                      text-align: left;
+                      padding: 0px 90px;
+                    }
+                    &:nth-child(4){
+                      font-family: "Montserrat";
+                      font-style: normal;
+                      font-weight: 300;
+                      font-size: 18px;
+                      line-height: 22px;
+                      text-align: center;
+                      color: #333333;
+                    }
+                  }
                   &:hover{
                     // font-weight:600;
-                    text-decoration: underline;
+                    // text-decoration: underline;
+                    background: rgba(0,0,0,0.02);
+                    // opacity:0.7;
                   }
                 }
               }

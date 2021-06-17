@@ -2,7 +2,7 @@
 @import "styles/_mixins";
 .greeting {
   @include subComponentsStyle();
-  border: 12px blue solid;
+  // border: 12px blue solid;
   display: flex;
   padding-top: 20vh;
   align-items: flex-start;

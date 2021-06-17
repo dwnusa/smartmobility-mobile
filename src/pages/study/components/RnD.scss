@@ -7,12 +7,16 @@
   .rnd-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-rows: repeat(auto, 1fr);
+    gap: 35px;
     justify-items: center;
 
     img {
       width: 50%;
+      filter: drop-shadow(1px 1px 5px #000);
+      &:hover{
+        filter: drop-shadow(1px 1px 7px #000);
+      }
 
       &:nth-child(odd) {
         justify-self: end;
