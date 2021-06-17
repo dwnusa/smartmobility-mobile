@@ -60,6 +60,7 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
             Study
           </NavLink>
         </li>
+        <div className="modal-background"></div>
         <div
           className={`modal ${location == "/" && "main"} ${
             !isBgShowing && "turnBgWhite"

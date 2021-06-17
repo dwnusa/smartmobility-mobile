@@ -85,7 +85,19 @@
 
     @include NavResponsiveExceptSmartphone() {
       &:hover {
+        .modal-background {
+          position:absolute;
+          top:0px;
+          left:0px;
+          width:100vw;
+          height:100vh;
+          background:rgba(0,0,0,0.5);
+          &:hover{
+            display:none;
+          }
+        }
         .modal {
+          // border:1px red solid;
           position: fixed;
           top: 0px;
           right: 0px;
