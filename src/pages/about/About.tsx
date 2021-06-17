@@ -35,34 +35,34 @@ function About({ match }: { match: any }) {
   useEffect(() => {
     switch (targetPage) {
       case 1:
-        divEl1.current.scrollIntoView({ behavior: "smooth" });
+        // divEl1.current.scrollIntoView({ behavior: "smooth" });
         setPage(1);
         break;
       case 2:
-        divEl2.current.scrollIntoView({ behavior: "smooth" });
+        // divEl2.current.scrollIntoView({ behavior: "smooth" });
         setPage(2);
         break;
       case 3:
-        divEl3.current.scrollIntoView({ behavior: "smooth" });
+        // divEl3.current.scrollIntoView({ behavior: "smooth" });
         setPage(3);
         break;
       case 4:
-        divEl4.current.scrollIntoView({ behavior: "smooth" });
+        // divEl4.current.scrollIntoView({ behavior: "smooth" });
         setPage(4);
         break;
       default:
-        divEl1.current.scrollIntoView({ behavior: "smooth" });
+        // divEl1.current.scrollIntoView({ behavior: "smooth" });
         setPage(1);
     }
   }, [targetPage]);
 
-  const onWheel = () => {
-    const currentScrollTop = divEl.current.scrollTop;
-    if (currentScrollTop <= div1Center) setPage(1);
-    else if (currentScrollTop <= div2Center) setPage(2);
-    else if (currentScrollTop <= div3Center) setPage(3);
-    else if (currentScrollTop <= div4Center) setPage(4);
-  };
+  // const onWheel = () => {
+  //   const currentScrollTop = divEl.current.scrollTop;
+  //   if (currentScrollTop <= div1Center) setPage(1);
+  //   else if (currentScrollTop <= div2Center) setPage(2);
+  //   else if (currentScrollTop <= div3Center) setPage(3);
+  //   else if (currentScrollTop <= div4Center) setPage(4);
+  // };
 
   const scrollToTop = (ref: any) => {
     const currentOffsetTop = ref.current.offsetTop;
@@ -80,7 +80,7 @@ function About({ match }: { match: any }) {
   return (
     <React.Fragment>
       <Header />
-      <div className="about" ref={divEl} onWheel={onWheel}>
+      <div className="about" ref={divEl}>
         <div className="menu">
           <ul>
             <li
@@ -109,10 +109,10 @@ function About({ match }: { match: any }) {
             </li>
           </ul>
         </div>
-        <Greeting divEl={divEl1} />
-        <Vision divEl={divEl2} />
-        <History divEl={divEl3} />
-        <Organization divEl={divEl4} />
+        {currentPage === 1 && <Greeting divEl={divEl1} />}
+        {currentPage === 2 && <Vision divEl={divEl2} />}
+        {currentPage === 3 && <History divEl={divEl3} />}
+        {currentPage === 4 && <Organization divEl={divEl4} />}
       </div>
     </React.Fragment>
   );
