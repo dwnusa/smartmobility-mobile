@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Greeting.scss";
 import aboutGreeting1 from "media/about-greeting-1.png";
 
-function Greeting({ divEl }: { divEl: any }) {
+// function Greeting({ divEl }: { divEl: any }) {
+function Greeting() {
   return (
-    <div className="greeting" ref={divEl}>
+    <div className="greeting">
+    {/* <div className="greeting" ref={divEl}> */}
       <div className="contents">
         <img src={aboutGreeting1} width="60%" />
         <div>

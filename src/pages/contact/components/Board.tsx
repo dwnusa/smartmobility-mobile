@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Board.scss";
 
-function Board({ divEl }: { divEl: any }) {
+function Board() {
   // const divEl = useRef<HTMLDivElement | null>(null);
   // useEffect(() => {
   //   const scrollY = window.scrollY;
@@ -11,7 +11,7 @@ function Board({ divEl }: { divEl: any }) {
   // }, []);
   // useEffect(() => {}, []);
   return (
-    <div className="board" ref={divEl}>
+    <div className="board">
       <h2>Board</h2>
     </div>
   );

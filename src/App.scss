@@ -66,6 +66,29 @@
     left: 100vw;
   }
 }
+@include keyframe(slideup) {
+  100% {
+    // display: inherit;
+    margin-top: 0vw;
+  }
+
+  0% {
+    margin-top: 10vw;
+  }
+}
+
+@include keyframe(slideup_fadein) {
+  100% {
+    // display: inherit;
+    opacity: 1;
+    margin-top: 0vw;
+  }
+
+  0% {
+    opacity: 0;
+    margin-top: 10vw;
+  }
+}
 
 @include keyframe(fadebgwhite) {
   100% {
