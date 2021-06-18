@@ -59,15 +59,16 @@
 @include keyframe(slidein) {
   100% {
     // display: inherit;
-    border:5px red solid;
+    // border:5px red solid;
     left: 50vw;
   }
 
   0% {
-    border:1px blue solid;
+    // border:1px blue solid;
     left: 100vw;
   }
 }
+
 @include keyframe(slideup) {
   100% {
     // display: inherit;
@@ -97,6 +98,5 @@
     background: rgba(255, 255, 255, 1);
   }
 
-  0% {
-  }
+  0% {}
 }
