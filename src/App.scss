@@ -59,10 +59,12 @@
 @include keyframe(slidein) {
   100% {
     // display: inherit;
+    border:5px red solid;
     left: 50vw;
   }
 
   0% {
+    border:1px blue solid;
     left: 100vw;
   }
 }

@@ -3,7 +3,23 @@
 .service {
   @include commonSnapDivStyle();
   @include menuDivStyle();
+  .menu{
+    ul{
+      li{
+        &:nth-child(2){
+          &:hover{
+            opacity: 0.5;
+          }
+          // color:red;
+          // border: 1px red solid;
+        }
+      }
+    }
+  }
+  // border:1px red solid;
   background: #E5E5E5;
   background-repeat: no-repeat;
   background-position: left bottom 10%;
+  overflow:hidden;
+  // @include animation(0s, 1s, 1, forwards, slidein);
 }
