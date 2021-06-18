@@ -3,4 +3,5 @@
 .service {
   @include commonSnapDivStyle();
   @include menuDivStyle();
+  background: #E5E5E5;
 }

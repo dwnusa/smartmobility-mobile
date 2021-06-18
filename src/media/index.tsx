@@ -74,3 +74,6 @@ export { default as patent04 } from "media/PATENT/patent04.png";
 export { default as patent05 } from "media/PATENT/patent05.png";
 export { default as iconCheck } from "media/PATENT/icon-check.png";
 
+export { default as naverMap } from "media/map-naver-img.png";
+export { default as handycap01_1 } from "media/HANDYCAP/handycap01-1.png";
+
