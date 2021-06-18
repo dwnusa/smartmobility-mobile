@@ -4,4 +4,6 @@
   @include commonSnapDivStyle();
   @include menuDivStyle();
   background: #E5E5E5;
+  background-repeat: no-repeat;
+  background-position: left bottom 10%;
 }

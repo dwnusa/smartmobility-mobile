@@ -76,4 +76,8 @@ export { default as iconCheck } from "media/PATENT/icon-check.png";
 
 export { default as naverMap } from "media/map-naver-img.png";
 export { default as handycap01_1 } from "media/HANDYCAP/handycap01-1.png";
+export { default as handycap02_1 } from "media/HANDYCAP/handycap02-1.png";
+export { default as handycap_bg02 } from "media/HANDYCAP/handycap-bg02.png";
+export { default as handycap_bg03 } from "media/HANDYCAP/handycap-bg03.png";
+export { default as handycap_bg04 } from "media/HANDYCAP/handycap-bg04.png";
 

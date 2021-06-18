@@ -2,9 +2,22 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Service.scss";
 import { Header } from "components";
 import { HANDYCAP, Bogota } from "./";
+import * as cards from "media";
 function Service({ match }: { match: any }) {
   const targetPage = Number(match.params.page);
   const [currentPage, setPage] = useState<number>(1);
+  const [currentSlide, setSlide] = useState<number>(1);
+  const handleScroll =(e: any)=>{
+    if (e.deltaY >= 0){
+      console.log("down")
+      const nextSlide = Math.min(4, currentSlide + 1);
+      setSlide(nextSlide)
+    } else {
+      console.log("up")
+      const nextSlide = Math.max(1, currentSlide - 1);
+      setSlide(nextSlide)
+    }
+  }
   // const divEl = useRef<HTMLDivElement | null>(null);
   // const divEl1 = useRef<HTMLDivElement | null>(null);
   // const divEl2 = useRef<HTMLDivElement | null>(null);
@@ -19,7 +32,6 @@ function Service({ match }: { match: any }) {
   //   setDiv1Center(div1Center);
   //   setDiv2Center(div2Center);
   // }, []);
-
   useEffect(() => {
     switch (targetPage) {
       case 1:
@@ -51,10 +63,19 @@ function Service({ match }: { match: any }) {
   //   if (currentOffsetTop <= div1Center) setPage(1);
   //   else if (currentOffsetTop <= div2Center) setPage(2);
   // };
+
+  const bgArray = [
+    "",
+    cards.handycap_bg02,
+    cards.handycap_bg03,
+    cards.handycap_bg04
+  ]
+  // console.log(bgArray[currentSlide-1])
   return (
     <React.Fragment>
       <Header />
-      <div className="service">
+      <div className="service" onWheel={(e)=>handleScroll(e)}
+      style={{backgroundImage:`url(${bgArray[currentSlide-1]})`}}>
         <div className="menu">
           <ul>
             <li
@@ -71,7 +92,7 @@ function Service({ match }: { match: any }) {
             </li>
           </ul>
         </div>
-        {currentPage === 1 && <HANDYCAP />}
+        {currentPage === 1 && <HANDYCAP currentSlide={currentSlide}/>}
         {currentPage === 2 && <Bogota />}
       </div>
     </React.Fragment>

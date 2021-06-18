@@ -2,9 +2,9 @@
 @import "styles/_mixins";
 .handycap {
   @include subComponentsStyle();
-  scroll-snap-type: y mandatory;
+  // scroll-snap-type: y mandatory;
   padding-bottom:0px;
-  border: 1px red solid;
+  // border: 1px red solid;
   display:flex;
   height: 85%;
   min-height:600px;
@@ -13,51 +13,93 @@
   background-repeat: no-repeat;
   background-position: left 0% top 100%;
   position: relative;
-  .handycap-textbox{
-    scroll-snap-align: start;
-    // border: 1px blue solid;
-    position:absolute;
-    // height:30%;
-    // width: 30%;
-    top: 60%;
-    left: 60%;
-    > div{
-      &:nth-child(1){
-        font-family: "Montserrat";
-        font-style: normal;
-        font-weight: bold;
-        font-size: 45px;
-        line-height: 55px;
-        color: #00656E;
-      }
-      &:nth-child(2){
-        font-family: "Noto Sans KR";
-        font-style: normal;
-        font-weight: 300;
-        font-size: 26px;
-        line-height: 38px;
-        color: #333333;
-      }
-      &:nth-child(3){
-        display: flex;
-        // border: 1px red solid;
-        >div{
-          margin: 30px 15px 0px 0px;
-          width: 137px;
-          height: 55px;
-          left: 1214px;
-          top: 833px;
-          border: 1px solid #000000;
-          box-sizing: border-box;
-          border-radius: 27.5px;
+  &.page1{
+    // border: 1px red solid;
+    .handycap-textbox{
+      // scroll-snap-align: end;
+      position:absolute;
+      top: 60%;
+      left: 60%;
+      > div{
+        &:nth-child(1){
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: bold;
+          font-size: 45px;
+          line-height: 55px;
+          color: #00656E;
+        }
+        &:nth-child(2){
+          font-family: "Noto Sans KR";
+          font-style: normal;
+          font-weight: 300;
+          font-size: 26px;
+          line-height: 38px;
+          color: #333333;
+        }
+        &:nth-child(3){
           display: flex;
-          justify-content: center;
-          align-items:center;
-          &:hover{
-            background:#0A347F;
-            color:white;
-            cursor: pointer;
+          // border: 1px red solid;
+          >div{
+            margin: 30px 15px 0px 0px;
+            width: 137px;
+            height: 55px;
+            left: 1214px;
+            top: 833px;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 27.5px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            &:hover{
+              background:#0A347F;
+              color:white;
+              cursor: pointer;
+            }
           }
+        }
+      }
+    }
+  }
+  &.page2{
+    // border: 1px blue solid;
+    background-size: 35%;
+    background-position: left 5% bottom 0%;
+    .handycap-textbox{
+      // scroll-snap-align: end;
+      // border: 1px red solid;
+      position:absolute;
+      top: 30%;
+      left: 40%;
+      width: 600px;
+      // height: 500px;
+      > div{
+        &:nth-child(1){
+          font-family: "Noto Sans KR";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 22px;
+          line-height: 32px;
+          color: #858481;
+        }
+        &:nth-child(2){
+          font-family: "Noto Sans KR";
+          font-style: normal;
+          font-weight: bold;
+          font-size: 30px;
+          line-height: 43px;
+          
+          color: #00656E;
+        }
+        &:nth-child(3){
+          font-family: "Noto Sans KR";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 26px;
+          line-height: 38px;
+          color: #858481;
+          margin-top: 20px;
         }
       }
     }
