@@ -86,6 +86,7 @@ function Service({ match }: { match: any }) {
             </li>
             <li
               className={`${currentPage === 2 && "enabled"}`}
+              // style={{}}
               // onClick={() => setPage(2)}
             >
               Bogota
