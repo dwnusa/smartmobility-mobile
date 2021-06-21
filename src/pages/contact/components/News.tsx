@@ -48,7 +48,7 @@ function News() {
       type: "recruitment",
       title: "홈페이지 개설을 축하합니다.",
       writer: "관리자",
-      body: "홈페이지 개설 축하",
+      body: "홈페이지 개설 축하합니다!",
       date: "2021.4.08",
     },
   ]);

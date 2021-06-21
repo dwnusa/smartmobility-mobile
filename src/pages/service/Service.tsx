@@ -82,7 +82,7 @@ function Service({ match }: { match: any }) {
               className={`${currentPage === 1 && "enabled"}`}
               onClick={() => setPage(1)}
             >
-              HANDYCAP
+              HANDYCAB
             </li>
             <li
               className={`${currentPage === 2 && "enabled"}`}

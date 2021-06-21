@@ -7,7 +7,7 @@ function HANDYCAP({ currentSlide }: { currentSlide: number }) {
     <React.Fragment>
       {currentSlide === 1 && <div className="handycap page1" style={{backgroundImage:`url(${cards.handycap01_1})`}}>
         <div className="handycap-textbox">
-          <div>HANDYCAP</div>
+          <div>HANDYCAB</div>
           <div>교통약자 대중교통 이동편의 서비스</div>
           <div>
             <div>IOS</div>

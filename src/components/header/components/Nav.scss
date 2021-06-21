@@ -44,6 +44,11 @@
     &.service2 {
       grid-row: 2/3;
       grid-column: 3/4;
+      .disabled{
+        // color:gray;
+        user-select:none;
+        cursor:pointer;
+      }
     }
 
     &.study1 {

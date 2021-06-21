@@ -26,13 +26,15 @@ function Nav({ isBgShowing }: BackgroundVideoProps) {
       </div>
       <div className="service1">
         <NavLink exact to="/service/1">
-          HANDYCAP
+          HANDYCAB
         </NavLink>
       </div>
       <div className="service2">
-        <NavLink exact to="/service/2">
+        {/* <NavLink exact to="/service/2">
+        </NavLink> */}
+        <div className="disabled">
           Bogota
-        </NavLink>
+        </div>
       </div>
       <div className="study1">
         <NavLink exact to="/study/1">
@@ -95,7 +97,7 @@ function Nav({ isBgShowing }: BackgroundVideoProps) {
       <div className="nav-service">
         <div>
           <NavLink exact to="/service/1">
-            HANDYCAP
+            HANDYCAB
           </NavLink>
         </div>
         <div>
