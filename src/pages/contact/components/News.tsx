@@ -369,6 +369,7 @@ function News() {
   const viewItem =
     modalState.key !== false &&
     sortedByDate.filter((v: any) => v.key === modalState.key)[0];
+  console.log(sortedByDate, viewItem);
   return (
     <div className="news" ref={divEl}>
       <FilterableTable
@@ -447,6 +448,9 @@ function News() {
                         return {
                           ...v,
                           id: currentCheckerState ? 9999 : viewItem.key,
+                          type: currentCheckerState
+                            ? "announcement"
+                            : "recruitment",
                         };
                       } else {
                         return {
