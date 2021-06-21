@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Contact.scss";
 import { Header } from "components";
 import { Map, News, Board } from "./";
+import { Redirect, useLocation } from "react-router-dom";
 // type contactsType = { match: Number };
 
-function Contact({ match }: { match: any }) {
+function Contact({ match, history }: { match: any; history: any }) {
   const targetPage = Number(match.params.page);
   const [currentPage, setPage] = useState<number>(1);
+  // console.log(location.pathname);
+
   // const divEl = useRef<HTMLDivElement | null>(null);
   // const divEl1 = useRef<HTMLDivElement | null>(null);
   // const divEl2 = useRef<HTMLDivElement | null>(null);
@@ -30,6 +33,12 @@ function Contact({ match }: { match: any }) {
     switch (targetPage) {
       case 1:
         // divEl1.current.scrollIntoView({ behavior: "smooth" });
+        // router.push("/contact/1");
+        // History.push("/contact/1");
+        // <Redirect to="/contact/1" />;
+        // alert("hello");
+        // console.log("hello");
+        // props.history.push("/contact/1");
         setPage(1);
         break;
       case 2:
@@ -64,28 +73,28 @@ function Contact({ match }: { match: any }) {
   //   else if (currentOffsetTop <= div2Center) setPage(2);
   //   else if (currentOffsetTop <= div3Center) setPage(3);
   // };
-
+  // console.log(currentPage, targetPage);
   return (
     <React.Fragment>
       <Header />
-      <div className="contact" >
+      <div className="contact">
         <div className="menu">
           <ul>
             <li
               className={`${currentPage === 1 && "enabled"}`}
-              onClick={() => setPage(1)}
+              onClick={() => history.push("/contact/1")}
             >
               공지/채용
             </li>
             <li
               className={`${currentPage === 2 && "enabled"}`}
-              onClick={() => setPage(2)}
+              onClick={() => history.push("/contact/2")}
             >
               오시는길
             </li>
             <li
               className={`${currentPage === 3 && "enabled"}`}
-              onClick={() => setPage(3)}
+              onClick={() => history.push("/contact/3")}
             >
               문의하기
             </li>

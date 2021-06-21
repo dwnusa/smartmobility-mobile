@@ -3,30 +3,30 @@ import "./Service.scss";
 import { Header } from "components";
 import { HANDYCAP, Bogota } from "./";
 import * as cards from "media";
-function Service({ match }: { match: any }) {
+function Service({ match, history }: { match: any; history: any }) {
   const targetPage = Number(match.params.page);
   const [currentPage, setPage] = useState<number>(1);
   const [currentSlide, setSlide] = useState<number>(1);
   let prevTime = new Date().getTime();
   const handleScroll = (e: any) => {
     var curTime = new Date().getTime();
-    if (typeof prevTime !== 'undefined') {
+    if (typeof prevTime !== "undefined") {
       var timeDiff = curTime - prevTime;
       // console.log(timeDiff)
       if (timeDiff > 50) {
         if (e.deltaY >= 0) {
           // console.log("down")
           const nextSlide = Math.min(4, currentSlide + 1);
-          setSlide(nextSlide)
+          setSlide(nextSlide);
         } else {
           // console.log("up")
           const nextSlide = Math.max(1, currentSlide - 1);
-          setSlide(nextSlide)
+          setSlide(nextSlide);
         }
       }
     }
     prevTime = curTime;
-  }
+  };
   // const divEl = useRef<HTMLDivElement | null>(null);
   // const divEl1 = useRef<HTMLDivElement | null>(null);
   // const divEl2 = useRef<HTMLDivElement | null>(null);
@@ -77,27 +77,30 @@ function Service({ match }: { match: any }) {
     "",
     cards.handycap_bg02,
     cards.handycap_bg03,
-    cards.handycap_bg04
-  ]
+    cards.handycap_bg04,
+  ];
   // console.log(bgArray[currentSlide-1])
   console.log(currentSlide);
   return (
     <React.Fragment>
       <Header />
-      <div className="service" onWheel={(e) => handleScroll(e)}
-        style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}>
+      <div
+        className="service"
+        onWheel={(e) => handleScroll(e)}
+        style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
+      >
         <div className="menu">
           <ul>
             <li
               className={`${currentPage === 1 && "enabled"}`}
-              onClick={() => setPage(1)}
+              onClick={() => history.push("/service/1")}
             >
               HANDYCAB
             </li>
             <li
               className={`${currentPage === 2 && "enabled"}`}
-            // style={{}}
-            // onClick={() => setPage(2)}
+              // style={{}}
+              // onClick={() => setPage(2)}
             >
               Bogota
             </li>
@@ -105,10 +108,22 @@ function Service({ match }: { match: any }) {
         </div>
         <div className="slideIndicator">
           <ul className="dots">
-            <li onClick={() => setSlide(1)} className={`dot ${currentSlide === 1 && "active"}`}></li>
-            <li onClick={() => setSlide(2)} className={`dot ${currentSlide === 2 && "active"}`}></li>
-            <li onClick={() => setSlide(3)} className={`dot ${currentSlide === 3 && "active"}`}></li>
-            <li onClick={() => setSlide(4)} className={`dot ${currentSlide === 4 && "active"}`}></li>
+            <li
+              onClick={() => setSlide(1)}
+              className={`dot ${currentSlide === 1 && "active"}`}
+            ></li>
+            <li
+              onClick={() => setSlide(2)}
+              className={`dot ${currentSlide === 2 && "active"}`}
+            ></li>
+            <li
+              onClick={() => setSlide(3)}
+              className={`dot ${currentSlide === 3 && "active"}`}
+            ></li>
+            <li
+              onClick={() => setSlide(4)}
+              className={`dot ${currentSlide === 4 && "active"}`}
+            ></li>
           </ul>
         </div>
         {currentPage === 1 && <HANDYCAP currentSlide={currentSlide} />}

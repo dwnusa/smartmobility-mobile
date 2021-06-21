@@ -4,7 +4,7 @@ import { Header } from "components";
 import { Greeting, Vision, History, Organization } from "./";
 // import smoothscroll from 'smoothscroll-polyfill';
 
-function About({ match }: { match: any }) {
+function About({ match, history }: { match: any; history: any }) {
   const targetPage = Number(match.params.page);
   const [currentPage, setPage] = useState<number>(1);
   // const divEl = useRef<HTMLDivElement | null>(null);
@@ -85,25 +85,25 @@ function About({ match }: { match: any }) {
           <ul>
             <li
               className={`${currentPage === 1 && "enabled"}`}
-              onClick={() => setPage(1)}
+              onClick={() => history.push("/about/1")}
             >
               인사말
             </li>
             <li
               className={`${currentPage === 2 && "enabled"}`}
-              onClick={() => setPage(2)}
+              onClick={() => history.push("/about/2")}
             >
               비전
             </li>
             <li
               className={`${currentPage === 3 && "enabled"}`}
-              onClick={() => setPage(3)}
+              onClick={() => history.push("/about/3")}
             >
               연혁
             </li>
             <li
               className={`${currentPage === 4 && "enabled"}`}
-              onClick={() => setPage(4)}
+              onClick={() => history.push("/about/4")}
             >
               조직도
             </li>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Study.scss";
 import { Header } from "components";
 import { RnD, Outsourcing, Patent } from "./";
-function Study({ match }: { match: any }) {
+function Study({ match, history }: { match: any; history: any }) {
   const targetPage = Number(match.params.page);
   const [currentPage, setPage] = useState<number>(1);
   // const divEl = useRef<HTMLDivElement | null>(null);
@@ -70,19 +70,19 @@ function Study({ match }: { match: any }) {
           <ul>
             <li
               className={`${currentPage === 1 && "enabled"}`}
-              onClick={() => setPage(1)}
+              onClick={() => history.push("/study/1")}
             >
               R&D
             </li>
             <li
               className={`${currentPage === 2 && "enabled"}`}
-              onClick={() => setPage(2)}
+              onClick={() => history.push("/study/2")}
             >
               용역
             </li>
             <li
               className={`${currentPage === 3 && "enabled"}`}
-              onClick={() => setPage(3)}
+              onClick={() => history.push("/study/3")}
             >
               특허/저작권
             </li>

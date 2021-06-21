@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
 // import About from "About";
@@ -8,7 +8,20 @@ import { Home, About, Service, Study, Contact } from "pages";
 // import Counter from "components/Counter";
 // import TestComponent from "components/TestComponent";
 
+let prePath = ""; // 컴포넌트 함수 외부에 위치
 function App() {
+  const location = useLocation();
+  // console.log(location.pathname);
+  useEffect(() => {
+    // console.log("새로고침", prePath);
+    if (prePath.indexOf("/") !== -1) {
+      prePath = "";
+      if (location.pathname === "/contact/2") {
+        window.location.reload(); // 새로고침
+      }
+    }
+    prePath = location.pathname; // 지금의 주소를 저장한다.
+  }, [location]);
   return (
     <div className="app">
       <Route exact path="/" component={(props: any) => <Home {...props} />} />
