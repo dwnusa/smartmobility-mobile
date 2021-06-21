@@ -25,6 +25,7 @@ interface editorInfoType {
 interface modalType {
   type: "" | "view" | "edit" | "create";
   key: number | boolean;
+  confirm: boolean;
 }
 function News() {
   const [announcementChecker, setAnnouncementChecker] =
@@ -63,6 +64,7 @@ function News() {
   const [modalState, setModalState] = useState<modalType>({
     type: "",
     key: false,
+    confirm: true,
   });
   useEffect(() => {
     const foundFilterDom = document.getElementsByClassName("header-row")[0];
@@ -104,14 +106,14 @@ function News() {
     };
   }, [listData]);
   const handleCreateClick = (e: any) => {
-    setModalState({ type: "create", key: false });
+    setModalState({ ...modalState, type: "create", key: false });
     // console.log("handleCreateClick");
   };
   const handleTableClick = (e: any) => {
     const tableRow = e.currentTarget;
     const keyValue = tableRow.lastChild.textContent;
     // const keyNumber: number = Number(keyValue);
-    setModalState({ type: "view", key: Number(keyValue) });
+    setModalState({ ...modalState, type: "view", key: Number(keyValue) });
     // console.log("handleTableClick");
   };
   // console.log(modalState);
@@ -249,7 +251,7 @@ function News() {
         },
       ];
       setListData(appendData);
-      setModalState({ type: "", key: false });
+      setModalState({ type: "", key: false, confirm: true });
       setEditorState(EditorState.createEmpty());
       setCurrentEditorInfo({
         type: "announcement",
@@ -302,7 +304,7 @@ function News() {
         }
       });
       setListData(updatedData);
-      setModalState({ type: "", key: false });
+      setModalState({ type: "", key: false, confirm: true });
       setEditorState(EditorState.createEmpty());
       setCurrentEditorInfo({
         type: "announcement",
@@ -383,13 +385,34 @@ function News() {
       {modalState.type === "view" && (
         <div
           className="news-modal"
-          onClick={(e) => {
-            setModalState({ type: "", key: false });
+          onMouseDown={(e) => {
+            if (modalState.confirm === true) {
+              setModalState({ ...modalState, confirm: false })
+            } else {
+              setModalState({ type: "", key: false, confirm: true });
+            }
           }}
         >
-          <div
+          {!modalState.confirm &&
+            <div
+              className="news-box confirm"
+              onMouseDown={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              <div className="confirm-msg">
+                페이지 이동시 지금까지 작성하신 내용이 모두 삭제됩니다.
+                페이지를 이동하시겠습니까?
+              </div>
+              <div className="confirm-btn-grp">
+                <div onClick={() => { setModalState({ type: "", key: false, confirm: true }) }}>확인</div>
+                <div onClick={() => { setModalState({ ...modalState, confirm: true }) }}>취소</div>
+              </div>
+            </div>
+          }
+          {modalState.confirm && <div
             className="news-box view"
-            onClick={(e) => {
+            onMouseDown={(e) => {
               e.stopPropagation();
             }}
           >
@@ -432,7 +455,7 @@ function News() {
               </div>
               <div
                 onClick={() => {
-                  setModalState({ type: "edit", key: viewItem.key });
+                  setModalState({ ...modalState, type: "edit", key: viewItem.key });
                   const blocksFromHTML = convertFromHTML(viewItem.body);
                   const content = ContentState.createFromBlockArray(
                     blocksFromHTML.contentBlocks,
@@ -457,29 +480,50 @@ function News() {
                   );
                   // console.log(filteredData);
                   setListData(filteredData);
-                  setModalState({ type: "", key: false });
+                  setModalState({ ...modalState, type: "", key: false });
                 }}
               >
                 삭제
               </div>
             </div>
-          </div>
+          </div>}
         </div>
       )}
       {(modalState.type === "create" || modalState.type === "edit") && (
         <div
           className="news-modal"
           onMouseDown={(e) => {
-            setModalState({ type: "", key: false });
-            setCurrentEditorInfo({
-              type: "announcement",
-              writer: "",
-              title: "",
-              body: "",
-            });
+            if (modalState.confirm === true) {
+              setModalState({ ...modalState, confirm: false });
+            } else {
+              setModalState({ type: "", key: false, confirm: true });
+              setCurrentEditorInfo({
+                type: "announcement",
+                writer: "",
+                title: "",
+                body: "",
+              });
+            }
           }}
         >
-          <div
+          {!modalState.confirm &&
+            <div
+              className="news-box confirm"
+              onMouseDown={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              <div className="confirm-msg">
+                페이지 이동시 지금까지 작성하신 내용이 모두 삭제됩니다.
+                페이지를 이동하시겠습니까?
+            </div>
+              <div className="confirm-btn-grp">
+                <div onClick={() => { setModalState({ type: "", key: false, confirm: true }) }}>확인</div>
+                <div onClick={() => { setModalState({ ...modalState, confirm: true }) }}>취소</div>
+              </div>
+            </div>
+          }
+          {modalState.confirm && <div
             className="news-box create"
             onMouseDown={(e) => {
               e.stopPropagation();
@@ -586,7 +630,7 @@ function News() {
                 </div>
               )}
             </div>
-          </div>
+          </div>}
         </div>
       )}
     </div>
