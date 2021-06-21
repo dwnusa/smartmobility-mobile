@@ -40,13 +40,13 @@ function Map() {
       </div> */}
       {/* <div className="map-naver" style={{backgroundImage:`url(${cards.naverMap})`}}></div> */}
       <div className="map-naver">
-        <RenderAfterNavermapsLoaded
+        {/* <RenderAfterNavermapsLoaded
           ncpClientId={'mabgbbknk3'} // 자신의 네이버 계정에서 발급받은 Client ID
           error={<p>Maps Load Error</p>}
           loading={<p>Maps Loading...</p>}
         >
           <NaverMapAPI />
-        </RenderAfterNavermapsLoaded>
+        </RenderAfterNavermapsLoaded> */}
       </div>
       <div className="map-text">
         <div className="map-grid">

@@ -83,3 +83,4 @@ export { default as handycap_bg02 } from "media/HANDYCAP/handycap-bg02.png";
 export { default as handycap_bg03 } from "media/HANDYCAP/handycap-bg03.png";
 export { default as handycap_bg04 } from "media/HANDYCAP/handycap-bg04.png";
 export { default as dropTypeArrow } from "media/drop-type-arrow.png";
+export { default as lockIcon } from "media/lock-icon.png";

@@ -23,7 +23,7 @@ interface editorInfoType {
   body: string;
 }
 interface modalType {
-  type: "" | "view" | "edit" | "create" | "delete";
+  type: "" | "view" | "edit" | "create" | "delete" | "announcement";
   key: number | boolean;
   confirm_process: boolean;
   passwd:string;
@@ -31,6 +31,7 @@ interface modalType {
   auth_passed:boolean;
 }
 function News() {
+  const [passwd, setPasswd] = useState<string>("");
   const [listData, setListData] = useState<any>([
     {
       key: 1,
@@ -379,7 +380,8 @@ function News() {
   const viewItem =
     modalState.key !== false &&
     sortedByDate.filter((v: any) => v.key === modalState.key)[0];
-  console.log(modalState);
+  // console.log(modalState);
+  // console.log(passwd)
   return (
     <div className="news" ref={divEl}>
       <FilterableTable
@@ -453,24 +455,7 @@ function News() {
                   id="cb1"
                   defaultChecked={viewItem.id === 9999}
                   onChange={() => {
-                    const currentCheckerState = !(viewItem.id === 9999);
-                    console.log(currentCheckerState);
-                    const updatedListData = sortedByDate.map((v) => {
-                      if (v.key === viewItem.key) {
-                        return {
-                          ...v,
-                          id: currentCheckerState ? 9999 : viewItem.key,
-                          type: currentCheckerState
-                            ? "announcement"
-                            : "recruitment",
-                        };
-                      } else {
-                        return {
-                          ...v,
-                        };
-                      }
-                    });
-                    setListData(updatedListData);
+                    setModalState({ ...modalState, type:"announcement", auth_process:true});
                   }}
                 />
                 <label htmlFor="cb1"></label>
@@ -678,7 +663,7 @@ function News() {
           </div>
         </div>
       }
-      {modalState.auth_process && (modalState.type === "view" || modalState.type === "create" || modalState.type === "edit" || modalState.type === "delete") && 
+      {modalState.auth_process && (modalState.type === "view" || modalState.type === "create" || modalState.type === "edit" || modalState.type === "delete" || modalState.type === "announcement") && 
         <div
           className="news-modal"
           onMouseDown={(e) => {
@@ -689,46 +674,76 @@ function News() {
         >
           <div className="news-box authorization" onMouseDown={(e)=>e.stopPropagation()}>
             <div className="authorization-msg">
-              비밀번호를 입력하세요.
+              <div>
+                <img src={cards.lockIcon}/> {"Password"}
+              </div>
+              <input type="password" value={passwd} onChange={(e)=>{setPasswd(e.target.value)}}/>
             </div>
             <div className="autorization-btn-grp">
               <div onClick={() => { 
-                // setModalState({ ...modalState, type: "edit", key: viewItem.key });
-                if (modalState.type === "edit"){
-                  const blocksFromHTML = convertFromHTML(viewItem.body);
-                  const content = ContentState.createFromBlockArray(
-                    blocksFromHTML.contentBlocks,
-                    blocksFromHTML.entityMap
-                  );
-                  const editor_state = EditorState.createWithContent(content);
-                  setEditorState(editor_state);
-                  setCurrentEditorInfo({
-                    type: viewItem.type,
-                    writer: viewItem.writer,
-                    title: viewItem.title,
-                    body: viewItem.body,
-                  });
-                  setModalState({...modalState, confirm_process: false, auth_process:false, auth_passed:true });
-                } else if (modalState.type==="create"){
-
-                  setModalState({...modalState, confirm_process: false, auth_process:false, auth_passed:true });
-                } else if (modalState.type==="delete"){
-                  const filteredData = sortedByDate.filter(
-                    (v) => v.key !== viewItem.key
-                  );
-                  // console.log(filteredData);
-                  setListData(filteredData);
-                  setModalState({...modalState, type: "", key: false , confirm_process: false, auth_process:false, auth_passed:false });
+                if (passwd === modalState.passwd){
+                  setPasswd("");
+                  // setModalState({ ...modalState, type: "edit", key: viewItem.key });
+                  if (modalState.type === "edit"){
+                    const blocksFromHTML = convertFromHTML(viewItem.body);
+                    const content = ContentState.createFromBlockArray(
+                      blocksFromHTML.contentBlocks,
+                      blocksFromHTML.entityMap
+                    );
+                    const editor_state = EditorState.createWithContent(content);
+                    setEditorState(editor_state);
+                    setCurrentEditorInfo({
+                      type: viewItem.type,
+                      writer: viewItem.writer,
+                      title: viewItem.title,
+                      body: viewItem.body,
+                    });
+                    setModalState({...modalState, confirm_process: false, auth_process:false, auth_passed:true });
+                  } else if (modalState.type==="create"){
+  
+                    setModalState({...modalState, confirm_process: false, auth_process:false, auth_passed:true });
+                  } else if (modalState.type==="delete"){
+                    const filteredData = sortedByDate.filter(
+                      (v) => v.key !== viewItem.key
+                    );
+                    // console.log(filteredData);
+                    setListData(filteredData);
+                    setModalState({...modalState, type: "", key: false , confirm_process: false, auth_process:false, auth_passed:false });
+                  } else if (modalState.type==="announcement") {
+                    const currentCheckerState = !(viewItem.id === 9999);
+                    console.log(currentCheckerState);
+                    const updatedListData = sortedByDate.map((v) => {
+                      if (v.key === viewItem.key) {
+                        return {
+                          ...v,
+                          id: currentCheckerState ? 9999 : viewItem.key,
+                          type: currentCheckerState
+                            ? "announcement"
+                            : "recruitment",
+                        };
+                      } else {
+                        return {
+                          ...v,
+                        };
+                      }
+                    });
+                    setListData(updatedListData);
+                    setModalState({...modalState, type: "view", confirm_process: false, auth_process:false, auth_passed:false });
+                  }
+                  // setCurrentEditorInfo({
+                  //   type: "announcement",
+                  //   writer: "",
+                  //   title: "",
+                  //   body: "",
+                  // });
+                  // setEditorState(EditorState.createEmpty());
+                } else {
+                  setPasswd("");
+                  alert('잘못된 비밀번호입니다.');
                 }
-                // setCurrentEditorInfo({
-                //   type: "announcement",
-                //   writer: "",
-                //   title: "",
-                //   body: "",
-                // });
-                // setEditorState(EditorState.createEmpty());
                 }}>확인</div>
               <div onClick={() => { 
+                setPasswd("");
                 setModalState({ ...modalState, type:"", confirm_process: false, auth_process:false, auth_passed:false }) 
                 // setCurrentEditorInfo({
                 //   type: "announcement",
