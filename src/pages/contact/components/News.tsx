@@ -28,8 +28,6 @@ interface modalType {
   confirm: boolean;
 }
 function News() {
-  const [announcementChecker, setAnnouncementChecker] =
-    useState<boolean>(false);
   const [listData, setListData] = useState<any>([
     {
       key: 1,
@@ -389,7 +387,7 @@ function News() {
             if (modalState.confirm === true) {
               setModalState({ ...modalState, confirm: false })
             } else {
-              setModalState({ type: "", key: false, confirm: true });
+              setModalState({ ...modalState, confirm: true })
             }
           }}
         >
@@ -405,7 +403,16 @@ function News() {
                 페이지를 이동하시겠습니까?
               </div>
               <div className="confirm-btn-grp">
-                <div onClick={() => { setModalState({ type: "", key: false, confirm: true }) }}>확인</div>
+                <div onClick={() => { 
+                  setModalState({ type: "", key: false, confirm: true });
+                  setCurrentEditorInfo({
+                    type: "announcement",
+                    writer: "",
+                    title: "",
+                    body: "",
+                  });
+                  setEditorState(EditorState.createEmpty());
+                  }}>확인</div>
                 <div onClick={() => { setModalState({ ...modalState, confirm: true }) }}>취소</div>
               </div>
             </div>
@@ -496,13 +503,14 @@ function News() {
             if (modalState.confirm === true) {
               setModalState({ ...modalState, confirm: false });
             } else {
-              setModalState({ type: "", key: false, confirm: true });
-              setCurrentEditorInfo({
-                type: "announcement",
-                writer: "",
-                title: "",
-                body: "",
-              });
+              setModalState({ ...modalState, confirm: true });
+              // setModalState({ type: "", key: false, confirm: true });
+              // setCurrentEditorInfo({
+              //   type: "announcement",
+              //   writer: "",
+              //   title: "",
+              //   body: "",
+              // });
             }
           }}
         >
@@ -518,7 +526,16 @@ function News() {
                 페이지를 이동하시겠습니까?
             </div>
               <div className="confirm-btn-grp">
-                <div onClick={() => { setModalState({ type: "", key: false, confirm: true }) }}>확인</div>
+                <div onClick={() => { 
+                  setModalState({ type: "", key: false, confirm: true });
+                  setCurrentEditorInfo({
+                    type: "announcement",
+                    writer: "",
+                    title: "",
+                    body: "",
+                  });
+                  setEditorState(EditorState.createEmpty());
+                  }}>확인</div>
                 <div onClick={() => { setModalState({ ...modalState, confirm: true }) }}>취소</div>
               </div>
             </div>
