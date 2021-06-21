@@ -1,21 +1,82 @@
 @import "styles/_variables";
 @import "styles/_mixins";
+
 .service {
   @include commonSnapDivStyle();
   @include menuDivStyle();
-  .menu{
-    ul{
-      li{
-        &:nth-child(2){
-          &:hover{
+
+  .menu {
+    ul {
+      li {
+        &:nth-child(2) {
+          &:hover {
             opacity: 0.5;
           }
+
           // color:red;
           // border: 1px red solid;
         }
       }
     }
   }
+
+  .slideIndicator {
+    z-index: 1;
+
+    position: absolute;
+    top: 45%;
+    right: 0%;
+    width: 5%;
+    height: 100PX;
+    // border: 1px red solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    // background-color: #34495e;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    // border: 1px red solid;
+
+    .dots {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      list-style-type: none;
+      // border: 1px red solid;
+      height: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+
+
+      .dot {
+        width: 14px;
+        height: 14px;
+        margin: 0px 6px;
+        // border: 1px solid #09357F;
+        border-radius: 100%;
+        background-color: #09357F;
+        cursor: pointer;
+        opacity: 0.2;
+
+        &:hover {
+          border: 1px solid #09357F;
+          background: transparent;
+        }
+
+        &.active {
+          background-color: #09357F;
+          opacity: 1;
+          border: none;
+        }
+      }
+    }
+  }
+
   // border:1px red solid;
   background: #DFE9D8;
   background-repeat: no-repeat;
