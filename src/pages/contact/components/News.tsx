@@ -23,9 +23,12 @@ interface editorInfoType {
   body: string;
 }
 interface modalType {
-  type: "" | "view" | "edit" | "create";
+  type: "" | "view" | "edit" | "create" | "delete";
   key: number | boolean;
-  confirm: boolean;
+  confirm_process: boolean;
+  passwd:string;
+  auth_process:boolean;
+  auth_passed:boolean;
 }
 function News() {
   const [listData, setListData] = useState<any>([
@@ -62,7 +65,10 @@ function News() {
   const [modalState, setModalState] = useState<modalType>({
     type: "",
     key: false,
-    confirm: true,
+    confirm_process: false,
+    passwd: "1234",
+    auth_process: false,
+    auth_passed: false,
   });
   useEffect(() => {
     const foundFilterDom = document.getElementsByClassName("header-row")[0];
@@ -104,8 +110,12 @@ function News() {
     };
   }, [listData]);
   const handleCreateClick = (e: any) => {
-    setModalState({ ...modalState, type: "create", key: false });
     // console.log("handleCreateClick");
+    if (modalState.auth_passed === true){
+      setModalState({ ...modalState, type: "create", key: false });
+    } else {
+      setModalState({ ...modalState, type: "create", key: false, auth_passed: false, auth_process:true });
+    }
   };
   const handleTableClick = (e: any) => {
     const tableRow = e.currentTarget;
@@ -249,7 +259,7 @@ function News() {
         },
       ];
       setListData(appendData);
-      setModalState({ type: "", key: false, confirm: true });
+      setModalState({ ...modalState, type: "", key: false, confirm_process: false });
       setEditorState(EditorState.createEmpty());
       setCurrentEditorInfo({
         type: "announcement",
@@ -302,7 +312,7 @@ function News() {
         }
       });
       setListData(updatedData);
-      setModalState({ type: "", key: false, confirm: true });
+      setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_passed: false });
       setEditorState(EditorState.createEmpty());
       setCurrentEditorInfo({
         type: "announcement",
@@ -369,7 +379,7 @@ function News() {
   const viewItem =
     modalState.key !== false &&
     sortedByDate.filter((v: any) => v.key === modalState.key)[0];
-  console.log(sortedByDate, viewItem);
+  console.log(modalState);
   return (
     <div className="news" ref={divEl}>
       <FilterableTable
@@ -381,18 +391,20 @@ function News() {
         noRecordsMessage="There are no posts to display"
         noFilteredRecordsMessage="No matched on the list"
       />
-      {modalState.type === "view" && (
+      {(modalState.type === "view" || modalState.type === "delete") && (
         <div
           className="news-modal"
           onMouseDown={(e) => {
-            if (modalState.confirm === true) {
-              setModalState({ ...modalState, confirm: false })
-            } else {
-              setModalState({ ...modalState, confirm: true })
-            }
+            // alert('view')
+            setModalState({ ...modalState, type: "", key: false });
+            // if (modalState.confirm === true) {
+            //   setModalState({ ...modalState, confirm: false })
+            // } else {
+            //   setModalState({ ...modalState, confirm: true })
+            // }
           }}
         >
-          {!modalState.confirm &&
+          {/* {!modalState.confirm &&
             <div
               className="news-box confirm"
               onMouseDown={(e) => {
@@ -417,8 +429,8 @@ function News() {
                 <div onClick={() => { setModalState({ ...modalState, confirm: true }) }}>취소</div>
               </div>
             </div>
-          }
-          {modalState.confirm && <div
+          } */}
+          <div
             className="news-box view"
             onMouseDown={(e) => {
               e.stopPropagation();
@@ -466,85 +478,58 @@ function News() {
               </div>
               <div
                 onClick={() => {
-                  setModalState({ ...modalState, type: "edit", key: viewItem.key });
-                  const blocksFromHTML = convertFromHTML(viewItem.body);
-                  const content = ContentState.createFromBlockArray(
-                    blocksFromHTML.contentBlocks,
-                    blocksFromHTML.entityMap
-                  );
-                  const editor_state = EditorState.createWithContent(content);
-                  setEditorState(editor_state);
-                  setCurrentEditorInfo({
-                    type: viewItem.type,
-                    writer: viewItem.writer,
-                    title: viewItem.title,
-                    body: viewItem.body,
-                  });
+                  setModalState({ ...modalState, type: "edit", key: viewItem.key, auth_passed: false, auth_process:true});
+                  // if (modalState.auth_passed === true){
+                  //   setModalState({ ...modalState, type: "edit", key: viewItem.key });
+                  //   const blocksFromHTML = convertFromHTML(viewItem.body);
+                  //   const content = ContentState.createFromBlockArray(
+                  //     blocksFromHTML.contentBlocks,
+                  //     blocksFromHTML.entityMap
+                  //   );
+                  //   const editor_state = EditorState.createWithContent(content);
+                  //   setEditorState(editor_state);
+                  //   setCurrentEditorInfo({
+                  //     type: viewItem.type,
+                  //     writer: viewItem.writer,
+                  //     title: viewItem.title,
+                  //     body: viewItem.body,
+                  //   });
+                  // } else {
+                  //   setModalState({ ...modalState, type: "edit", key: viewItem.key, auth_passed: false, auth_process:true});
+                  // }
                 }}
               >
                 수정
               </div>
               <div
                 onClick={() => {
-                  const filteredData = sortedByDate.filter(
-                    (v) => v.key !== viewItem.key
-                  );
-                  // console.log(filteredData);
-                  setListData(filteredData);
-                  setModalState({ ...modalState, type: "", key: false });
+                  setModalState({ ...modalState, type:"delete", auth_passed: false, auth_process:true});
+                  // if (modalState.auth_passed === true){
+                  //   const filteredData = sortedByDate.filter(
+                  //     (v) => v.key !== viewItem.key
+                  //   );
+                  //   // console.log(filteredData);
+                  //   setListData(filteredData);
+                  //   setModalState({ ...modalState, type: "", key: false });
+                  // } else {
+                  //   setModalState({ ...modalState, auth_passed: false, auth_process:true});
+                  // }
                 }}
               >
                 삭제
               </div>
             </div>
-          </div>}
+          </div>
         </div>
       )}
-      {(modalState.type === "create" || modalState.type === "edit") && (
+      {modalState.auth_passed && (modalState.type === "create" || modalState.type === "edit") && (
         <div
           className="news-modal"
           onMouseDown={(e) => {
-            if (modalState.confirm === true) {
-              setModalState({ ...modalState, confirm: false });
-            } else {
-              setModalState({ ...modalState, confirm: true });
-              // setModalState({ type: "", key: false, confirm: true });
-              // setCurrentEditorInfo({
-              //   type: "announcement",
-              //   writer: "",
-              //   title: "",
-              //   body: "",
-              // });
-            }
+            setModalState({ ...modalState, confirm_process: true });
           }}
         >
-          {!modalState.confirm &&
-            <div
-              className="news-box confirm"
-              onMouseDown={(e) => {
-                e.stopPropagation();
-              }}
-            >
-              <div className="confirm-msg">
-                페이지 이동시 지금까지 작성하신 내용이 모두 삭제됩니다.
-                페이지를 이동하시겠습니까?
-            </div>
-              <div className="confirm-btn-grp">
-                <div onClick={() => { 
-                  setModalState({ type: "", key: false, confirm: true });
-                  setCurrentEditorInfo({
-                    type: "announcement",
-                    writer: "",
-                    title: "",
-                    body: "",
-                  });
-                  setEditorState(EditorState.createEmpty());
-                  }}>확인</div>
-                <div onClick={() => { setModalState({ ...modalState, confirm: true }) }}>취소</div>
-              </div>
-            </div>
-          }
-          {modalState.confirm && <div
+          {<div
             className="news-box create"
             onMouseDown={(e) => {
               e.stopPropagation();
@@ -654,6 +639,109 @@ function News() {
           </div>}
         </div>
       )}
+      {modalState.confirm_process && (modalState.type === "view" || modalState.type === "create" || modalState.type === "edit" || modalState.type === "delete") && 
+        <div
+          className="news-modal"
+          onMouseDown={(e) => {
+            // alert('confirm_process')
+            // setModalState({ ...modalState, confirm: false });
+            // setModalState({...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false });
+          }}
+        >
+          <div
+            className="news-box confirm"
+            onMouseDown={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <div className="confirm-msg">
+              페이지 이동시 지금까지 작성하신 내용이 모두 삭제됩니다.
+              페이지를 이동하시겠습니까?
+            </div>
+            <div className="confirm-btn-grp">
+              <div onClick={() => { 
+                setModalState({...modalState, type: "", key: false, confirm_process: false });
+                setCurrentEditorInfo({
+                  type: "announcement",
+                  writer: "",
+                  title: "",
+                  body: "",
+                });
+                setEditorState(EditorState.createEmpty());
+                }}>확인</div>
+              <div onClick={() => { 
+                setModalState({ ...modalState, confirm_process: false }) 
+                }}>
+                취소
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+      {modalState.auth_process && (modalState.type === "view" || modalState.type === "create" || modalState.type === "edit" || modalState.type === "delete") && 
+        <div
+          className="news-modal"
+          onMouseDown={(e) => {
+            // alert('auth_process')
+            // setModalState({ ...modalState, confirm: false });
+            // setModalState({...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false });
+          }}
+        >
+          <div className="news-box authorization" onMouseDown={(e)=>e.stopPropagation()}>
+            <div className="authorization-msg">
+              비밀번호를 입력하세요.
+            </div>
+            <div className="autorization-btn-grp">
+              <div onClick={() => { 
+                // setModalState({ ...modalState, type: "edit", key: viewItem.key });
+                if (modalState.type === "edit"){
+                  const blocksFromHTML = convertFromHTML(viewItem.body);
+                  const content = ContentState.createFromBlockArray(
+                    blocksFromHTML.contentBlocks,
+                    blocksFromHTML.entityMap
+                  );
+                  const editor_state = EditorState.createWithContent(content);
+                  setEditorState(editor_state);
+                  setCurrentEditorInfo({
+                    type: viewItem.type,
+                    writer: viewItem.writer,
+                    title: viewItem.title,
+                    body: viewItem.body,
+                  });
+                  setModalState({...modalState, confirm_process: false, auth_process:false, auth_passed:true });
+                } else if (modalState.type==="create"){
+
+                  setModalState({...modalState, confirm_process: false, auth_process:false, auth_passed:true });
+                } else if (modalState.type==="delete"){
+                  const filteredData = sortedByDate.filter(
+                    (v) => v.key !== viewItem.key
+                  );
+                  // console.log(filteredData);
+                  setListData(filteredData);
+                  setModalState({...modalState, type: "", key: false , confirm_process: false, auth_process:false, auth_passed:false });
+                }
+                // setCurrentEditorInfo({
+                //   type: "announcement",
+                //   writer: "",
+                //   title: "",
+                //   body: "",
+                // });
+                // setEditorState(EditorState.createEmpty());
+                }}>확인</div>
+              <div onClick={() => { 
+                setModalState({ ...modalState, type:"", confirm_process: false, auth_process:false, auth_passed:false }) 
+                // setCurrentEditorInfo({
+                //   type: "announcement",
+                //   writer: "",
+                //   title: "",
+                //   body: "",
+                // });
+                // setEditorState(EditorState.createEmpty());
+                }}>취소</div>
+            </div>
+          </div>
+        </div>
+      }
     </div>
   );
 }
