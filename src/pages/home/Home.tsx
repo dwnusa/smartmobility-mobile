@@ -6,6 +6,7 @@ import { BackgroundVideo } from "./";
 import cardHandycap from "media/card-handycap.png";
 import cardBogota from "media/card-bogota.png";
 import cardAutomobile from "media/card-automobile.png";
+import * as cards from "media";
 
 function Home() {
   const [isBgShowing, setBgShowing] = useState<boolean>(true);
@@ -34,16 +35,26 @@ function Home() {
           <div className={`cardContainer`}>
             <div className="card">
               <NavLink exact to="/service/1">
-                <img src={cardHandycap} />
+                <img src={cards.cardHandycap} 
+                onMouseOut={e => (e.currentTarget.src = cards.cardHandycap)}
+                onMouseOver={e => (e.currentTarget.src = cards.cardHandycap_active)}/>
+                
+        {/* <img src={rnd01_1}
+          onMouseOut={e => (e.currentTarget.src = rnd01_1)}
+          onMouseOver={e => (e.currentTarget.src = rnd01_2)} /> */}
               </NavLink>
             </div>
             <div className="card">
               <NavLink exact to="/service/2">
-                <img src={cardBogota} />
+                <img src={cardBogota} 
+                onMouseOut={e => (e.currentTarget.src = cards.cardBogota)}
+                onMouseOver={e => (e.currentTarget.src = cards.cardBogota_active)}/>
               </NavLink>
             </div>
             <div className="card">
-              <img src={cardAutomobile} />
+              <img src={cardAutomobile} 
+                onMouseOut={e => (e.currentTarget.src = cards.cardAutomobile)}
+                onMouseOver={e => (e.currentTarget.src = cards.cardAutomobile_active)}/>
             </div>
           </div>
         </div>

@@ -84,3 +84,10 @@ export { default as handycap_bg03 } from "media/HANDYCAP/handycap-bg03.png";
 export { default as handycap_bg04 } from "media/HANDYCAP/handycap-bg04.png";
 export { default as dropTypeArrow } from "media/drop-type-arrow.png";
 export { default as lockIcon } from "media/lock-icon.png";
+
+export { default as cardHandycap } from "media/card-handycap.png";
+export { default as cardBogota } from "media/card-bogota.png";
+export { default as cardAutomobile } from "media/card-automobile.png";
+export { default as cardHandycap_active } from "media/card-handycap-active.png";
+export { default as cardBogota_active } from "media/card-bogota-active.png";
+export { default as cardAutomobile_active } from "media/card-automobile-active.png";
