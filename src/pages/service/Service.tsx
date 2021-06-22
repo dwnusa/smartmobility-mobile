@@ -80,12 +80,12 @@ function Service({ match, history }: { match: any; history: any }) {
     cards.handycap_bg04,
   ];
   // console.log(bgArray[currentSlide-1])
-  console.log(currentSlide);
+  // console.log(currentSlide);
   return (
     <React.Fragment>
       <Header />
       <div
-        className="service"
+        className={`service ${currentSlide === 1 && "bgstyle1" } ${currentSlide === 2 && "bgstyle2" } ${currentSlide === 3 && "bgstyle3" } ${currentSlide === 4 && "bgstyle4" }`}
         onWheel={(e) => handleScroll(e)}
         style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
       >

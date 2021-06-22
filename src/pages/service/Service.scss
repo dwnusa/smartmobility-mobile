@@ -4,7 +4,35 @@
 .service {
   @include commonSnapDivStyle();
   @include menuDivStyle();
+  box-sizing: border-box;
+  // background-size: cover;
+  // background-position: left -100% top 100%;
+  // background-size: 60%;
+  // background-repeat: no-repeat;
+  // background-position: left 0% top 100%;
+  // background-size:50% 50%;
 
+  // border:1px red solid;
+  // background-size: 100%;
+  // background: rgba(223, 233, 216, 0.6);
+  // background: rgba(252, 252, 247, 0.6);
+  background:rgba(252, 252, 247, 1);
+  background-repeat: no-repeat;
+  overflow:hidden;
+  // border: 3px red solid;
+  background-size: 100%;
+  &.bgstyle1{
+  }
+  &.bgstyle2{
+    background-position: right bottom 10%;
+  }
+  &.bgstyle3{
+    background-position: right top 0%;
+  }
+  &.bgstyle4{
+    background-position: right bottom 10%;
+  }
+  // @include animation(0s, 1s, 1, forwards, slidein);
   .menu {
     ul {
       li {
@@ -76,11 +104,4 @@
       }
     }
   }
-
-  // border:1px red solid;
-  background: #DFE9D8;
-  background-repeat: no-repeat;
-  background-position: left bottom 10%;
-  overflow:hidden;
-  // @include animation(0s, 1s, 1, forwards, slidein);
 }

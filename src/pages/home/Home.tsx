@@ -45,11 +45,11 @@ function Home() {
               </NavLink>
             </div>
             <div className="card">
-              <NavLink exact to="/service/2">
+              {/* <NavLink exact to="/service/2"> */}
                 <img src={cardBogota} 
                 onMouseOut={e => (e.currentTarget.src = cards.cardBogota)}
                 onMouseOver={e => (e.currentTarget.src = cards.cardBogota_active)}/>
-              </NavLink>
+              {/* </NavLink> */}
             </div>
             <div className="card">
               <img src={cardAutomobile} 
