@@ -8,6 +8,10 @@
   overflow: hidden;
   z-index: -1;
   color: white;
+  >video{
+    // border:1px red solid;
+    width:100%;
+  }
 
   .svgtest {
     position: absolute;

@@ -1,6 +1,8 @@
 @import "styles/_mixins";
 
 .navGrid {
+  // z-index:2;
+  // position:absolute;
   margin-top: 125px;
   width: 500px;
   height: calc(100vh - 150px);
