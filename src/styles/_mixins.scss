@@ -1,4 +1,6 @@
 @import "styles/_buttons";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
 $minIphoneWidth: 350px;
 $maxIphoneWidth: 690px;
 $minIphoneWidth-l: 800px;
@@ -67,14 +69,16 @@ $maxIpadWidth-l: 1400px;
     height: 100vh;
 
     // border: 1px green solid;
+
     // box-sizing: border-box;
     ul {
-      // border: 1px $blue solid;
+      // border: 1px blue solid;
       // box-sizing: border-box;
       padding: 100px 0px 0px 70px;
 
       li {
         @extend %menuButton;
+        // border: 1px blue solid;
 
         &:hover {
           opacity: 1;

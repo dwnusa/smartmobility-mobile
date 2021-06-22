@@ -85,7 +85,7 @@ function Service({ match, history }: { match: any; history: any }) {
     <React.Fragment>
       <Header />
       <div
-        className={`service ${currentSlide === 1 && "bgstyle1" } ${currentSlide === 2 && "bgstyle2" } ${currentSlide === 3 && "bgstyle3" } ${currentSlide === 4 && "bgstyle4" }`}
+        className={`service ${currentSlide === 1 && "bgstyle1"} ${currentSlide === 2 && "bgstyle2"} ${currentSlide === 3 && "bgstyle3"} ${currentSlide === 4 && "bgstyle4"}`}
         onWheel={(e) => handleScroll(e)}
         style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
       >
@@ -99,10 +99,10 @@ function Service({ match, history }: { match: any; history: any }) {
             </li>
             <li
               className={`${currentPage === 2 && "enabled"}`}
-              // style={{}}
-              // onClick={() => setPage(2)}
+            // style={{}}
+            // onClick={() => setPage(2)}
             >
-              Bogota
+              BOGOTA
             </li>
           </ul>
         </div>

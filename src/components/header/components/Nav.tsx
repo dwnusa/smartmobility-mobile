@@ -33,7 +33,7 @@ function Nav({ isBgShowing }: BackgroundVideoProps) {
         {/* <NavLink exact to="/service/2">
         </NavLink> */}
         <div className="disabled">
-          Bogota
+          BOGOTA
         </div>
       </div>
       <div className="study1">
@@ -75,7 +75,9 @@ function Nav({ isBgShowing }: BackgroundVideoProps) {
       <div className="faxInfo">FAX : 050-7534-5819</div>
       <div className="infoDivider" />
       <div className="copyright">
-        COPYRIGHT © 2020 SMARTMOBILITY. All Rights Reserved.
+        <span>
+          COPYRIGHT © 2020 SMARTMOBILITY. All Rights Reserved.
+        </span>
       </div>
       {/* <div className="nav-about">
         <div>

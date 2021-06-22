@@ -14,9 +14,8 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
   // console.log(location);
   return (
     <div
-      className={`header ${location == "/" && "main"} ${
-        !isBgShowing && "turnBgWhite"
-      }`}
+      className={`header ${location == "/" && "main"} ${!isBgShowing && "turnBgWhite"
+        }`}
     >
       <Link to="/">
         <img className={`${!isBgShowing && "turnBlue"}`} src={logoWhite} />
@@ -29,9 +28,8 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
       <ul>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
             to="/about"
           >
@@ -40,9 +38,8 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
         </li>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
             to="/service"
           >
@@ -51,9 +48,8 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
         </li>
         <li>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
             to="/study"
           >
@@ -62,9 +58,8 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
         </li>
         <div className="modal-background"></div>
         <div
-          className={`modal ${location == "/" && "main"} ${
-            !isBgShowing && "turnBgWhite"
-          }`}
+          className={`modal ${location == "/" && "main"} ${!isBgShowing && "turnBgWhite"
+            }`}
         >
           <Nav isBgShowing={isBgShowing} />
         </div>

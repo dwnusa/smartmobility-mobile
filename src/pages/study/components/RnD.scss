@@ -4,6 +4,11 @@
 .rnd {
   @include subComponentsStyle();
 
+  .service-filter {
+    // border: 1px red solid;
+    height: 50px;
+  }
+
   .rnd-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -14,7 +19,8 @@
     img {
       width: 50%;
       filter: drop-shadow(1px 1px 5px #000);
-      &:hover{
+
+      &:hover {
         filter: drop-shadow(1px 1px 7px #000);
       }
 
