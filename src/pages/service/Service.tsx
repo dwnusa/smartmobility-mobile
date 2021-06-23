@@ -82,12 +82,20 @@ function Service({ match, history }: { match: any; history: any }) {
   // console.log(bgArray[currentSlide-1])
   // console.log(currentSlide);
   return (
-    <React.Fragment>
+    <div className="service-wrapper">
       <Header />
+      {currentSlide === 1 && <div className={`bgService bgstyle1`}
+      style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
+      {currentSlide === 2 && <div className={`bgService bgstyle2`}
+      style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
+      {currentSlide === 3 && <div className={`bgService bgstyle3`}
+      style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
+      {currentSlide === 4 && <div className={`bgService bgstyle4`}
+      style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
       <div
-        className={`service ${currentSlide === 1 && "bgstyle1"} ${currentSlide === 2 && "bgstyle2"} ${currentSlide === 3 && "bgstyle3"} ${currentSlide === 4 && "bgstyle4"}`}
+        className={`service`}
         onWheel={(e) => handleScroll(e)}
-        style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
+        // style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
       >
         <div className="menu">
           <ul>
@@ -129,7 +137,7 @@ function Service({ match, history }: { match: any; history: any }) {
         {currentPage === 1 && <HANDYCAP currentSlide={currentSlide} />}
         {currentPage === 2 && <Bogota />}
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 

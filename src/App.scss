@@ -5,6 +5,8 @@
   // border: 1px blue solid;
   // position: fixed;
   // border: 1px red solid;
+  // overflow:hidden;
+  overflow:hidden;
 }
 
 @include keyframe(draw) {
@@ -101,4 +103,31 @@
   }
 
   0% {}
+}
+@include keyframe(bgSlidein2) {
+  100% {
+    left:0vw;
+  }
+
+  0% {
+    left:100vw;
+  }
+}
+@include keyframe(bgSlidein3) {
+  100% {
+    left:0vw;
+  }
+
+  0% {
+    left:-100vw;
+  }
+}
+@include keyframe(bgSlidein4) {
+  100% {
+    left:0vw;
+  }
+
+  0% {
+    left:100vw;
+  }
 }
