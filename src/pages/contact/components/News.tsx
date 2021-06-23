@@ -640,7 +640,7 @@ function News() {
             }}
           >
             <div className="confirm-msg">
-              페이지 이동시 지금까지 작성하신 내용이 모두 삭제됩니다.
+              페이지 이동시 지금까지 작성하신 내용이 모두 삭제됩니다.<br/>
               페이지를 이동하시겠습니까?
             </div>
             <div className="confirm-btn-grp">
