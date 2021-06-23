@@ -28,7 +28,6 @@
 
   &.main {
     background: rgba(0, 0, 0, 0.3);
-
     &.turnBgWhite {
       @include animation(0s, 3s, 1, forwards, fadebgwhite);
     }
@@ -39,6 +38,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    // border:1px red solid;
 
     img {
       grid-column: 1/2;
@@ -167,12 +167,14 @@
             // color: black;
             @include animation(0s, 3s, 1, forwards, turnColorBlack);
           }
+          &:hover {
+            font-weight: 500;
+            color: white;
+          }
         }
 
-        &:hover {
+        &:hover{
           text-decoration: underline;
-          font-weight: 500;
-          color: white;
         }
 
         &.active {
