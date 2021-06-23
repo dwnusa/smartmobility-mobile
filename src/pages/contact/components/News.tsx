@@ -677,7 +677,7 @@ function News() {
               <div>
                 <img src={cards.lockIcon}/> {"Password"}
               </div>
-              <input type="password" value={passwd} onChange={(e)=>{setPasswd(e.target.value)}}/>
+              <input type="password" value={passwd.slice(0,6)} onChange={(e)=>{setPasswd(e.target.value)}}/>
             </div>
             <div className="autorization-btn-grp">
               <div onClick={() => { 
