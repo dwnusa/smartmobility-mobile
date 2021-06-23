@@ -14,12 +14,13 @@
   white-space: nowrap;
 
   .cardWrapper {
-    border: 2px green solid;
+    // border: 2px green solid;
     // scroll-snap-align: start;
     position: relative;
     box-sizing: border-box;
     top: 20vh;
-    left: 100vw;
+    // left: 100vw;
+    padding-left:100vw;
 
     // height: 80vh;
     // width: 50vw;

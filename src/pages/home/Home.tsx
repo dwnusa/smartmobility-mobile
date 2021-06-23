@@ -11,17 +11,17 @@ import * as cards from "media";
 function Home() {
   const divEl = useRef<HTMLDivElement | null>(null);
   const [isBgShowing, setBgShowing] = useState<boolean>(true);
-  const [posX, setPosX] = useState<number>(100);
-  const [time, setTime] : [number, Function] = useState(0);
+  const [posX, setPosX] = useState<number>(50);
   const handleWheel = (e) => {
     setBgShowing(false);
     if (e.deltaY >= 0){
-      setPosX(posX+2)
+      const newPos = Math.max(0, posX-2);
+      setPosX(newPos)
     } else {
-      setPosX(posX-2)
+      const newPos = Math.min(100, posX+2);
+      setPosX(newPos)
     }
   }
-  console.log(posX, time, isBgShowing)
 
   // useEffect(()=>{
   //   if (time >= 50) return undefined;

@@ -61,11 +61,13 @@
     // display: inherit;
     // border:5px red solid;
     // left: 50vw;
+    padding-left:0vw;
   }
 
   0% {
     // border:1px blue solid;
-    left: 100vw;
+    // left: 100vw;
+    padding-left:100vw;
   }
 }
 
