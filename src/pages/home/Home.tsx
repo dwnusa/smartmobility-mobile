@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Home.scss";
 import { Header } from "components";
@@ -9,18 +9,31 @@ import cardAutomobile from "media/card-automobile.png";
 import * as cards from "media";
 
 function Home() {
+  const divEl = useRef<HTMLDivElement | null>(null);
   const [isBgShowing, setBgShowing] = useState<boolean>(true);
+  const [posX, setPosX] = useState<number>(100);
+  const [time, setTime] : [number, Function] = useState(0);
+  const handleWheel = (e) => {
+    setBgShowing(false);
+    if (e.deltaY >= 0){
+      setPosX(posX+2)
+    } else {
+      setPosX(posX-2)
+    }
+  }
+  console.log(posX, time, isBgShowing)
 
-  // useEffect(() => {
-  //   setActive(true);
-  // }, []);
+  // useEffect(()=>{
+  //   if (time >= 50) return undefined;
 
-  // useEffect(() => {
-  //   const id = setTimeout(() => {
-  //     setActive(!active);
-  //   }, 2000);
-  //   return () => clearTimeout(id);
-  // }, [active]);
+  //   const tick = setTimeout(() => {
+  //     if (!isBgShowing){
+  //       setTime(time + 0.1);
+  //       // setPosX(posX-time)
+  //     }
+  //   }, 10);
+  //   return () => clearTimeout(tick);
+  // },[time, isBgShowing])
 
   return (
     <React.Fragment>
@@ -29,9 +42,9 @@ function Home() {
       <div
         className="home"
         onClick={() => setBgShowing(false)}
-        onWheel={() => setBgShowing(false)}
+        onWheel={(e) => handleWheel(e)}
       >
-        <div className={`cardWrapper ${!isBgShowing && "trigger"}`}>
+        <div ref={divEl} style={{left:`${posX}vw`}} className={`cardWrapper ${!isBgShowing && "trigger"}`}>
           <div className={`cardContainer`}>
             <div className="card">
               <NavLink exact to="/service/1">
