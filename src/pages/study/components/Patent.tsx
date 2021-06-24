@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Patent.scss";
-import { patent01, patent02, patent03, patent04, patent05, iconCheck } from "media";
+import * as cards from "media";
 type patentContentType = {
   id: number;
   name: string;
@@ -31,12 +31,12 @@ function Patent() {
     { id: 5, name: "교통약자 맞춤경로 안내 시스템", number: "컴퓨터프로그램저작물>응용프로그램>과학기술", date1: "서울시립대학교 산학협력단", date2: "264171-0006273", description: "2018-05-01", inventor: "2018-09-20" },
   ])
   let imageItem = [
-    patent01,
-    patent01,
-    patent02,
-    patent03,
-    patent04,
-    patent05,
+    cards.patent01,
+    cards.patent01,
+    cards.patent02,
+    cards.patent03,
+    cards.patent04,
+    cards.patent05,
   ]
   console.log(item[1].name);
   return (
@@ -64,14 +64,52 @@ function Patent() {
         </div>
         <div className="menu-patent">특허권</div>
         <div className="menu-copyright">저작권</div>
-        <div className="menu-bottom" onClick={e => { setActiveItem(1) }}>
-          <div style={{ backgroundImage: `url(${patent01})` }} className={`menu-thumbnail ${activeItem === 1 && "activated"}`}>
-            {activeItem === 1 && <div style={{ backgroundImage: `url(${iconCheck})` }} className="menu-check"></div>}
+        <div className="menu-bottom" >
+          <div className={`menu-thumbnail ${activeItem === 1 && "activated"}`} onClick={e => { setActiveItem(1) }}>
+            {activeItem === 1 ? <img src={cards.patent01_2} />:<img 
+            src={cards.patent01_1}
+              onMouseOut={e => (e.currentTarget.src = cards.patent01_1)}
+              onMouseOver={e => (e.currentTarget.src = cards.patent01_2)} 
+              />}
           </div>
-          {/* <img className={`menu-thumbnail ${activeItem === 1 && "activated"}`} src={patent01} width="100%" />
-          {activeItem === 1 && <img className="menu-check" src={iconCheck} />} */}
+          <div className={`menu-thumbnail ${activeItem === 2 && "activated"}`} onClick={e => { setActiveItem(2) }}>
+            {activeItem === 2 ? <img src={cards.patent02_2} />:<img 
+            src={cards.patent02_1}
+              onMouseOut={e => (e.currentTarget.src = cards.patent02_1)}
+              onMouseOver={e => (e.currentTarget.src = cards.patent02_2)} 
+              />}
+          </div>
+          <div className={`menu-thumbnail ${activeItem === 3 && "activated"}`} onClick={e => { setActiveItem(3) }}>
+            {activeItem === 3 ? <img src={cards.patent03_2} />:<img 
+            src={cards.patent03_1}
+              onMouseOut={e => (e.currentTarget.src = cards.patent03_1)}
+              onMouseOver={e => (e.currentTarget.src = cards.patent03_2)} 
+              />}
+          </div>
+          <div className={`menu-thumbnail ${activeItem === 4 && "activated"}`} onClick={e => { setActiveItem(4) }}>
+            {activeItem === 4 ? <img src={cards.patent04_2} />:<img 
+            src={cards.patent04_1}
+              onMouseOut={e => (e.currentTarget.src = cards.patent04_1)}
+              onMouseOver={e => (e.currentTarget.src = cards.patent04_2)} 
+              />}
+          </div>
+          <div className={`menu-thumbnail ${activeItem === 5 && "activated"}`} onClick={e => { setActiveItem(5) }}>
+            {activeItem === 5 ? <img src={cards.patent05_2} />:<img 
+            src={cards.patent05_1}
+              onMouseOut={e => (e.currentTarget.src = cards.patent05_1)}
+              onMouseOver={e => (e.currentTarget.src = cards.patent05_2)} 
+              />}
+          </div>
         </div>
-        <div className="menu-bottom" onClick={e => { setActiveItem(2) }}>
+
+
+        {/* <div style={{ backgroundImage: `url(${patent01})` }} className={`menu-thumbnail ${activeItem === 1 && "activated"}`}></div>
+        {activeItem === 2 && <div style={{ backgroundImage: `url(${iconCheck})` }} className="menu-check"></div>}
+        <div style={{ backgroundImage: `url(${patent01})` }} className={`menu-thumbnail ${activeItem === 1 && "activated"}`}></div>
+        {activeItem === 3 && <div style={{ backgroundImage: `url(${iconCheck})` }} className="menu-check"></div>} */}
+        {/* <img className={`menu-thumbnail ${activeItem === 1 && "activated"}`} src={patent01} width="100%" />
+        {activeItem === 1 && <img className="menu-check" src={iconCheck} />} */}
+        {/* <div className="menu-bottom" onClick={e => { setActiveItem(2) }}>
           <img className={`menu-thumbnail ${activeItem === 2 && "activated"}`} src={patent02} width="100%" />
           {activeItem === 2 && <img className="menu-check" src={iconCheck} />}
         </div>
@@ -86,7 +124,7 @@ function Patent() {
         <div className="menu-bottom" onClick={e => { setActiveItem(5) }}>
           <img className={`menu-thumbnail ${activeItem === 5 && "activated"}`} src={patent05} width="100%" />
           {activeItem === 5 && <img className="menu-check" src={iconCheck} />}
-        </div>
+        </div> */}
       </div>
     </div>
   );

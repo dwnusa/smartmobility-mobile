@@ -74,6 +74,19 @@ export { default as patent04 } from "media/PATENT/patent04.png";
 export { default as patent05 } from "media/PATENT/patent05.png";
 export { default as iconCheck } from "media/PATENT/icon-check.png";
 
+
+export { default as patent01_1 } from "media/PATENT/patent01-1.png";
+export { default as patent02_1 } from "media/PATENT/patent02-1.png";
+export { default as patent03_1 } from "media/PATENT/patent03-1.png";
+export { default as patent04_1 } from "media/PATENT/patent04-1.png";
+export { default as patent05_1 } from "media/PATENT/patent05-1.png";
+export { default as patent01_2 } from "media/PATENT/patent01-2.png";
+export { default as patent02_2 } from "media/PATENT/patent02-2.png";
+export { default as patent03_2 } from "media/PATENT/patent03-2.png";
+export { default as patent04_2 } from "media/PATENT/patent04-2.png";
+export { default as patent05_2 } from "media/PATENT/patent05-2.png";
+export { default as darkcover } from "media/PATENT/darkcover.png";
+
 export { default as naverMap } from "media/map-naver-img.png";
 export { default as handycap01_1 } from "media/HANDYCAP/handycap01-1.png";
 export { default as handycap02_1 } from "media/HANDYCAP/handycap02-1.png";
