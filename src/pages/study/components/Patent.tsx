@@ -47,7 +47,9 @@ function Patent() {
         </div>
         <div className="content-right">
           <div className="content-text">
-            <div className="content-title">특허권</div>
+            <div className="content-title">
+              <div>특허권</div>
+            </div>
             <div className="content-name">특허명</div>
             <div className="content-name-right">{item[activeItem].name}</div>
             <div className="content-number">출원번호</div>

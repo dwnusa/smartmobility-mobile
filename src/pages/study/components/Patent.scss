@@ -61,19 +61,29 @@
         min-height: 90%;
         font-family: "Montserrat";
         // font-size: 20px;
-        font-size:1.2vw;
+        // font-weight: normal;
+        font-size:1.1vw;
 
         .content-title {
           grid-column: 2/4;
           grid-row: 2/3;
-          background: #0A347F;
-          border-radius: 3px;
           display: flex;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: center;
           color: white;
           font-style: bold;
           font-weight: 900;
+          // border:1px red solid;
+          >div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0A347F;
+            color: white;
+            height:100%;
+            padding: 0px 1vw;
+            border-radius: 3px;
+          }
         }
 
         .content-name {
@@ -91,7 +101,8 @@
           justify-content: flex-start;
           align-items: flex-start;
           font-style: bold;
-          font-weight: 900;
+          // border:1px red solid;
+          font-weight: 600;
         }
 
         .content-number {
