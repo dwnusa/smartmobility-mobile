@@ -3,6 +3,7 @@
 
 .outsourcing {
   @include subComponentsStyle();
+  padding-bottom: 35px;
 
   .service-filter {
     // border: 1px red solid;

@@ -3,6 +3,7 @@
 
 .patent {
   @include subComponentsStyle();
+  height: calc(100vh - 100px);
   padding-bottom: 0px;
   display: flex;
   justify-content: center;
@@ -11,7 +12,7 @@
     // border: 1px black solid;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 17fr 1fr 10fr;
+    grid-template-rows: 17fr 1fr 7fr;
     gap: 10px;
     // height: 95%;
     // width: 80%;
@@ -21,10 +22,15 @@
     .main-left {
       grid-column: 1/3;
       grid-row: 1/2;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       // background: red;
       // border: 2px blue solid;
+      width: 100%;
+
       border-radius: 10px;
-      filter: drop-shadow(1px 1px 5px #000);
+      filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.2));
     }
 
     .content-right {
@@ -206,11 +212,10 @@
     .menu-bottom {
       grid-row: 3/-1;
       // background: gray;
-      // border: 3px red solid;
       // filter: drop-shadow(1px 1px 5px #000);
       border-radius: 10px;
       width: 100%;
-      height: 70%;
+      // height: 70%;
       overflow: hidden;
       justify-items: center;
       align-items: center;
@@ -230,8 +235,33 @@
         grid-column: 1/-1;
         grid-row: 1/-1;
         position: relative;
-        top: -15%;
+        // top: -15%;
         // margin-top:-10px;
+        border: 3px red solid;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background-size: 80% 150%;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        .menu-check {
+          // grid-column: 1/-1;
+          // grid-row: 1/-1;
+          // align-self: start;
+          // background: black;
+          -webkit-filter: brightness(100%);
+          width: 20%;
+          height: 20%;
+          // margin-top: 40%;
+          // position: relative;
+          // top:0px;
+          border: 3px blue solid;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+
+        }
       }
 
       .menu-check {
@@ -241,9 +271,15 @@
         // background: black;
         -webkit-filter: brightness(100%);
         width: 20%;
-        margin-top: 40%;
+        height: 20%;
+        // margin-top: 40%;
         // position: relative;
         // top:0px;
+        border: 3px blue solid;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
       }
     }
   }
