@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./History.scss";
 import aboutHsitory1 from "media/about-history-1.png";
+// import * as cards from "media";
 
 function History() {
   return (

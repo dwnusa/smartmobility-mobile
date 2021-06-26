@@ -1,3 +1,10 @@
+
+export { default as aboutGreeting1 } from "media/about-greeting-1.png";
+export { default as aboutGreeting2 } from "media/about-greeting-2.png";
+export { default as aboutGreeting3 } from "media/about-greeting-3.png";
+export { default as aboutGreeting4 } from "media/about-greeting-4.png";
+export { default as aboutGreeting5 } from "media/about-greeting-5.png";
+
 export { default as rnd01_1 } from "media/RND/rnd01_1.png";
 export { default as rnd01_2 } from "media/RND/rnd01_2.png";
 export { default as rnd02_1 } from "media/RND/rnd02_1.png";
