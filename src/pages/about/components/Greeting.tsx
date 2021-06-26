@@ -38,7 +38,7 @@ function Greeting() {
           <AutoplaySlider
             play={true}
             cancelOnInteraction={false} // should stop playing on user interaction
-            interval={6000}
+            interval={3000}
           >
             <div data-src={cards.aboutGreeting1} />
             <div data-src={cards.aboutGreeting2} />
