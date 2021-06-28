@@ -32,6 +32,12 @@
       @include animation(0s, 3s, 1, forwards, fadebgwhite);
     }
   }
+  &.subrnd{
+    background: rgba(255, 255, 255, 0);
+    // &.turnBgWhite {
+    //   @include animation(0s, 3s, 1, forwards, fadebgwhite);
+    // }
+  }
 
   a {
     // grid-column: 1/2;

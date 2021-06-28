@@ -12,6 +12,21 @@ export { default as rnd02_2 } from "media/RND/rnd02_2.png";
 export { default as rnd03_1 } from "media/RND/rnd03_1.png";
 export { default as rnd03_2 } from "media/RND/rnd03_2.png";
 
+export { default as rndpage_arrow } from "media/RNDPAGE/rndpage-arrow.png";
+
+export { default as rndpage1_1 } from "media/RNDPAGE/rndpage1-1.png";
+export { default as rndpage1_2 } from "media/RNDPAGE/rndpage1-2.png";
+export { default as rndpage1_3 } from "media/RNDPAGE/rndpage1-3.png";
+
+export { default as rndpage2_1 } from "media/RNDPAGE/rndpage2-1.png";
+export { default as rndpage2_2 } from "media/RNDPAGE/rndpage2-2.png";
+export { default as rndpage2_3 } from "media/RNDPAGE/rndpage2-3.png";
+export { default as rndpage2_4 } from "media/RNDPAGE/rndpage2-4.png";
+
+export { default as rndpage3_1 } from "media/RNDPAGE/rndpage3-1.png";
+export { default as rndpage3_2 } from "media/RNDPAGE/rndpage3-2.png";
+export { default as rndpage3_3 } from "media/RNDPAGE/rndpage3-3.png";
+
 export { default as osrcr01_1 } from "media/OSRCR/osrcr01_1.png";
 export { default as osrcr01_2 } from "media/OSRCR/osrcr01_2.png";
 export { default as osrcr02_1 } from "media/OSRCR/osrcr02_1.png";

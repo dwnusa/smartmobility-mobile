@@ -11,10 +11,10 @@ type BackgroundVideoProps = {
 };
 function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
   const location = useLocation().pathname;
-  // console.log(location);
+  console.log(location.split('/')[1]);
   return (
     <div
-      className={`header ${location == "/" && "main"} ${!isBgShowing && "turnBgWhite"
+      className={`header ${location == "/" && "main"} ${location.split('/')[1] == "rnd" && "subrnd"} ${!isBgShowing && "turnBgWhite"
         }`}
     >
       <Link to="/">

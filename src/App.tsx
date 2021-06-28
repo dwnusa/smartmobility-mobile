@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
 import { NavLink, useLocation } from "react-router-dom";
-import { Home, About, Service, Study, Contact } from "pages";
+import { Home, About, Service, Study, Contact, SubRnD1, SubRnD2, SubRnD3 } from "pages";
 
 let prePath = "";
 function App() {
@@ -46,6 +46,21 @@ function App() {
           component={(props: any) => <Contact {...props} />}
         />
         <Route path="/contact" component={Contact} />
+      </Switch>
+      <Switch>
+        <Route
+          path="/rnd/1"
+          component={(props: any) => <SubRnD1 {...props} />}
+        />
+        <Route
+          path="/rnd/2"
+          component={(props: any) => <SubRnD2 {...props} />}
+        />
+        <Route
+          path="/rnd/3"
+          component={(props: any) => <SubRnD3 {...props} />}
+        />
+        <Route exact path="/rnd" component={SubRnD1} />
       </Switch>
     </div>
   );

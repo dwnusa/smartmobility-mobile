@@ -88,7 +88,7 @@ function Study({ match, history }: { match: any; history: any }) {
             </li>
           </ul>
         </div>
-        {currentPage === 1 && <RnD />}
+        {currentPage === 1 && <RnD history={history}/>}
         {currentPage === 2 && <Outsourcing />}
         {currentPage === 3 && <Patent />}
       </div>
