@@ -8,34 +8,12 @@
   overflow: hidden;
   z-index: -1;
   color: white;
-  >video{
+  > video {
     // border:1px red solid;
-    width:100%;
+    width: 100%;
   }
 
-  .svgtest {
-    position: absolute;
-    bottom: 10vh;
-    left: 10vw;
-    z-index: -1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
-    width: 100vw;
-
-    // border: 1px red solid;
-    .squiggle {
-      // display: none;
-      stroke-dasharray: 450;
-      stroke-dashoffset: 450;
-
-      &.trigger {
-        @include animation(2s, 3s, 1, forwards, draw);
-      }
-    }
-  }
-  h2 {
+  .text-bg {
     position: absolute;
     bottom: 10%;
     // left: 150px;
@@ -68,6 +46,14 @@
     //   color: yellow;
     //   border: 1px yellow solid;
     // }
+    &.activated {
+      animation: textBg-hidden 4s linear forwards;
+    }
+    @keyframes textBg-hidden {
+      to {
+        opacity: 0;
+      }
+    }
   }
 
   &.turnColorBlack {
