@@ -363,7 +363,7 @@
 .awssld__controls__arrow-right:after {
   content: ' ';
   position: absolute;
-  right: calc(50% - (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) / 2);
+  /* right: calc(50% - (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) / 2); */
   height: 100%;
   border-radius: var(--organic-arrow-border-radius);
   width: var(--organic-arrow-thickness);
@@ -398,19 +398,19 @@
 }
 
 .awssld__controls__arrow-right--active:after {
-  -webkit-transform: rotate(90deg) translate3d(50%, 0, 0) !important;
-  transform: rotate(90deg) translate3d(50%, 0, 0) !important;
+  -webkit-transform: rotate(45deg) translate3d(50%, 0, 0) !important;
+  transform: rotate(45deg) translate3d(50%, 0, 0) !important;
 }
 
 .awssld__controls__arrow-right--active:before {
-  -webkit-transform: rotate(-90deg) translate3d(50%, 0, 0) !important;
-  transform: rotate(-90deg) translate3d(50%, 0, 0) !important;
+  -webkit-transform: rotate(-45deg) translate3d(50%, 0, 0) !important;
+  transform: rotate(-45deg) translate3d(50%, 0, 0) !important;
 }
 
 .awssld__controls__arrow-left:before,
 .awssld__controls__arrow-left:after {
   right: auto;
-  left: calc(50% - (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) / 2);
+  /* left: calc(50% - (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) / 2); */
 }
 
 .awssld__controls__arrow-left:before {
@@ -435,13 +435,13 @@
 }
 
 .awssld__controls__arrow-left--active:after {
-  -webkit-transform: rotate(-90deg) translate3d(-50%, 0, 0) !important;
-  transform: rotate(-90deg) translate3d(-50%, 0, 0) !important;
+  -webkit-transform: rotate(-45deg) translate3d(-50%, 0, 0) !important;
+  transform: rotate(-45deg) translate3d(-50%, 0, 0) !important;
 }
 
 .awssld__controls__arrow-left--active:before {
-  -webkit-transform: rotate(90deg) translate3d(-50%, 0, 0) !important;
-  transform: rotate(90deg) translate3d(-50%, 0, 0) !important;
+  -webkit-transform: rotate(45deg) translate3d(-50%, 0, 0) !important;
+  transform: rotate(45deg) translate3d(-50%, 0, 0) !important;
 }
 
 .awssld__controls button:hover .awssld__controls__arrow-left:before {
