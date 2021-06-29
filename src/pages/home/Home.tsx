@@ -19,11 +19,12 @@ function Home() {
 
       setPosX(newPos);
     } else {
-      const newPos = Math.min(80, posX + 2);
+      const newPos = Math.min(60, posX + 2);
 
       setPosX(newPos);
     }
-    if (posX < 50) setNextAnimation(true);
+    if (posX < -0) setNextAnimation(true);
+    // else if (posX)
     else setNextAnimation(false);
   };
 
@@ -44,6 +45,7 @@ function Home() {
   // const maxOffset = 4150;
   // const offsetValue = maxOffset - maxOffset * (offsetPosX / 80);
   // console.log(offsetValue);
+  console.log(window.innerWidth)
   return (
     <React.Fragment>
       <Header isBgShowing={isBgShowing} setBgShowing={setBgShowing} />
@@ -61,14 +63,15 @@ function Home() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="6194"
+            // width="6194"
             // width="100vw"
             // width="1920px"
-            height="1229"
+            // height="1229"
+            // style={{border:"1px red solid", display:"flex", justifyContent: "stretch"}}
             // viewBox="0 0 6194 1229"
             // viewBox={`0 0 3097 1229`}
             // viewBox="3097 0 3097 1229"
-            viewBox={`${nextAnimation ? "3097 0 3097 1229" : "0 0 3097 1229"} `}
+            viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`} `}
             // viewBox={`${nextAnimation ? "3097 0 3097 1229" : "0 0 3097 1229"} `}
             fill="none"
           >

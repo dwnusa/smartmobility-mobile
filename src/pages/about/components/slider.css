@@ -275,6 +275,8 @@
 
 .awssld--last .awssld__next {
   visibility: hidden;
+  /* width: 100%; */
+  /* border: 4px red solid; */
 }
 
 .awssld--fill-parent {
@@ -347,7 +349,7 @@
 
 .awssld__controls__arrow-left,
 .awssld__controls__arrow-right {
-  width: 100%;
+  /* width: 100%; */
   height: var(--organic-arrow-height);
   position: relative;
   display: block;
@@ -365,6 +367,8 @@
   position: absolute;
   /* right: calc(50% - (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) / 2); */
   height: 100%;
+  /* border: 3px red solid;
+  box-sizing:border-box; */
   border-radius: var(--organic-arrow-border-radius);
   width: var(--organic-arrow-thickness);
   background-color: var(--organic-arrow-color);
@@ -398,18 +402,19 @@
 }
 
 .awssld__controls__arrow-right--active:after {
-  -webkit-transform: rotate(45deg) translate3d(50%, 0, 0) !important;
-  transform: rotate(45deg) translate3d(50%, 0, 0) !important;
+  -webkit-transform: rotate(45deg) translate3d(0, 0, 0) !important;
+  transform: rotate(45deg) translate3d(0, 0, 0) !important;
 }
 
 .awssld__controls__arrow-right--active:before {
-  -webkit-transform: rotate(-45deg) translate3d(50%, 0, 0) !important;
-  transform: rotate(-45deg) translate3d(50%, 0, 0) !important;
+  -webkit-transform: rotate(-45deg) translate3d(0, 0, 0) !important;
+  transform: rotate(-45deg) translate3d(0, 0, 0) !important;
 }
 
 .awssld__controls__arrow-left:before,
 .awssld__controls__arrow-left:after {
   right: auto;
+  /* left:100%; */
   /* left: calc(50% - (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) / 2); */
 }
 
@@ -430,18 +435,18 @@
 }
 
 .awssld__controls__arrow-left--active {
-  -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .awssld__controls__arrow-left--active:after {
-  -webkit-transform: rotate(-45deg) translate3d(-50%, 0, 0) !important;
-  transform: rotate(-45deg) translate3d(-50%, 0, 0) !important;
+  -webkit-transform: rotate(-90deg) translate3d(0, 0, 0) !important;
+  transform: rotate(-90deg) translate3d(0, 0, 0) !important;
 }
 
 .awssld__controls__arrow-left--active:before {
-  -webkit-transform: rotate(45deg) translate3d(-50%, 0, 0) !important;
-  transform: rotate(45deg) translate3d(-50%, 0, 0) !important;
+  -webkit-transform: rotate(90deg) translate3d(0, 0, 0) !important;
+  transform: rotate(90deg) translate3d(0, 0, 0) !important;
 }
 
 .awssld__controls button:hover .awssld__controls__arrow-left:before {
