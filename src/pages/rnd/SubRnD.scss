@@ -98,12 +98,14 @@
         // border: 1px red solid;
         width: 80vw;
         align-self: flex-end;
+        right: -100vw;
       }
       &:nth-child(3) {
         position: relative;
         // border: 1px red solid;
         width: 80vw;
         align-self: flex-start;
+        left: -100vw;
       }
       &.active1 {
         animation: showup 2s linear forwards;
@@ -163,18 +165,21 @@
       &:nth-child(2) {
         position: relative;
         width: 70vw;
+        opacity: 0;
       }
       &:nth-child(3) {
         position: relative;
         // border: 1px red solid;
         width: 80vw;
         align-self: flex-end;
+        right: -100vw;
       }
       &:nth-child(4) {
         position: relative;
         // border: 1px red solid;
         width: 80vw;
         align-self: flex-start;
+        left: -100vw;
       }
       &.active1 {
         animation: showup 2s linear forwards;
@@ -239,12 +244,14 @@
         // border: 1px red solid;
         width: 80vw;
         align-self: flex-end;
+        right: -100vw;
       }
       &:nth-child(3) {
         position: relative;
         // border: 1px red solid;
         width: 80vw;
         align-self: flex-start;
+        left: -100vw;
       }
       &.active1 {
         animation: showup 2s linear forwards;
