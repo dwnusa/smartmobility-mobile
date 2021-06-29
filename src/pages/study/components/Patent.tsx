@@ -10,76 +10,93 @@ type patentContentType = {
   description: string;
   inventor: string;
 };
+
+// <
+//     Array < {
+//     id: number;
+//       { [title1: string]: string, [content1: string]: string, };
+//   { title2: string; content2: string; };
+//   { title3: string; content3: string; };
+//   { title4: string; content4: string; };
+//   { title5: string; content5: string; };
+//   { title6: string; content6: string; };
+// }>
+// >
 function Patent() {
   const [activeItem, setActiveItem] = useState<number>(1);
-  const [item, setItem] = React.useState<
-    Array<{
-      id: number;
-      name: string;
-      number: string;
-      date1: string;
-      date2: string;
-      description: string;
-      inventor: string;
-    }>
-  >([
-    {
-      id: 0,
-      name: "-",
-      number: "-",
-      date1: "-",
-      date2: "-",
-      description: "-",
-      inventor: "-",
-    },
-    {
-      id: 1,
-      name: "제 10-1473103호",
-      number: "제 10-2013-0070084호",
-      date1: "2013-06-19",
-      date2: "2014-12-09",
-      description: "개별통행자기반 교통수요예측시스템",
-      inventor: "이승재, 신흥권, 김주영, 유연승",
-    },
-    {
-      id: 2,
-      name: "제 10-1885031호",
-      number: "제 10-2017-0064134호",
-      date1: "2017-05-24",
-      date2: "2018-07-27",
-      description:
-        "교통 네트워크에 기반하여 질병 위험 지역을 감시하고 정보를 제공하는 장치 및 방법",
-      inventor: "이승재, 김주영, 김승현",
-    },
-    {
-      id: 3,
-      name: "제 10-1965052호",
-      number: "제 10-2017-0046699호",
-      date1: "2017-04-11",
-      date2: "2019-03-27",
-      description:
-        "V2X 기반 동적 통행 배정을 위한 장치, 이를 위한 방법 및 이 방법을 수행하는 프로그램이 기록된 컴퓨터 판독 가능한 기록매체",
-      inventor: "이승재, 김주영, 박상웅",
-    },
-    {
-      id: 4,
-      name: "대중교통 전염병 안전경로 탐색 시스템",
-      number: "컴퓨터프로그램저작물>응용프로그램>과학기술",
-      date1: "서울시립대학교 산학협력단",
-      date2: "264171-0006273",
-      description: "2018-03-01",
-      inventor: "2018-09-20",
-    },
-    {
-      id: 5,
-      name: "교통약자 맞춤경로 안내 시스템",
-      number: "컴퓨터프로그램저작물>응용프로그램>과학기술",
-      date1: "서울시립대학교 산학협력단",
-      date2: "264171-0006273",
-      description: "2018-05-01",
-      inventor: "2018-09-20",
-    },
-  ]);
+  const [item, setItem] =
+    React.useState<Array<{
+      id: number,
+      title: string,
+      title1: string, content1: string,
+      title2: string, content2: string,
+      title3: string, content3: string,
+      title4: string, content4: string
+      title5: string, content5: string,
+      title6: string, content6: string
+    }>>
+      ([
+        {
+          id: 0,
+          title: "특허권",
+          title1: "특허명", content1: "-",
+          title2: "특허번호", content2: "-",
+          title3: "출원일", content3: "-",
+          title4: "등록일", content4: "-",
+          title5: "발명명칭", content5: "-",
+          title6: "발명자", content6: "-",
+        },
+        {
+          id: 1,
+          title: "특허권",
+          title1: "특허명", content1: "제 10-1473103호",
+          title2: "특허번호", content2: "제 10-2013-0070084호",
+          title3: "출원일", content3: "2013-06-19",
+          title4: "등록일", content4: "2014-12-09",
+          title5: "발명명칭", content5: "개별통행자기반 교통수요예측시스템",
+          title6: "발명자", content6: "이승재, 신흥권, 김주영, 유연승",
+        },
+        {
+          id: 2,
+          title: "특허권",
+          title1: "특허명", content1: "제 10-1885031호",
+          title2: "특허번호", content2: "제 10-2017-0064134호",
+          title3: "출원일", content3: "2017-05-24",
+          title4: "등록일", content4: "2018-07-27",
+          title5: "발명명칭", content5: "교통 네트워크에 기반하여 질병 위험 지역을 감시하고 정보를 제공하는 장치 및 방법",
+          title6: "발명자", content6: "이승재, 김주영, 김승현",
+        },
+        {
+          id: 3,
+          title: "특허권",
+          title1: "특허명", content1: "제 10-1965052호",
+          title2: "특허번호", content2: "제 10-2017-0046699호",
+          title3: "출원일", content3: "2017-04-11",
+          title4: "등록일", content4: "2019-03-27",
+          title5: "발명명칭", content5: "V2X 기반 동적 통행 배정을 위한 장치, 이를 위한 방법 및 이 방법을 수행하는 프로그램이 기록된 컴퓨터 판독 가능한 기록매체",
+          title6: "발명자", content6: "이승재, 김주영, 박상웅",
+        },
+        {
+          id: 4,
+          title: "저작권",
+          title1: "저작물 제호", content1: "대중교통 전염병 안전경로 탐색 시스템",
+          title2: "저작물 종류", content2: "컴퓨터프로그램저작물>응용프로그램>과학기술",
+          title3: "법인명", content3: "서울시립대학교 산학협력단",
+          title4: "법인등록번호", content4: "264171-0006273",
+          title5: "창작연월일", content5: "2018-03-01",
+          title6: "등록연월일", content6: "2018-09-20",
+        },
+        {
+          id: 5,
+          title: "저작권",
+          title1: "저작물 제호", content1: "교통약자 맞춤경로 안내 시스템",
+          title2: "저작물 종류", content2: "컴퓨터프로그램저작물>응용프로그램>과학기술",
+          title3: "법인명", content3: "서울시립대학교 산학협력단",
+          title4: "법인등록번호", content4: "264171-0006273",
+          title5: "창작연월일", content5: "2018-05-01",
+          title6: "등록연월일", content6: "2018-09-20",
+        },
+      ]);
   let imageItem = [
     cards.patent01,
     cards.patent01,
@@ -88,7 +105,7 @@ function Patent() {
     cards.patent04,
     cards.patent05,
   ];
-  console.log(item[1].name);
+  // console.log(item[1].name);
   return (
     <div className="patent">
       <div className="patent-flex-top">
@@ -101,25 +118,25 @@ function Patent() {
         <div className="patent-top-right">
           <div className="content-text">
             <div className="content-title">
-              <div>특허권</div>
+              <div>{item[activeItem].title}</div>
             </div>
-            <div className="content-name">특허명</div>
-            <div className="content-name-right">{item[activeItem].name}</div>
-            <div className="content-number">출원번호</div>
+            <div className="content-name">{item[activeItem].title1}</div>
+            <div className="content-name-right">{item[activeItem].content1}</div>
+            <div className="content-number">{item[activeItem].title2}</div>
             <div className="content-number-right">
-              {item[activeItem].number}
+              {item[activeItem].content2}
             </div>
-            <div className="content-date1">출원일</div>
-            <div className="content-date1-right">{item[activeItem].date1}</div>
-            <div className="content-date2">등록일</div>
-            <div className="content-date2-right">{item[activeItem].date2}</div>
-            <div className="content-description">발명명칭</div>
+            <div className="content-date1">{item[activeItem].title3}</div>
+            <div className="content-date1-right">{item[activeItem].content3}</div>
+            <div className="content-date2">{item[activeItem].title4}</div>
+            <div className="content-date2-right">{item[activeItem].content4}</div>
+            <div className="content-description">{item[activeItem].title5}</div>
             <div className="content-description-right">
-              {item[activeItem].description}
+              {item[activeItem].content5}
             </div>
-            <div className="content-inventor">발명자</div>
+            <div className="content-inventor">{item[activeItem].title6}</div>
             <div className="content-inventor-right">
-              {item[activeItem].inventor}
+              {item[activeItem].content6}
             </div>
           </div>
         </div>
