@@ -440,13 +440,13 @@
 }
 
 .awssld__controls__arrow-left--active:after {
-  -webkit-transform: rotate(-90deg) translate3d(0, 0, 0) !important;
-  transform: rotate(-90deg) translate3d(0, 0, 0) !important;
+  -webkit-transform: rotate(-45deg) translate3d(0, 0, 0) !important;
+  transform: rotate(-45deg) translate3d(0, 0, 0) !important;
 }
 
 .awssld__controls__arrow-left--active:before {
-  -webkit-transform: rotate(90deg) translate3d(0, 0, 0) !important;
-  transform: rotate(90deg) translate3d(0, 0, 0) !important;
+  -webkit-transform: rotate(45deg) translate3d(0, 0, 0) !important;
+  transform: rotate(45deg) translate3d(0, 0, 0) !important;
 }
 
 .awssld__controls button:hover .awssld__controls__arrow-left:before {

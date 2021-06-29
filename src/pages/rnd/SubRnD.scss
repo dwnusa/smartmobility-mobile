@@ -9,8 +9,8 @@
   overflow-x: hidden;
   // display: block;
   .title-area {
-    background: #dbdbdb;
-    height: 30vh;
+    background: rgb(245, 245, 245);
+    height: 45vh;
     // border: 1px blue solid;
     display: flex;
     justify-content: center;
@@ -108,13 +108,13 @@
         left: -100vw;
       }
       &.active1 {
-        animation: showup 2s linear forwards;
+        animation: showup 1s linear forwards;
       }
       &.active2 {
-        animation: slidefromR 2s linear forwards;
+        animation: slidefromR 1s linear forwards;
       }
       &.active3 {
-        animation: slidefromL 2s linear forwards;
+        animation: slidefromL 1s linear forwards;
       }
       @keyframes showup {
         to {
@@ -182,16 +182,16 @@
         left: -100vw;
       }
       &.active1 {
-        animation: showup 2s linear forwards;
+        animation: showup 1s linear forwards;
       }
       &.active2 {
-        animation: showup 2s linear forwards;
+        animation: showup 1s linear forwards;
       }
       &.active3 {
-        animation: slidefromR 2s linear forwards;
+        animation: slidefromR 1s linear forwards;
       }
       &.active4 {
-        animation: slidefromL 2s linear forwards;
+        animation: slidefromL 1s linear forwards;
       }
       @keyframes showup {
         to {
@@ -254,13 +254,13 @@
         left: -100vw;
       }
       &.active1 {
-        animation: showup 2s linear forwards;
+        animation: showup 1s linear forwards;
       }
       &.active2 {
-        animation: slidefromR 2s linear forwards;
+        animation: slidefromR 1s linear forwards;
       }
       &.active3 {
-        animation: slidefromL 2s linear forwards;
+        animation: slidefromL 1s linear forwards;
       }
       @keyframes showup {
         to {
