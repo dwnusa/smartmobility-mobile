@@ -1,9 +1,12 @@
-
 export { default as aboutGreeting1 } from "media/about-greeting-1.png";
 export { default as aboutGreeting2 } from "media/about-greeting-2.png";
 export { default as aboutGreeting3 } from "media/about-greeting-3.png";
 export { default as aboutGreeting4 } from "media/about-greeting-4.png";
 export { default as aboutGreeting5 } from "media/about-greeting-5.png";
+export { default as aboutGreeting6 } from "media/about-greeting-6.png";
+export { default as aboutGreeting7 } from "media/about-greeting-7.png";
+export { default as aboutGreeting8 } from "media/about-greeting-8.png";
+export { default as aboutGreeting9 } from "media/about-greeting-9.png";
 
 export { default as rnd01_1 } from "media/RND/rnd01_1.png";
 export { default as rnd01_2 } from "media/RND/rnd01_2.png";
@@ -95,7 +98,6 @@ export { default as patent03 } from "media/PATENT/patent03.png";
 export { default as patent04 } from "media/PATENT/patent04.png";
 export { default as patent05 } from "media/PATENT/patent05.png";
 export { default as iconCheck } from "media/PATENT/icon-check.png";
-
 
 export { default as patent01_1 } from "media/PATENT/patent01-1.png";
 export { default as patent02_1 } from "media/PATENT/patent02-1.png";

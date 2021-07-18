@@ -32,7 +32,7 @@
       @include animation(0s, 3s, 1, forwards, fadebgwhite);
     }
   }
-  &.subrnd{
+  &.subrnd {
     background: rgba(245, 245, 245, 0.2);
     // border: 1px red solid;
     // &.turnBgWhite {
@@ -180,7 +180,7 @@
           }
         }
 
-        &:hover{
+        &:hover {
           text-decoration: underline;
         }
 

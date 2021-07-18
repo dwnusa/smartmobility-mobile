@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Greeting.scss";
 // import aboutGreeting1 from "media/about-greeting-1.png";
 import * as cards from "media";
-import AwesomeSlider from 'react-awesome-slider';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
-import './slider.css';
+import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
+import "./slider.css";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 // const slider = (
@@ -20,15 +20,19 @@ function Greeting() {
   const [counter, setCounter] = useState<number>(0);
   const imgHandler = () => {
     const newValue = (counter + 1) % 5;
-    setCounter(newValue)
-  }
+    setCounter(newValue);
+  };
   const imgArray = [
     cards.aboutGreeting1,
     cards.aboutGreeting2,
     cards.aboutGreeting3,
     cards.aboutGreeting4,
     cards.aboutGreeting5,
-  ]
+    cards.aboutGreeting6,
+    cards.aboutGreeting7,
+    cards.aboutGreeting8,
+    cards.aboutGreeting9,
+  ];
   return (
     <div className="greeting">
       {/* <div className="greeting" ref={divEl}> */}
@@ -40,11 +44,9 @@ function Greeting() {
             cancelOnInteraction={false} // should stop playing on user interaction
             interval={3000}
           >
-            <div data-src={cards.aboutGreeting1} />
-            <div data-src={cards.aboutGreeting2} />
-            <div data-src={cards.aboutGreeting3} />
-            <div data-src={cards.aboutGreeting4} />
-            <div data-src={cards.aboutGreeting5} />
+            {imgArray.map((v, i) => {
+              return <div data-src={v} />;
+            })}
           </AutoplaySlider>
         </div>
         {/* <img onClick={imgHandler} src={imgArray[counter]} width="60%" /> */}

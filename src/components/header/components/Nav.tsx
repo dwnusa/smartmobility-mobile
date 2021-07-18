@@ -32,9 +32,7 @@ function Nav({ isBgShowing }: BackgroundVideoProps) {
       <div className="service2">
         {/* <NavLink exact to="/service/2">
         </NavLink> */}
-        <div className="disabled">
-          BOGOTA
-        </div>
+        <div className="disabled">BOGOTA</div>
       </div>
       <div className="study1">
         <NavLink exact to="/study/1">
@@ -75,56 +73,8 @@ function Nav({ isBgShowing }: BackgroundVideoProps) {
       <div className="faxInfo">FAX : 050-7534-5819</div>
       <div className="infoDivider" />
       <div className="copyright">
-        <span>
-          COPYRIGHT © 2020 SMARTMOBILITY. All Rights Reserved.
-        </span>
+        <span>COPYRIGHT © 2020 SMARTMOBILITY. All Rights Reserved.</span>
       </div>
-      {/* <div className="nav-about">
-        <div>
-          <NavLink exact to="/about/1">
-            소개
-          </NavLink>
-        </div>
-        <div>
-          <NavLink exact to="/about/2">
-            비전
-          </NavLink>
-        </div>
-        <div>
-          <NavLink exact to="/about/3">
-            연혁
-          </NavLink>
-        </div>
-      </div>
-      <div className="nav-service">
-        <div>
-          <NavLink exact to="/service/1">
-            HANDYCAB
-          </NavLink>
-        </div>
-        <div>
-          <NavLink exact to="/service/2">
-            Bogota
-          </NavLink>
-        </div>
-      </div>
-      <div className="nav-study">
-        <div>
-          <NavLink exact to="/study/1">
-            R&D
-          </NavLink>
-        </div>
-        <div>
-          <NavLink exact to="/study/2">
-            용역
-          </NavLink>
-        </div>
-        <div>
-          <NavLink exact to="/study/3">
-            저작권/특허
-          </NavLink>
-        </div>
-      </div> */}
     </div>
   );
 }

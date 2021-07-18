@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Organization.scss";
-import aboutOrganization1 from "media/about-organization-1.png";
+import aboutOrganization from "media/about-organization-2.png";
 
 function Organization() {
   return (
     <div className="organization">
       <div className="contents">
-        <img src={aboutOrganization1} width="60%" />
+        <img src={aboutOrganization} />
       </div>
     </div>
   );

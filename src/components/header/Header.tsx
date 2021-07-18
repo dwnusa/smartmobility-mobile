@@ -57,9 +57,20 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
             exact
             to="/study"
           >
-            Study
+            Project
           </NavLink>
         </li>
+        {/* <li>
+          <NavLink
+            className={`${location == "/" && "main"} ${
+              !isBgShowing && "turnColorBlack"
+            }`}
+            exact
+            to="/contact"
+          >
+            Contact
+          </NavLink>
+        </li> */}
         <div className="modal-background"></div>
         <div
           className={`modal ${location == "/" && "main"} ${
@@ -67,6 +78,7 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
           }`}
         >
           <Nav isBgShowing={isBgShowing} />
+          {/* <Nav2 isBgShowing={isBgShowing} /> */}
         </div>
       </ul>
     </div>

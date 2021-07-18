@@ -72,23 +72,23 @@ function Study({ match, history }: { match: any; history: any }) {
               className={`${currentPage === 1 && "enabled"}`}
               onClick={() => history.push("/study/1")}
             >
-              R&D
+              {"R&D"}
             </li>
             <li
               className={`${currentPage === 2 && "enabled"}`}
               onClick={() => history.push("/study/2")}
             >
-              용역
+              {"Engineering"}
             </li>
             <li
               className={`${currentPage === 3 && "enabled"}`}
               onClick={() => history.push("/study/3")}
             >
-              특허/저작권
+              {"Patent · Copyright"}
             </li>
           </ul>
         </div>
-        {currentPage === 1 && <RnD history={history}/>}
+        {currentPage === 1 && <RnD history={history} />}
         {currentPage === 2 && <Outsourcing />}
         {currentPage === 3 && <Patent />}
       </div>
