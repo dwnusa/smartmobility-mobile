@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./SubRnD.scss";
-import { Header } from "components";
+import { Header2 } from "components";
 import * as cards from "media";
 // import { rnd01_1, rnd01_2, rnd02_1, rnd02_2, rnd03_1, rnd03_2 } from "media";
 
@@ -35,7 +35,7 @@ function SubRnD2({ match, history }: { match: any; history: any }) {
   };
   return (
     <React.Fragment>
-      <Header />
+      <Header2 />
       <div className="subrnd" onWheel={(e) => wheelHandler(e)} ref={divEl}>
         <div className="title-area">
           <div className="title-grid">

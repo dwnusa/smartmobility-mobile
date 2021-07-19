@@ -2,9 +2,9 @@
 @import "styles/_mixins";
 .subrnd {
   @include subComponentsStyle();
+  // border: 1px red solid;
   padding-top: 0px;
   height: 100vh;
-  // border: 5px red solid;
   box-sizing: border-box;
   overflow-x: hidden;
   // display: block;

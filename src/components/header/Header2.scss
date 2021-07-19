@@ -2,7 +2,8 @@
 @import "styles/_mixins";
 
 .header2 {
-  height: 3vw;
+  // border: 1px red solid;
+  height: 4vw;
   font-family: "Noto Sans KR";
   font-weight: 300;
   font-size: 1.2rem;
@@ -14,13 +15,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.5);
+  // background: rgba(255, 255, 255, 0.5);
 
   .logo-text{
     color:white;
     position: absolute;
-    top: 1.5vw;
+    top: 2vw;
     left: 3vw;
+    height: 5vw;
     z-index: -1;
   }
 
@@ -29,88 +31,6 @@
     &.turnBgWhite {
       @include animation(0s, 3s, 1, forwards, fadebgwhite);
     }
-
-    .header2-menu{
-      color: white;
-      position: absolute;
-      top: 3vw;
-      z-index: 3;
-      
-      height: 3vw;
-  
-      background: #0A347F;
-      border-radius: 300px;
-      display: flex;
-      justify-content: space-around;
-      align-items:center;
-  
-      cursor: pointer;
-      span{
-        text-underline-offset: 7px;
-        &:hover{
-          text-decoration: underline;
-        }
-      }
-      &.about2{
-        width: 20vw;
-        left: 65vw;
-      }
-      &.service2{
-        width: 15vw;
-        left: 68vw;
-      }
-      &.project2{
-        width: 25vw;
-        left: 68vw;
-      }
-      &.contact2{
-        width: 23vw;
-        left: 72vw;
-      }
-      overflow: hidden;
-      width: 207px;
-    }
-  }
-
-  .header2-menu{
-    color: white;
-    position: absolute;
-    top: 3vw;
-    z-index: 3;
-    
-    height: 3vw;
-
-    background: #0A347F;
-    border-radius: 300px;
-    display: flex;
-    justify-content: space-around;
-    align-items:center;
-
-    cursor: pointer;
-    span{
-      text-underline-offset: 7px;
-      &:hover{
-        text-decoration: underline;
-      }
-    }
-    &.about2{
-      width: 20vw;
-      left: 65vw;
-    }
-    &.service2{
-      width: 15vw;
-      left: 68vw;
-    }
-    &.project2{
-      width: 25vw;
-      left: 68vw;
-    }
-    &.contact2{
-      width: 23vw;
-      left: 72vw;
-    }
-    overflow: hidden;
-    width: 207px;
   }
 
   a {
@@ -121,7 +41,7 @@
     img {
       grid-column: 1/2;
       grid-row: 1/2;
-      height: 40px;
+      height: 4vh;
       margin-left: 5vw;
 
       &:nth-child(1) {
@@ -143,21 +63,23 @@
   ul {
     // border: 1px yellow solid;
     // height: 300%;
-    grid-column: 2/3;
-    justify-self: end;
+    // grid-column: 2/3;
+    // justify-self: end;
 
     margin-right: 50px;
     display: grid;
     column-gap: 10px;
     grid-template-columns: 1fr repeat(4, 3fr) 1fr;
     grid-template-rows: 1fr;
-    width: 700px;
+    width: 40vw;
 
     font-family: "Montserrat";
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    // font-size: 20px;
+    font-size: 1.5vw;
     text-align: center;
+    position: relative;
 
     li {
 
@@ -215,6 +137,56 @@
           text-decoration: underline;
         }
       }
+    }
+
+    .header2-menu{
+      // border: 1px red solid;
+      font-size: 1.3vw;
+      color: white;
+      position: absolute;
+      top: 5vh;
+      z-index: 3;
+      
+      height: 4vw;
+  
+      background: #0A347F;
+      border-radius: 300px;
+      display: flex;
+      justify-content: space-around;
+      align-items:center;
+  
+      cursor: pointer;
+      a{
+        color: white;
+        text-underline-offset: 13px;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      span{
+        color: white;
+        text-underline-offset: 7px;
+        text-decoration: none;
+      }
+      &.about2{
+        width: 30vw;
+        left: 0%;
+      }
+      &.service2{
+        width: 25vw;
+        left: 5%;
+      }
+      &.project2{
+        width: 38vw;
+        right: 5%;
+      }
+      &.contact2{
+        width: 33vw;
+        right: 0%;
+      }
+      overflow: hidden;
+      width: 207px;
     }
   }
 }

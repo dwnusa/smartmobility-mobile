@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Organization.scss";
-import aboutOrganization from "media/about-organization-2.png";
+import aboutOrganization from "media/about-organization-3.png";
 
 function Organization() {
   return (

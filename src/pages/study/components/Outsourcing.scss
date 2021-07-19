@@ -7,13 +7,15 @@
 
   .service-filter {
     // border: 1px red solid;
-    height: 50px;
+    height: 5vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     justify-items: end;
+    align-items: center;
 
     ul {
+      // border: 1px red solid;
       width: 50%;
       grid-column: 1/2;
       grid-row: 1/-1;
@@ -26,7 +28,7 @@
         margin: 0px 10px 0px 0px;
         font-family: "Montserrat";
         font-weight: 900;
-        font-size: 1rem;
+        font-size: 1.2vw;
         // line-height: 29px;
         color: #121212;
         opacity: 0.4;
