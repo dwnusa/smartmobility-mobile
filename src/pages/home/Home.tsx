@@ -16,36 +16,15 @@ function Home() {
     setBgShowing(false);
     if (e.deltaY >= 0) {
       const newPos = Math.max(-60, posX - 2);
-
       setPosX(newPos);
     } else {
       const newPos = Math.min(60, posX + 2);
-
       setPosX(newPos);
     }
     if (posX < -0) setNextAnimation(true);
-    // else if (posX)
     else setNextAnimation(false);
   };
-
-  // useEffect(()=>{
-  //   if (time >= 50) return undefined;
-
-  //   const tick = setTimeout(() => {
-  //     if (!isBgShowing){
-  //       setTime(time + 0.1);
-  //       // setPosX(posX-time)
-  //     }
-  //   }, 10);
-  //   return () => clearTimeout(tick);
-  // },[time, isBgShowing])
-  // console.log(posX);
-  // const offsetPosX = Math.min(100, Math.max(0, posX));
-  // // console.log(offsetPosX);
-  // const maxOffset = 4150;
-  // const offsetValue = maxOffset - maxOffset * (offsetPosX / 80);
-  // console.log(offsetValue);
-  console.log(window.innerWidth)
+  console.log(window.innerWidth);
   return (
     <React.Fragment>
       <Header2 isBgShowing={isBgShowing} setBgShowing={setBgShowing} />
@@ -55,23 +34,16 @@ function Home() {
         onClick={() => setBgShowing(false)}
         onWheel={(e) => handleWheel(e)}
       >
-        {/* <div className="svgtest" style={{ left: `${posX - 50}vw` }}> */}
         <div
-          className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
-            }`}
+          className={`svgtest ${
+            !isBgShowing && (nextAnimation ? "activated2" : "activated1")
+          }`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            // width="6194"
-            // width="100vw"
-            // width="1920px"
-            // height="1229"
-            // style={{border:"1px red solid", display:"flex", justifyContent: "stretch"}}
-            // viewBox="0 0 6194 1229"
-            // viewBox={`0 0 3097 1229`}
-            // viewBox="3097 0 3097 1229"
-            viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`} `}
-            // viewBox={`${nextAnimation ? "3097 0 3097 1229" : "0 0 3097 1229"} `}
+            viewBox={`${
+              nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+            } `}
             fill="none"
           >
             <path
@@ -79,7 +51,6 @@ function Home() {
               d="M21.6601 679.12C57.0118 822.071 285.343 987.1 568.659 971.62C894.659 953.808 1044.31 617.62 997.659 510.12C972.272 451.62 904.617 484.521 932.159 548.62C955.362 602.62 1074.16 775.12 1433.66 717.12C1721.22 670.727 2100.79 263.77 2334.79 217.775C2402.62 204.442 2647.85 141.12 2800.66 503.62C2853.49 628.954 2947.66 1022.62 3189.16 1022.62C3444.66 1022.62 3584.67 746.611 3659.66 671.62C3686.66 644.62 3834.66 463.62 4070.16 699.12C4265.73 894.694 4288.16 978.62 4580.16 978.62C4876.66 978.62 5124.16 490.62 4984.16 490.62C4884.84 490.62 5070.66 871.62 5530.66 715.62C5990.66 559.62 5804.16 386.12 6164.66 358.12"
               stroke="#0A347F"
               stroke-width="4"
-            // stroke-dashoffset={offsetValue}
             />
           </svg>
         </div>
