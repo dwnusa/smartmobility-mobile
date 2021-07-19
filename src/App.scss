@@ -96,6 +96,13 @@
     margin-top: 10vw;
   }
 }
+@include keyframe(menubgwhite) {
+  100% {
+    background: #0A347F;
+  }
+
+  0% {}
+}
 
 @include keyframe(fadebgwhite) {
   100% {

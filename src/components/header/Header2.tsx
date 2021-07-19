@@ -4,70 +4,89 @@ import "./Header2.scss";
 import { Nav2 } from "./";
 import logoBlack from "media/logo-black.png";
 import logoWhite from "media/logo-white.png";
+import logoText from "media/logo-text.png";
 
 type BackgroundVideoProps = {
   isBgShowing: boolean;
   setBgShowing: (value: boolean | ((prevVar: boolean) => boolean)) => void;
 };
 function Header2({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
+  const [isLogoHover, setLogoHover] = useState<boolean>(false);
+  const [isMenuHover, setMenuHover] = useState<number>(0);
   const location = useLocation().pathname;
+  console.log(isMenuHover)
   return (
-    <div
-      className={`header ${location == "/" && "main"} ${
-        location.split("/")[1] == "rnd" && "subrnd"
-      } ${!isBgShowing && "turnBgWhite"}`}
-    >
+    <div className={`header2 ${location == "/" && "main"} ${!isBgShowing && "turnBgWhite"}`} onMouseLeave={()=>setMenuHover(0)}>
       <Link to="/">
-        <img className={`${!isBgShowing && "turnBlue"}`} src={logoWhite} />
-        <img
-          className={`${!isBgShowing && "turnBlue"}`}
-          src={logoBlack}
-          onClick={() => setBgShowing(true)}
-        />
+        <img className={`${!isBgShowing && "turnBlue"}`} src={logoWhite} onMouseEnter={()=>setLogoHover(true)} onMouseLeave={()=>setLogoHover(false)}/> 
+        <img className={`${!isBgShowing && "turnBlue"}`} src={logoBlack} onClick={() => setBgShowing(true)} onMouseEnter={()=>setLogoHover(true)} onMouseLeave={()=>setLogoHover(false)}/>
       </Link>
+      {isLogoHover && <img className={`logo-text`} src={logoText}/>}
       <ul>
-        <li>
-          <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
-            exact
-            to="/about"
-          >
-            About!
+        <li onMouseEnter={()=>setMenuHover(1)}>
+          <NavLink className={`${location == "/" && "main"} ${ !isBgShowing && "turnColorBlack" }`} exact to="/about" >
+            About
           </NavLink>
+          {/* {isMenuHover === 1 && <div className={`header2-menu ${isMenuHover === 1 && "about"}`} onMouseLeave={()=>setMenuHover(0)}>
+            <span>{`인사말`}</span> 
+            <span>{`비전`}</span> 
+            <span>{`연혁`}</span> 
+            <span>{`조직도`}</span>
+            </div>} */}
         </li>
-        <li>
-          <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
-            exact
-            to="/service"
-          >
+        <li onMouseEnter={()=>setMenuHover(2)}>
+          <NavLink className={`${location == "/" && "main"} ${ !isBgShowing && "turnColorBlack" }`} exact to="/service" >
             Service
           </NavLink>
+          
+          {/* {isMenuHover === 2 && <div className={`header2-menu ${isMenuHover === 2 && "service"}`} onMouseLeave={()=>setMenuHover(0)}>
+            <span>{`HANDYCAP`}</span> 
+            <span>{`BOGOTA`}</span> 
+            </div>} */}
         </li>
-        <li>
-          <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
-            exact
-            to="/study"
-          >
+        <li onMouseEnter={()=>setMenuHover(3)}>
+          <NavLink className={`${location == "/" && "main"} ${ !isBgShowing && "turnColorBlack" }`} exact to="/study" >
             Project
           </NavLink>
+          
+          {/* {isMenuHover === 3 && <div className={`header2-menu ${isMenuHover === 3 && "project"}`} onMouseLeave={()=>setMenuHover(0)}>
+            <span>{`R&D`}</span> 
+            <span>{`Engineering`}</span> 
+            <span>{`Patent · Copyright`}</span> 
+            </div>} */}
         </li>
-        <div className="modal-background"></div>
-        <div
-          className={`modal ${location == "/" && "main"} ${
-            !isBgShowing && "turnBgWhite"
-          }`}
-        >
-          <Nav2 isBgShowing={isBgShowing} />
-        </div>
+        <li onMouseEnter={()=>setMenuHover(4)}>
+          <NavLink className={`${location == "/" && "main"} ${ !isBgShowing && "turnColorBlack" }`} exact to="/contact" >
+            Contact
+          </NavLink>
+          
+          {/* {isMenuHover === 4 && <div className={`header2-menu ${isMenuHover === 4 && "contact"}`} onMouseLeave={()=>setMenuHover(0)}>
+            <span>{`공지 · 채용`}</span> 
+            <span>{`오시는길`}</span> 
+            <span>{`문의하기`}</span> 
+            </div>} */}
+        </li>
       </ul>
+      {isMenuHover === 1 && <div className={`header2-menu ${isMenuHover === 1 && "about2"}`}>
+        <span>{`인사말`}</span> 
+        <span>{`비전`}</span> 
+        <span>{`연혁`}</span> 
+        <span>{`조직도`}</span>
+        </div>}
+      {isMenuHover === 2 && <div className={`header2-menu ${isMenuHover === 2 && "service2"}`}>
+        <span>{`HANDYCAP`}</span> 
+        <span>{`BOGOTA`}</span> 
+        </div>}
+      {isMenuHover === 3 && <div className={`header2-menu ${isMenuHover === 3 && "project2"}`}>
+        <span>{`R&D`}</span> 
+        <span>{`Engineering`}</span> 
+        <span>{`Patent · Copyright`}</span> 
+        </div>}
+      {isMenuHover === 4 && <div className={`header2-menu ${isMenuHover === 4 && "contact2"}`}>
+        <span>{`공지 · 채용`}</span> 
+        <span>{`오시는길`}</span> 
+        <span>{`문의하기`}</span> 
+        </div>}
     </div>
   );
 }

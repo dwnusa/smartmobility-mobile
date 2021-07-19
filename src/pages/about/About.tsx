@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./About.scss";
-import { Header } from "components";
+import { Header2 } from "components";
 import { Greeting, Vision, History, Organization } from "./";
 // import smoothscroll from 'smoothscroll-polyfill';
 
@@ -79,7 +79,7 @@ function About({ match, history }: { match: any; history: any }) {
   // };
   return (
     <React.Fragment>
-      <Header />
+      <Header2 />
       <div className="about">
         <div className="menu">
           <ul>

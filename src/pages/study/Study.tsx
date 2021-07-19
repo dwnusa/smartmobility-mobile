@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Study.scss";
-import { Header } from "components";
+import { Header2 } from "components";
 import { RnD, Outsourcing, Patent } from "./";
 function Study({ match, history }: { match: any; history: any }) {
   const targetPage = Number(match.params.page);
@@ -64,7 +64,7 @@ function Study({ match, history }: { match: any; history: any }) {
   // };
   return (
     <React.Fragment>
-      <Header />
+      <Header2 />
       <div className="study">
         <div className="menu">
           <ul>

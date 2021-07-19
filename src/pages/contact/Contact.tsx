@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Contact.scss";
-import { Header } from "components";
+import { Header2 } from "components";
 import { Map, News, Board } from "./";
 import { Redirect, useLocation } from "react-router-dom";
 // type contactsType = { match: Number };
@@ -76,7 +76,7 @@ function Contact({ match, history }: { match: any; history: any }) {
   // console.log(currentPage, targetPage);
   return (
     <React.Fragment>
-      <Header />
+      <Header2 />
       <div className="contact">
         <div className="menu">
           <ul>

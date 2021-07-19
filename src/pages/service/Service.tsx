@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Service.scss";
-import { Header } from "components";
+import { Header2 } from "components";
 import { HANDYCAP, Bogota } from "./";
 import * as cards from "media";
 function Service({ match, history }: { match: any; history: any }) {
@@ -83,7 +83,7 @@ function Service({ match, history }: { match: any; history: any }) {
   // console.log(currentSlide);
   return (
     <div className="service-wrapper">
-      <Header />
+      <Header2 />
       {currentSlide === 1 && <div className={`bgService bgstyle1`}
       style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
       {currentSlide === 2 && <div className={`bgService bgstyle2`}
