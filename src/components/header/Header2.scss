@@ -71,13 +71,13 @@
     column-gap: 10px;
     grid-template-columns: 1fr repeat(4, 3fr) 1fr;
     grid-template-rows: 1fr;
-    width: 40vw;
+    width: 30vw;
 
     font-family: "Montserrat";
     font-style: normal;
     font-weight: normal;
     // font-size: 20px;
-    font-size: 1.5vw;
+    font-size: 1vw;
     text-align: center;
     position: relative;
 
@@ -141,13 +141,13 @@
 
     .header2-menu{
       // border: 1px red solid;
-      font-size: 1.3vw;
+      font-size: 1vw;
       color: white;
       position: absolute;
       top: 5vh;
       z-index: 3;
       
-      height: 4vw;
+      height: 3vw;
   
       background: #0A347F;
       border-radius: 300px;
@@ -170,19 +170,19 @@
         text-decoration: none;
       }
       &.about2{
-        width: 30vw;
+        width: 20vw;
         left: 0%;
       }
       &.service2{
-        width: 25vw;
+        width: 15vw;
         left: 5%;
       }
       &.project2{
-        width: 38vw;
+        width: 28vw;
         right: 5%;
       }
       &.contact2{
-        width: 33vw;
+        width: 23vw;
         right: 0%;
       }
       overflow: hidden;
