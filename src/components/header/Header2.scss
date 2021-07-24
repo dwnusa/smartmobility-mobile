@@ -2,7 +2,6 @@
 @import "styles/_mixins";
 
 .header2 {
-  // border: 1px red solid;
   height: 4vw;
   font-family: "Noto Sans KR";
   font-weight: 300;
@@ -15,24 +14,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // background: rgba(255, 255, 255, 0.5);
 
-  .logo-text{
+  .logo-text {
     border: 1px rgb(80, 77, 77) solid;
     border-radius: 4px;
     background: white;
     line-height: 1.5vw;
     font-weight: 600;
     width: 7vw;
-    color:rgb(80, 77, 77);
+    color: rgb(80, 77, 77);
     position: absolute;
-    top: 4vw;
+    top: 3vw;
     left: 9vw;
     font-size: 0.6vw;
     z-index: -1;
     text-align: center;
-    // box-shadow: 0px 0px 0.6vw rgb(146, 146, 146);
     font-family: "Montserrat";
+    animation: showup 1s linear forwards;
+  }
+  @keyframes showup {
+    to {
+      opacity: 1;
+    }
+    from {
+      opacity: 0;
+    }
   }
 
   &.main {
@@ -70,11 +76,6 @@
   }
 
   ul {
-    // border: 1px yellow solid;
-    // height: 300%;
-    // grid-column: 2/3;
-    // justify-self: end;
-
     margin-right: 50px;
     display: grid;
     column-gap: 10px;
@@ -85,18 +86,16 @@
     font-family: "Montserrat";
     font-style: normal;
     font-weight: normal;
-    // font-size: 20px;
     font-size: 1vw;
     text-align: center;
     position: relative;
 
     li {
-
       position: relative;
-      top:0;
+      top: 0;
       display: flex;
       justify-content: center;
-      align-items:center;
+      align-items: center;
       z-index: 1;
       font-family: "Noto Sans KR";
       font-weight: 400;
@@ -148,49 +147,48 @@
       }
     }
 
-    .header2-menu{
-      // border: 1px red solid;
+    .header2-menu {
       font-size: 1vw;
       color: white;
       position: absolute;
       top: 5vh;
       z-index: 3;
-      
+
       height: 3vw;
-  
-      background: #0A347F;
+
+      background: #0a347f;
       border-radius: 300px;
       display: flex;
       justify-content: space-around;
-      align-items:center;
-  
+      align-items: center;
+
       cursor: pointer;
-      a{
+      a {
         color: white;
-        text-underline-offset: 13px;
+        text-underline-offset: 8px;
         text-decoration: none;
-        &:hover{
+        &:hover {
           text-decoration: underline;
         }
       }
-      span{
+      span {
         color: white;
         text-underline-offset: 7px;
         text-decoration: none;
       }
-      &.about2{
+      &.about2 {
         width: 20vw;
         left: 0%;
       }
-      &.service2{
+      &.service2 {
         width: 15vw;
         left: 5%;
       }
-      &.project2{
+      &.project2 {
         width: 28vw;
         right: 5%;
       }
-      &.contact2{
+      &.contact2 {
         width: 23vw;
         right: 0%;
       }

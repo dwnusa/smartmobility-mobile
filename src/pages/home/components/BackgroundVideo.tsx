@@ -6,7 +6,6 @@ type BackgroundVideoProps = {
   posX: number;
 };
 function BackgroundVideo({ isShowing, posX }: BackgroundVideoProps) {
-  // console.log(isShowing);
   const opacityValue = posX / 50;
   return (
     <div className={`backgroundvideo ${!isShowing && "turnColorBlack"}`}>

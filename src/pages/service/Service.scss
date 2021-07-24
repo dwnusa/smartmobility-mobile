@@ -1,61 +1,42 @@
 @import "styles/_variables";
 @import "styles/_mixins";
-.service-wrapper{
-  position:relative;
-  overflow:hidden;
-  width:100vw;
-  height:100vh;
-  background: #FCFCF7;
-  // border:2px red solid;
+.service-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: #fcfcf7;
 }
-.bgService{
+.bgService {
   position: absolute;
-  z-index:0;
-  top:0px;
-  left:0px;
-  width:100%;
-  height:100%;
-  // background:rgba(252, 252, 247, 1);
+  z-index: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
   background-size: 100%;
-  &.bgstyle1{
+  &.bgstyle1 {
   }
-  &.bgstyle2{
+  &.bgstyle2 {
     @include animation(0s, 3s, 1, forwards, bgSlidein2);
     background-position: right bottom 10%;
   }
-  &.bgstyle3{
+  &.bgstyle3 {
     @include animation(0s, 3s, 1, forwards, bgSlidein3);
     background-position: right top 0%;
   }
-  &.bgstyle4{
+  &.bgstyle4 {
     @include animation(0s, 3s, 1, forwards, bgSlidein4);
     background-position: right bottom 10%;
   }
-  overflow:hidden;
+  overflow: hidden;
 }
 .service {
   position: relative;
-  // width:100vw;
-  // height:100vh;
   @include commonSnapDivStyle();
   @include menuDivStyle();
-  overflow:hidden;
-  // box-sizing: border-box;
-  // background-size: cover;
-  // background-position: left -100% top 100%;
-  // background-size: 60%;
-  // background-repeat: no-repeat;
-  // background-position: left 0% top 100%;
-  // background-size:50% 50%;
-
-  // border:1px red solid;
-  // background-size: 100%;
-  // background: rgba(223, 233, 216, 0.6);
-  // background: rgba(252, 252, 247, 0.6);
-  // border:4px red solid;
-  // border: 3px red solid;
-  // @include animation(0s, 1s, 1, forwards, slidein);
+  overflow: hidden;
   .menu {
     ul {
       li {
@@ -63,9 +44,6 @@
           &:hover {
             opacity: 0.5;
           }
-
-          // color:red;
-          // border: 1px red solid;
         }
       }
     }
@@ -78,18 +56,15 @@
     top: 45%;
     right: 0%;
     width: 5%;
-    height: 100PX;
-    // border: 1px red solid;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    // background-color: #34495e;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    // border: 1px red solid;
 
     .dots {
       display: flex;
@@ -97,30 +72,27 @@
       justify-content: space-around;
       align-items: center;
       list-style-type: none;
-      // border: 1px red solid;
       height: 100%;
       box-sizing: border-box;
       margin: 0;
       padding: 0;
 
-
       .dot {
         width: 14px;
         height: 14px;
         margin: 0px 6px;
-        // border: 1px solid #09357F;
         border-radius: 100%;
-        background-color: #09357F;
+        background-color: #09357f;
         cursor: pointer;
         opacity: 0.2;
 
         &:hover {
-          border: 1px solid #09357F;
+          border: 1px solid #09357f;
           background: transparent;
         }
 
         &.active {
-          background-color: #09357F;
+          background-color: #09357f;
           opacity: 1;
           border: none;
         }

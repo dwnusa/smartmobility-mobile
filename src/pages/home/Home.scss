@@ -7,7 +7,6 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  // border: 0px red solid;
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -16,7 +15,6 @@
   .svgtest {
     position: absolute;
     bottom: 0vh;
-    // left: 10vw;
     z-index: -1;
     display: flex;
     align-items: center;
@@ -28,7 +26,6 @@
       stroke-dasharray: calc(4150 * 2);
       stroke-dashoffset: calc(4150 * 2);
     }
-    // border: 1px red solid;
     &.activated1 {
       .path {
         animation: dash1 3s linear forwards;
@@ -53,7 +50,6 @@
       }
     }
     .squiggle {
-      // display: none;
       stroke-dasharray: 450;
       stroke-dashoffset: 450;
 
@@ -63,54 +59,23 @@
     }
   }
   .cardWrapper {
-    // border: 2px green solid;
-    // scroll-snap-align: start;
     position: relative;
     box-sizing: border-box;
     top: 20vh;
-    // left: 100vw;
     padding-left: 100vw;
 
-    // height: 80vh;
-    // width: 50vw;
-    // background: gray;
-    // bottom: 100vh;
-    // width: 100vw;
-    // height: 60vh;
-    // background: rgba(255, 0, 0, 0.3);
-    // margin-bottom: 10vh;
-    // height: 67vh;
-    // bottom: 10vh;
     &.trigger {
       @include animation(0s, 3s, 1, forwards, slidein);
     }
 
     .cardContainer {
       display: flex;
-      // grid-template-columns: repeat(3, 1fr);
-      // grid-template-rows: 1fr;
-      // justify-items: flex-start;
-      // width: 50vw;
-      // overflow: scroll;
       white-space: nowrap;
-      // border: 2px blue solid;
 
       .card {
-        // border: 2px orange solid;
-        // width: 50%;
-        // width: 400px;
-        // height: 80vh;
         display: flex;
         justify-content: center;
 
-        // justify-self: center;
-        // width: 30%;
-        // width: 27vw;
-        // height: 70vh;
-        // max-height: 70vh;
-        // height: 70vh;
-        // height: 100%;
-        // margin: 1rem;
         &:nth-child(1) {
           img {
             height: 80vh;
@@ -130,69 +95,12 @@
         }
 
         img {
-          // object-fit: contain;
           -webkit-filter: brightness(100%);
-
-          // &:hover {
-          //   -webkit-filter: brightness(50%);
-          //   -webkit-transition: all 1s ease;
-          //   -moz-transition: all 1s ease;
-          //   -o-transition: all 1s ease;
-          //   -ms-transition: all 1s ease;
-          //   transition: all 1s ease;
-          // }
         }
       }
     }
   }
 
-  // .cardWrapper {
-  //   overflow: hidden;
-  //   position: relative;
-  //   top: 20vh;
-  //   left: 100vw;
-  //   width: 47vw;
-  //   // height: 80vh;
-  //   border: 10px black solid;
-  //   &.trigger {
-  //     @include animation(2s, 2s, 1, forwards, slidein);
-  //   }
-  //   .cardContainer {
-  //     display: flex;
-  //     scroll-snap-type: x mandatory;
-  //     scroll-behavior: smooth;
-  //     overflow: scroll;
-  //     // max-height: 110%;
-  //     // max-width: 100%;
-  //     // height: 110%;
-  //     width: 100%;
-  //     border: 1px red solid;
-  //     // .cardBox {
-  //     //   display: flex;
-  //     //   justify-content: flex-start;
-  //     //   align-items: flex-start;
-  //     //   // width: 300%;
-  //     //   height: 100%;
-  //     //   border: 0px blue solid;
-  //     // }
-  //   }
-  // }
-
-  // padding: 0px 0px 0px 300px;
-  // border: 20px blue solid;
-  // width: 100vw;
-  // background: white;
-  // z-index: -2;
-  // background: rgba(10, 52, 127, 0.98);
-  // overflow: hidden;
-  // box-sizing: border-box;
-  // overflow: hidden;
-  // background: skyblue;
-
-  // &:hover {
-  //   border: 1px red solid;
-  // }
-  // border: 1px red solid;
   .emptyBackground {
     width: 100%;
     height: 100%;
@@ -200,36 +108,15 @@
     h2 {
       position: absolute;
       bottom: 10%;
-      // left: 150px;
       width: 100vw;
       font-family: "Montserrat";
       font-style: bold;
       font-weight: 900;
-      // font-size: 80px;
-      // font-size: 5rem;
       padding-left: 8vw;
       font-size: 5vw;
       line-height: 6vw;
       color: black;
       overflow: hidden;
-      // border: 1px blue solid;
-      // box-sizing: border-box;
-      // @include widthCalc();
-
-      // @include responsive("iphone") {
-      //   color: red;
-      // }
-      // @include responsive("iphone-l") {
-      //   color: red;
-      //   border: 1px red solid;
-      // }
-      // @include responsive("ipad") {
-      //   color: yellow;
-      // }
-      // @include responsive("ipad-l") {
-      //   color: yellow;
-      //   border: 1px yellow solid;
-      // }
     }
   }
 }

@@ -7,12 +7,9 @@ function Map() {
   const [{ lat, lng }, setGeometricData] = useState({
     lat: 37.589038340304555,
     lng: 127.05935059022022,
-    // lat: 37.554722,
-    // lng: 126.970833,
   });
 
   const NaverMapAPI = () => {
-    // const navermaps = window.naver.maps;
     return (
       <NaverMap
         mapDivId={"maps-getting-started-uncontrolled"} // default: react-naver-map
@@ -36,14 +33,9 @@ function Map() {
 
   return (
     <div className="map">
-      {/* <div>img</div> */}
-      {/* <div className="map-naver">
-        <div id="map" style={{width:"500px", height:"400px"}}></div>
-      </div> */}
-      {/* <div className="map-naver" style={{backgroundImage:`url(${cards.naverMap})`}}></div> */}
       <div className="map-naver">
         <RenderAfterNavermapsLoaded
-          ncpClientId={"mabgbbknk3"} // 자신의 네이버 계정에서 발급받은 Client ID
+          ncpClientId={"mabgbbknk3"}
           error={<p>Maps Load Error</p>}
           loading={<p>Maps Loading...</p>}
         >

@@ -7,7 +7,6 @@
   height: 100%;
   top: 0;
   left: 0;
-  /* border: 3px blue solid; */
 }
 
 .awssld__controls button,
@@ -40,10 +39,7 @@
 .awssld {
   display: block;
   position: relative;
-  /* width: 100%; */
   max-width: 100%;
-  /* border: 3px green solid; */
-  /* height: 100%; */
   width: 70%;
   height: 70vh;
   border-radius: 10px;
@@ -56,7 +52,6 @@
   position: relative;
   height: 100%;
   width: 100%;
-  /* border: 3px red solid; */
 }
 
 .awssld__container {
@@ -64,13 +59,11 @@
   width: 100%;
   height: 0;
   padding-bottom: var(--slider-height-percentage);
-  /* border: 3px blue solid; */
 }
 
 @media all and (max-width: 500px) {
   .awssld__container {
     padding-bottom: calc(var(--slider-height-percentage) * 1.25);
-    /* border: 3px blue solid; */
   }
 }
 
@@ -80,7 +73,7 @@
   width: 100%;
 }
 
-.awssld__startUp>div {
+.awssld__startUp > div {
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -113,8 +106,8 @@
   justify-content: center;
 }
 
-.awssld__content>img,
-.awssld__content>video {
+.awssld__content > img,
+.awssld__content > video {
   -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
@@ -189,7 +182,8 @@
   -webkit-transition: -webkit-transform 3000ms var(--transition-bezier);
   transition: -webkit-transform 3000ms var(--transition-bezier);
   transition: transform 3000ms var(--transition-bezier);
-  transition: transform 3000ms var(--transition-bezier), -webkit-transform 3000ms var(--transition-bezier);
+  transition: transform 3000ms var(--transition-bezier),
+    -webkit-transform 3000ms var(--transition-bezier);
   -webkit-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
 }
@@ -229,7 +223,8 @@
   -webkit-transition: -webkit-transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1);
   transition: -webkit-transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1);
   transition: transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1);
-  transition: transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1), -webkit-transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1);
+  transition: transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1),
+    -webkit-transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1);
 }
 
 .awssld--active {
@@ -246,13 +241,17 @@
 }
 
 .awssld--moveRight {
-  -webkit-animation: slideFromRight var(--slider-transition-duration) both var(--transition-bezier);
-  animation: slideFromRight var(--slider-transition-duration) both var(--transition-bezier);
+  -webkit-animation: slideFromRight var(--slider-transition-duration) both
+    var(--transition-bezier);
+  animation: slideFromRight var(--slider-transition-duration) both
+    var(--transition-bezier);
 }
 
 .awssld--moveLeft {
-  -webkit-animation: slideFromLeft var(--slider-transition-duration) both var(--transition-bezier);
-  animation: slideFromLeft var(--slider-transition-duration) both var(--transition-bezier);
+  -webkit-animation: slideFromLeft var(--slider-transition-duration) both
+    var(--transition-bezier);
+  animation: slideFromLeft var(--slider-transition-duration) both
+    var(--transition-bezier);
 }
 
 .awssld--exit {
@@ -260,13 +259,17 @@
 }
 
 .awssld--exit.awssld--moveLeft {
-  -webkit-animation: slideToLeft var(--slider-transition-duration) both var(--transition-bezier);
-  animation: slideToLeft var(--slider-transition-duration) both var(--transition-bezier);
+  -webkit-animation: slideToLeft var(--slider-transition-duration) both
+    var(--transition-bezier);
+  animation: slideToLeft var(--slider-transition-duration) both
+    var(--transition-bezier);
 }
 
 .awssld--exit.awssld--moveRight {
-  -webkit-animation: slideToRight var(--slider-transition-duration) both var(--transition-bezier);
-  animation: slideToRight var(--slider-transition-duration) both var(--transition-bezier);
+  -webkit-animation: slideToRight var(--slider-transition-duration) both
+    var(--transition-bezier);
+  animation: slideToRight var(--slider-transition-duration) both
+    var(--transition-bezier);
 }
 
 .awssld--first .awssld__prev {
@@ -275,8 +278,6 @@
 
 .awssld--last .awssld__next {
   visibility: hidden;
-  /* width: 100%; */
-  /* border: 4px red solid; */
 }
 
 .awssld--fill-parent {
@@ -290,7 +291,6 @@
 .awssld--fill-parent .awssld__container {
   height: 100%;
   padding: 0;
-  /* border: 3px blue solid; */
 }
 
 .awssld__bullets {
@@ -320,10 +320,15 @@
   overflow: hidden;
   cursor: pointer;
   border: none;
-  -webkit-transition: background-color 0.175s ease-out, -webkit-transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45);
-  transition: background-color 0.175s ease-out, -webkit-transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45);
-  transition: transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45), background-color 0.175s ease-out;
-  transition: transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45), background-color 0.175s ease-out, -webkit-transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45);
+  -webkit-transition: background-color 0.175s ease-out,
+    -webkit-transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45);
+  transition: background-color 0.175s ease-out,
+    -webkit-transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45);
+  transition: transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45),
+    background-color 0.175s ease-out;
+  transition: transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45),
+    background-color 0.175s ease-out,
+    -webkit-transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45);
 }
 
 .awssld__bullets button:hover {
@@ -349,33 +354,33 @@
 
 .awssld__controls__arrow-left,
 .awssld__controls__arrow-right {
-  /* width: 100%; */
   height: var(--organic-arrow-height);
   position: relative;
   display: block;
-  -webkit-transition: opacity 0.2s ease-out, -webkit-transform 0.2s ease-out 0.125s;
+  -webkit-transition: opacity 0.2s ease-out,
+    -webkit-transform 0.2s ease-out 0.125s;
   transition: opacity 0.2s ease-out, -webkit-transform 0.2s ease-out 0.125s;
   transition: transform 0.2s ease-out 0.125s, opacity 0.2s ease-out;
-  transition: transform 0.2s ease-out 0.125s, opacity 0.2s ease-out, -webkit-transform 0.2s ease-out 0.125s;
+  transition: transform 0.2s ease-out 0.125s, opacity 0.2s ease-out,
+    -webkit-transform 0.2s ease-out 0.125s;
 }
 
 .awssld__controls__arrow-left:before,
 .awssld__controls__arrow-left:after,
 .awssld__controls__arrow-right:before,
 .awssld__controls__arrow-right:after {
-  content: ' ';
+  content: " ";
   position: absolute;
-  /* right: calc(50% - (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) / 2); */
   height: 100%;
-  /* border: 3px red solid;
-  box-sizing:border-box; */
   border-radius: var(--organic-arrow-border-radius);
   width: var(--organic-arrow-thickness);
   background-color: var(--organic-arrow-color);
-  -webkit-transition: background-color 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  -webkit-transition: background-color 0.15s ease-out,
+    -webkit-transform 0.15s ease-out;
   transition: background-color 0.15s ease-out, -webkit-transform 0.15s ease-out;
   transition: transform 0.15s ease-out, background-color 0.15s ease-out;
-  transition: transform 0.15s ease-out, background-color 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  transition: transform 0.15s ease-out, background-color 0.15s ease-out,
+    -webkit-transform 0.15s ease-out;
 }
 
 .awssld__controls__arrow-left:before,
@@ -414,8 +419,6 @@
 .awssld__controls__arrow-left:before,
 .awssld__controls__arrow-left:after {
   right: auto;
-  /* left:100%; */
-  /* left: calc(50% - (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) / 2); */
 }
 
 .awssld__controls__arrow-left:before {
@@ -494,7 +497,8 @@
   -webkit-transition: -webkit-transform var(--timer-delay) linear;
   transition: -webkit-transform var(--timer-delay) linear;
   transition: transform var(--timer-delay) linear;
-  transition: transform var(--timer-delay) linear, -webkit-transform var(--timer-delay) linear;
+  transition: transform var(--timer-delay) linear,
+    -webkit-transform var(--timer-delay) linear;
 }
 
 .awssld__timer--run {
@@ -506,7 +510,8 @@
   -webkit-transition: -webkit-transform calc(var(--timer-release) / 2) linear;
   transition: -webkit-transform calc(var(--timer-release) / 2) linear;
   transition: transform calc(var(--timer-release) / 2) linear;
-  transition: transform calc(var(--timer-release) / 2) linear, -webkit-transform calc(var(--timer-release) / 2) linear;
+  transition: transform calc(var(--timer-release) / 2) linear,
+    -webkit-transform calc(var(--timer-release) / 2) linear;
   -webkit-transform: translateX(-0.00001px);
   transform: translateX(-0.00001px);
 }
@@ -517,7 +522,8 @@
   -webkit-transition: -webkit-transform var(--timer-release) linear;
   transition: -webkit-transform var(--timer-release) linear;
   transition: transform var(--timer-release) linear;
-  transition: transform var(--timer-release) linear, -webkit-transform var(--timer-release) linear;
+  transition: transform var(--timer-release) linear,
+    -webkit-transform var(--timer-release) linear;
 }
 
 .awssld__timer--hidden {

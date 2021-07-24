@@ -2,21 +2,14 @@
 @import "styles/_mixins";
 .board {
   @include subComponentsStyle();
-  // border: 1px red solid;
   display: flex;
   justify-content: center;
   padding-top: 20vh;
-  // height:calc(100vh - 30vh);
-  // align-items:center;
   .board-grid {
-    // border: 1px blue solid;
     width: 70%;
     display: grid;
     justify-content: center;
-    // grid-template-columns: repeat(4,1fr);
     grid-template-columns: 1fr 3fr 1fr 3fr;
-    // grid-template-rows: repeat(6, 1fr);
-    // grid-template-rows: 1fr;
     grid-template-rows: 1fr 1fr 5fr 3fr 5fr 1fr;
     row-gap: 5px;
     column-gap: 30px;
@@ -176,7 +169,7 @@
         display: flex;
         justify-content: stretch;
         textarea {
-          overflow-y:scroll;
+          overflow-y: scroll;
           width: 100%;
           height: 100%;
           padding: 10px;

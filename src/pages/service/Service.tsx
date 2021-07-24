@@ -12,14 +12,11 @@ function Service({ match, history }: { match: any; history: any }) {
     var curTime = new Date().getTime();
     if (typeof prevTime !== "undefined") {
       var timeDiff = curTime - prevTime;
-      // console.log(timeDiff)
       if (timeDiff > 50) {
         if (e.deltaY >= 0) {
-          // console.log("down")
           const nextSlide = Math.min(4, currentSlide + 1);
           setSlide(nextSlide);
         } else {
-          // console.log("up")
           const nextSlide = Math.max(1, currentSlide - 1);
           setSlide(nextSlide);
         }
@@ -27,51 +24,18 @@ function Service({ match, history }: { match: any; history: any }) {
     }
     prevTime = curTime;
   };
-  // const divEl = useRef<HTMLDivElement | null>(null);
-  // const divEl1 = useRef<HTMLDivElement | null>(null);
-  // const divEl2 = useRef<HTMLDivElement | null>(null);
-  // const [div1Center, setDiv1Center] = useState<number>(0);
-  // const [div2Center, setDiv2Center] = useState<number>(0);
-
-  // useEffect(() => {
-  //   const div1Top = divEl1?.current?.offsetTop;
-  //   const div1Center = div1Top + divEl1?.current?.offsetHeight / 2;
-  //   const div2Top = divEl2?.current?.offsetTop;
-  //   const div2Center = div2Top + divEl2?.current?.offsetHeight / 2;
-  //   setDiv1Center(div1Center);
-  //   setDiv2Center(div2Center);
-  // }, []);
   useEffect(() => {
     switch (targetPage) {
       case 1:
-        // divEl1.current.scrollIntoView({ behavior: "smooth" });
         setPage(1);
         break;
       case 2:
-        // divEl2.current.scrollIntoView({ behavior: "smooth" });
         setPage(2);
         break;
       default:
-        // divEl1.current.scrollIntoView({ behavior: "smooth" });
         setPage(1);
     }
   }, [targetPage]);
-  // const onWheel = () => {
-  //   const currentScrollTop = divEl.current.scrollTop;
-  //   if (currentScrollTop <= div1Center) setPage(1);
-  //   else if (currentScrollTop <= div2Center) setPage(2);
-  // };
-
-  // const scrollToTop = (ref: any) => {
-  //   const currentOffsetTop = ref.current.offsetTop;
-  //   const contact = document.querySelector(".service");
-  //   contact.scrollTo({
-  //     top: ref.current.offsetTop,
-  //     behavior: "smooth",
-  //   });
-  //   if (currentOffsetTop <= div1Center) setPage(1);
-  //   else if (currentOffsetTop <= div2Center) setPage(2);
-  // };
 
   const bgArray = [
     "",
@@ -79,24 +43,34 @@ function Service({ match, history }: { match: any; history: any }) {
     cards.handycap_bg03,
     cards.handycap_bg04,
   ];
-  // console.log(bgArray[currentSlide-1])
-  // console.log(currentSlide);
   return (
     <div className="service-wrapper">
       <Header2 />
-      {currentSlide === 1 && <div className={`bgService bgstyle1`}
-      style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
-      {currentSlide === 2 && <div className={`bgService bgstyle2`}
-      style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
-      {currentSlide === 3 && <div className={`bgService bgstyle3`}
-      style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
-      {currentSlide === 4 && <div className={`bgService bgstyle4`}
-      style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}></div>}
-      <div
-        className={`service`}
-        onWheel={(e) => handleScroll(e)}
-        // style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
-      >
+      {currentSlide === 1 && (
+        <div
+          className={`bgService bgstyle1`}
+          style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
+        ></div>
+      )}
+      {currentSlide === 2 && (
+        <div
+          className={`bgService bgstyle2`}
+          style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
+        ></div>
+      )}
+      {currentSlide === 3 && (
+        <div
+          className={`bgService bgstyle3`}
+          style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
+        ></div>
+      )}
+      {currentSlide === 4 && (
+        <div
+          className={`bgService bgstyle4`}
+          style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
+        ></div>
+      )}
+      <div className={`service`} onWheel={(e) => handleScroll(e)}>
         <div className="menu">
           <ul>
             <li
@@ -105,13 +79,7 @@ function Service({ match, history }: { match: any; history: any }) {
             >
               HANDYCAB
             </li>
-            <li
-              className={`${currentPage === 2 && "enabled"}`}
-            // style={{}}
-            // onClick={() => setPage(2)}
-            >
-              BOGOTA
-            </li>
+            <li className={`${currentPage === 2 && "enabled"}`}>BOGOTA</li>
           </ul>
         </div>
         <div className="slideIndicator">

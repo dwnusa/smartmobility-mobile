@@ -2,21 +2,17 @@
 @import "styles/_mixins";
 .subrnd {
   @include subComponentsStyle();
-  // border: 1px red solid;
   padding-top: 0px;
   height: 100vh;
   box-sizing: border-box;
   overflow-x: hidden;
-  // display: block;
   .title-area {
     background: rgb(245, 245, 245);
     height: 45vh;
-    // border: 1px blue solid;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     > .title-grid {
-      // border:1px red solid;
       display: inline-grid;
       grid-template-columns: auto 4fr;
       grid-template-rows: repeat(10, 1fr);
@@ -34,7 +30,6 @@
           font-style: normal;
           font-weight: bold;
           line-height: 140%;
-          // font-size: 32px;
           font-size: 1.6vw;
           color: #121212;
           padding-bottom: 1vw;
@@ -46,7 +41,6 @@
           border-right: 2px black solid;
           font-style: normal;
           font-weight: normal;
-          // font-size: 17px;
           font-size: 1.2vw;
           color: #a6a6a6;
           padding-top: 1vw;
@@ -74,8 +68,6 @@
     }
   }
   > .img-container1 {
-    // border: 1px blue solid;
-    // height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,20 +81,16 @@
       padding: 3% 0%;
       &:nth-child(1) {
         position: relative;
-        // border: 1px red solid;
-        // height:70vh;
         width: 70vw;
       }
       &:nth-child(2) {
         position: relative;
-        // border: 1px red solid;
         width: 80vw;
         align-self: flex-end;
         right: -100vw;
       }
       &:nth-child(3) {
         position: relative;
-        // border: 1px red solid;
         width: 80vw;
         align-self: flex-start;
         left: -100vw;
@@ -143,8 +131,6 @@
     }
   }
   > .img-container2 {
-    // border: 1px blue solid;
-    // height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,8 +144,6 @@
       padding: 3% 0%;
       &:nth-child(1) {
         position: relative;
-        // border: 1px red solid;
-        // height:70vh;
         width: 70vw;
       }
       &:nth-child(2) {
@@ -169,14 +153,12 @@
       }
       &:nth-child(3) {
         position: relative;
-        // border: 1px red solid;
         width: 80vw;
         align-self: flex-end;
         right: -100vw;
       }
       &:nth-child(4) {
         position: relative;
-        // border: 1px red solid;
         width: 80vw;
         align-self: flex-start;
         left: -100vw;
@@ -220,8 +202,6 @@
     }
   }
   > .img-container3 {
-    // border: 1px blue solid;
-    // height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -235,20 +215,16 @@
       padding: 3% 0%;
       &:nth-child(1) {
         position: relative;
-        // border: 1px red solid;
-        // height:70vh;
         width: 65vw;
       }
       &:nth-child(2) {
         position: relative;
-        // border: 1px red solid;
         width: 80vw;
         align-self: flex-end;
         right: -100vw;
       }
       &:nth-child(3) {
         position: relative;
-        // border: 1px red solid;
         width: 80vw;
         align-self: flex-start;
         left: -100vw;
@@ -290,7 +266,6 @@
   }
   > .subrnd-bottom {
     width: 99vw;
-    // border: 1px red solid;
     height: 13vw;
     background: rgba(219, 219, 219, 0.2);
     display: flex;
@@ -299,7 +274,6 @@
     box-sizing: border-box;
     > div {
       &:nth-child(1) {
-        // border: 1px red solid;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: 3fr 1fr;
@@ -321,8 +295,6 @@
         }
       }
       &:nth-child(2) {
-        // border: 1px red solid;
-        // width: 20vw;
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: bold;
@@ -333,7 +305,6 @@
     }
     > img {
       cursor: pointer;
-      // border: 1px red solid;
       &:hover {
         filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.2));
       }

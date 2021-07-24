@@ -11,17 +11,6 @@ type patentContentType = {
   inventor: string;
 };
 
-// <
-//     Array < {
-//     id: number;
-//       { [title1: string]: string, [content1: string]: string, };
-//   { title2: string; content2: string; };
-//   { title3: string; content3: string; };
-//   { title4: string; content4: string; };
-//   { title5: string; content5: string; };
-//   { title6: string; content6: string; };
-// }>
-// >
 function Patent() {
   const [activeItem, setActiveItem] = useState<number>(1);
   const [item, setItem] = React.useState<

@@ -24,7 +24,6 @@ function Home() {
     if (posX < -0) setNextAnimation(true);
     else setNextAnimation(false);
   };
-  // console.log(window.innerWidth);
   return (
     <React.Fragment>
       <Header2 isBgShowing={isBgShowing} setBgShowing={setBgShowing} />

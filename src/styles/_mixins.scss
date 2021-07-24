@@ -1,6 +1,6 @@
 @import "styles/_buttons";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
 $minIphoneWidth: 350px;
 $maxIphoneWidth: 690px;
 $minIphoneWidth-l: 800px;
@@ -16,34 +16,22 @@ $maxIpadWidth-l: 1400px;
   @media screen and (min-width: 690px) {
     @content;
   }
-
-  // @if $screenX > 1280px {
-  //   color: red;
-  // } @else if $screenX > 1920px {
-  //   color: blue;
-  // }
 }
 
 @mixin responsive($device) {
-  @if $device=="iphone" {
+  @if $device== "iphone" {
     @media screen and (min-width: $minIphoneWidth) and (max-width: $maxIphoneWidth) {
       @content;
     }
-  }
-
-  @else if $device=="iphone-l" {
+  } @else if $device== "iphone-l" {
     @media screen and (min-width: $minIphoneWidth-l) and (max-width: $maxIphoneWidth-l) and (min-height: $minIphoneHeight-l) and (max-height: $maxIphoneWidth-l) and (orientation: landscape) {
       @content;
     }
-  }
-
-  @else if $device=="ipad" {
+  } @else if $device== "ipad" {
     @media screen and (min-width: $minIpadWidth) and (max-width: $maxIpadWidth) {
       @content;
     }
-  }
-
-  @else if $device=="ipad-l" {
+  } @else if $device== "ipad-l" {
     @media screen and (min-width: $minIpadWidth-l) and (max-width: $maxIpadWidth-l) and (orientation: landscape) {
       @content;
     }
@@ -51,38 +39,25 @@ $maxIpadWidth-l: 1400px;
 }
 
 @mixin commonSnapDivStyle {
-  // scroll-snap-type: y mandatory;
-  // scroll-behavior: smooth;
-  // margin: 0px 0px 0px 10vw;
-  // display: flex;
   float: right;
-  // padding-left: 10vw;
   width: 85vw;
   height: 100vh;
   overflow-y: auto;
-  // border: 10px green solid;
-  // box-sizing: border-box;
 }
 
 @mixin menuDivStyle {
   .menu {
-    // border: 1px red solid;
     position: fixed;
     top: 10vh;
     left: 0px;
-    // width: 15vw;
     height: 100vh;
-    float:left;
+    float: left;
 
-    // box-sizing: border-box;
     ul {
-      // border: 1px blue solid;
-      // box-sizing: border-box;
       padding: 5vw 0px 0px 2vw;
 
       li {
         @extend %menuButton;
-        // border: 1px blue solid;
 
         &:hover {
           opacity: 1;
@@ -98,14 +73,7 @@ $maxIpadWidth-l: 1400px;
 }
 
 @mixin subComponentsStyle {
-  // scroll-snap-align: start;
   padding-top: 5vw;
-  // margin-left: 1vw;
-  // padding-bottom: 35px;
-  // border: 4px red solid;
-  // height: calc(100vh - 100px);
-  // height: calc(100vh - 20vh);
-  // @include animation(0s, 4s, 1, forwards, fadein);
   @include animation(0s, 1s, 1, forwards, slideup_fadein);
 }
 
@@ -115,10 +83,6 @@ $maxIpadWidth-l: 1400px;
   animation-iteration-count: $iter;
   animation-fill-mode: $fill;
   animation-name: $name;
-  // animation: fadein 3s;
-  // -moz-animation: fadein 3s; /* Firefox */
-  // -webkit-animation: fadein 3s; /* Safari and Chrome */
-  // -o-animation: fadein 3s; /* Opera */
 }
 
 @mixin keyframe($animation_name) {

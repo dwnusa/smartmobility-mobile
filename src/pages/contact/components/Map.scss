@@ -3,19 +3,14 @@
 
 .map {
   @include subComponentsStyle();
-  height:85%;
-  // margin-top:100px;
+  height: 85%;
   display: flex;
   min-width: 1000px;
   .map-naver {
-    // padding-top: 150px;
-    // border: 1px blue solid;
     width: 50%;
-    background-size:65%;
+    background-size: 65%;
     background-position: center;
-    background-repeat:no-repeat;
-    // height: 800px;
-    // height: calc(100% - 20%);
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,38 +19,33 @@
   .map-text {
     width: 50%;
     display: flex;
-    // border: 1px blue solid;
-    // position: relative;
-    // bottom:10%;
-    // display: flex;
-    // justify-content: flex-start;
     align-items: center;
 
     .map-grid {
-      padding-top:45%;
+      padding-top: 45%;
       display: grid;
       width: 100%;
       grid-template-columns: 1fr 8fr;
       grid-template-rows: repeat(6, 1fr);
-      align-items:center;
-      .address{
+      align-items: center;
+      .address {
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: bold;
         font-size: 40px;
         line-height: 58px;
         color: #333333;
-        &.first{
+        &.first {
           grid-column: 1/-1;
           grid-row: 1/2;
         }
-        &.second{
+        &.second {
           grid-column: 1/-1;
           grid-row: 2/3;
         }
       }
-      .info{
-        &.title{
+      .info {
+        &.title {
           font-family: "Noto Sans KR";
           font-style: normal;
           font-weight: normal;
@@ -63,7 +53,7 @@
           line-height: 29px;
           color: #333333;
         }
-        &.content{
+        &.content {
           font-family: "Montserrat";
           font-style: normal;
           font-weight: 600;

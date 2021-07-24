@@ -11,7 +11,6 @@ type BackgroundVideoProps = {
 };
 function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
   const location = useLocation().pathname;
-  // console.log(location.split('/')[1]);
   return (
     <div
       className={`header ${location == "/" && "main"} ${
@@ -60,17 +59,6 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
             Project
           </NavLink>
         </li>
-        {/* <li>
-          <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
-            exact
-            to="/contact"
-          >
-            Contact
-          </NavLink>
-        </li> */}
         <div className="modal-background"></div>
         <div
           className={`modal ${location == "/" && "main"} ${
@@ -78,7 +66,6 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
           }`}
         >
           <Nav isBgShowing={isBgShowing} />
-          {/* <Nav2 isBgShowing={isBgShowing} /> */}
         </div>
       </ul>
     </div>
@@ -87,8 +74,6 @@ function Header({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
 
 Header.defaultProps = {
   isBgShowing: false,
-  // setBgShowing: (value: boolean | ((prevVar: boolean) => boolean)) => void 0,
-  // setBgShowing: (value: any) => void 0,
   setBgShowing: () => console.warn("setBgShowing not defined"),
 };
 export default Header;

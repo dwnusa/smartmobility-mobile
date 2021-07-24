@@ -1,21 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Greeting.scss";
-// import aboutGreeting1 from "media/about-greeting-1.png";
 import * as cards from "media";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "./slider.css";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
-// const slider = (
-//   <AwesomeSlider>
-//     <div>1</div>
-//     <div>2</div>
-//     <div>3</div>
-//     <div>4</div>
-//   </AwesomeSlider>
-// );
-// function Greeting({ divEl }: { divEl: any }) {
 function Greeting() {
   const [counter, setCounter] = useState<number>(0);
   const imgHandler = () => {
@@ -35,13 +25,11 @@ function Greeting() {
   ];
   return (
     <div className="greeting">
-      {/* <div className="greeting" ref={divEl}> */}
       <div className="contents">
-        {/* <slider/> */}
         <div className="greeting-slider">
           <AutoplaySlider
             play={true}
-            cancelOnInteraction={false} // should stop playing on user interaction
+            cancelOnInteraction={false}
             interval={3000}
           >
             {imgArray.map((v, i) => {
@@ -49,12 +37,10 @@ function Greeting() {
             })}
           </AutoplaySlider>
         </div>
-        {/* <img onClick={imgHandler} src={imgArray[counter]} width="60%" /> */}
         <div className="greeting-text">
           <h2>
             ㈜스마트모빌러티에 오신 것을 <br /> 진심으로 환영합니다.
           </h2>
-          {/* <br /> */}
           <h3>
             ‘이동’에 대한 사람들의 요구는 지속적으로 커지고 있습니다.
             <br />
@@ -82,7 +68,6 @@ function Greeting() {
             앞으로 저희 스마트모빌러티의 다양한 활동에 많은 관심과 성원을
             부탁드립니다.
           </h3>
-          {/* <br /> */}
           <h3>㈜스마트모빌러티 CEO / 공학박사</h3>
           <h2>김 승 현</h2>
         </div>
