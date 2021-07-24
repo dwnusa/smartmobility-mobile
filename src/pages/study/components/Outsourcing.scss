@@ -7,7 +7,7 @@
 
   .service-filter {
     // border: 1px red solid;
-    height: 5vh;
+    height: 8vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
@@ -25,10 +25,10 @@
       li {
         display: inline-block;
         // border: 1px blue solid;
-        margin: 0px 10px 0px 0px;
+        margin: 0px 1.2vw 0px 0px;
         font-family: "Montserrat";
         font-weight: 900;
-        font-size: 1.2vw;
+        font-size: 1vw;
         // line-height: 29px;
         color: #121212;
         opacity: 0.4;

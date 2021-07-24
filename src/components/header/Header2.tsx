@@ -21,7 +21,8 @@ function Header2({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
         <img className={`${!isBgShowing && "turnBlue"}`} src={logoWhite} onMouseEnter={()=>setLogoHover(true)} onMouseLeave={()=>setLogoHover(false)}/> 
         <img className={`${!isBgShowing && "turnBlue"}`} src={logoBlack} onClick={() => setBgShowing(true)} onMouseEnter={()=>setLogoHover(true)} onMouseLeave={()=>setLogoHover(false)}/>
       </Link>
-      {isLogoHover && <img className={`logo-text`} src={logoText}/>}
+      {/* {isLogoHover && <img className={`logo-text`} src={logoText}/>} */}
+      {isLogoHover && <div className={`logo-text`}>{`SmartMobility 홈`}</div>}
       <ul>
         <li onMouseEnter={()=>setMenuHover(1)}>
           <NavLink className={`${location == "/" && "main"} ${ !isBgShowing && "turnColorBlack" }`} exact to="/about" >
