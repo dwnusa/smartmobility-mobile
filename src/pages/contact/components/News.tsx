@@ -34,7 +34,34 @@ function News() {
   const [passwd, setPasswd] = useState<string>("");
   const [listData, setListData] = useState<any>([
     {
-      key: 1,
+      key: 5,
+      id: 5,
+      type: "announcement",
+      title: "공지사항 테스트 입니다.",
+      writer: "관리자",
+      body: "공지사항 테스트 입니다.",
+      date: "2021.4.10",
+    },
+    {
+      key: 4,
+      id: 4,
+      type: "recruitment",
+      title: "[모빌리티 팀] UX 리서치 (신입/경력)",
+      writer: "관리자",
+      body: "[모빌리티 팀] UX 리서치 (신입/경력)",
+      date: "2021.4.10",
+    },
+    {
+      key: 3,
+      id: 3,
+      type: "recruitment",
+      title: "[모빌리티 팀] UX 리서치 (신입/경력)",
+      writer: "관리자",
+      body: "[모빌리티 팀] UX 리서치 (신입/경력)",
+      date: "2021.4.10",
+    },
+    {
+      key: 2,
       id: 9999,
       type: "announcement",
       title: "공지사항 테스트 입니다.",
@@ -43,9 +70,18 @@ function News() {
       date: "2021.4.10",
     },
     {
+      key: 1,
+      id: 1,
+      type: "announcement",
+      title: "공지사항 테스트 입니다.",
+      writer: "관리자",
+      body: "공지사항 테스트 입니다.",
+      date: "2021.4.10",
+    },
+    {
       key: 0,
-      id: 0,
-      type: "recruitment",
+      id: 9999,
+      type: "announcement",
       title: "홈페이지 개설을 축하합니다.",
       writer: "관리자",
       body: "홈페이지 개설 축하합니다!",
@@ -137,8 +173,35 @@ function News() {
       lineHeight: "40px",
       borderRadius: "20px",
     };
+    const type = props.record.type;
     if (props.value === 9999) return <div style={idStyle}>공지</div>;
-    else return <div>{props.value}</div>;
+    // if (props.value === 9999) {
+    //   if (type === "recruitment") return <div style={idStyle}>채용</div>;
+    //   else return <div style={idStyle}>공지</div>;
+    // } else {
+    //   return <div>{props.value}</div>;
+    // }
+  };
+  const renderTitle = (props: any) => {
+    const is9999 = props.record.id;
+    const type = props.record.type;
+    if (is9999 === 9999) return <div>{props.value}</div>;
+    else {
+      if (type === "recruitment")
+        return (
+          <div>
+            <span style={{ fontWeight: "bold" }}>{"채용"}</span>&nbsp;&emsp;
+            {props.value}
+          </div>
+        );
+      else if (type === "announcement")
+        return (
+          <div>
+            <span style={{ fontWeight: "bold" }}>{"공지"}</span>&nbsp;&emsp;
+            {props.value}
+          </div>
+        );
+    }
   };
   const fields = [
     {
@@ -149,6 +212,7 @@ function News() {
       sortable: false,
     },
     {
+      render: renderTitle,
       name: "title",
       displayName: "제목",
       inputFilterable: true,
@@ -197,7 +261,8 @@ function News() {
         ...listData,
         {
           key: maxKey + 1,
-          id: currentEditorInfo.type === "announcement" ? 9999 : maxKey + 1,
+          // id: currentEditorInfo.type === "announcement" ? 9999 : maxKey + 1,
+          id: maxKey + 1,
           type: currentEditorInfo.type,
           title: currentEditorInfo.title,
           writer: currentEditorInfo.writer,
@@ -248,7 +313,7 @@ function News() {
         if (v.key === currentKey) {
           return {
             ...v,
-            id: currentEditorInfo.type === "announcement" ? 9999 : v.key,
+            // id: currentEditorInfo.type === "announcement" ? 9999 : v.key,
             type: currentEditorInfo.type,
             title: currentEditorInfo.title,
             writer: currentEditorInfo.writer,
@@ -590,9 +655,9 @@ function News() {
                             return {
                               ...v,
                               id: currentCheckerState ? 9999 : viewItem.key,
-                              type: currentCheckerState
-                                ? "announcement"
-                                : "recruitment",
+                              // type: currentCheckerState
+                              //   ? "announcement"
+                              //   : "recruitment",
                             };
                           } else {
                             return {
