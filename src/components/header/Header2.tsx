@@ -36,7 +36,10 @@ function Header2({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
           onMouseLeave={() => setLogoHover(false)}
         />
       </Link>
-      {isLogoHover && <div className={`logo-text`}>{`SmartMobility 홈`}</div>}
+      {isLogoHover && <div 
+          onMouseEnter={() => setLogoHover(true)}
+          onMouseLeave={() => setLogoHover(false)}
+          className={`logo-text`}>{`SmartMobility 홈`}</div>}
       <ul>
         <li onMouseEnter={() => setMenuHover(1)}>
           <NavLink
