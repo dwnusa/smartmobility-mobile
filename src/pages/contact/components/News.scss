@@ -2,13 +2,24 @@
 @import "styles/_mixins";
 
 .news {
+  position: relative;
+  // border: 1px red solid;
+
+  @include subComponentsStyle();
+  display: block;
+
   .news-filter {
+    position: absolute;
+    top: 6.5vw;
+    // padding-top: 5vw;
+
     // border: 1px red solid;
     margin: 5% 5% 0% 5%;
     .news-filter-1,
     .news-filter-2,
     .news-filter-3 {
       user-select: none;
+      cursor: pointer;
       width: 37px;
       height: 29px;
 
@@ -515,11 +526,10 @@
     }
   }
 
-  @include subComponentsStyle();
-  display: block;
-
   .filterable-table-container {
     // border: 1px red solid;
+    // position: absolute;
+    padding-top: 5vw;
     margin: 0% 5% 0% 5%;
 
     div {
