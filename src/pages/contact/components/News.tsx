@@ -31,6 +31,7 @@ interface modalType {
   auth_passed: boolean;
 }
 function News() {
+  const [filterState, setFilter] = useState<number>(0);
   const [passwd, setPasswd] = useState<string>("");
   const [listData, setListData] = useState<any>([
     {
@@ -131,7 +132,7 @@ function News() {
         e.removeEventListener("click", handleTableClick)
       );
     };
-  }, [listData]);
+  }, [listData, filterState]);
   const handleCreateClick = (e: any) => {
     if (modalState.auth_passed === true) {
       setModalState({ ...modalState, type: "create", key: false });
@@ -346,16 +347,41 @@ function News() {
   const sortedByDate = listData.sort(
     (a: any, b: any) => (b.key > a.key && 1) || -1
   );
+  const filteredData = sortedByDate.filter((v: any) => {
+    if (filterState == 1) return v.type === "announcement";
+    else if (filterState == 2) return v.type === "recruitment";
+    else return v;
+  });
   const viewItem =
     modalState.key !== false &&
     sortedByDate.filter((v: any) => v.key === modalState.key)[0];
   return (
     <div className="news" ref={divEl}>
+      <div className="news-filter">
+        <span
+          className={`news-filter-1 ${filterState === 0 && "active"}`}
+          onClick={() => setFilter(0)}
+        >
+          전체
+        </span>
+        <span
+          className={`news-filter-2 ${filterState === 1 && "active"}`}
+          onClick={() => setFilter(1)}
+        >
+          공지
+        </span>
+        <span
+          className={`news-filter-3 ${filterState === 2 && "active"}`}
+          onClick={() => setFilter(2)}
+        >
+          채용
+        </span>
+      </div>
       <FilterableTable
         namespace="NewsPost"
         initialSort="id"
         initialSortDir={false}
-        data={sortedByDate}
+        data={filteredData}
         fields={fields}
         noRecordsMessage="There are no posts to display"
         noFilteredRecordsMessage="No matched on the list"
