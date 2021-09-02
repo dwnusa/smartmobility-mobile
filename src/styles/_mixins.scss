@@ -1,0 +1,92 @@
+@import "styles/_buttons";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
+$minIphoneWidth: 350px;
+$maxIphoneWidth: 690px;
+$minIphoneWidth-l: 800px;
+$maxIphoneWidth-l: 900px;
+$minIphoneHeight-l: 350px;
+$maxIphoneHeight-l: 400px;
+$minIpadWidth: 750px;
+$maxIpadWidth: 1030px;
+$minIpadWidth-l: 1000px;
+$maxIpadWidth-l: 1400px;
+
+@mixin NavResponsiveExceptSmartphone() {
+  @media screen and (min-width: 690px) {
+    @content;
+  }
+}
+
+@mixin responsive($device) {
+  @if $device== "iphone" {
+    @media screen and (min-width: $minIphoneWidth) and (max-width: $maxIphoneWidth) {
+      @content;
+    }
+  } @else if $device== "iphone-l" {
+    @media screen and (min-width: $minIphoneWidth-l) and (max-width: $maxIphoneWidth-l) and (min-height: $minIphoneHeight-l) and (max-height: $maxIphoneWidth-l) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $device== "ipad" {
+    @media screen and (min-width: $minIpadWidth) and (max-width: $maxIpadWidth) {
+      @content;
+    }
+  } @else if $device== "ipad-l" {
+    @media screen and (min-width: $minIpadWidth-l) and (max-width: $maxIpadWidth-l) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+@mixin commonSnapDivStyle {
+  float: right;
+  width: 85vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+@mixin menuDivStyle {
+  .menu {
+    position: fixed;
+    top: 10vh;
+    left: 0px;
+    height: 100vh;
+    float: left;
+
+    ul {
+      padding: 5vw 0px 0px 2vw;
+
+      li {
+        @extend %menuButton;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &.enabled {
+          border-left: 3px #121212 solid;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@mixin subComponentsStyle {
+  padding-top: 5vw;
+  @include animation(0s, 1s, 1, forwards, slideup_fadein);
+}
+
+@mixin animation($delay, $duration, $iter, $fill, $name) {
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-iteration-count: $iter;
+  animation-fill-mode: $fill;
+  animation-name: $name;
+}
+
+@mixin keyframe($animation_name) {
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}

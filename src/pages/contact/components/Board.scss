@@ -1,0 +1,247 @@
+@import "styles/_variables";
+@import "styles/_mixins";
+.board {
+  @include subComponentsStyle();
+  display: flex;
+  justify-content: center;
+  padding-top: 20vh;
+  .board-grid {
+    width: 70%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 3fr 1fr 3fr;
+    grid-template-rows: 1fr 1fr 5fr 3fr 5fr 1fr;
+    row-gap: 5px;
+    column-gap: 30px;
+    > div {
+      &.title {
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+        color: #000000;
+      }
+      &.content {
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 17px;
+        color: #121212;
+        > textarea {
+          font-family: "Noto Sans KR";
+          font-style: normal;
+          font-weight: 300;
+          font-size: 12px;
+          line-height: 17px;
+          color: #121212;
+          resize: none;
+        }
+      }
+    }
+    .board-name {
+      grid-row: 1/2;
+      display: flex;
+      justify-content: stretch;
+      align-items: center;
+      &.title {
+        grid-column: 1/2;
+      }
+      &.content {
+        grid-column: 2/3;
+        input {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          background: rgba(221, 221, 221, 0.25);
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          box-sizing: border-box;
+        }
+      }
+    }
+    .board-contact {
+      display: flex;
+      justify-content: stretch;
+      align-items: center;
+      &.title {
+        grid-column: 3/4;
+        grid-row: 1/2;
+        justify-self: end;
+      }
+      &.content {
+        grid-column: 4/5;
+        grid-row: 1/2;
+        display: flex;
+        justify-content: stretch;
+        input {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          background: rgba(221, 221, 221, 0.25);
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          box-sizing: border-box;
+        }
+      }
+    }
+    .board-email {
+      display: flex;
+      justify-content: stretch;
+      align-items: center;
+      &.title {
+        grid-column: 1/2;
+        grid-row: 2/3;
+      }
+      &.content {
+        grid-column: 2/-1;
+        grid-row: 2/3;
+        display: flex;
+        justify-content: stretch;
+        input {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          background: rgba(221, 221, 221, 0.25);
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          box-sizing: border-box;
+        }
+      }
+    }
+    .board-msg {
+      display: flex;
+      justify-content: stretch;
+      align-items: center;
+      &.title {
+        grid-column: 1/2;
+        grid-row: 3/4;
+      }
+      &.content {
+        grid-column: 2/-1;
+        grid-row: 3/4;
+        display: flex;
+        justify-content: stretch;
+        textarea {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          background: rgba(221, 221, 221, 0.25);
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          box-sizing: border-box;
+          resize: none;
+        }
+      }
+    }
+    .board-etc {
+      display: flex;
+      justify-content: stretch;
+      align-items: center;
+      &.title {
+        grid-column: 1/2;
+        grid-row: 4/5;
+      }
+      &.content {
+        grid-column: 2/-1;
+        grid-row: 4/5;
+        display: flex;
+        justify-content: stretch;
+        textarea {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          background: rgba(221, 221, 221, 0.25);
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          box-sizing: border-box;
+          resize: none;
+        }
+      }
+    }
+    .board-policy {
+      display: flex;
+      justify-content: stretch;
+      align-items: center;
+      &.title {
+        grid-column: 1/2;
+        grid-row: 5/6;
+      }
+      &.content {
+        grid-column: 2/-1;
+        grid-row: 5/6;
+        display: flex;
+        justify-content: stretch;
+        textarea {
+          overflow-y: scroll;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          font-family: "Noto Sans KR";
+          font-style: normal;
+          font-weight: 300;
+          font-size: 12px;
+          line-height: 17px;
+          color: #121212;
+          background: #f9f9f9;
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          box-sizing: border-box;
+          resize: none;
+        }
+      }
+    }
+    .board-agreement {
+      // border: red solid;
+      grid-row: 6/7;
+      display: flex;
+      justify-content: stretch;
+      align-items: center;
+      &.check {
+        grid-column: 2/4;
+        // border: blue solid;
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        input[id="cb1"] + label {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: #f9f9f9;
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          margin-right: 10px;
+        }
+        input[id="cb1"]:checked + label {
+          background-color: #666666;
+          background: url(../../../media/PATENT/icon-check.png) #0a347f
+            no-repeat center/35px 35px;
+          float: left;
+        }
+        input[id="cb1"] {
+          display: none;
+        }
+      }
+      &.button {
+        grid-column: 4/5;
+        // border: black solid;
+        justify-self: end;
+      }
+      .board-agreement-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0a347f;
+        color: white;
+        width: 130px;
+        height: 40px;
+        left: 1447px;
+        top: 832px;
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 29px;
+        cursor: pointer;
+      }
+    }
+  }
+}

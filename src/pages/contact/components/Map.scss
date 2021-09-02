@@ -1,0 +1,67 @@
+@import "styles/_variables";
+@import "styles/_mixins";
+
+.map {
+  @include subComponentsStyle();
+  height: 85%;
+  display: flex;
+  min-width: 1000px;
+  .map-naver {
+    width: 50%;
+    background-size: 65%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .map-text {
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+    .map-grid {
+      padding-top: 45%;
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr 8fr;
+      grid-template-rows: repeat(6, 1fr);
+      align-items: center;
+      .address {
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 58px;
+        color: #333333;
+        &.first {
+          grid-column: 1/-1;
+          grid-row: 1/2;
+        }
+        &.second {
+          grid-column: 1/-1;
+          grid-row: 2/3;
+        }
+      }
+      .info {
+        &.title {
+          font-family: "Noto Sans KR";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 20px;
+          line-height: 29px;
+          color: #333333;
+        }
+        &.content {
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 30px;
+          line-height: 37px;
+          color: #333333;
+        }
+      }
+    }
+  }
+}

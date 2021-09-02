@@ -1,0 +1,46 @@
+@import "styles/_variables";
+@import "styles/_mixins";
+
+.greeting {
+  @include subComponentsStyle();
+  display: flex;
+  padding-top: 20vh;
+  align-items: flex-start;
+  justify-content: center;
+
+  .contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    place-items: center center;
+    > .greeting-slider {
+      grid-row: 1/2;
+      grid-column: 1/2;
+      place-self: stretch stretch;
+      display: flex;
+      justify-content: center;
+    }
+
+    .greeting-text {
+      grid-row: 1/2;
+      grid-column: 2/3;
+      justify-self: start;
+      align-self: end;
+      font-family: "Noto Sans KR";
+      font-style: normal;
+
+      white-space: nowrap;
+      overflow: hidden;
+
+      h2 {
+        font-weight: 900;
+        font-size: 1vw;
+      }
+
+      h3 {
+        font-weight: 300;
+        font-size: 1vw;
+      }
+    }
+  }
+}

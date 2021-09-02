@@ -1,0 +1,32 @@
+@import "styles/_variables";
+@import "styles/_mixins";
+
+.rnd {
+  @include subComponentsStyle();
+  padding-bottom: 35px;
+
+  .service-filter {
+    height: 50px;
+  }
+
+  .rnd-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    gap: 35px;
+    justify-items: center;
+
+    img {
+      width: 50%;
+      filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.3));
+
+      &:nth-child(odd) {
+        justify-self: end;
+      }
+
+      &:nth-child(even) {
+        justify-self: start;
+      }
+    }
+  }
+}
