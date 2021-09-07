@@ -16,9 +16,8 @@ function Header2({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
   const location = useLocation().pathname;
   return (
     <div
-      className={`header2 ${location == "/" && "main"} ${
-        !isBgShowing && "turnBgWhite"
-      }`}
+      className={`header2 ${location == "/" && "main"} ${!isBgShowing && "turnBgWhite"
+        }`}
       onMouseLeave={() => setMenuHover(0)}
     >
       <Link to="/">
@@ -36,51 +35,47 @@ function Header2({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
           onMouseLeave={() => setLogoHover(false)}
         />
       </Link>
-      {isLogoHover && <div 
-          onMouseEnter={() => setLogoHover(true)}
-          onMouseLeave={() => setLogoHover(false)}
-          className={`logo-text`}>{`SmartMobility 홈`}</div>}
+      {isLogoHover && <div
+        onMouseEnter={() => setLogoHover(true)}
+        onMouseLeave={() => setLogoHover(false)}
+        className={`logo-text`}>{`SmartMobility 홈`}</div>}
       <ul>
         <li onMouseEnter={() => setMenuHover(1)}>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
-            to="/about"
+            to="/about/1"
           >
             About
           </NavLink>
         </li>
         <li onMouseEnter={() => setMenuHover(2)}>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
-            to="/service"
+            to="/service/1"
           >
             Service
           </NavLink>
         </li>
         <li onMouseEnter={() => setMenuHover(3)}>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
-            to="/study"
+            to="/study/1"
           >
             Project
           </NavLink>
         </li>
         <li onMouseEnter={() => setMenuHover(4)}>
           <NavLink
-            className={`${location == "/" && "main"} ${
-              !isBgShowing && "turnColorBlack"
-            }`}
+            className={`${location == "/" && "main"} ${!isBgShowing && "turnColorBlack"
+              }`}
             exact
-            to="/contact"
+            to="/contact/1"
           >
             Contact
           </NavLink>
