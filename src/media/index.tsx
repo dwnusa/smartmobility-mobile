@@ -1,3 +1,5 @@
+export { default as homeMobileBg } from "media/MOBILE/home-mobile-bg.png";
+
 export { default as aboutGreeting1 } from "media/about-greeting-1.png";
 export { default as aboutGreeting2 } from "media/about-greeting-2.png";
 export { default as aboutGreeting3 } from "media/about-greeting-3.png";
