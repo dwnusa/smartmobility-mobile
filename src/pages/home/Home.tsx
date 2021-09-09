@@ -37,13 +37,15 @@ function Home({ isPc }: { isPc: boolean }) {
           onWheel={(e) => handleWheel(e)}
         >
           <div
-            className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
-              }`}
+            className={`svgtest ${
+              !isBgShowing && (nextAnimation ? "activated2" : "activated1")
+            }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
-                } `}
+              viewBox={`${
+                nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+              } `}
               fill="none"
             >
               <path
@@ -105,41 +107,36 @@ function Home({ isPc }: { isPc: boolean }) {
       <div className="hm1">
         <div className="hm2">
           <div className="hm2-handle"></div>
-          <div className="hm3-wrapper">
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
+          <div className="hm2-body">
+            <div className="hm3-cards-container">
+              <div className="hm3-card">card</div>
+              <div className="hm3-card">card</div>
+              <div className="hm3-card">card</div>
+              <div className="hm3-card">card</div>
+            </div>
+            <div className="hm3-container">
+              <div className="hm3-menu-items">
+                <div>About</div>
+                <div>Service</div>
+                <div>Project</div>
+                <div>Contact</div>
+              </div>
+              <div className="hm3-menu-subitems">
+                <div>인사말</div>
+                <div>비전</div>
+                <div>연혁</div>
+                <div>조직도</div>
+              </div>
+              <div className="hm3-body-wrapper">
+                <div className="hm3">a1</div>
+                <div className="hm3">a2</div>
+                <div className="hm3">a3</div>
+                <div className="hm3">a4</div>
+                <div className="hm3">a5</div>
+                <div className="hm3">a6</div>
+              </div>
+            </div>
           </div>
-          {/* <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div>
-          <div className="hm3">a</div> */}
         </div>
       </div>
     );
@@ -156,13 +153,15 @@ function Home({ isPc }: { isPc: boolean }) {
             onWheel={(e) => handleWheel(e)}
           >
             <div
-              className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
-                }`}
+              className={`svgtest ${
+                !isBgShowing && (nextAnimation ? "activated2" : "activated1")
+              }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
-                  } `}
+                viewBox={`${
+                  nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+                } `}
                 fill="none"
               >
                 <path
@@ -217,9 +216,7 @@ function Home({ isPc }: { isPc: boolean }) {
           </div>
         </React.Fragment>
       )}
-      {!isPc && (
-        <Home_Mobile isPc={isPc} />
-      )}
+      {!isPc && <Home_Mobile isPc={isPc} />}
     </>
   );
 }
