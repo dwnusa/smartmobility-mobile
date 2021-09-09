@@ -1,21 +1,37 @@
 @import "styles/_variables";
 @import "styles/_mixins";
+
 .hm1 {
   width: 100%;
   height: 100%;
-  display: flex;
+  // display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-image: url("../../media/MOBILE/home-mobile-bg.png");
+  background-size: cover;
+  // position: relative;
+
   .hm2 {
-    margin: 5px;
+    // margin: 5px;
+    margin-top: 60vh;
+    height: 100vh;
     border: 3px red solid;
-    // height: 300px;
+    border-radius: 20px 20px 0px 0px;
+    box-sizing: border-box;
+    // overflow: hidden;
+    background-color: white;
+
     .hm3 {
       border: 3px blue solid;
       height: 200px;
+      background-color: black;
+      box-sizing: border-box;
+      // overflow:
     }
   }
 }
+
 .home_mobile {
   border: 1px red solid;
   display: flex;
@@ -23,6 +39,7 @@
   align-items: stretch;
   // justify-content: stretch;
   overflow-y: auto;
+
   img {
     -webkit-user-drag: none;
     -khtml-user-drag: none;
@@ -32,6 +49,7 @@
     width: 100%;
   }
 }
+
 .home {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -57,29 +75,35 @@
       stroke-dasharray: calc(4150 * 2);
       stroke-dashoffset: calc(4150 * 2);
     }
+
     &.activated1 {
       .path {
         animation: dash1 3s linear forwards;
       }
+
       @keyframes dash1 {
         to {
           stroke-dashoffset: 4000;
         }
       }
     }
+
     &.activated2 {
       .path {
         animation: dash2 2s linear forwards;
       }
+
       @keyframes dash2 {
         to {
           stroke-dashoffset: 0;
         }
+
         from {
           stroke-dashoffset: 4150;
         }
       }
     }
+
     .squiggle {
       stroke-dasharray: 450;
       stroke-dashoffset: 450;
@@ -89,6 +113,7 @@
       }
     }
   }
+
   .cardWrapper {
     position: relative;
     box-sizing: border-box;

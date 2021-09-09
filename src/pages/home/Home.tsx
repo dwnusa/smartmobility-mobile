@@ -37,15 +37,13 @@ function Home({ isPc }: { isPc: boolean }) {
           onWheel={(e) => handleWheel(e)}
         >
           <div
-            className={`svgtest ${
-              !isBgShowing && (nextAnimation ? "activated2" : "activated1")
-            }`}
+            className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox={`${
-                nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
-              } `}
+              viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+                } `}
               fill="none"
             >
               <path
@@ -104,23 +102,34 @@ function Home({ isPc }: { isPc: boolean }) {
 
   const Home_Mobile = ({ isPc }: { isPc: boolean }) => {
     return (
-      <div className="home_mobile1">
-        <div>a</div>
-        <div>a</div>
-        <div>a</div>
-        {/* <img src={cards.homeMobileBg} />
-        <img src={cards.homeMobileBg} />
-        <img src={cards.homeMobileBg} />
-        <img src={cards.homeMobileBg} />
-        <img src={cards.homeMobileBg} /> */}
-        {/* <div
-          style={{
-            background: "blue",
-            color: "black",
-            width: "40vw",
-            height: "150vh",
-          }}
-        ></div> */}
+      <div className="hm1">
+        <div className="hm2">
+          {/* <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div>
+          <div className="hm3">a</div> */}
+        </div>
       </div>
     );
   };
@@ -136,15 +145,13 @@ function Home({ isPc }: { isPc: boolean }) {
             onWheel={(e) => handleWheel(e)}
           >
             <div
-              className={`svgtest ${
-                !isBgShowing && (nextAnimation ? "activated2" : "activated1")
-              }`}
+              className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
+                }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox={`${
-                  nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
-                } `}
+                viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+                  } `}
                 fill="none"
               >
                 <path
@@ -200,35 +207,7 @@ function Home({ isPc }: { isPc: boolean }) {
         </React.Fragment>
       )}
       {!isPc && (
-        <div className="hm1">
-          <div className="hm2">
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-            <div className="hm3">a</div>
-          </div>
-        </div>
+        <Home_Mobile isPc={isPc} />
       )}
     </>
   );

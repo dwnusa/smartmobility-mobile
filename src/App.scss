@@ -2,8 +2,9 @@
 @import "styles/_mixins";
 
 .app {
-  border: 1px green solid;
+  // border: 1px red solid;
   // background: "gray";
+  // box-sizing: border-box;
   height: 100vh;
   width: 100vw;
 }
@@ -93,8 +94,7 @@
     background: #0a347f;
   }
 
-  0% {
-  }
+  0% {}
 }
 
 @include keyframe(fadebgwhite) {
@@ -102,8 +102,7 @@
     background: rgba(255, 255, 255, 1);
   }
 
-  0% {
-  }
+  0% {}
 }
 
 @include keyframe(bgSlidein2) {
