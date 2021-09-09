@@ -16,18 +16,43 @@
     // margin: 5px;
     margin-top: 60vh;
     height: 100vh;
-    border: 3px red solid;
+    // border: 3px red solid;
     border-radius: 20px 20px 0px 0px;
     box-sizing: border-box;
-    // overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     background-color: white;
+    position: relative;
 
-    .hm3 {
-      border: 3px blue solid;
-      height: 200px;
-      background-color: black;
-      box-sizing: border-box;
-      // overflow:
+    .hm2-handle {
+      height: 40px;
+      width: 100%;
+      position: absolute;
+      top: 0px;
+      background-color: red;
+      // z-index: 1;
+      // top: 50%;
+      // position: absolute;
+      // top: 0;
+    }
+
+    .hm3-wrapper {
+      position: absolute;
+      top: 40px;
+      width: 100%;
+      height: calc(100% - 40px);
+      overflow-x: hidden;
+      overflow-y: hidden;
+      // border: 2px white solid;
+      // box-sizing: border-box;
+
+      .hm3 {
+        border: 3px blue solid;
+        height: 200px;
+        background-color: black;
+        box-sizing: border-box;
+        color: white;
+      }
     }
   }
 }

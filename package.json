@@ -41,7 +41,7 @@
   "scripts": {
     "start": "NODE_PATH=src react-scripts start",
     "dev-win": "set PORT=3222 && cross-env NODE_PATH=src react-scripts start",
-    "dev-mac": "PORT=3222 NODE_PATH=src react-scripts start",
+    "dev-mac": "PORT=3223 NODE_PATH=src react-scripts start",
     "build": "NODE_PATH=src react-scripts build",
     "build-win": "cross-env NODE_PATH=src react-scripts build",
     "test": "react-scripts test",

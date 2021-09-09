@@ -104,6 +104,17 @@ function Home({ isPc }: { isPc: boolean }) {
     return (
       <div className="hm1">
         <div className="hm2">
+          <div className="hm2-handle"></div>
+          <div className="hm3-wrapper">
+            <div className="hm3">a</div>
+            <div className="hm3">a</div>
+            <div className="hm3">a</div>
+            <div className="hm3">a</div>
+            <div className="hm3">a</div>
+            <div className="hm3">a</div>
+            <div className="hm3">a</div>
+            <div className="hm3">a</div>
+          </div>
           {/* <div className="hm3">a</div>
           <div className="hm3">a</div>
           <div className="hm3">a</div>
