@@ -11,11 +11,15 @@
   // display: flex;
   flex-direction: column;
   overflow-y: auto;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+
+  /* Firefox */
   &::-webkit-scrollbar {
     display: none;
   }
+
   overflow-x: hidden;
   background-image: url("../../media/MOBILE/home-mobile-bg.png");
   background-size: cover;
@@ -56,13 +60,18 @@
       height: calc(100% - 40px);
       overflow-x: hidden;
       overflow-y: auto;
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+
+      /* Firefox */
       &::-webkit-scrollbar {
         display: none;
       }
+
       border: 5px red solid;
       box-sizing: border-box;
+
       .hm3-cards-container {
         // scroll-snap-align: start;
         scroll-snap-type: x mandatory;
@@ -71,28 +80,35 @@
         width: 100%;
         height: 50%;
         overflow: auto;
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+
+        /* Firefox */
         &::-webkit-scrollbar {
           display: none;
         }
+
         text-align: center;
         font-size: 10vw;
         display: grid;
-        grid-template-columns: repeat(4, 80%);
-        grid-template-rows: repeat(1, 100%);
-        gap: 5%;
+        grid-template-columns: repeat(4, 50vh);
+        // grid-template-rows: repeat(1, 1fr);
+        // gap: 5%;
+
         .hm3-card {
           scroll-snap-align: start;
           border: 1px black solid;
-          // width: 50%;
+          width: 100%;
         }
       }
+
       .hm3-container {
         // scroll-snap-align: start;
         width: 100%;
         height: 100%;
         overflow: hidden;
+
         // -ms-overflow-style: none; /* IE and Edge */
         // scrollbar-width: none; /* Firefox */
         // &::-webkit-scrollbar {
@@ -101,29 +117,37 @@
         .hm3-menu-items {
           display: flex;
           justify-content: space-between;
+
           div {
             border: 1px orange solid;
             margin: 4vw 0 0 0;
           }
         }
+
         .hm3-menu-subitems {
           height: 8%;
           display: flex;
           justify-content: flex-start;
+
           // margin: 2vw;
           div {
             border: 1px orange solid;
             margin: 4vw 8vw 4vw 0;
           }
         }
+
         .hm3-body-wrapper {
           height: 92%;
           overflow: auto;
-          -ms-overflow-style: none; /* IE and Edge */
-          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none;
+          /* IE and Edge */
+          scrollbar-width: none;
+
+          /* Firefox */
           &::-webkit-scrollbar {
             display: none;
           }
+
           .hm3 {
             border: 3px blue solid;
             height: 200px;
