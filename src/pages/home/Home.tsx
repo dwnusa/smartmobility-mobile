@@ -8,6 +8,7 @@ import cardBogota from "media/card-bogota.png";
 import cardAutomobile from "media/card-automobile.png";
 import * as cards from "media";
 import { url } from "inspector";
+import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from "constants";
 function Home({ isPc }: { isPc: boolean }) {
   const divEl = useRef<HTMLDivElement | null>(null);
   const [isBgShowing, setBgShowing] = useState<boolean>(true);
@@ -37,15 +38,13 @@ function Home({ isPc }: { isPc: boolean }) {
           onWheel={(e) => handleWheel(e)}
         >
           <div
-            className={`svgtest ${
-              !isBgShowing && (nextAnimation ? "activated2" : "activated1")
-            }`}
+            className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox={`${
-                nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
-              } `}
+              viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+                } `}
               fill="none"
             >
               <path
@@ -109,10 +108,15 @@ function Home({ isPc }: { isPc: boolean }) {
           <div className="hm2-handle"></div>
           <div className="hm2-body">
             <div className="hm3-cards-container">
-              <div className="hm3-card">card</div>
-              <div className="hm3-card">card</div>
-              <div className="hm3-card">card</div>
-              <div className="hm3-card">card</div>
+              <div><img src={cards.home01inactive} /></div>
+              <div><img src={cards.home02inactive} /></div>
+              <div><img src={cards.home03inactive} /></div>
+              {/* <img src={cards.home01inactive} />
+              <img src={cards.home02inactive} />
+              <img src={cards.home03inactive} /> */}
+              {/* <div className="hm3-card"><img src={cards.home01inactive} /></div>
+              <div className="hm3-card"><img src={cards.home02inactive} /></div>
+              <div className="hm3-card"><img src={cards.home03inactive} /></div> */}
             </div>
             <div className="hm3-container">
               <div className="hm3-menu-items">
@@ -153,15 +157,13 @@ function Home({ isPc }: { isPc: boolean }) {
             onWheel={(e) => handleWheel(e)}
           >
             <div
-              className={`svgtest ${
-                !isBgShowing && (nextAnimation ? "activated2" : "activated1")
-              }`}
+              className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
+                }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox={`${
-                  nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
-                } `}
+                viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+                  } `}
                 fill="none"
               >
                 <path
