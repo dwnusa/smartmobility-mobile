@@ -45,7 +45,7 @@
       width: 100%;
       position: absolute;
       top: 0px;
-      background-color: gray;
+      background-color: white;
       // z-index: 1;
       // top: 50%;
       // position: absolute;
@@ -58,7 +58,8 @@
       top: 40px;
       width: 100%;
       height: calc(100% - 40px);
-      overflow-x: hidden;
+      // overflow-x: hidden;
+      // white-space: nowrap;
       overflow-y: auto;
       -ms-overflow-style: none;
       /* IE and Edge */
@@ -68,11 +69,21 @@
       &::-webkit-scrollbar {
         display: none;
       }
-
-      border: 1px red solid;
+      // padding-left: 5%;
+      // margin-left: 5%;
+      // border: 1px red solid;
       box-sizing: border-box;
 
       .hm3-cards-container {
+        // margin: 0 3vw;
+        background-image: url("../../media/MOBILE/line.png");
+        background-size: cover;
+        background-origin: border-box;
+        background-position-y: -4vh;
+        // background-size: auto;
+        // background-repeat: no-repeat;
+        // width: 50%;
+        // height: 100%;
         // scroll-snap-align: start;
         scroll-snap-type: x mandatory;
         // border: 1px red solid;
@@ -99,20 +110,27 @@
         // gap: 5%;
         // display:flex;
 
-        >div {
+        > div {
           scroll-snap-align: center;
           position: relative;
           display: inline-block;
-          border: 1px black solid;
+          // border: 1px black solid;
           height: 100%;
           // margin: 0 5%;
           padding: 0 2%;
           box-sizing: border-box;
+          &:nth-child(1) {
+            margin-left: 5%;
+          }
 
-          >img {
-            width: 90%;
+          &:last-child {
+            margin-right: 5%;
+          }
+
+          > img {
+            width: 100%;
             // height: 80%;
-            margin: 5% 0;
+            margin: 0 0 10% 0;
             box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.1);
           }
         }
@@ -136,16 +154,37 @@
         //   display: none;
         // }
         .hm3-menu-items {
+          margin: 6%;
+          border-bottom: 1px #9b9b9b solid;
+          // box-sizing: border-box;
           display: flex;
           justify-content: space-between;
 
           div {
-            border: 1px orange solid;
-            margin: 4vw 0 0 0;
+            // border-bottom: 2px black solid;
+            // box-sizing: content-box;
+            font-family: "Montserrat", sans-serif;
+            // font-size: 14px;
+            color: #9b9b9b;
+            padding: 4vw 0 3vw 0;
+            // user-select: none;
+            cursor: pointer;
+            border-bottom: 2px transparent solid;
+            &:active {
+              color: black;
+              border-bottom: 2px black solid;
+            }
+            &:hover {
+              font-weight: bold;
+              color: black;
+              border-bottom: 2px black solid;
+            }
           }
         }
 
         .hm3-menu-subitems {
+          margin: 6%;
+          border: 1px red solid;
           height: 8%;
           display: flex;
           justify-content: flex-start;

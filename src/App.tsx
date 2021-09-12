@@ -1,20 +1,29 @@
 import React, { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive"
+import { useMediaQuery } from "react-responsive";
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
 import { NavLink, useLocation } from "react-router-dom";
-import { Home, About, Service, Study, Contact, SubRnD1, SubRnD2, SubRnD3 } from "pages";
+import {
+  Home,
+  About,
+  Service,
+  Study,
+  Contact,
+  SubRnD1,
+  SubRnD2,
+  SubRnD3,
+} from "pages";
 
 let prePath = "";
 function App() {
   const isPc = useMediaQuery({
-    query: "(min-width:1024px)"
+    query: "(min-width:800px)",
   });
   const isTablet = useMediaQuery({
-    query: "(min-width:768px) and (max-width:1023px)"
+    query: "(min-width:768px) and (max-width:1023px)",
   });
   const isMobile = useMediaQuery({
-    query: "(max-width:767px)"
+    query: "(max-width:767px)",
   });
   const location = useLocation();
   useEffect(() => {
@@ -28,7 +37,11 @@ function App() {
   }, [location]);
   return (
     <div className="app">
-      <Route exact path="/" component={(props: any) => <Home {...props} isPc={isPc} />} />
+      <Route
+        exact
+        path="/"
+        component={(props: any) => <Home {...props} isPc={isPc} />}
+      />
       <Switch>
         <Route
           path="/about/:page"
