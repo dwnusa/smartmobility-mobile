@@ -45,7 +45,7 @@
       width: 100%;
       position: absolute;
       top: 0px;
-      background-color: white;
+      background-color: red;
       // z-index: 1;
       // top: 50%;
       // position: absolute;
@@ -87,10 +87,10 @@
         // height: 100%;
         // scroll-snap-align: start;
         scroll-snap-type: x mandatory;
-        // border: 1px red solid;
+        border: 5px blue solid;
         box-sizing: border-box;
         width: 100%;
-        // height: 40%;
+        height: 45%;
         white-space: nowrap;
         overflow: scroll;
         -ms-overflow-style: none;
@@ -144,8 +144,11 @@
         }
       }
 
-      .hm3-container {
+      .hm3-main-container {
+        border: 5px red solid;
         // scroll-snap-align: start;
+        // border: 5px red solid;
+        box-sizing: border-box;
         width: 100%;
         height: 100%;
         overflow: hidden;
@@ -156,7 +159,8 @@
         //   display: none;
         // }
         .hm3-menu-items {
-          margin: 6%;
+          height: 7%;
+          margin: 0px 6%;
           border-bottom: 1px #9b9b9b solid;
           // box-sizing: border-box;
           display: flex;
@@ -187,11 +191,14 @@
         }
 
         .hm3-menu-subitems {
-          margin: 6%;
+
+          height: 8%;
+          margin: 0px 6%;
           // border: 1px red solid;
           // height: 8%;
           display: flex;
           justify-content: flex-start;
+          align-items: center;
 
           // margin: 2vw;
           div {
@@ -208,7 +215,7 @@
         }
 
         .hm3-body-wrapper {
-          height: 92%;
+          height: 85%;
           overflow: auto;
           -ms-overflow-style: none;
           /* IE and Edge */
@@ -220,7 +227,7 @@
           }
 
           .hm3 {
-            border: 3px blue solid;
+            border: 5px blue solid;
             height: 200px;
             background-color: black;
             box-sizing: border-box;

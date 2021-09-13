@@ -49,7 +49,7 @@ function Home({ isPc }: { isPc: boolean }) {
                 <img src={cards.home03inactive} />
               </div>
             </div>
-            <div className="hm3-container">
+            <div className="hm3-main-container">
               <div className="hm3-menu-items">
                 <div>About</div>
                 <div>Service</div>
