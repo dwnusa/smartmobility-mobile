@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Home.scss";
+import bgVideo from "media/bg-video.mp4";
 import { Header2 } from "components";
 import { BackgroundVideo } from "./";
 import cardHandycap from "media/card-handycap.png";
@@ -30,6 +31,10 @@ function Home({ isPc }: { isPc: boolean }) {
   const Home_Mobile = ({ isPc }: { isPc: boolean }) => {
     return (
       <div className="hm1">
+        {/* <video autoPlay loop muted style={{ height: "80%", position: "absolute", top: "0px" }}>
+          <source src={bgVideo} type="video/mp4" />
+          Your browser doesn't support the video tag.
+        </video> */}
         <div className="hm2">
           <div className="hm2-handle"></div>
           <div className="hm2-body">
@@ -83,15 +88,13 @@ function Home({ isPc }: { isPc: boolean }) {
             onWheel={(e) => handleWheel(e)}
           >
             <div
-              className={`svgtest ${
-                !isBgShowing && (nextAnimation ? "activated2" : "activated1")
-              }`}
+              className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
+                }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox={`${
-                  nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
-                } `}
+                viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+                  } `}
                 fill="none"
               >
                 <path
