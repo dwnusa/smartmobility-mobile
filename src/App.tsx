@@ -1,8 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
-import { NavLink, useLocation } from "react-router-dom";
-import { Home, About, Service, Study, Contact, SubRnD1, SubRnD2, SubRnD3 } from "pages";
+import { useLocation } from "react-router-dom";
+import {
+  Home,
+  About,
+  Service,
+  Study,
+  Contact,
+  SubRnD1,
+  SubRnD2,
+  SubRnD3,
+} from "pages";
 
 let prePath = "";
 function App() {

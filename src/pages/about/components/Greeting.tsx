@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import "./Greeting.scss";
 import * as cards from "media";
 import AwesomeSlider from "react-awesome-slider";
@@ -7,11 +7,6 @@ import "./slider.css";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 function Greeting() {
-  const [counter, setCounter] = useState<number>(0);
-  const imgHandler = () => {
-    const newValue = (counter + 1) % 5;
-    setCounter(newValue);
-  };
   const imgArray = [
     cards.aboutGreeting1,
     cards.aboutGreeting2,

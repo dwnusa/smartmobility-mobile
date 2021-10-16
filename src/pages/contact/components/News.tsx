@@ -174,14 +174,7 @@ function News() {
       lineHeight: "40px",
       borderRadius: "20px",
     };
-    const type = props.record.type;
     if (props.value === 9999) return <div style={idStyle}>공지</div>;
-    // if (props.value === 9999) {
-    //   if (type === "recruitment") return <div style={idStyle}>채용</div>;
-    //   else return <div style={idStyle}>공지</div>;
-    // } else {
-    //   return <div>{props.value}</div>;
-    // }
   };
   const renderTitle = (props: any) => {
     const is9999 = props.record.id;
@@ -262,7 +255,6 @@ function News() {
         ...listData,
         {
           key: maxKey + 1,
-          // id: currentEditorInfo.type === "announcement" ? 9999 : maxKey + 1,
           id: maxKey + 1,
           type: currentEditorInfo.type,
           title: currentEditorInfo.title,
@@ -314,7 +306,6 @@ function News() {
         if (v.key === currentKey) {
           return {
             ...v,
-            // id: currentEditorInfo.type === "announcement" ? 9999 : v.key,
             type: currentEditorInfo.type,
             title: currentEditorInfo.title,
             writer: currentEditorInfo.writer,
@@ -638,8 +629,9 @@ function News() {
                           blocksFromHTML.contentBlocks,
                           blocksFromHTML.entityMap
                         );
-                        const editor_state =
-                          EditorState.createWithContent(content);
+                        const editor_state = EditorState.createWithContent(
+                          content
+                        );
                         setEditorState(editor_state);
                         setCurrentEditorInfo({
                           type: viewItem.type,
@@ -681,9 +673,6 @@ function News() {
                             return {
                               ...v,
                               id: currentCheckerState ? 9999 : viewItem.key,
-                              // type: currentCheckerState
-                              //   ? "announcement"
-                              //   : "recruitment",
                             };
                           } else {
                             return {

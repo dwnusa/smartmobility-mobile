@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./Outsourcing.scss";
 import * as cards from "media";
 function Outsourcing() {
@@ -178,7 +178,6 @@ function Outsourcing() {
         onMouseOver={(e) => (e.currentTarget.src = v.imgActive)}
       />
     ));
-  // console.log(filteredCards)
   return (
     <div className="outsourcing">
       <div className="service-filter">
