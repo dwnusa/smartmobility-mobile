@@ -4,6 +4,7 @@ import "./Home.scss";
 import bgVideo from "media/bg-video.mp4";
 import { Header2 } from "components";
 import { BackgroundVideo } from "./";
+import logoWhite from "media/logo-white.png";
 import cardHandycap from "media/card-handycap.png";
 import cardBogota from "media/card-bogota.png";
 import cardAutomobile from "media/card-automobile.png";
@@ -36,6 +37,12 @@ function Home({ isPc }: { isPc: boolean }) {
           <source src={bgVideo} type="video/mp4" />
           Your browser doesn't support the video tag.
         </video> */}
+        <img src={logoWhite} />
+        <span>
+          We think <br />
+          for the <br />
+          better world!
+        </span>
         <div className="hm2">
           <div className="hm2-handle"></div>
           <div className="hm2-body">
@@ -44,19 +51,8 @@ function Home({ isPc }: { isPc: boolean }) {
               <img src={cards.home01inactive} />
               <img src={cards.home02active} />
               <img src={cards.home02inactive} />
-              {/* <img src={cards.home02active} /> */}
               <img src={cards.home03active} />
               <img src={cards.home03inactive} />
-              {/* <img src={cards.home03active} /> */}
-              {/* <div>
-                <img src={cards.home01inactive} />
-              </div>
-              <div>
-                <img src={cards.home02inactive} />
-              </div>
-              <div>
-                <img src={cards.home03inactive} />
-              </div> */}
             </div>
             <div className="hm3-main-container">
               <div className="hm3-menu-items">

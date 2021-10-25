@@ -24,6 +24,21 @@
   background-image: url("../../media/MOBILE/home-mobile-bg.png");
   background-size: cover;
   // position: relative;
+  > img {
+    width: 30vw;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+  }
+  > span {
+    color: white;
+    font-size: 7vw;
+    position: absolute;
+    font-family: "Montserrat";
+    font-weight: bold;
+    top: 40%;
+    left: 5%;
+  }
 
   .hm2 {
     scroll-snap-align: start;
@@ -76,11 +91,16 @@
       box-sizing: border-box;
 
       .hm3-cards-container {
-        // margin: 0 3vw;
         background-image: url("../../media/MOBILE/line.png");
         background-size: cover;
-        background-origin: border-box;
-        background-position-y: -4vh;
+        background-repeat: no-repeat;
+        // border: 10px red solid;
+        // margin: 0 3vw;
+        // background-color: red;
+        // background-origin: border-box;
+        // background-position-x: 0%;
+        background-position-y: -10vw;
+        // background-position-y: -10px;
         // background-size: auto;
         // background-repeat: no-repeat;
         // width: 50%;
@@ -115,6 +135,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(1, 1fr);
+        // border: 1px blue solid;
         > img {
           // pointer-events: none;
           -webkit-user-select: none;
@@ -124,8 +145,8 @@
           position: relative;
           // border: 1px black solid;
           height: 90%;
-          // margin: 0 5%;
-          padding: 0 2%;
+          // width: 100%;
+          // padding: 0 2%;
           // border: 1px red solid;
           // opacity: 0.8;
           box-sizing: border-box;
