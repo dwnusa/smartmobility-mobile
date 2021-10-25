@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./BackgroundVideo.scss";
 import bgVideo from "media/bg-video.mp4";
 type BackgroundVideoProps = {

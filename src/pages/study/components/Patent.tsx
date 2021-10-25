@@ -1,19 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./Patent.scss";
 import * as cards from "media";
-type patentContentType = {
-  id: number;
-  name: string;
-  number: string;
-  date1: string;
-  date2: string;
-  description: string;
-  inventor: string;
-};
 
 function Patent() {
   const [activeItem, setActiveItem] = useState<number>(1);
-  const [item, setItem] = React.useState<
+  const [item] = React.useState<
     Array<{
       id: number;
       title: string;
@@ -152,7 +143,6 @@ function Patent() {
     cards.patent04,
     cards.patent05,
   ];
-  // console.log(item[1].name);
   return (
     <div className="patent">
       <div className="patent-flex-top">

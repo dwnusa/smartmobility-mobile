@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Header2.scss";
-import { Nav2 } from "./";
 import logoBlack from "media/logo-black.png";
 import logoWhite from "media/logo-white.png";
-import logoText from "media/logo-text.png";
 
 type BackgroundVideoProps = {
   isBgShowing: boolean;
@@ -35,10 +33,13 @@ function Header2({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
           onMouseLeave={() => setLogoHover(false)}
         />
       </Link>
-      {isLogoHover && <div
-        onMouseEnter={() => setLogoHover(true)}
-        onMouseLeave={() => setLogoHover(false)}
-        className={`logo-text`}>{`SmartMobility 홈`}</div>}
+      {isLogoHover && (
+        <div
+          onMouseEnter={() => setLogoHover(true)}
+          onMouseLeave={() => setLogoHover(false)}
+          className={`logo-text`}
+        >{`SmartMobility 홈`}</div>
+      )}
       <ul>
         <li onMouseEnter={() => setMenuHover(1)}>
           <NavLink

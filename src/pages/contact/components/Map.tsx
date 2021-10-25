@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
 import "./Map.scss";
-import * as cards from "media";
 
 function Map() {
-  const [{ lat, lng }, setGeometricData] = useState({
+  const [{ lat, lng }] = useState({
     lat: 37.589038340304555,
     lng: 127.05935059022022,
   });
