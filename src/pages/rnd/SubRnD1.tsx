@@ -27,7 +27,6 @@ function SubRnD1({ match, history }: { match: any; history: any }) {
       imgEl3.current.offsetTop < window.innerHeight + divEl.current.scrollTop;
     setActiveState([state1, state2, state3]);
   };
-  // console.log(activeState);
   return (
     <React.Fragment>
       <Header2 />
