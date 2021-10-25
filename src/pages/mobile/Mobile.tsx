@@ -1,26 +1,46 @@
-import React from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import logoWhite from "media/logo-white.png";
 import * as cards from "media";
 import styles from './Mobile.module.scss';
 
-// const Home_Mobile = ({ isPc }: { isPc: boolean }) => {
-// };
 function Mobile({isPc}:{isPc:boolean}) {
+  const [ishm2Scroll, setIshm2Scroll] = useState(false);
+  const [ishm3Scroll, setIshm3Scroll] = useState(false);
+  const hm1El = useRef<HTMLDivElement | null>(null);
+  const hm2El = useRef<HTMLDivElement | null>(null);
+  const hm3El = useRef<HTMLDivElement | null>(null);
   return (
-    <div className={styles["hm1"]}>
-      {/* <video autoPlay loop muted style={{ height: "80%", position: "absolute", top: "0px" }}>
-        <source src={bgVideo} type="video/mp4" />
-        Your browser doesn't support the video tag.
-      </video> */}
+    <div ref={hm1El} 
+      className={styles["hm1"]} 
+      onScroll={()=>{
+        const coverRate = hm1El.current.scrollTop / hm1El.current.clientHeight;
+        if (coverRate > 0.5) {
+          setIshm2Scroll(true)
+        } else {
+          setIshm2Scroll(false)
+        }
+      }}>
       <img src={logoWhite} />
       <span>
         We think <br />
         for the <br />
         better world!
       </span>
-      <div className={styles["hm2"]}>
+      <div ref={hm2El} className={styles["hm2"]}>
         <div className={styles["hm2-handle"]}></div>
-        <div className={styles["hm2-body"]}>
+        <div ref={hm3El} 
+          onScroll={()=> {
+            const fullHeight = hm3El.current.scrollHeight-hm3El.current.clientHeight;
+            const coverRate = hm3El.current.scrollTop / fullHeight;
+            if (coverRate > 0.9) {
+              setIshm3Scroll(true)
+            } else {
+              setIshm3Scroll(false)
+            }
+          }} 
+          className={styles["hm2-body"]}  
+          style={{overflow: ishm2Scroll ? "scroll":"hidden"}}
+        >
           <div className={styles["hm3-cards-container"]}>
             {/* <img src={cards.home01active} /> */}
             <img src={cards.home01inactive} />
@@ -42,7 +62,7 @@ function Mobile({isPc}:{isPc:boolean}) {
               <div>연혁</div>
               <div>조직도</div>
             </div>
-            <div className={styles["hm3-body-wrapper"]}>
+            <div className={styles["hm3-body-wrapper"]} style={{overflow: ishm3Scroll ? "scroll":"hidden"}}>
               <div className={styles["hm3-box1"]}>
                 ㈜스마트모빌러티에 오신 것을
                 <br />
