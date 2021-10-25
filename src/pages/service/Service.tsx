@@ -112,7 +112,7 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
   }
   const Service_Mobile = ({ match, history, isPc }: { match: any; history: any; isPc: boolean }) => {
     return (
-      <div>Hello!</div>
+      <div>Service</div>
     )
   }
   return (

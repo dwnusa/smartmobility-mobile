@@ -44,7 +44,7 @@ function SubRnD1({
     history: any;
     isPc: boolean;
   }) => {
-    return <div>Hello!</div>;
+    return <div>subrnd1</div>;
   };
   return (
     <>
@@ -106,8 +106,6 @@ function SubRnD1({
         </React.Fragment>
       )}
       {!isPc && <SubRnD1_Mobile match={match} history={history} isPc={isPc} />}
-      {/* {isPc && <SubRnD1_Pc match={match} history={history} isPc={isPc} />}
-      {!isPc && <SubRnD1_Mobile match={match} history={history} isPc={isPc} />} */}
     </>
   );
 }
