@@ -1,0 +1,43 @@
+@import "styles/_variables";
+@import "styles/_mixins";
+.m-call{
+  // border:5px red solid;
+  box-sizing:border-box;
+  width:100%;
+  padding:10% 5%;
+  height:100%;
+  >div{
+    // border:1px red solid;
+    display:flex;
+    justify-content:space-between;
+    margin:2% 0%;
+    >span{
+      font-weight:bold;
+    }
+    >input{
+      width:75%;
+    }
+    >textarea{
+      width:75.5%;
+      height:30vw;
+    }
+  }
+  >div:nth-last-child(2){
+    justify-content:flex-end;
+  }
+  >div:nth-last-child(1){
+    display:flex;
+    justify-content:center;
+    >div{
+      // border:1px red solid;
+      background-color:#0032A0;
+      color:white;
+      width:30%;
+      height:8vw;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
+    }
+  }
+}

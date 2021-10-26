@@ -118,7 +118,7 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
   return (
     <>
       {isPc && <Service_Pc match={match} history={history} isPc={isPc} />}
-      {!isPc && <Service_Mobile match={match} history={history} isPc={isPc} />}
+      {/* {!isPc && <Service_Mobile match={match} history={history} isPc={isPc} />} */}
     </>
   );
 }

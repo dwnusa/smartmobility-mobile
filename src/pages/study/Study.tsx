@@ -63,7 +63,7 @@ function Study({ match, history, isPc }: { match: any; history: any; isPc: boole
   return (
     <>
       {isPc && <Study_Pc match={match} history={history} isPc={isPc} />}
-      {!isPc && <Study_Mobile match={match} history={history} isPc={isPc} />}
+      {/* {!isPc && <Study_Mobile match={match} history={history} isPc={isPc} />} */}
     </>
   );
 }

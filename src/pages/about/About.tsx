@@ -77,7 +77,7 @@ function About({ match, history, isPc }: { match: any; history: any, isPc: boole
   return (
     <>
       {isPc && <About_Pc match={match} history={history} isPc={isPc} />}
-      {!isPc && <About_Mobile match={match} history={history} isPc={isPc} />}
+      {/* {!isPc && <About_Mobile match={match} history={history} isPc={isPc} />} */}
     </>
   );
 }
