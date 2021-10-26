@@ -70,14 +70,14 @@ function About({ match, history, isPc }: { match: any; history: any, isPc: boole
   const About_Mobile = ({ match, history, isPc }: { match: any; history: any, isPc: boolean }) => {
     return (
       <React.Fragment>
-        <div> Hello! </div>
+        <div>About</div>
       </React.Fragment>
     )
   }
   return (
     <>
       {isPc && <About_Pc match={match} history={history} isPc={isPc} />}
-      {!isPc && <About_Mobile match={match} history={history} isPc={isPc} />}
+      {/* {!isPc && <About_Mobile match={match} history={history} isPc={isPc} />} */}
     </>
   );
 }

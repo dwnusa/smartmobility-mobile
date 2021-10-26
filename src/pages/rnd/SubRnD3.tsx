@@ -29,7 +29,7 @@ function SubRnD3({ match, history, isPc }: { match: any; history: any; isPc: boo
   };
   const SubRnD3_Mobile = ({ match, history, isPc }: { match: any; history: any; isPc: boolean }) => {
     return (
-      <div>Hello!</div>
+      <div>subrnd3</div>
     )
   }
   return (

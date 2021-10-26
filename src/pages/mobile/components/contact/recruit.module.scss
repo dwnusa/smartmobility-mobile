@@ -1,0 +1,96 @@
+@import "styles/_variables";
+@import "styles/_mixins";
+
+.hm3-body-wrapper {
+  // position: relative;
+  // border:4px cyan solid;
+  box-sizing:border-box;
+
+  // height: 188%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  
+  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .hm3-box1 {
+    position: relative;
+    // border:4px red solid;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items: center;;
+    >div:nth-child(1){
+      // border:1px red solid;
+      display:flex;
+      justify-content: flex-start;
+      // height:10%;
+      width:90%;
+      >div{
+        // border:1px blue solid;
+        // margin-right: 10%;
+        margin: 10% 5% 4% 0;
+      }
+    }
+    >table{
+      border-collapse: collapse;
+      // border:1px red solid;
+      width:90%;
+      border-top:3px black solid;
+      th, td{
+        height:5vw;
+        font-size: 15px;
+        font-family: "Noto Sans KR";
+        height:50px;
+        // border:1px blue solid;
+        &:nth-child(1){
+          width:12%;
+          text-align: center;
+          color: #333333;
+        }
+        &:nth-child(2){
+          // border:1px blue solid;
+          width:68%;
+          text-align: left;
+          padding-left: 5%;
+        }
+        &:nth-child(3){
+          // border:1px blue solid;
+          width:20%;
+          text-align: center;
+          color: #333333;
+        }
+      }
+      tr {
+        height:5vw;
+        border-bottom:1px black solid;
+      }
+    }
+    >div:nth-child(3){
+      display:flex;
+      // border:12px blue solid;
+      width: 80%;
+      height:8vw;
+      margin:3% 0 8% 0;
+      >div{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        &:nth-child(n+3){
+          white-space: nowrap;
+          // border:1px red solid;
+          background-color: #0032A0;
+          color: white;
+          padding:0 8px;
+        }
+        &:nth-child(4){
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

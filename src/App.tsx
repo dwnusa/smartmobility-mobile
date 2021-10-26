@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./App.scss";
 import {
+  Mobile,
   Home,
   About,
   Service,
@@ -37,6 +38,7 @@ function App() {
   }, [location]);
   return (
     <div className="app">
+      {!isPc && <Mobile isPc={isPc} />}
       <Route
         exact
         path="/"

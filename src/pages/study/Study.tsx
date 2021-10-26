@@ -57,13 +57,13 @@ function Study({ match, history, isPc }: { match: any; history: any; isPc: boole
   }
   const Study_Mobile = ({ match, history, isPc }: { match: any; history: any; isPc: boolean }) => {
     return (
-      <div>Hello!</div>
+      <div>Study</div>
     )
   }
   return (
     <>
       {isPc && <Study_Pc match={match} history={history} isPc={isPc} />}
-      {!isPc && <Study_Mobile match={match} history={history} isPc={isPc} />}
+      {/* {!isPc && <Study_Mobile match={match} history={history} isPc={isPc} />} */}
     </>
   );
 }

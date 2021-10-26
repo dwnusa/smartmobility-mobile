@@ -138,3 +138,63 @@ export { default as cardAutomobile } from "media/card-automobile.png";
 export { default as cardHandycap_active } from "media/card-handycap-active.png";
 export { default as cardBogota_active } from "media/card-bogota-active.png";
 export { default as cardAutomobile_active } from "media/card-automobile-active.png";
+
+
+export { default as m_about_vision } from "media/MOBILE/smmobile/about/about-vision.png";
+export { default as m_about_years01 } from "media/MOBILE/smmobile/about/about-years-01.png";
+export { default as m_about_years02 } from "media/MOBILE/smmobile/about/about-years-02.png";
+export { default as m_about_organization } from "media/MOBILE/smmobile/about/about-organization.png";
+
+export { default as m_rnd_card1_1 } from "media/MOBILE/smmobile/project/rnd/rnd-card1-1.png";
+export { default as m_rnd_card2_1 } from "media/MOBILE/smmobile/project/rnd/rnd-card2-1.png";
+export { default as m_rnd_card3_1 } from "media/MOBILE/smmobile/project/rnd/rnd-card3-1.png";
+
+export { default as m_engineering_card01_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card01.png";
+export { default as m_engineering_card02_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card02.png";
+export { default as m_engineering_card03_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card03.png";
+export { default as m_engineering_card04_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card04.png";
+export { default as m_engineering_card05_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card05.png";
+
+export { default as m_engineering_card06_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card06.png";
+export { default as m_engineering_card07_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card07.png";
+export { default as m_engineering_card08_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card08.png";
+export { default as m_engineering_card09_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card09.png";
+export { default as m_engineering_card10_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card10.png";
+
+export { default as m_engineering_card11_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card11.png";
+export { default as m_engineering_card12_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card12.png";
+export { default as m_engineering_card13_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card13.png";
+export { default as m_engineering_card14_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card14.png";
+export { default as m_engineering_card15_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card15.png";
+
+export { default as m_engineering_card16_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card16.png";
+export { default as m_engineering_card17_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card17.png";
+export { default as m_engineering_card18_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card18.png";
+export { default as m_engineering_card19_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card19.png";
+export { default as m_engineering_card20_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card20.png";
+
+export { default as m_engineering_card21_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card21.png";
+export { default as m_engineering_card22_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card22.png";
+export { default as m_engineering_card23_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card23.png";
+export { default as m_engineering_card24_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card24.png";
+export { default as m_engineering_card25_1 } from "media/MOBILE/smmobile/project/engineering/engineering-card25.png";
+
+export { default as m_service_handycab } from "media/MOBILE/smmobile/service/service-01.png";
+export { default as m_service_trafficsafety_icon } from "media/MOBILE/smmobile/service/service-02-icon.png";
+export { default as m_service_trafficsafety } from "media/MOBILE/smmobile/service/service-02.png";
+
+export { default as m_subrnd1 } from "media/MOBILE/smmobile/project/rnd/proj-01.png";
+export { default as m_subrnd2 } from "media/MOBILE/smmobile/project/rnd/proj-02.png";
+export { default as m_subrnd3 } from "media/MOBILE/smmobile/project/rnd/proj-03.png";
+
+export { default as m_subrnd1_title } from "media/MOBILE/smmobile/project/rnd/proj-01-title.png";
+export { default as m_subrnd2_title } from "media/MOBILE/smmobile/project/rnd/proj-02-title.png";
+export { default as m_subrnd3_title } from "media/MOBILE/smmobile/project/rnd/proj-03-title.png";
+
+export { default as m_patent1 } from "media/MOBILE/smmobile/project/patent/patent1.png";
+export { default as m_patent2 } from "media/MOBILE/smmobile/project/patent/patent2.png";
+export { default as m_patent3 } from "media/MOBILE/smmobile/project/patent/patent3.png";
+export { default as m_patent4 } from "media/MOBILE/smmobile/project/patent/patent4.png";
+export { default as m_patent5 } from "media/MOBILE/smmobile/project/patent/patent5.png";
+
+export { default as m_passwordModal } from "media/MOBILE/smmobile/contact/passwordModal.png";

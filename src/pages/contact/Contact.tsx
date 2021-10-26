@@ -59,13 +59,13 @@ function Contact({ match, history, isPc }: { match: any; history: any; isPc: boo
   }
   const Contact_Mobile = ({ match, history, isPc }: { match: any; history: any; isPc: boolean }) => {
     return (
-      <div>Hello!</div>
+      <div>Contact</div>
     )
   }
   return (
     <>
       {isPc && <Contact_Pc match={match} history={history} isPc={isPc} />}
-      {!isPc && <Contact_Mobile match={match} history={history} isPc={isPc} />}
+      {/* {!isPc && <Contact_Mobile match={match} history={history} isPc={isPc} />} */}
     </>
   );
 }
