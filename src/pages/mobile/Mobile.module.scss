@@ -2,7 +2,7 @@
 @import "styles/_mixins";
 .hm1 {
   position:relative;
-  scroll-snap-type: y proximity;
+  // scroll-snap-type: y proximity;
   /* snap area의 가운데 스냅, 다음 이미지의 2번째 snap area에 해당 */
 
   min-height: 812px;
@@ -39,7 +39,7 @@
     box-sizing:border-box;
     overflow:scroll;
 
-    scroll-snap-align: start;
+    // scroll-snap-align: start;
     margin-top: 57vh;
     height: 100vh;
     border-radius: 20px 20px 0px 0px;
@@ -57,7 +57,7 @@
     }
 
     .hm2-body {
-      scroll-snap-type: y mandatory;
+      // scroll-snap-type: y mandatory;
       position: absolute;
       top: 40px;
       width: 100%;
