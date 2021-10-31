@@ -2,7 +2,9 @@
 @import "styles/_mixins";
 
 .hm1 {
-  position: relative;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
   border: 4px red solid;
   box-sizing: border-box;
   // scroll-snap-type: y proximity;
@@ -41,7 +43,7 @@
   // border:1px red solid;
   // box-sizing:border-box;
   .hm2 {
-    // border:2px red solid;
+    border: 2px blue solid;
     box-sizing: border-box;
     overflow: scroll;
 
