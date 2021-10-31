@@ -43,8 +43,13 @@ function Mobile({ isPc }: { isPc: boolean }) {
   const hm3El = useRef<HTMLDivElement | null>(null);
   const hm4El = useRef<HTMLDivElement | null>(null);
   // useEffect(() => {
-  //   console.log(ishm2Scroll);
-  // }, [ishm2Scroll]);
+  // console.log(ishm2Scroll);
+  // const scrollintoviewState = hm4El.current.scrollTop / hm4El.current.clientHeight;
+  // console.log("hm1el: ", hm1El.current.scrollTop, hm1El.current.clientHeight);
+  // console.log("hm2el: ", hm2El.current.scrollTop, hm2El.current.clientHeight);
+  // console.log("hm3el: ", hm3El.current.scrollTop, hm3El.current.clientHeight);
+  // console.log("hm4el: ", hm4El.current.scrollTop, hm4El.current.clientHeight);
+  // }, [pos]);
   return (
     <div ref={hm1El}
       className={styles["hm1"]}
@@ -91,7 +96,15 @@ function Mobile({ isPc }: { isPc: boolean }) {
           <div className={styles["hm3-main-container"]}>
             <div className={styles["hm3-menu-items"]}>
               {posMap.map((v, i) =>
-                <div className={pos.page == i && styles["active"]} onClick={() => { hm4El.current.scrollIntoView({ behavior: 'smooth' }); setPos({ ...pos, page: i, tab: 0, stack: 0 }) }}>{v.name}</div>
+                <div className={pos.page == i && styles["active"]}
+                  onClick={() => {
+                    if (pos.page !== i) {
+                      hm4El.current.scrollIntoView({ behavior: 'smooth' });
+                      setPos({ ...pos, page: i, tab: 0, stack: 0 })
+                    }
+                  }}>
+                  {v.name}
+                </div>
               )}
             </div>
             <div className={styles["hm3-menu-subitems"]}>
