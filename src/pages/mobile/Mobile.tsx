@@ -43,12 +43,10 @@ function Mobile({ isPc }: { isPc: boolean }) {
   const hm3El = useRef<HTMLDivElement | null>(null);
   const hm4El = useRef<HTMLDivElement | null>(null);
   // useEffect(() => {
-  // console.log(ishm2Scroll);
-  // const scrollintoviewState = hm4El.current.scrollTop / hm4El.current.clientHeight;
-  // console.log("hm1el: ", hm1El.current.scrollTop, hm1El.current.clientHeight);
-  // console.log("hm2el: ", hm2El.current.scrollTop, hm2El.current.clientHeight);
-  // console.log("hm3el: ", hm3El.current.scrollTop, hm3El.current.clientHeight);
-  // console.log("hm4el: ", hm4El.current.scrollTop, hm4El.current.clientHeight);
+  //   console.log("hm1el: ", hm1El.current.scrollTop, hm1El.current.clientHeight);
+  //   console.log("hm2el: ", hm2El.current.scrollTop, hm2El.current.clientHeight);
+  //   console.log("hm3el: ", hm3El.current.scrollTop, hm3El.current.clientHeight);
+  //   console.log("hm4el: ", hm4El.current.scrollTop, hm4El.current.clientHeight);
   // }, [pos]);
   return (
     <div ref={hm1El}
@@ -98,9 +96,15 @@ function Mobile({ isPc }: { isPc: boolean }) {
               {posMap.map((v, i) =>
                 <div className={pos.page == i && styles["active"]}
                   onClick={() => {
-                    if (pos.page !== i) {
+                    // condition3 == 0: hm3El 의 스크롤 최상단
+                    const condition3 = hm3El.current.scrollTop === 0;
+                    // console.log(condition3);
+                    if (condition3) {
+                      // hm3El 의 스크롤 최상단일때 -> scrollIntoView 호출 함
                       hm4El.current.scrollIntoView({ behavior: 'smooth' });
-                      setPos({ ...pos, page: i, tab: 0, stack: 0 })
+                    }
+                    setPos({ ...pos, page: i, tab: 0, stack: 0 })
+                    if (pos.page !== i) {
                     }
                   }}>
                   {v.name}
