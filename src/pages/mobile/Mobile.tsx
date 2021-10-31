@@ -35,20 +35,24 @@ const posMap = [
 function Mobile({ isPc }: { isPc: boolean }) {
   const [pos, setPos] = useState({ page: 0, tab: 0, stack: 0 });
   const [ishm2Scroll, setIshm2Scroll] = useState(false);
+  // const [scrollDirection, setScrollDirection] = useState({ name: 'stop', value: 0 });
   const [ishm3Scroll, setIshm3Scroll] = useState(false);
+  const [hm2ElScrollPos, setHm2ElScrollPos] = useState(false);
   const hm1El = useRef<HTMLDivElement | null>(null);
   const hm2El = useRef<HTMLDivElement | null>(null);
   const hm3El = useRef<HTMLDivElement | null>(null);
   const hm4El = useRef<HTMLDivElement | null>(null);
-  // useEffect(()=>{
-  //   console.log(pos);
-  // });
+  // useEffect(() => {
+  //   console.log(ishm2Scroll);
+  // }, [ishm2Scroll]);
   return (
     <div ref={hm1El}
       className={styles["hm1"]}
-      onScroll={() => {
+      onScroll={(e) => {
         const coverRate = hm1El.current.scrollTop / hm1El.current.clientHeight;
-        if (coverRate > 0.5) {
+        // console.log(coverRate);
+        // console.log(e.deltaY);
+        if (coverRate > 0.3) {
           setIshm2Scroll(true)
         } else {
           setIshm2Scroll(false)
@@ -76,7 +80,7 @@ function Mobile({ isPc }: { isPc: boolean }) {
           className={styles["hm2-body"]}
           style={{ overflow: ishm2Scroll ? "scroll" : "hidden" }}
         >
-          <div className={styles["hm3-cards-container"]}>
+          <div className={styles["hm3-cards-container"]} >
             {/* <img src={cards.home01active} /> */}
             <img onClick={() => { setPos({ ...pos, page: 2, tab: 0, stack: 1 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) }} src={(pos.page === 2 && pos.stack === 1) ? cards.home01active : cards.home01inactive} />
             {/* <img src={cards.home02active} /> */}
@@ -97,7 +101,7 @@ function Mobile({ isPc }: { isPc: boolean }) {
                     if (pos.page === 1 && i === 2) {
                       // alert("hone")
                     } else {
-                      hm4El.current.scrollIntoView({ behavior: 'smooth' });
+                      // hm4El.current.scrollIntoView({ behavior: 'smooth' });
                       setPos({ ...pos, tab: i, stack: 0 })
                     }
                   }}
