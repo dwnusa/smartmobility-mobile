@@ -15,6 +15,7 @@ function Home({ isPc }: { isPc: boolean }) {
   const [posX, setPosX] = useState<number>(50);
   const [nextAnimation, setNextAnimation] = useState<boolean>(false);
   const [cardActive, setCardActive] = useState<number>(0);
+
   const handleWheel = (e) => {
     setBgShowing(false);
     if (e.deltaY >= 0) {
@@ -40,15 +41,13 @@ function Home({ isPc }: { isPc: boolean }) {
             onWheel={(e) => handleWheel(e)}
           >
             <div
-              className={`svgtest ${
-                !isBgShowing && (nextAnimation ? "activated2" : "activated1")
-              }`}
+              className={`svgtest ${!isBgShowing && (nextAnimation ? "activated2" : "activated1")
+                }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox={`${
-                  nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
-                } `}
+                viewBox={`${nextAnimation ? "3047 0 3097 1229" : `30 0 3047 1229`
+                  } `}
                 fill="none"
               >
                 <path
