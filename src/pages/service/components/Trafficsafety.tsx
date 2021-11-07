@@ -25,8 +25,16 @@ function Trafficsafety({ currentSlide }: { currentSlide: number }) {
         <div className="trafficsafety page2">
           <div className="trafficsafety-text-img-box">
             <img src={cards.trafficsafety_bg2_textbox} alt="" />
-            <div className="box-text1">{"abcdef"}</div>
-            <div className="box-text2">{"abcdef"}</div>
+            <div className="box-text1">
+              <div>서울특별시</div> 
+              <div style={{color:"#1976D3"}}>COVID-19 종합</div> 
+              <div><span style={{color:"#1976D3"}}>상황</span> 분석</div>
+            </div>
+            <div className="box-text2">
+              <div>서울특별시</div>
+              <div style={{color:"#1976D3"}}>교통약자</div>
+              <div><span style={{color:"#1976D3"}}>맞춤 경로</span> 검색</div>
+            </div>
           </div>
           <img className="trafficsafety-second-img" src={cards.trafficsafety_bg2_img2} alt="" />
           <img className="trafficsafety-top-img" src={cards.trafficsafety_bg2_img1} alt="" />
