@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import "./App.scss";
 import { Route, Switch } from "react-router-dom";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import "./App.scss";
 import {
   Mobile,
   Home,
