@@ -3,41 +3,35 @@ import "./Trafficsafety.scss";
 import * as cards from "media";
 
 function Trafficsafety({ currentSlide }: { currentSlide: number }) {
+  // console.log(currentSlide);
   return (
     <React.Fragment>
       {currentSlide === 1 &&
-        <div className="handycap page1" style={{ backgroundImage: `url(${cards.handycap01_1})` }}>
-          <div className="handycap-textbox">
-            <div>HANDYCAB</div>
-            <div>교통약자 대중교통 이동편의 서비스</div>
+        <div className="trafficsafety page1">
+          <div className="trafficsafety-textbox">
             <div>
-              <div>IOS</div>
-              <div>Android</div>
+              <img src={cards.trafficsafety_bg1_icon1} alt="" />
+              <div>
+                <div>서울시 교통약자 이동편의 서비스</div>
+                <div>교통안전지키미</div>
+              </div>
+            </div>
+            <div>
+              <span>서울시립대 교통계획 연구실 X Smartmobility</span>
             </div>
           </div>
         </div>}
       {currentSlide === 2 &&
-        <div className="handycap page2" style={{ backgroundImage: `url(${cards.handycap02_1})` }}>
-          <div className="handycap-textbox">
-            <div>간단하고 간편하게</div>
-            <div>맞춤형 경로제공</div>
-            <div>장애인 편의시설 접근과 환승이 가장 편리한 경로를 탐색하여 나에게 맞는 경로를 선택할 수 있습니다.</div>
+        <div className="trafficsafety page2">
+          <div className="trafficsafety-text-img-box">
+            <img src={cards.trafficsafety_bg2_textbox} alt="" />
+            <div className="box-text1">{"abcdef"}</div>
+            <div className="box-text2">{"abcdef"}</div>
           </div>
-        </div>}
-      {currentSlide === 3 &&
-        <div className="handycap page3" style={{ backgroundImage: `url(${cards.handycap03_1})` }}>
-          <div className="handycap-textbox">
-            <div>효율적이고 빠르게</div>
-            <div>승강기형 출구 알림</div>
-            <div>장애인 편의시설 접근과 환승이 가장 편리한 경로를 탐색하여 나에게 맞는 경로를 선택할 수 있습니다.</div>
-          </div>
-        </div>}
-      {currentSlide === 4 &&
-        <div className="handycap page4" style={{ backgroundImage: `url(${cards.handycap04_1})` }}>
-          <div className="handycap-textbox">
-            <div>이동에 필요한 전화번호 제공</div>
-            <div>장애인 콜택시 & 대중교통 번호</div>
-            <div>장애인콜택시와 역무원 호출 등의 대중교통 전화 시스템을 함께 제공하여 이동과정을 편리하게 합니다.</div>
+          <img className="trafficsafety-second-img" src={cards.trafficsafety_bg2_img2} alt="" />
+          <img className="trafficsafety-top-img" src={cards.trafficsafety_bg2_img1} alt="" />
+          <div className="trafficsafety-textonly">
+            <div>{"교통안전지키미는 서울지역 COVID-19 종합 상황 분석을 기반으로, 두 지점간의 이동경로를 최적화하는 알고리즘을보완·개선하여 교통약자들의 안전한 이동을 위한 효율적인맞춤경로를 제공합니다."}</div>
           </div>
         </div>}
     </React.Fragment>

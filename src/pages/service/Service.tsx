@@ -13,12 +13,23 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
     if (typeof prevTime !== "undefined") {
       var timeDiff = curTime - prevTime;
       if (timeDiff > 50) {
-        if (e.deltaY >= 0) {
-          const nextSlide = Math.min(4, currentSlide + 1);
-          setSlide(nextSlide);
-        } else {
-          const nextSlide = Math.max(1, currentSlide - 1);
-          setSlide(nextSlide);
+        if (currentPage === 1) {
+          if (e.deltaY >= 0) {
+            const nextSlide = Math.min(4, currentSlide + 1);
+            setSlide(nextSlide);
+          } else {
+            const nextSlide = Math.max(1, currentSlide - 1);
+            setSlide(nextSlide);
+          }
+        }
+        if (currentPage === 2) {
+          if (e.deltaY >= 0) {
+            const nextSlide = Math.min(2, currentSlide + 1);
+            setSlide(nextSlide);
+          } else {
+            const nextSlide = Math.max(1, currentSlide - 1);
+            setSlide(nextSlide);
+          }
         }
       }
     }
@@ -40,40 +51,70 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
     }
   }, [targetPage]);
 
-  const bgArray = [
+  const hanycabBgArray = [
     "",
     cards.handycap_bg02,
     cards.handycap_bg03,
     cards.handycap_bg04,
+  ];
+  const trafficSafetyBgArray = [
+    cards.trafficsafety_bg1,
+    cards.trafficsafety_bg2,
   ];
 
   const Service_Pc = ({ match, history, isPc }: { match: any; history: any; isPc: boolean }) => {
     return (
       <div className="service-wrapper">
         <Header2 />
-        {currentSlide === 1 && (
-          <div
-            className={`bgService bgstyle1`}
-            style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
-          ></div>
+        {currentPage === 1 && (
+          <>
+            <div
+              className={`bgService bgstyle1`}
+              style={{
+                visibility: currentSlide === 1 ? "visible" : "hidden",
+                backgroundImage: `url(${hanycabBgArray[currentSlide - 1]})`
+              }}
+            ></div>
+            <div
+              className={`bgService bgstyle2`}
+              style={{
+                visibility: currentSlide === 2 ? "visible" : "hidden",
+                backgroundImage: `url(${hanycabBgArray[currentSlide - 1]})`
+              }}
+            ></div>
+            <div
+              className={`bgService bgstyle3`}
+              style={{
+                visibility: currentSlide === 3 ? "visible" : "hidden",
+                backgroundImage: `url(${hanycabBgArray[currentSlide - 1]})`
+              }}
+            ></div>
+            <div
+              className={`bgService bgstyle4`}
+              style={{
+                visibility: currentSlide === 4 ? "visible" : "hidden",
+                backgroundImage: `url(${hanycabBgArray[currentSlide - 1]})`
+              }}
+            ></div>
+          </>
         )}
-        {currentSlide === 2 && (
-          <div
-            className={`bgService bgstyle2`}
-            style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
-          ></div>
-        )}
-        {currentSlide === 3 && (
-          <div
-            className={`bgService bgstyle3`}
-            style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
-          ></div>
-        )}
-        {currentSlide === 4 && (
-          <div
-            className={`bgService bgstyle4`}
-            style={{ backgroundImage: `url(${bgArray[currentSlide - 1]})` }}
-          ></div>
+        {currentPage === 2 && (
+          <>
+            <div
+              className={`bgService trafficsagety-bgstyle1`}
+              style={{
+                visibility: currentSlide === 1 ? "visible" : "hidden",
+                backgroundImage: `url(${trafficSafetyBgArray[0]})`
+              }}
+            ></div>
+            <div
+              className={`bgService trafficsagety-bgstyle2`}
+              style={{
+                visibility: currentSlide === 2 ? "visible" : "hidden",
+                backgroundImage: `url(${trafficSafetyBgArray[1]})`
+              }}
+            ></div>
+          </>
         )}
         <div className={`service`} onWheel={(e) => handleScroll(e)}>
           <div className="menu">
@@ -94,7 +135,7 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
             </ul>
           </div>
           <div className="slideIndicator">
-            <ul className="dots">
+            {currentPage === 1 && <ul className="dots">
               <li
                 onClick={() => setSlide(1)}
                 className={`dot ${currentSlide === 1 && "active"}`}
@@ -111,7 +152,17 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
                 onClick={() => setSlide(4)}
                 className={`dot ${currentSlide === 4 && "active"}`}
               ></li>
-            </ul>
+            </ul>}
+            {currentPage === 2 && <ul className="dots">
+              <li
+                onClick={() => setSlide(1)}
+                className={`dot ${currentSlide === 1 && "active"}`}
+              ></li>
+              <li
+                onClick={() => setSlide(2)}
+                className={`dot ${currentSlide === 2 && "active"}`}
+              ></li>
+            </ul>}
           </div>
           {currentPage === 1 && <HANDYCAP currentSlide={currentSlide} />}
           {currentPage === 2 && <Trafficsafety currentSlide={currentSlide} />}

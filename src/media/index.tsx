@@ -129,6 +129,13 @@ export { default as handycap04_1 } from "media/HANDYCAP/handycap04-1.png";
 export { default as handycap_bg02 } from "media/HANDYCAP/handycap-bg02.png";
 export { default as handycap_bg03 } from "media/HANDYCAP/handycap-bg03.png";
 export { default as handycap_bg04 } from "media/HANDYCAP/handycap-bg04.png";
+export { default as trafficsafety_bg1 } from "media/TRAFFICSAFETY/trafficsafety-bg1.png";
+export { default as trafficsafety_bg2 } from "media/TRAFFICSAFETY/trafficsafety-bg2.png";
+export { default as trafficsafety_bg1_icon1 } from "media/TRAFFICSAFETY/trafficsafety-bg1-icon1.png";
+export { default as trafficsafety_bg2_img1 } from "media/TRAFFICSAFETY/trafficsafety-bg2-img1.png";
+export { default as trafficsafety_bg2_img2 } from "media/TRAFFICSAFETY/trafficsafety-bg2-img2.png";
+export { default as trafficsafety_bg2_textbox } from "media/TRAFFICSAFETY/trafficsafety-bg2-textbox.png";
+
 export { default as dropTypeArrow } from "media/drop-type-arrow.png";
 export { default as lockIcon } from "media/lock-icon.png";
 

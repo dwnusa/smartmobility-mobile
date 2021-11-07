@@ -1,12 +1,15 @@
 @import "styles/_variables";
 @import "styles/_mixins";
+
 .service-wrapper {
   position: relative;
   overflow: hidden;
   width: 100vw;
   height: 100vh;
   background: #fcfcf7;
+  // border: 1px red solid;
 }
+
 .bgService {
   position: absolute;
   z-index: 0;
@@ -16,27 +19,51 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: 100%;
-  &.bgstyle1 {
+
+  &.trafficsagety-bgstyle1 {
+    // height: 50%;
+    // top: 0;
+    // border: 4px red solid;
+    // box-sizing: border-box;
+    @include animation(0s, 2s, 1, forwards, fadein);
+    // opacity: right bottom 10%;
   }
+
+  &.trafficsagety-bgstyle2 {
+    // height: 50%;
+    // top: 50%;
+    // border: 4px blue solid;
+    // box-sizing: border-box;
+    @include animation(0s, 2s, 1, forwards, fadein);
+    // background-position: right bottom 10%;
+  }
+
+  &.bgstyle1 {}
+
   &.bgstyle2 {
     @include animation(0s, 3s, 1, forwards, bgSlidein2);
     background-position: right bottom 10%;
   }
+
   &.bgstyle3 {
     @include animation(0s, 3s, 1, forwards, bgSlidein3);
     background-position: right top 0%;
   }
+
   &.bgstyle4 {
     @include animation(0s, 3s, 1, forwards, bgSlidein4);
     background-position: right bottom 10%;
   }
+
   overflow: hidden;
 }
+
 .service {
   position: relative;
   @include commonSnapDivStyle();
   @include menuDivStyle();
   overflow: hidden;
+
   .menu {
     ul {
       li {
