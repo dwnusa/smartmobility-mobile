@@ -3,10 +3,10 @@
 
 .hm3-body-wrapper {
   position: relative;
-  // border:4px blue solid;
+  // border:4px red solid;
   box-sizing:border-box;
 
-  height: 100%;
+  // height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   -ms-overflow-style: none;
@@ -30,48 +30,33 @@
   }
 
   .hm3-box2 {
+    // border:4px green solid;
+    box-sizing:border-box;
+    margin: 5% 6% 5% 6%;
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 17px;
+    color: #333333;
+  }
+  .hm3-box3 {
+    // border:4px green solid;
+    box-sizing:border-box;
     display: flex;
     justify-content: center;
     > img {
-      width: 130%;
+      width: 85%;
+      margin:10% 0 20% 0;
     }
   }
-  .hm3-box3 {
-    margin: 5% 6% 5% 6%;
-    font-family: "Noto Sans KR";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 17px;
-    color: #333333;
-  }
-  .hm3-box4 {
-    margin: 10% 6% 5% 6%;
-    font-family: "Noto Sans KR";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 17px;
-
-    color: #333333;
-  }
-  .hm3-box5 {
-    margin: 5% 6% 5% 6%;
-    font-family: "Noto Sans KR";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 20px;
-
-    color: #333333;
-  }
   .hm3-footer {
-    position: absolute;
-    bottom:0;
-    left:0;
-    right:0;
+    // position: absolute;
+    // bottom:0;
+    // left:0;
+    // right:0;
     background: #0a347f;
-    padding: 5% 6% 5% 6%;
+    padding: 5% 6% 15% 6%;
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;

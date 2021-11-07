@@ -3,7 +3,8 @@
 
 
 .home_mobile {
-  border: 1px red solid;
+  border:4px blue solid;
+  box-sizing:border-box;
   display: flex;
   flex-direction: column;
   align-items: stretch;
