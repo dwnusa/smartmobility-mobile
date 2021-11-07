@@ -136,7 +136,7 @@
       position: absolute;
       // border: 4px yellow solid;
       // height: 10vw;
-      width: 50vw;
+      width: 55vw;
       top: 15vw;
       right: 0;
 
@@ -187,7 +187,7 @@
     .trafficsafety-top-img {
       // border: 4px cyan solid;
       position: absolute;
-      width: 40vw;
+      width: 37vw;
       top: 0;
       left: 0;
     }
@@ -212,8 +212,8 @@
 
     .trafficsafety-textonly {
       position: absolute;
-      top: 62%;
-      left: 53%;
+      top: 66%;
+      left: 50%;
       width: 600px;
 
       >div {
@@ -222,6 +222,23 @@
         width: 25vw;
         color: #4A4A4A;
         line-height:1.5vw;
+        display:flex;
+        align-items:center;
+        &:nth-child(2){
+          // border:1px red solid;
+          font-weight:bold;
+          font-size:1.4vw;
+          margin-top:10%;
+          color:#1976D3;
+          cursor:pointer;
+        }
+        >img{
+          margin-left:1vw;
+          border:1px transparent solid;
+          &:hover{
+            border:1px #1976D3 solid;
+          }
+        }
       }
     }
   }

@@ -40,6 +40,7 @@ function Trafficsafety({ currentSlide }: { currentSlide: number }) {
           <img className="trafficsafety-top-img" src={cards.trafficsafety_bg2_img1} alt="" />
           <div className="trafficsafety-textonly">
             <div>{"교통안전지키미는 서울지역 COVID-19 종합 상황 분석을 기반으로, 두 지점간의 이동경로를 최적화하는 알고리즘을보완·개선하여 교통약자들의 안전한 이동을 위한 효율적인맞춤경로를 제공합니다."}</div>
+            <div><span>{"APP 사용해보러 가기"}</span><img src={cards.blue_right_arrow} alt=""/></div>
           </div>
         </div>}
     </React.Fragment>
