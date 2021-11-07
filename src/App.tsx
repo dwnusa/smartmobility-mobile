@@ -16,6 +16,7 @@ import {
 } from "pages";
 
 let prePath = "";
+
 function App() {
   const isPc = useMediaQuery({
     query: "(min-width:800px)",
