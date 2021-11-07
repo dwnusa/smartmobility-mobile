@@ -85,16 +85,21 @@
   }
 
   .cardWrapper {
+    // border: 1px red solid;
     position: relative;
+    width: 10vw;
+    height: 10vw;
     box-sizing: border-box;
     top: 20vh;
-    padding-left: 100vw;
+    // padding-left: 100vw;
 
     &.trigger {
       @include animation(0s, 3s, 1, forwards, slidein);
     }
 
     .cardContainer {
+      position: absolute;
+      // border: 1px blue solid;
       display: flex;
       white-space: nowrap;
 
