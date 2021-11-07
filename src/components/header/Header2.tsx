@@ -92,6 +92,7 @@ function Header2({ isBgShowing, setBgShowing }: BackgroundVideoProps) {
         {isMenuHover === 2 && (
           <div className={`header2-menu ${isMenuHover === 2 && "service2"}`}>
             <NavLink exact to="/service/1">{`HANDYCAB`}</NavLink>
+            <NavLink exact to="/service/2">{`교통안전지키미`}</NavLink>
             <span>{`BOGOTA`}</span>
           </div>
         )}

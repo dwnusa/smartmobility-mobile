@@ -1,16 +1,23 @@
 @import "styles/_variables";
 @import "styles/_mixins";
+
 .organization {
   @include subComponentsStyle();
   padding-top: 15vh;
   height: 80vh;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  // justify-content: center;
+
   .contents {
+    // border: 1px red solid;
+    display: flex;
+    align-items: center;
     height: 100%;
+
     img {
-      height: 80%;
+      // height: 80%;
+      width: 100%;
     }
   }
 }

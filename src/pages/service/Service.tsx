@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Service.scss";
 import { Header2 } from "components";
-import { HANDYCAP, Bogota } from "./";
+import { HANDYCAP, Trafficsafety, Bogota } from "./";
 import * as cards from "media";
 function Service({ match, history, isPc }: { match: any; history: any; isPc: boolean }) {
   const targetPage = Number(match.params.page);
@@ -31,6 +31,9 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
         break;
       case 2:
         setPage(2);
+        break;
+      case 3:
+        setPage(3);
         break;
       default:
         setPage(1);
@@ -81,7 +84,13 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
               >
                 HANDYCAB
               </li>
-              <li className={`${currentPage === 2 && "enabled"}`}>BOGOTA</li>
+              <li
+                className={`${currentPage === 2 && "enabled"}`}
+                onClick={() => history.push("/service/2")}
+              >
+                {"교통안전지키미"}
+              </li>
+              <li className={`${currentPage === 3 && "enabled"}`}>BOGOTA</li>
             </ul>
           </div>
           <div className="slideIndicator">
@@ -105,7 +114,8 @@ function Service({ match, history, isPc }: { match: any; history: any; isPc: boo
             </ul>
           </div>
           {currentPage === 1 && <HANDYCAP currentSlide={currentSlide} />}
-          {currentPage === 2 && <Bogota />}
+          {currentPage === 2 && <Trafficsafety currentSlide={currentSlide} />}
+          {currentPage === 3 && <Bogota />}
         </div>
       </div>
     )
