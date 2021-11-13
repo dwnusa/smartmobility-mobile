@@ -71,7 +71,7 @@
     // left:0;
     // right:0;
     background: #0a347f;
-    padding: 5% 6% 5% 6%;
+    padding: 5% 6% 15% 6%;
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;
@@ -79,6 +79,7 @@
     line-height: 12px;
 
     color: rgba(255, 255, 255, 0.6);
-    // border:1px red solid;
+    // border:4px red solid;
+    // box-sizing:border-box;
   }
 }

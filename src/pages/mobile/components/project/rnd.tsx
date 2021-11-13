@@ -11,10 +11,10 @@ function RND2({ishm3Scroll, setPos, pos}) {
           <img onClick={()=>setPos({...pos, stack:1})} src={cards.m_rnd_card1_1} />
         </div>
         <div className={styles["hm3-box2"]} >
-          <img onClick={()=>setPos({...pos, stack:2})} src={cards.m_rnd_card2_1} />
+          <img onClick={()=>setPos({...pos, stack:3})} src={cards.m_rnd_card2_1} />
         </div>
         <div className={styles["hm3-box2"]} >
-          <img onClick={()=>setPos({...pos, stack:3})} src={cards.m_rnd_card3_1} />
+          <img onClick={()=>setPos({...pos, stack:2})} src={cards.m_rnd_card3_1} />
         </div>
         <div className={styles["hm3-footer"]}>
           주소 : 02496 서울특별시 동대문구 망우로 12길 1, 7층 TEL :

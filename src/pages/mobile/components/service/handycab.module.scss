@@ -42,7 +42,7 @@
       // border:3px blue solid;
       // box-sizing:border-box;
     }
-    .hm3-box2-text{
+    .hm3-box2-text1{
       position: absolute;
       top:22%;
       left:10%;
@@ -80,7 +80,107 @@
           }
         }
       }
+    }
+    .hm3-box2-text2{
+      position: absolute;
+      top:40%;
+      left:50%;
+      >div:nth-child(1){
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color:#333333;
+      }
+      >div:nth-child(2){
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 22px;
+        color:#00656E;
+      }
+      >div:nth-child(3){
+        padding-right:20px;
+        // border:1px red solid;
+        margin-top:15px;
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color:#333333;
+      }
+    }
+    .hm3-box2-text3{
+      position: absolute;
       // border:1px red solid;
+      top:65%;
+      width:50%;
+      left:0%;
+      >div{
+        display:flex;
+        justify-content:flex-end;
+      }
+      >div:nth-child(1){
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color:#333333;
+      }
+      >div:nth-child(2){
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 22px;
+        color:#00656E;
+      }
+      >div:nth-child(3){
+        padding-left:10px;
+        // border:1px red solid;
+        text-align:end;
+        margin-top:15px;
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color:#333333;
+        display:flex;
+        flex-direction:column;
+      }
+    }
+    .hm3-box2-text4{
+      position: absolute;
+      top:84%;
+      // width:50%;
+      left:50%;
+      >div{
+        display:flex;
+        // justify-content:flex-end;
+      }
+      >div:nth-child(1){
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color:#333333;
+      }
+      >div:nth-child(2){
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 14px;
+        color:#00656E;
+      }
+      >div:nth-child(3){
+        padding-right:10px;
+        // border:1px red solid;
+        // text-align:end;
+        margin-top:15px;
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color:#333333;
+        display:flex;
+        flex-direction:column;
+      }
     }
   }
   .hm3-box3 {
@@ -118,7 +218,7 @@
     // left:0;
     // right:0;
     background: #0a347f;
-    padding: 5% 6% 5% 6%;
+    padding: 5% 6% 15% 6%;
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;
