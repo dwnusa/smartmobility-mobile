@@ -1,6 +1,7 @@
+
 html {
   overflow: hidden;
-  width: 100%;
+  width: 100vh;
 }
 body { 
   margin: 0;
@@ -12,8 +13,7 @@ body {
   overflow: hidden;
   height: 100%;
   position: fixed;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+  /* overflow-y: hidden; */
 }
 
 code {
