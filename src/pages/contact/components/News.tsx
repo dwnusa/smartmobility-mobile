@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import "./News.scss";
 import { Editor } from "react-draft-wysiwyg";
+import axios from "axios";
+import { IPinUSE } from "api/IPs";
 import {
   EditorState,
   convertToRaw,
@@ -33,6 +35,29 @@ interface modalType {
 function News() {
   const [filterState, setFilter] = useState<number>(0);
   const [passwd, setPasswd] = useState<string>("");
+  useEffect(() => {
+    try {
+      axios
+        .get(IPinUSE + "list/")
+        .then((res) => {
+          const newData = res.data.map(v => {
+            return {
+              key: Number(v.id),
+              id: Number(v.bno),
+              type: v.type.toLowerCase(),
+              title: v.title,
+              writer: v.writer,
+              body: v.body,
+              date: v.date,
+            }
+          })
+          // debugger;
+          // console.log(newData)
+          setListData(newData)
+        });
+    } catch (err) {
+    }
+  }, [])
   const [listData, setListData] = useState<any>([
     {
       key: 5,
@@ -108,6 +133,14 @@ function News() {
     auth_passed: false,
   });
   useEffect(() => {
+    console.log(modalState);
+    // if (modalState.auth_passed) {
+    //   console.log(modalState.type);
+    // } else {
+    //   console.log('auth failed');
+    // }
+  }, [modalState])
+  useEffect(() => {
     const foundFilterDom = document.getElementsByClassName("header-row")[0];
     if (foundFilterDom) {
       var newDiv2 = document.createElement("div");
@@ -135,6 +168,7 @@ function News() {
   }, [listData, filterState]);
   const handleCreateClick = (e: any) => {
     if (modalState.auth_passed === true) {
+      // debugger;
       setModalState({ ...modalState, type: "create", key: false });
     } else {
       setModalState({
@@ -251,19 +285,32 @@ function News() {
           return o.key;
         })
       );
-      const appendData = [
-        ...listData,
-        {
-          key: maxKey + 1,
-          id: maxKey + 1,
+
+      try {
+        axios.post(IPinUSE + "register/", {
           type: currentEditorInfo.type,
           title: currentEditorInfo.title,
           writer: currentEditorInfo.writer,
           body: bodyContent,
-          date: date,
-        },
-      ];
-      setListData(appendData);
+        })
+          .then((res) => {
+
+            const newData = res.data.map(v => {
+              return {
+                key: Number(v.id),
+                id: Number(v.bno),
+                type: v.type.toLowerCase(),
+                title: v.title,
+                writer: v.writer,
+                body: v.body,
+                date: v.date,
+              }
+            })
+            setListData(newData);
+          });
+      } catch (err) {
+        alert('filed post creation, check server network!')
+      }
       setModalState({
         ...modalState,
         type: "",
@@ -302,23 +349,50 @@ function News() {
           return o.key;
         })
       );
-      const updatedData = listData.map((v) => {
-        if (v.key === currentKey) {
-          return {
-            ...v,
-            type: currentEditorInfo.type,
-            title: currentEditorInfo.title,
-            writer: currentEditorInfo.writer,
-            body: bodyContent,
-            date: date,
-          };
-        } else {
-          return {
-            ...v,
-          };
-        }
-      });
-      setListData(updatedData);
+
+      // const updatedData = listData.map((v) => {
+      //   if (v.key === currentKey) {
+      //     return {
+      //       ...v,
+      //       type: currentEditorInfo.type,
+      //       title: currentEditorInfo.title,
+      //       writer: currentEditorInfo.writer,
+      //       body: bodyContent,
+      //       date: date,
+      //     };
+      //   } else {
+      //     return {
+      //       ...v,
+      //     };
+      //   }
+      // });
+      // setListData(updatedData);
+
+      try {
+        axios.put(IPinUSE + viewItem.key + "/", {
+          type: currentEditorInfo.type,
+          title: currentEditorInfo.title,
+          body: bodyContent,
+        })
+          .then((res) => {
+
+            const newData = res.data.map(v => {
+              return {
+                key: Number(v.id),
+                id: Number(v.bno),
+                type: v.type.toLowerCase(),
+                title: v.title,
+                writer: v.writer,
+                body: v.body,
+                date: v.date,
+              }
+            })
+            setListData(newData);
+          });
+      } catch (err) {
+        alert('filed post creation, check server network!')
+      }
+
       setModalState({
         ...modalState,
         type: "",
@@ -657,37 +731,79 @@ function News() {
                           (v) => v.key !== viewItem.key
                         );
                         setListData(filteredData);
-                        setModalState({
-                          ...modalState,
-                          type: "",
-                          key: false,
-                          confirm_process: false,
-                          auth_process: false,
-                          auth_passed: false,
-                        });
+
+                        try {
+                          const currentCheckerState = (viewItem.id === 9999);
+                          const updatedState = currentCheckerState ? viewItem.key : 9999;
+                          axios.delete(IPinUSE + viewItem.key + "/")
+                            .then((res) => {
+
+                              const newData = res.data.map(v => {
+                                return {
+                                  key: Number(v.id),
+                                  id: Number(v.bno),
+                                  type: v.type.toLowerCase(),
+                                  title: v.title,
+                                  writer: v.writer,
+                                  body: v.body,
+                                  date: v.date,
+                                }
+                              })
+                              setListData(newData);
+                            });
+                        } catch (err) {
+                          alert('filed post creation, check server network!')
+                        } finally {
+
+                          setModalState({
+                            ...modalState,
+                            type: "",
+                            key: false,
+                            confirm_process: false,
+                            auth_process: false,
+                            auth_passed: false,
+                          });
+                        }
                       } else if (modalState.type === "announcement") {
-                        const currentCheckerState = !(viewItem.id === 9999);
-                        console.log(currentCheckerState);
-                        const updatedListData = sortedByDate.map((v) => {
-                          if (v.key === viewItem.key) {
-                            return {
-                              ...v,
-                              id: currentCheckerState ? 9999 : viewItem.key,
-                            };
-                          } else {
-                            return {
-                              ...v,
-                            };
-                          }
-                        });
-                        setListData(updatedListData);
-                        setModalState({
-                          ...modalState,
-                          type: "view",
-                          confirm_process: false,
-                          auth_process: false,
-                          auth_passed: false,
-                        });
+
+                        try {
+                          const currentCheckerState = (viewItem.id === 9999);
+                          const updatedState = currentCheckerState ? viewItem.key : 9999;
+                          axios.put(IPinUSE + viewItem.key + "/", {
+                            bno: updatedState,
+                          })
+                            .then((res) => {
+
+                              const newData = res.data.map(v => {
+                                return {
+                                  key: Number(v.id),
+                                  id: Number(v.bno),
+                                  type: v.type.toLowerCase(),
+                                  title: v.title,
+                                  writer: v.writer,
+                                  body: v.body,
+                                  date: v.date,
+                                }
+                              })
+                              setListData(newData);
+                              setModalState({
+                                ...modalState,
+                                type: "view",
+                                confirm_process: false,
+                                auth_process: false,
+                                auth_passed: false,
+                              });
+                            });
+                        } catch (err) {
+                          alert('filed post creation, check server network!')
+                        } finally {
+                          setModalState({
+                            ...modalState,
+                            confirm_process: false,
+                            auth_process: false,
+                            auth_passed: false,
+                          });
+                        }
                       }
                     } else {
                       setPasswd("");
