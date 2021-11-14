@@ -143,7 +143,7 @@ function Mobile({ isPc }: { isPc: boolean }) {
               {(pos.page === 2) && pos.tab === 1 && <Engineering2 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
               {(pos.page === 2) && pos.tab === 2 && <Patent2 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
 
-              {(pos.page === 3) && pos.tab === 0 && <Recruit3 ishm3Scroll={ishm3Scroll} />}
+              {(pos.page === 3) && pos.tab === 0 && <Recruit3 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
               {(pos.page === 3) && pos.tab === 1 && <Map3 ishm3Scroll={ishm3Scroll} />}
               {(pos.page === 3) && pos.tab === 2 && <Call3 ishm3Scroll={ishm3Scroll} />}
 

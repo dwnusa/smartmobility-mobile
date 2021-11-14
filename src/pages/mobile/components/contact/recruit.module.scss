@@ -3,7 +3,8 @@
 
 .hm3-body-wrapper {
   // position: relative;
-  // border:4px cyan solid;
+  // height:80%;
+  border:4px red solid;
   box-sizing:border-box;
 
   // height: 188%;
@@ -19,7 +20,7 @@
   }
   .hm3-box1 {
     position: relative;
-    // border:4px red solid;
+    border:4px red solid;
     box-sizing:border-box;
     display:flex;
     flex-direction:column;
@@ -43,7 +44,7 @@
       border-top:3px black solid;
       th, td{
         height:5vw;
-        font-size: 15px;
+        font-size: 3.5vw;
         font-family: "Noto Sans KR";
         height:50px;
         // border:1px blue solid;
@@ -69,6 +70,25 @@
         height:5vw;
         border-bottom:1px black solid;
       }
+      > tbody {
+        > tr {
+          >td{
+            &:nth-child(1){
+              >div{
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                // border:1px red solid;
+                border-radius: 50px;
+                height:60%;
+                color:white;
+                font-weight:bold;
+                background-color: #0032A0;
+              }
+            }
+          }
+        }
+      }
     }
     >div:nth-child(3){
       display:flex;
@@ -89,6 +109,66 @@
         }
         &:nth-child(4){
           margin-left: auto;
+        }
+      }
+    }
+  }
+  .hm3-box2{
+    // border:4px red solid;
+    width:90%;
+    margin:10% 5%;
+    >div:nth-child(1){
+      // border:1px blue solid;
+      font-family: "Noto Sans KR";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 23px;
+
+      color: #333333;
+    }
+    >div:nth-child(2){
+      margin-top:2vw;
+      font-weight: 300;
+      font-size: 11px;
+      line-height: 16px;
+      
+      color: #333333;
+    }
+    >div:nth-child(3){
+      margin-top:6vw;
+      padding:2vw;
+      background: #F9F9F9;
+      border: 1px solid #CCCCCC;
+      box-sizing: border-box;
+      overflow:scroll;
+      height:50vh;
+    }
+    >div:nth-child(4){
+      margin-top:4vw;
+    }
+    >div:nth-child(5){
+      margin-top:10vw;
+      margin-bottom:20vw;
+      display:flex;
+      justify-content:center;
+      >span{
+        // border:1px red solid;
+        width:30vw;
+        height:8vw;
+        margin:0 1vw;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        color:white;
+        &:nth-child(1){
+          background-color:#ADAEAF;
+        }
+        &:nth-child(2){
+          background-color:#ADAEAF;
+        }
+        &:nth-child(3){
+          background-color:#0032A0;
         }
       }
     }
