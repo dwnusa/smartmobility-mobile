@@ -28,6 +28,7 @@
     }
 
     &:nth-child(4) {
+      // border: 1px red solid;
       display: flex;
       justify-content: space-between;
       width: 80%;
@@ -37,7 +38,7 @@
       font-weight: bold;
       font-size: 10px;
       line-height: 139.8%;
-      bottom: 1.5%;
+      bottom: 2.5%;
       left: 10%;
       // background: #0032A0;
 
@@ -75,11 +76,11 @@
   }
 
   .back-btn {
-    // border:1px red solid;
-    // box-sizing:border-box;
+    // border: 1px red solid;
+    // box-sizing: border-box;
     z-index: 1;
     position: absolute;
-    top: 12%;
+    top: 15%;
     left: 10%;
     width: 10vw;
     height: 10vw;
