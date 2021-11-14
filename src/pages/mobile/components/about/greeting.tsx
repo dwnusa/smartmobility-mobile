@@ -1,6 +1,7 @@
 import React from 'react';
 import * as cards from "media";
 import styles from './greeting.module.scss';
+import text1 from "media/MOBILE/smmobile/about/about-greeting-text.svg";
 
 function Greeting0({ishm3Scroll}) {
   return (
@@ -14,7 +15,8 @@ function Greeting0({ishm3Scroll}) {
         <img src={cards.aboutGreeting1} />
       </div>
       <div className={styles["hm3-box3"]}>
-        ‘이동’에 대한 사람들의 요구는 지속적으로 커지고 있습니다. 최근
+        <img src={text1} style={{width:"100%"}}/>
+        {/* ‘이동’에 대한 사람들의 요구는 지속적으로 커지고 있습니다. 최근
         에는 다양한 디지털기술을 기반으로 하는 4차 산업혁명을 통해
         도시 및 교통에 새로운 패러다임을 가져오고 있으며, 새로운
         모빌리티가 활성화되고 있습니다.
@@ -32,10 +34,8 @@ function Greeting0({ishm3Scroll}) {
         <br />
         <br />
         앞으로 저희 스마트모빌러티의 다양한 활동에 많은 관심과 성원을
-        부탁드립니다.
+        부탁드립니다. */}
       </div>
-      <div className={styles["hm3-box4"]}>㈜스마트모빌러티 CEO / 공학박사</div>
-      <div className={styles["hm3-box5"]}>김 승 현</div>
       <div className={styles["hm3-footer"]}>
         주소 : 02496 서울특별시 동대문구 망우로 12길 1, 7층 TEL :
         <br />
