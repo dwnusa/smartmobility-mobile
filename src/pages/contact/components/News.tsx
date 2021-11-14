@@ -203,7 +203,7 @@ function News() {
   };
   const renderId = (props: any) => {
     const idStyle = {
-      background: "#0A347F",
+      background: "#0032A0",
       color: "white",
       lineHeight: "40px",
       borderRadius: "20px",

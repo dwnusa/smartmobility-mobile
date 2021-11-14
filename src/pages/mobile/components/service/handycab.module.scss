@@ -4,7 +4,7 @@
 .hm3-body-wrapper {
   position: relative;
   // border:4px blue solid;
-  box-sizing:border-box;
+  box-sizing: border-box;
 
   height: 100%;
   overflow-x: hidden;
@@ -12,12 +12,12 @@
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
-  
+
   /* Firefox */
   &::-webkit-scrollbar {
     display: none;
   }
-  
+
   .hm3-box1 {
     margin: 10% 6% 5% 6%;
     font-family: "Noto Sans KR";
@@ -34,155 +34,177 @@
     // box-sizing:border-box;
     position: relative;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
-    align-items:center;
-    > img {
+    align-items: center;
+
+    >img {
       // width: 130%;
       // border:3px blue solid;
       // box-sizing:border-box;
     }
-    .hm3-box2-text1{
+
+    .hm3-box2-text1 {
       position: absolute;
-      top:22%;
-      left:10%;
-      >div:nth-child(1){
+      top: 22%;
+      left: 10%;
+
+      >div:nth-child(1) {
         font-family: "Montserrat";
         font-weight: bold;
         font-size: 26px;
-        color:#00656E;
+        color: #00656E;
       }
-      >div:nth-child(2){
+
+      >div:nth-child(2) {
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
-        color:#333333;
+        color: #333333;
       }
-      >div:nth-child(3){
+
+      >div:nth-child(3) {
         font-family: "Montserrat";
-        display:flex;
-        height:38px;
-        color:#333333;
+        display: flex;
+        height: 38px;
+        color: #333333;
         margin-top: 10%;
-        >div{
-          border:1px #333333 solid;
+
+        >div {
+          border: 1px #333333 solid;
           border-radius: 50px;
           // height:120%;
-          margin-right:5%;
-          width:40%;
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          &:hover{
-            background-color: #0a347f;
+          margin-right: 5%;
+          width: 40%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            background-color: #0032A0;
             color: white;
           }
         }
       }
     }
-    .hm3-box2-text2{
+
+    .hm3-box2-text2 {
       position: absolute;
-      top:40%;
-      left:50%;
-      >div:nth-child(1){
+      top: 40%;
+      left: 50%;
+
+      >div:nth-child(1) {
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: 300;
         font-size: 11px;
-        color:#333333;
+        color: #333333;
       }
-      >div:nth-child(2){
+
+      >div:nth-child(2) {
         font-family: "Montserrat";
         font-weight: bold;
         font-size: 22px;
-        color:#00656E;
+        color: #00656E;
       }
-      >div:nth-child(3){
-        padding-right:20px;
+
+      >div:nth-child(3) {
+        padding-right: 20px;
         // border:1px red solid;
-        margin-top:15px;
+        margin-top: 15px;
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: 300;
         font-size: 11px;
-        color:#333333;
+        color: #333333;
       }
     }
-    .hm3-box2-text3{
+
+    .hm3-box2-text3 {
       position: absolute;
       // border:1px red solid;
-      top:65%;
-      width:50%;
-      left:0%;
-      >div{
-        display:flex;
-        justify-content:flex-end;
+      top: 65%;
+      width: 50%;
+      left: 0%;
+
+      >div {
+        display: flex;
+        justify-content: flex-end;
       }
-      >div:nth-child(1){
+
+      >div:nth-child(1) {
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: 300;
         font-size: 11px;
-        color:#333333;
+        color: #333333;
       }
-      >div:nth-child(2){
+
+      >div:nth-child(2) {
         font-family: "Montserrat";
         font-weight: bold;
         font-size: 22px;
-        color:#00656E;
+        color: #00656E;
       }
-      >div:nth-child(3){
-        padding-left:10px;
+
+      >div:nth-child(3) {
+        padding-left: 10px;
         // border:1px red solid;
-        text-align:end;
-        margin-top:15px;
+        text-align: end;
+        margin-top: 15px;
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: 300;
         font-size: 11px;
-        color:#333333;
-        display:flex;
-        flex-direction:column;
+        color: #333333;
+        display: flex;
+        flex-direction: column;
       }
     }
-    .hm3-box2-text4{
+
+    .hm3-box2-text4 {
       position: absolute;
-      top:84%;
+      top: 84%;
       // width:50%;
-      left:50%;
-      >div{
-        display:flex;
+      left: 50%;
+
+      >div {
+        display: flex;
         // justify-content:flex-end;
       }
-      >div:nth-child(1){
+
+      >div:nth-child(1) {
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: 300;
         font-size: 11px;
-        color:#333333;
+        color: #333333;
       }
-      >div:nth-child(2){
+
+      >div:nth-child(2) {
         font-family: "Montserrat";
         font-weight: bold;
         font-size: 14px;
-        color:#00656E;
+        color: #00656E;
       }
-      >div:nth-child(3){
-        padding-right:10px;
+
+      >div:nth-child(3) {
+        padding-right: 10px;
         // border:1px red solid;
         // text-align:end;
-        margin-top:15px;
+        margin-top: 15px;
         font-family: "Noto Sans KR";
         font-style: normal;
         font-weight: 300;
         font-size: 11px;
-        color:#333333;
-        display:flex;
-        flex-direction:column;
+        color: #333333;
+        display: flex;
+        flex-direction: column;
       }
     }
   }
+
   .hm3-box3 {
     margin: 5% 6% 5% 6%;
     font-family: "Noto Sans KR";
@@ -192,6 +214,7 @@
     line-height: 17px;
     color: #333333;
   }
+
   .hm3-box4 {
     margin: 10% 6% 5% 6%;
     font-family: "Noto Sans KR";
@@ -202,6 +225,7 @@
 
     color: #333333;
   }
+
   .hm3-box5 {
     margin: 5% 6% 5% 6%;
     font-family: "Noto Sans KR";
@@ -212,20 +236,21 @@
 
     color: #333333;
   }
+
   .hm3-footer {
     // position: absolute;
     // bottom:0;
     // left:0;
     // right:0;
-    background: #0a347f;
-    padding: 5% 6% 15% 6%;
+    background: #E2E2E2;
+    padding: 5% 6% 8% 6%;
+    color: rgba(92, 92, 92, 0.6);
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
 
-    color: rgba(255, 255, 255, 0.6);
     // border:1px red solid;
   }
 }
