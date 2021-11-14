@@ -18,15 +18,19 @@
     display: none;
   }
 
-  .hm3-box1 {
-    margin: 10% 6% 5% 6%;
-    font-family: "Noto Sans KR";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 23px;
-    color: #333333;
-    font-size: 16px;
+  .hm3-filter-btn{
+    // border:1px red solid;
+    margin: 5% 10% 3% 10%;
+    >span{
+      // border:1px blue solid;
+      margin-right:5vw;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 16px;
+
+    }
   }
 
   .hm3-box2 {
@@ -36,9 +40,9 @@
     justify-content: center;
     // padding:0% 10%;
     // padding
-    // > img {
-    //   width: 130%;
-    // }
+    > img {
+      width: 80%;
+    }
   }
 
   .hm3-box3 {
