@@ -1,1 +1,1 @@
-export const IPinUSE = "http://localhost:8000/";
+export const IPinUSE = "http://0.0.0.0:8000/";
