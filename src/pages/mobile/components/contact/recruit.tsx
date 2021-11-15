@@ -218,6 +218,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
               <input
                 type="password"
                 value={passwd.slice(0, 6)}
+                placeholder={"123456"}
                 onChange={(e) => {
                   setPasswd(e.target.value);
                 }}

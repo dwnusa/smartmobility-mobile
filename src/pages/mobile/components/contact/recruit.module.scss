@@ -223,6 +223,33 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      >div {
+        // border: 1px red solid;
+
+      }
+
+      >input {
+        display: flex;
+        align-items: flex-end;
+        border: 0px white solid;
+        text-align: center;
+        width: 50%;
+      }
+
+      >input:focus {
+        outline: none;
+      }
+
+      >input[type="password"] {
+        -webkit-text-security: disc;
+        color: #0032A0;
+        font-size: 10vw;
+
+        &::placeholder {
+          -webkit-text-security: disc;
+        }
+      }
     }
   }
 }
