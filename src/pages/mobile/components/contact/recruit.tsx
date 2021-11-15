@@ -338,7 +338,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
     setText(value);
   };
   const sortedByDate = listData.sort(
-    (a: any, b: any) => (b.key > a.key && 1) || -1
+    (a: any, b: any) => (b.id > a.id && 1) || -1
   );
   const filteredData = sortedByDate.filter((v: any) => {
     if (filterState == 1) return v.type === "announcement";
@@ -351,7 +351,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   return (
     <div className={styles["hm3-body-wrapper"]} style={{ overflow: ishm3Scroll ? "scroll" : "hidden" }}>
       {/* recruit3 */}
-      {modalState.type === "" && <div className={styles["hm3-box1"]}>
+      {(modalState.type === "") && <div className={styles["hm3-box1"]}>
         <div>
           <div style={{ fontWeight: filterIndex === 0 ? "bold" : "normal" }} onClick={() => setFilterIndex(0)}>전체</div>
           <div style={{ fontWeight: filterIndex === 1 ? "bold" : "normal" }} onClick={() => setFilterIndex(1)}>공지</div>
@@ -366,7 +366,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             </tr>
           </thead>
           <tbody>
-            {listData.map(v =>
+            {filteredData.map(v =>
               <tr onClick={(e) => handleTableClick(e, v)}>
                 <td>{v.id === 9999 ? <div>{v.type === "announcement" ? "공지" : "채용"}</div> : v.id}</td>
                 <td>{v.title}</td>
@@ -386,7 +386,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           <div onClick={() => { setModalState({ ...modalState, type: "create", auth_passed: false, auth_process: true }); }}>글쓰기</div>
         </div>
       </div>}
-      {modalState.type === "view" && <div className={styles["hm3-box2"]}>
+      {(modalState.type === "view" || modalState.type === "delete" || modalState.type === "announcement") && <div className={styles["hm3-box2"]}>
         <div>{viewItem.title}</div>
         <div>{viewItem.writer} | {viewItem.date}</div>
         <div
@@ -395,10 +395,23 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             __html: viewItem.body,
           }}
         ></div>
-        <div>{"메인공지로 등록"}</div>
+        <div>
+          <span 
+            onClick={()=>
+              setModalState({
+                ...modalState,
+                type: "announcement",
+                auth_process: true,
+              })}
+            style={{
+              borderColor: viewItem.id === 9999 ? "#0032A0":"", 
+              background: viewItem.id === 9999 ? "#0032A0":"", 
+              color: viewItem.id === 9999 ? "white":""}}>{"\u2713"}</span>
+          <span>{"메인공지로 등록"}</span>
+        </div>
         <div>
           <span onClick={() => setModalState({ ...modalState, type: "", key: false, confirm_process: false })}>{"뒤로"}</span>
-          <span onClick={() => { setModalState({ ...modalState, type: "edit", key: viewItem.key, auth_passed: false, auth_process: true }); }}>{"수정"}</span>
+          <span onClick={() => setModalState({ ...modalState, type: "edit", key: viewItem.key, auth_passed: false, auth_process: true })}>{"수정"}</span>
           <span onClick={() => setModalState({ ...modalState, type: "delete", auth_passed: false, auth_process: true })}>{"삭제"}</span>
         </div>
       </div>}
@@ -408,8 +421,9 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           modalState.type === "edit" ||
           modalState.type === "delete" ||
           modalState.type === "announcement") && (
-          <div className={styles["hm3-box3"]} onClick={() => {setPasswd(""); setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })}}>
-            <div onClick={(e) => e.stopPropagation()}>
+          <div className={styles["hm3-box3"]} onClick={() => {setPasswd(""); setModalState({ ...modalState, confirm_process: false, auth_process: false, auth_passed: false })}}>
+            <div className={styles["hm3-box3-auth_process"]}
+              onClick={(e) => e.stopPropagation()}>
               <div>
                 <img src={cards.lockIcon} /> {"Password"}
               </div>
@@ -432,6 +446,48 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                       } else if (modalState.type==="edit") {
                         setPasswd(""); 
                         setModalState({ ...modalState, confirm_process: false, auth_process: false, auth_passed: true })
+                      } else if (modalState.type==="announcement") {
+                        setPasswd(""); 
+
+                        try {
+                          const currentCheckerState = (viewItem.id === 9999);
+                          const updatedState = currentCheckerState ? viewItem.key : 9999;
+                          axios.put(IPinUSE + viewItem.key + "/", {
+                            bno: updatedState,
+                          })
+                            .then((res) => {
+
+                              const newData = res.data.map(v => {
+                                return {
+                                  key: Number(v.id),
+                                  id: Number(v.bno),
+                                  type: v.type.toLowerCase(),
+                                  title: v.title,
+                                  writer: v.writer,
+                                  body: v.body,
+                                  date: v.date,
+                                }
+                              })
+                              setListData(newData);
+                              setModalState({
+                                ...modalState,
+                                type: "view",
+                                confirm_process: false,
+                                auth_process: false,
+                                auth_passed: false,
+                              });
+                            });
+                        } catch (err) {
+                          alert('filed post creation, check server network!')
+                        } finally {
+                          setModalState({
+                            ...modalState,
+                            confirm_process: false,
+                            auth_process: false,
+                            auth_passed: false,
+                          });
+                        }
+                        // setModalState({ ...modalState, confirm_process: false, auth_process: false, auth_passed: true })
                       }
 
                     } else {
@@ -471,11 +527,6 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
               className={styles["recruit-input"]}
               placeholder="제목을 입력해 주세요."
             />
-            {/* <div>
-              {keyboardOpen.toString()}
-              {window.innerHeight}
-              {text}
-            </div> */}
             <div 
               className={styles["quill-container"]}
               onFocus={()=> setKeyboardOpen(true)} 
@@ -501,8 +552,33 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                 </div>
               )}
               <div className={styles["register-btn-cancel"]} 
-              onClick={()=>setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })}>
+              onClick={()=>setModalState({ ...modalState, confirm_process: true })}>
                 취소
+              </div>
+            </div>
+          </div>
+        }
+        {modalState.confirm_process &&
+        (modalState.type === "view" ||
+          modalState.type === "create" ||
+          modalState.type === "edit" ||
+          modalState.type === "delete") && 
+          <div className={styles["hm3-box3"]}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <div className={styles["hm3-box3-confirm_process"]}>
+              <div>
+                페이지 이동시 지금까지 작성하신 
+                <br />
+                내용이 모두 삭제됩니다.
+                <br />
+                페이지를 이동하시겠습니까?
+              </div>
+              <div>
+                <span onClick={()=>setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })}>확인</span>
+                <span onClick={()=>setModalState({ ...modalState, confirm_process: false})}>취소</span>
               </div>
             </div>
           </div>
