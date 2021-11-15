@@ -19,7 +19,7 @@ let prePath = "";
 
 function App() {
   const isPc = useMediaQuery({
-    query: "(min-width:800px)",
+    query: "(min-width:600px)",
   });
   const isTablet = useMediaQuery({
     query: "(min-width:768px) and (max-width:1023px)",
