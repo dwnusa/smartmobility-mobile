@@ -252,4 +252,67 @@
       }
     }
   }
+
+  .hm3-box4 {
+    // border:4px red solid;
+    width: 90%;
+    margin: 10% 5%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    .recruit-select {
+      border:1px red solid;
+      width:100%;
+      height:8vw;
+      padding:0% 4%;
+      font-size: 4vw;
+      font-family: "Noto Sans KR";
+      font-style: normal;
+      font-weight: normal;
+      
+      color: #333333;
+    }
+    .recruit-input {
+      margin-top:2vw;
+      border:1px blue solid;
+      width:100%;
+      height:8vw;
+      // padding:0% 4%;
+      font-size: 4vw;
+      font-family: "Noto Sans KR";
+      font-style: normal;
+      font-weight: normal;
+      
+      color: #333333;
+      &::placeholder{
+        opacity:0.4;
+      }
+    }
+    .register-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      font-family: "Noto Sans KR";
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+
+      .register-btn {
+        border: 1px #0032A0 solid;
+        background: #0032A0;
+        padding: 8px 30px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .edit-btn {
+        border: 1px #adaeaf solid;
+        background: #adaeaf;
+        padding: 8px 30px;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
 }

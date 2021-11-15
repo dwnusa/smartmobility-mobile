@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as cards from "media";
 import styles from './recruit.module.scss';
+import './recruit.scss';
 import { Editor } from "react-draft-wysiwyg";
 import axios from "axios";
 import { IPinUSE } from "api/IPs";
@@ -57,6 +58,13 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   const [editorState, setEditorState] = useState<any>(
     EditorState.createEmpty()
   );
+  const onEditorStateChange = (editor_state: any) => {
+    try {
+      setEditorState(editor_state);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const [modalState, setModalState] = useState<modalType>({
     type: "",
     key: false,
@@ -107,8 +115,8 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   };
   const handleDelete = () => {
     try {
-      const currentCheckerState = (viewItem.id === 9999);
-      const updatedState = currentCheckerState ? viewItem.key : 9999;
+      // const currentCheckerState = (viewItem.id === 9999);
+      // const updatedState = currentCheckerState ? viewItem.key : 9999;
       axios.delete(IPinUSE + viewItem.key + "/")
         .then((res) => {
 
@@ -139,6 +147,143 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       });
     }
   };
+  const uploadImageCallBack = (file: any) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve({ data: { link: e.target.result } });
+      reader.onerror = (e) => reject(e);
+      reader.readAsDataURL(file);
+    });
+  };
+  const handleRegister = () => {
+    const bodyContent = stateToHTML(editorState.getCurrentContent());
+    if (currentEditorInfo.title === "") {
+      alert("제목을 입력하세요.");
+    } else if (currentEditorInfo.writer === "") {
+      alert("작성자를 입력하세요.");
+    } else if (bodyContent === "<p><br></p>") {
+      alert("내용을 입력하세요.");
+      console.log(bodyContent);
+    } else {
+      const today = new Date();
+      const date =
+        today.getFullYear() +
+        "." +
+        (today.getMonth() + 1) +
+        "." +
+        today.getDate();
+      const maxKey = Math.max.apply(
+        Math,
+        listData.map(function (o) {
+          return o.key;
+        })
+      );
+
+      try {
+        axios.post(IPinUSE + "register/", {
+          type: currentEditorInfo.type,
+          title: currentEditorInfo.title,
+          writer: currentEditorInfo.writer,
+          body: bodyContent,
+        })
+          .then((res) => {
+
+            const newData = res.data.map(v => {
+              return {
+                key: Number(v.id),
+                id: Number(v.bno),
+                type: v.type.toLowerCase(),
+                title: v.title,
+                writer: v.writer,
+                body: v.body,
+                date: v.date,
+              }
+            })
+            setListData(newData);
+          });
+      } catch (err) {
+        alert('filed post creation, check server network!')
+      }
+      setModalState({
+        ...modalState,
+        type: "",
+        key: false,
+        confirm_process: false,
+      });
+      setEditorState(EditorState.createEmpty());
+      setCurrentEditorInfo({
+        type: "announcement",
+        writer: "",
+        title: "",
+        body: "",
+      });
+    }
+  };
+  const handleUpdate = (currentKey: number) => {
+    const bodyContent = stateToHTML(editorState.getCurrentContent());
+    if (currentEditorInfo.title === "") {
+      alert("제목을 입력하세요.");
+    } else if (currentEditorInfo.writer === "") {
+      alert("작성자를 입력하세요.");
+    } else if (bodyContent === "<p><br></p>") {
+      alert("내용을 입력하세요.");
+      console.log(bodyContent);
+    } else {
+      const today = new Date();
+      const date =
+        today.getFullYear() +
+        "." +
+        (today.getMonth() + 1) +
+        "." +
+        today.getDate();
+      const maxKey = Math.max.apply(
+        Math,
+        listData.map(function (o) {
+          return o.key;
+        })
+      );
+
+      try {
+        axios.put(IPinUSE + viewItem.key + "/", {
+          type: currentEditorInfo.type,
+          title: currentEditorInfo.title,
+          body: bodyContent,
+        })
+          .then((res) => {
+
+            const newData = res.data.map(v => {
+              return {
+                key: Number(v.id),
+                id: Number(v.bno),
+                type: v.type.toLowerCase(),
+                title: v.title,
+                writer: v.writer,
+                body: v.body,
+                date: v.date,
+              }
+            })
+            setListData(newData);
+          });
+      } catch (err) {
+        alert('filed post creation, check server network!')
+      }
+
+      setModalState({
+        ...modalState,
+        type: "",
+        key: false,
+        confirm_process: false,
+        auth_passed: false,
+      });
+      setEditorState(EditorState.createEmpty());
+      setCurrentEditorInfo({
+        type: "announcement",
+        writer: "",
+        title: "",
+        body: "",
+      });
+    }
+  };
   const sortedByDate = listData.sort(
     (a: any, b: any) => (b.key > a.key && 1) || -1
   );
@@ -153,7 +298,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   return (
     <div className={styles["hm3-body-wrapper"]} style={{ overflow: ishm3Scroll ? "scroll" : "hidden" }}>
       {/* recruit3 */}
-      {modalState.type !== "view" && <div className={styles["hm3-box1"]}>
+      {modalState.type === "" && <div className={styles["hm3-box1"]}>
         <div>
           <div style={{ fontWeight: filterIndex === 0 ? "bold" : "normal" }} onClick={() => setFilterIndex(0)}>전체</div>
           <div style={{ fontWeight: filterIndex === 1 ? "bold" : "normal" }} onClick={() => setFilterIndex(1)}>공지</div>
@@ -200,7 +345,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
         <div>{"메인공지로 등록"}</div>
         <div>
           <span onClick={() => setModalState({ ...modalState, type: "", key: false, confirm_process: false })}>{"뒤로"}</span>
-          <span onClick={() => { setModalState({ ...modalState, key: viewItem.key, auth_passed: false, auth_process: true }); }}>{"수정"}</span>
+          <span onClick={() => { setModalState({ ...modalState, type: "edit", key: viewItem.key, auth_passed: false, auth_process: true }); }}>{"수정"}</span>
           <span onClick={() => setModalState({ ...modalState, type: "delete", auth_passed: false, auth_process: true })}>{"삭제"}</span>
         </div>
       </div>}
@@ -210,7 +355,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           modalState.type === "edit" ||
           modalState.type === "delete" ||
           modalState.type === "announcement") && (
-          <div className={styles["hm3-box3"]} onClick={() => setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })}>
+          <div className={styles["hm3-box3"]} onClick={() => {setPasswd(""); setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })}}>
             <div onClick={(e) => e.stopPropagation()}>
               <div>
                 <img src={cards.lockIcon} /> {"Password"}
@@ -219,6 +364,28 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                 type="password"
                 value={passwd.slice(0, 6)}
                 placeholder={"123456"}
+                onKeyPress={(e)=>{
+                  if(e.key=="Enter") {
+                    if (passwd === modalState.passwd) {
+                      console.log(modalState.type);
+                      if (modalState.type === "delete") {
+                        handleDelete();
+                        setPasswd(""); 
+                        setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })
+                      } else if (modalState.type === "create") {
+                        // handleDelete();
+                        setPasswd(""); 
+                        setModalState({ ...modalState, key: false, confirm_process: false, auth_process: false, auth_passed: true })
+                      } else if (modalState.type==="edit") {
+                        setPasswd(""); 
+                        setModalState({ ...modalState, confirm_process: false, auth_process: false, auth_passed: true })
+                      }
+
+                    } else {
+                      alert('password failed');
+                    }
+                  }
+                }}
                 onChange={(e) => {
                   setPasswd(e.target.value);
                 }}
@@ -226,6 +393,72 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             </div>
           </div>
         )}
+        {modalState.auth_passed &&
+          (modalState.type === "create" || modalState.type === "edit") && 
+          <div className={styles["hm3-box4"]}>
+            <select
+              className={styles["recruit-select"]}
+              name="type"
+              value={currentEditorInfo.type}
+              onChange={(e) => {
+                setCurrentEditorInfo({
+                  ...currentEditorInfo,
+                  type: e.target.value,
+                });
+              }}
+            >
+              <option value="announcement">공지</option>
+              <option value="recruitment">채용</option>
+            </select>
+            <input 
+              className={styles["recruit-input"]}
+              placeholder="작성자를 입력해주세요."
+            />
+            <input 
+              className={styles["recruit-input"]}
+              placeholder="제목을 입력해 주세요."
+            />
+            <Editor
+              placeholder="내용을 입력해 주세요."
+              editorState={editorState}
+              onEditorStateChange={onEditorStateChange}
+              toolbarClassName="toolbarClassName"
+              wrapperClassName="wrapperClassName"
+              editorClassName="editorClassName"
+              localization={{
+                locale: "ko",
+              }}
+              toolbar={{
+                image: {
+                  uploadCallback: uploadImageCallBack,
+                  alt: { present: true, mandatory: false },
+                },
+                blockType: {
+                  inDropdown: false,
+                  options: ["Normal", "H1", "H2", "H3", "H4", "H5", "H6"],
+                  className: undefined,
+                  component: undefined,
+                  dropdownClassName: undefined,
+                },
+              }}
+            />
+            <div className={styles["register-container"]}>
+              {modalState.type === "create" && (
+                <div className={styles["register-btn"]} onClick={handleRegister}>
+                  등록하기
+                </div>
+              )}
+              {modalState.type === "edit" && (
+                <div
+                  className={styles["edit-btn"]}
+                  onClick={() => handleUpdate(viewItem.key)}
+                >
+                  수정하기
+                </div>
+              )}
+            </div>
+          </div>
+        }
     </div>
   );
 }
