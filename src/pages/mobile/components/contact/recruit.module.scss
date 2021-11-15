@@ -216,7 +216,7 @@
     // z-index: 3;
     >div {
       width: 70vw;
-      height: 20vh;
+      height: 40vw;
       background: white;
       border-radius: 20px;
       display: flex;
@@ -232,9 +232,11 @@
       >input {
         display: flex;
         align-items: flex-end;
-        border: 0px white solid;
+        border: 0px red solid;
         text-align: center;
-        width: 50%;
+        width: 80%;
+        height:40%;
+        caret-color:transparent;
       }
 
       >input:focus {
@@ -242,9 +244,9 @@
       }
 
       >input[type="password"] {
-        -webkit-text-security: disc;
         color: #0032A0;
-        font-size: 10vw;
+        font-size: 12vw;
+        -webkit-text-security: disc;
 
         &::placeholder {
           -webkit-text-security: disc;
@@ -255,17 +257,18 @@
 
   .hm3-box4 {
     // border:4px red solid;
-    width: 90%;
-    margin: 10% 5%;
+    width: 80%;
+    margin: 10% 10%;
     display:flex;
     flex-direction:column;
     align-items:center;
 
     .recruit-select {
-      border:1px red solid;
+      margin-bottom:2vw;
       width:100%;
       height:8vw;
-      padding:0% 4%;
+      padding: 0 3%;
+      // padding:0% 4%;
       font-size: 4vw;
       font-family: "Noto Sans KR";
       font-style: normal;
@@ -274,44 +277,74 @@
       color: #333333;
     }
     .recruit-input {
-      margin-top:2vw;
-      border:1px blue solid;
+      margin:0;
+      margin-bottom:2vw;
       width:100%;
       height:8vw;
-      // padding:0% 4%;
+      padding: 0 3%;
+      box-sizing:border-box;
+      &::placeholder{
+        opacity:0.4;
+      }
       font-size: 4vw;
       font-family: "Noto Sans KR";
       font-style: normal;
       font-weight: normal;
       
       color: #333333;
-      &::placeholder{
-        opacity:0.4;
-      }
+    }
+    .quill-container{
+      // border:10px green solid;
+      // box-sizing:border-box;
     }
     .register-container {
+      margin-top:4vw;
+      margin-bottom:50vh;
       display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
+      justify-content: space-between;
+      // border:5px red solid;
+      width:80%;
+      // align-items: flex-start;
       font-family: "Noto Sans KR";
       font-style: normal;
       font-weight: bold;
       font-size: 20px;
 
+      .register-btn-cancel {
+        border: 1px #E1E1E1 solid;
+        background: #E1E1E1;
+        width:30vw;
+        height:10vw;
+        color: black;
+        cursor: pointer;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+
       .register-btn {
         border: 1px #0032A0 solid;
         background: #0032A0;
-        padding: 8px 30px;
+        width:30vw;
+        height:10vw;
         color: white;
         cursor: pointer;
+        display:flex;
+        justify-content:center;
+        align-items:center;
       }
 
       .edit-btn {
         border: 1px #adaeaf solid;
         background: #adaeaf;
-        padding: 8px 30px;
+        width:30vw;
+        height:10vw;
+        // padding: 1vw 6vw;
         color: white;
         cursor: pointer;
+        display:flex;
+        justify-content:center;
+        align-items:center;
       }
     }
   }

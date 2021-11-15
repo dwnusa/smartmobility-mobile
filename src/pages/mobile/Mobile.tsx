@@ -47,7 +47,7 @@ function Mobile({ isPc }: { isPc: boolean }) {
   useEffect(() => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-  })
+  },[])
   return (
     <div ref={hm1El}
       className={styles["hm1"]}
@@ -62,11 +62,11 @@ function Mobile({ isPc }: { isPc: boolean }) {
           setIshm2Scroll(false)
         }
       }}>
-      <img src={logoWhite} />
+      <img src={logoWhite} onClick={()=>window.location.reload()}/>
       <span>
-        We think <br />
+        We think<br />
         for the <br />
-        better world!
+        better world! 
       </span>
       <div ref={hm2El} className={styles["hm2"]} >
         <div className={styles["hm2-handle"]}></div>

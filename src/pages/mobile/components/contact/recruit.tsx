@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
+import ReactQuill from 'react-quill'; // ES6
+import 'react-quill/dist/quill.snow.css'; // ES6
 import * as cards from "media";
 import styles from './recruit.module.scss';
 import './recruit.scss';
@@ -49,6 +53,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   const [modalOpened, setModalOpened] = useState(false);
   const [listData, setListData] = useState(itemList);
   const [passwd, setPasswd] = useState<string>("");
+  const [keyboardOpen, setKeyboardOpen] = useState<boolean>(false);
   const [currentEditorInfo, setCurrentEditorInfo] = useState<editorInfoType>({
     type: "announcement",
     writer: "",
@@ -284,6 +289,54 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       });
     }
   };
+  const CustomToolbar = () => (
+    <div id="toolbar">
+      <select className="ql-header">
+        <option value="1"></option>
+        <option value="2"></option>
+      </select>
+      <button className="ql-bold"></button>
+      <button className="ql-italic"></button>
+      <select className="ql-color">
+        <option value="red"></option>
+        <option value="green"></option>
+        <option value="blue"></option>
+        <option value="orange"></option>
+        <option value="violet"></option>
+        <option value="#d0d1d2"></option>
+        <option selected></option>
+      </select>
+      <select className="ql-background"></select>
+      <button className="ql-link"></button>
+      <button className="ql-image"></button>
+    </div>
+  );
+  const modules = {
+    toolbar: {
+      container: "#toolbar",
+    },
+  };
+
+  const formats = [
+    "header",
+    "font",
+    "size",
+    "bold",
+    "italic",
+    "underline",
+    "list",
+    "bullet",
+    "align",
+    "color",
+    "background",
+    "image",
+  ];
+
+  const [text, setText] = useState<string>("");
+
+  const handleChange = (value: any) => {
+    setText(value);
+  };
   const sortedByDate = listData.sort(
     (a: any, b: any) => (b.key > a.key && 1) || -1
   );
@@ -363,7 +416,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
               <input
                 type="password"
                 value={passwd.slice(0, 6)}
-                placeholder={"123456"}
+                placeholder={"1234"}
                 onKeyPress={(e)=>{
                   if(e.key=="Enter") {
                     if (passwd === modalState.passwd) {
@@ -418,31 +471,22 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
               className={styles["recruit-input"]}
               placeholder="제목을 입력해 주세요."
             />
-            <Editor
-              placeholder="내용을 입력해 주세요."
-              editorState={editorState}
-              onEditorStateChange={onEditorStateChange}
-              toolbarClassName="toolbarClassName"
-              wrapperClassName="wrapperClassName"
-              editorClassName="editorClassName"
-              localization={{
-                locale: "ko",
-              }}
-              toolbar={{
-                image: {
-                  uploadCallback: uploadImageCallBack,
-                  alt: { present: true, mandatory: false },
-                },
-                blockType: {
-                  inDropdown: false,
-                  options: ["Normal", "H1", "H2", "H3", "H4", "H5", "H6"],
-                  className: undefined,
-                  component: undefined,
-                  dropdownClassName: undefined,
-                },
-              }}
-            />
-            <div className={styles["register-container"]}>
+            {/* <div>
+              {keyboardOpen.toString()}
+              {window.innerHeight}
+              {text}
+            </div> */}
+            <div 
+              className={styles["quill-container"]}
+              onFocus={()=> setKeyboardOpen(true)} 
+              onBlur={()=> setKeyboardOpen(false)} 
+            >
+              <ReactQuill value={text} onChange={handleChange}/>
+            </div>
+            <div 
+              className={styles["register-container"]}
+              style={{marginBottom: `${keyboardOpen ? "50vw":"0"}` }}
+            >
               {modalState.type === "create" && (
                 <div className={styles["register-btn"]} onClick={handleRegister}>
                   등록하기
@@ -456,6 +500,10 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                   수정하기
                 </div>
               )}
+              <div className={styles["register-btn-cancel"]} 
+              onClick={()=>setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })}>
+                취소
+              </div>
             </div>
           </div>
         }
