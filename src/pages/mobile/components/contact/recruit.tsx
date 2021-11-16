@@ -336,6 +336,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
 
   const handleChange = (value: any) => {
     setText(value);
+
   };
   const sortedByDate = listData.sort(
     (a: any, b: any) => (b.id > a.id && 1) || -1
@@ -386,42 +387,46 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           <div onClick={() => { setModalState({ ...modalState, type: "create", auth_passed: false, auth_process: true }); }}>글쓰기</div>
         </div>
       </div>}
-      {(modalState.type === "view" || modalState.type === "delete" || modalState.type === "announcement") && <div className={styles["hm3-box2"]}>
-        <div>{viewItem.title}</div>
-        <div>{viewItem.writer} | {viewItem.date}</div>
-        <div
-          // className="news-view main"
-          dangerouslySetInnerHTML={{
-            __html: viewItem.body,
-          }}
-        ></div>
-        <div>
-          <span 
-            onClick={()=>
-              setModalState({
-                ...modalState,
-                type: "announcement",
-                auth_process: true,
-              })}
-            style={{
-              borderColor: viewItem.id === 9999 ? "#0032A0":"", 
-              background: viewItem.id === 9999 ? "#0032A0":"", 
-              color: viewItem.id === 9999 ? "white":""}}>{"\u2713"}</span>
-          <span>{"메인공지로 등록"}</span>
-        </div>
-        <div>
-          <span onClick={() => setModalState({ ...modalState, type: "", key: false, confirm_process: false })}>{"뒤로"}</span>
-          <span onClick={() => setModalState({ ...modalState, type: "edit", key: viewItem.key, auth_passed: false, auth_process: true })}>{"수정"}</span>
-          <span onClick={() => setModalState({ ...modalState, type: "delete", auth_passed: false, auth_process: true })}>{"삭제"}</span>
-        </div>
-      </div>}
+      {!modalState.auth_passed && (modalState.type === "view" ||
+        modalState.type === "delete" ||
+        modalState.type === "edit" ||
+        modalState.type === "announcement") && <div className={styles["hm3-box2"]}>
+          <div>{viewItem.title}</div>
+          <div>{viewItem.writer} | {viewItem.date}</div>
+          <div
+            // className="news-view main"
+            dangerouslySetInnerHTML={{
+              __html: viewItem.body,
+            }}
+          ></div>
+          <div>
+            <span
+              onClick={() =>
+                setModalState({
+                  ...modalState,
+                  type: "announcement",
+                  auth_process: true,
+                })}
+              style={{
+                borderColor: viewItem.id === 9999 ? "#0032A0" : "",
+                background: viewItem.id === 9999 ? "#0032A0" : "",
+                color: viewItem.id === 9999 ? "white" : ""
+              }}>{"\u2713"}</span>
+            <span>{"메인공지로 등록"}</span>
+          </div>
+          <div>
+            <span onClick={() => setModalState({ ...modalState, type: "", key: false, confirm_process: false })}>{"뒤로"}</span>
+            <span onClick={() => setModalState({ ...modalState, type: "edit", key: viewItem.key, auth_passed: false, auth_process: true })}>{"수정"}</span>
+            <span onClick={() => setModalState({ ...modalState, type: "delete", auth_passed: false, auth_process: true })}>{"삭제"}</span>
+          </div>
+        </div>}
       {modalState.auth_process &&
         (modalState.type === "view" ||
           modalState.type === "create" ||
           modalState.type === "edit" ||
           modalState.type === "delete" ||
           modalState.type === "announcement") && (
-          <div className={styles["hm3-box3"]} onClick={() => {setPasswd(""); setModalState({ ...modalState, confirm_process: false, auth_process: false, auth_passed: false })}}>
+          <div className={styles["hm3-box3"]} onClick={() => { setPasswd(""); setModalState({ ...modalState, confirm_process: false, auth_process: false, auth_passed: false }) }}>
             <div className={styles["hm3-box3-auth_process"]}
               onClick={(e) => e.stopPropagation()}>
               <div>
@@ -431,23 +436,41 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                 type="password"
                 value={passwd.slice(0, 6)}
                 placeholder={"1234"}
-                onKeyPress={(e)=>{
-                  if(e.key=="Enter") {
+                onKeyPress={(e) => {
+                  if (e.key == "Enter") {
                     if (passwd === modalState.passwd) {
                       console.log(modalState.type);
                       if (modalState.type === "delete") {
                         handleDelete();
-                        setPasswd(""); 
+                        setPasswd("");
                         setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })
                       } else if (modalState.type === "create") {
                         // handleDelete();
-                        setPasswd(""); 
+                        setPasswd("");
                         setModalState({ ...modalState, key: false, confirm_process: false, auth_process: false, auth_passed: true })
-                      } else if (modalState.type==="edit") {
-                        setPasswd(""); 
+                      } else if (modalState.type === "edit") {
+                        setPasswd("");
+
+                        // const blocksFromHTML = convertFromHTML(viewItem.body);
+                        // const content = ContentState.createFromBlockArray(
+                        //   blocksFromHTML.contentBlocks,
+                        //   blocksFromHTML.entityMap
+                        // );
+                        // const editor_state = EditorState.createWithContent(
+                        //   content
+                        // );
+                        // setEditorState(editor_state);
+                        setText(viewItem.body);
+                        setCurrentEditorInfo({
+                          type: viewItem.type,
+                          writer: viewItem.writer,
+                          title: viewItem.title,
+                          body: viewItem.body,
+                        });
+
                         setModalState({ ...modalState, confirm_process: false, auth_process: false, auth_passed: true })
-                      } else if (modalState.type==="announcement") {
-                        setPasswd(""); 
+                      } else if (modalState.type === "announcement") {
+                        setPasswd("");
 
                         try {
                           const currentCheckerState = (viewItem.id === 9999);
@@ -502,87 +525,105 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             </div>
           </div>
         )}
-        {modalState.auth_passed &&
-          (modalState.type === "create" || modalState.type === "edit") && 
-          <div className={styles["hm3-box4"]}>
-            <select
-              className={styles["recruit-select"]}
-              name="type"
-              value={currentEditorInfo.type}
-              onChange={(e) => {
-                setCurrentEditorInfo({
-                  ...currentEditorInfo,
-                  type: e.target.value,
-                });
-              }}
-            >
-              <option value="announcement">공지</option>
-              <option value="recruitment">채용</option>
-            </select>
-            <input 
-              className={styles["recruit-input"]}
-              placeholder="작성자를 입력해주세요."
-            />
-            <input 
-              className={styles["recruit-input"]}
-              placeholder="제목을 입력해 주세요."
-            />
-            <div 
-              className={styles["quill-container"]}
-              onFocus={()=> setKeyboardOpen(true)} 
-              onBlur={()=> setKeyboardOpen(false)} 
-            >
-              <ReactQuill value={text} onChange={handleChange}/>
-            </div>
-            <div 
-              className={styles["register-container"]}
-              style={{marginBottom: `${keyboardOpen ? "50vw":"0"}` }}
-            >
-              {modalState.type === "create" && (
-                <div className={styles["register-btn"]} onClick={handleRegister}>
-                  등록하기
-                </div>
-              )}
-              {modalState.type === "edit" && (
-                <div
-                  className={styles["edit-btn"]}
-                  onClick={() => handleUpdate(viewItem.key)}
-                >
-                  수정하기
-                </div>
-              )}
-              <div className={styles["register-btn-cancel"]} 
-              onClick={()=>setModalState({ ...modalState, confirm_process: true })}>
-                취소
+      {modalState.auth_passed &&
+        (modalState.type === "create" || modalState.type === "edit") &&
+        <div className={styles["hm3-box4"]}>
+          <select
+            className={styles["recruit-select"]}
+            name="type"
+            value={currentEditorInfo.type}
+            onChange={(e) => {
+              setCurrentEditorInfo({
+                ...currentEditorInfo,
+                type: e.target.value,
+              });
+            }}
+          >
+            <option value="announcement">공지</option>
+            <option value="recruitment">채용</option>
+          </select>
+          <input
+            className={styles["recruit-input"]}
+            name="writer"
+            type="text"
+            value={currentEditorInfo.writer}
+            onChange={(e) => {
+              setCurrentEditorInfo({
+                ...currentEditorInfo,
+                writer: e.target.value,
+              });
+            }}
+            placeholder="작성자를 입력해주세요."
+          />
+          <input
+            className={styles["recruit-input"]}
+            name="title"
+            type="text"
+            value={currentEditorInfo.title}
+            onChange={(e) => {
+              setCurrentEditorInfo({
+                ...currentEditorInfo,
+                title: e.target.value,
+              });
+            }}
+            placeholder="제목을 입력해 주세요."
+          />
+          <div
+            className={styles["quill-container"]}
+            onFocus={() => setKeyboardOpen(true)}
+            onBlur={() => setKeyboardOpen(false)}
+          >
+            <ReactQuill value={text} onChange={handleChange} />
+          </div>
+          <div
+            className={styles["register-container"]}
+            style={{ marginBottom: `${keyboardOpen ? "50vw" : "0"}` }}
+          >
+            {modalState.type === "create" && (
+              <div className={styles["register-btn"]} onClick={handleRegister}>
+                등록하기
               </div>
+            )}
+            {modalState.type === "edit" && (
+              <div
+                className={styles["edit-btn"]}
+                onClick={() => handleUpdate(viewItem.key)}
+              >
+                수정하기
+              </div>
+            )}
+            <div className={styles["register-btn-cancel"]}
+              onClick={() => setModalState({ ...modalState, confirm_process: true })}>
+              취소
             </div>
           </div>
-        }
-        {modalState.confirm_process &&
+        </div>
+      }
+      {modalState.confirm_process &&
         (modalState.type === "view" ||
           modalState.type === "create" ||
           modalState.type === "edit" ||
-          modalState.type === "delete") && 
-          <div className={styles["hm3-box3"]}
-            onMouseDown={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <div className={styles["hm3-box3-confirm_process"]}>
-              <div>
-                페이지 이동시 지금까지 작성하신 
-                <br />
-                내용이 모두 삭제됩니다.
-                <br />
-                페이지를 이동하시겠습니까?
-              </div>
-              <div>
-                <span onClick={()=>setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })}>확인</span>
-                <span onClick={()=>setModalState({ ...modalState, confirm_process: false})}>취소</span>
-              </div>
+          modalState.type === "delete") &&
+        <div className={styles["hm3-box3"]}
+          onMouseDown={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <div className={styles["hm3-box3-confirm_process"]}>
+            <div>
+              페이지 이동시 지금까지 작성하신
+              <br />
+              내용이 모두 삭제됩니다.
+              <br />
+              페이지를 이동하시겠습니까?
+            </div>
+            <div>
+              <span onClick={() => setModalState({ ...modalState, type: "", key: false, confirm_process: false, auth_process: false, auth_passed: false })}>확인</span>
+              <span onClick={() => setModalState({ ...modalState, confirm_process: false })}>취소</span>
             </div>
           </div>
-        }
+        </div>
+      }
     </div>
   );
 }
