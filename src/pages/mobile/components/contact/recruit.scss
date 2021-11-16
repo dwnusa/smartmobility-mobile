@@ -1,0 +1,17 @@
+.quill{
+  // border:1px red solid;
+  width:100%;
+  // height:50vh;
+  .ql-container{
+    // border:1px blue solid;
+    // overflow:hidden;
+    // height:70vw;
+    .ql-editor{
+      // border:1px red solid;
+      -webkit-user-select: text;
+      // border:1px red solid;
+      min-height:70vw;
+      // height:100%;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 @import "styles/_variables";
 @import "styles/_mixins";
+
 .handycap {
   @include subComponentsStyle();
   padding-bottom: 0px;
@@ -11,14 +12,17 @@
   background-repeat: no-repeat;
   background-position: left 0% top 100%;
   position: relative;
+
   &.page1 {
     overflow: hidden;
     height: 90vh;
+
     .handycap-textbox {
       position: absolute;
       top: 60%;
       left: 60%;
-      > div {
+
+      >div {
         &:nth-child(1) {
           font-family: "Montserrat";
           font-style: normal;
@@ -27,6 +31,7 @@
           line-height: 55px;
           color: #00656e;
         }
+
         &:nth-child(2) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -35,9 +40,11 @@
           line-height: 38px;
           color: #333333;
         }
+
         &:nth-child(3) {
           display: flex;
-          > div {
+
+          >div {
             margin: 30px 15px 0px 0px;
             width: 137px;
             height: 55px;
@@ -49,8 +56,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
             &:hover {
-              background: #0a347f;
+              background: #0032A0;
               color: white;
               cursor: pointer;
             }
@@ -59,16 +67,19 @@
       }
     }
   }
+
   &.page2 {
     height: 90vh;
     background-size: 35%;
     background-position: left 5% bottom 0%;
+
     .handycap-textbox {
       position: absolute;
       top: 30%;
       left: 40%;
       width: 600px;
-      > div {
+
+      >div {
         &:nth-child(1) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -77,6 +88,7 @@
           line-height: 32px;
           color: #858481;
         }
+
         &:nth-child(2) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -86,6 +98,7 @@
 
           color: #00656e;
         }
+
         &:nth-child(3) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -98,16 +111,19 @@
       }
     }
   }
+
   &.page3 {
     height: 90vh;
     background-size: 35%;
     background-position: right 5% bottom 0%;
+
     .handycap-textbox {
       position: absolute;
       top: 30%;
       left: 15%;
       width: 600px;
-      > div {
+
+      >div {
         &:nth-child(1) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -116,6 +132,7 @@
           line-height: 32px;
           color: #858481;
         }
+
         &:nth-child(2) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -125,6 +142,7 @@
 
           color: #00656e;
         }
+
         &:nth-child(3) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -137,16 +155,19 @@
       }
     }
   }
+
   &.page4 {
     height: 90vh;
     background-size: 35%;
     background-position: left 5% bottom 0%;
+
     .handycap-textbox {
       position: absolute;
       top: 40%;
       left: 40%;
       width: 600px;
-      > div {
+
+      >div {
         &:nth-child(1) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -155,6 +176,7 @@
           line-height: 32px;
           color: #858481;
         }
+
         &:nth-child(2) {
           font-family: "Noto Sans KR";
           font-style: normal;
@@ -164,6 +186,7 @@
 
           color: #00656e;
         }
+
         &:nth-child(3) {
           font-family: "Noto Sans KR";
           font-style: normal;

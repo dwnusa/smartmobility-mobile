@@ -33,7 +33,7 @@ const posMap = [
   { page: 3, name: "Contact", tabs: ["공지·채용", "오시는길", "문의하기"] }
 ];
 function Mobile({ isPc }: { isPc: boolean }) {
-  const [pos, setPos] = useState({ page: 0, tab: 0, stack: 0 });
+  const [pos, setPos] = useState({ readyPage: 0, readyStack: 0, page: 0, tab: 0, stack: 0 });
   const [ishm2Scroll, setIshm2Scroll] = useState(false);
   // const [scrollDirection, setScrollDirection] = useState({ name: 'stop', value: 0 });
   const [ishm3Scroll, setIshm3Scroll] = useState(false);
@@ -42,15 +42,16 @@ function Mobile({ isPc }: { isPc: boolean }) {
   const hm2El = useRef<HTMLDivElement | null>(null);
   const hm3El = useRef<HTMLDivElement | null>(null);
   const hm4El = useRef<HTMLDivElement | null>(null);
-  // useEffect(() => {
-  //   console.log("hm1el: ", hm1El.current.scrollTop, hm1El.current.clientHeight);
-  //   console.log("hm2el: ", hm2El.current.scrollTop, hm2El.current.clientHeight);
-  //   console.log("hm3el: ", hm3El.current.scrollTop, hm3El.current.clientHeight);
-  //   console.log("hm4el: ", hm4El.current.scrollTop, hm4El.current.clientHeight);
-  // }, [pos]);
+  // const [coreHeight, setCoreHeight] = useState(window.innerHeight * 0.01);
+  // console.log(window.innerHeight, coreHeight);
+  useEffect(() => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  },[])
   return (
     <div ref={hm1El}
       className={styles["hm1"]}
+      style={{ height: "" }}
       onScroll={(e) => {
         const coverRate = hm1El.current.scrollTop / hm1El.current.clientHeight;
         // console.log(coverRate);
@@ -61,11 +62,11 @@ function Mobile({ isPc }: { isPc: boolean }) {
           setIshm2Scroll(false)
         }
       }}>
-      <img src={logoWhite} />
+      <img src={logoWhite} onClick={()=>window.location.reload()}/>
       <span>
-        We think <br />
+        We think<br />
         for the <br />
-        better world!
+        better world! 
       </span>
       <div ref={hm2El} className={styles["hm2"]} >
         <div className={styles["hm2-handle"]}></div>
@@ -84,12 +85,9 @@ function Mobile({ isPc }: { isPc: boolean }) {
           style={{ overflow: ishm2Scroll ? "scroll" : "hidden" }}
         >
           <div className={styles["hm3-cards-container"]} >
-            {/* <img src={cards.home01active} /> */}
-            <img onClick={() => { setPos({ ...pos, page: 2, tab: 0, stack: 1 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) }} src={(pos.page === 2 && pos.stack === 1) ? cards.home01active : cards.home01inactive} />
-            {/* <img src={cards.home02active} /> */}
-            <img onClick={() => { setPos({ ...pos, page: 2, tab: 0, stack: 2 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) }} src={(pos.page === 2 && pos.stack === 2) ? cards.home02active : cards.home02inactive} />
-            {/* <img src={cards.home03active} /> */}
-            <img onClick={() => { setPos({ ...pos, page: 2, tab: 0, stack: 3 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) }} src={(pos.page === 2 && pos.stack === 3) ? cards.home03active : cards.home03inactive} />
+            <img onClick={() => { if (pos.readyPage === 1) { setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 1, readyStack: 0 }); }} src={(pos.readyPage === 1) ? cards.home01active : cards.home01inactive} />
+            <img onClick={() => { if (pos.readyPage === 2) { setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 2 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 2, readyStack: 0 }); }} src={(pos.readyPage === 2) ? cards.home02active : cards.home02inactive} />
+            <img onClick={() => { if (pos.readyPage === 3) { setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 3 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 3, readyStack: 0 }); }} src={(pos.readyPage === 3) ? cards.home03active : cards.home03inactive} />
           </div>
           <div className={styles["hm3-main-container"]}>
             <div className={styles["hm3-menu-items"]}>
@@ -103,7 +101,7 @@ function Mobile({ isPc }: { isPc: boolean }) {
                       // hm3El 의 스크롤 최상단일때 -> scrollIntoView 호출 함
                       hm4El.current.scrollIntoView({ behavior: 'smooth' });
                     }
-                    setPos({ ...pos, page: i, tab: 0, stack: 0 })
+                    setPos({ ...pos, readyPage: 0, readyStack: 0, page: i, tab: 0, stack: 0 })
                     if (pos.page !== i) {
                     }
                   }}>
@@ -113,17 +111,17 @@ function Mobile({ isPc }: { isPc: boolean }) {
             </div>
             <div className={styles["hm3-menu-subitems"]}>
               {posMap[pos.page].tabs.map((v, i) =>
-                <div className={pos.tab == i && styles["active"]}
+                <div
+                  className={pos.tab == i && styles["active"]}
                   onClick={() => {
                     if (pos.page === 1 && i === 2) {
                       // alert("hone")
                     } else {
-                      // hm4El.current.scrollIntoView({ behavior: 'smooth' });
-                      setPos({ ...pos, tab: i, stack: 0 })
+                      setPos({ ...pos, readyPage: 0, readyStack: 0, tab: i, stack: 0 })
                     }
                   }}
                 >
-                  {v}
+                  <span>{v}</span><span>&nbsp;{"\u25CF"}</span>
                 </div>
               )}
             </div>
@@ -142,10 +140,10 @@ function Mobile({ isPc }: { isPc: boolean }) {
               {((pos.page === 2) && pos.tab === 0) && pos.stack === 1 && <Subrnd1 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
               {((pos.page === 2) && pos.tab === 0) && pos.stack === 2 && <Subrnd2 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
               {((pos.page === 2) && pos.tab === 0) && pos.stack === 3 && <Subrnd3 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
-              {(pos.page === 2) && pos.tab === 1 && <Engineering2 ishm3Scroll={ishm3Scroll} />}
+              {(pos.page === 2) && pos.tab === 1 && <Engineering2 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
               {(pos.page === 2) && pos.tab === 2 && <Patent2 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
 
-              {(pos.page === 3) && pos.tab === 0 && <Recruit3 ishm3Scroll={ishm3Scroll} />}
+              {(pos.page === 3) && pos.tab === 0 && <Recruit3 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
               {(pos.page === 3) && pos.tab === 1 && <Map3 ishm3Scroll={ishm3Scroll} />}
               {(pos.page === 3) && pos.tab === 2 && <Call3 ishm3Scroll={ishm3Scroll} />}
 
