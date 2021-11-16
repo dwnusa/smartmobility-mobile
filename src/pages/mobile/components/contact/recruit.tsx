@@ -49,7 +49,7 @@ const itemList = [
 ];
 function Recruit3({ ishm3Scroll, setPos, pos }) {
   const [filterState, setFilter] = useState<number>(0);
-  const [filterIndex, setFilterIndex] = useState(0);
+  // const [filterIndex, setFilterIndex] = useState(0);
   const [modalOpened, setModalOpened] = useState(false);
   const [listData, setListData] = useState(itemList);
   const [passwd, setPasswd] = useState<string>("");
@@ -101,22 +101,22 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
     } catch (err) {
     }
   }, [])
-  useEffect(() => {
-    if (filterIndex === 1) {
-      const newItem = itemList.filter(v => v.type === "공지").sort((a, b) => { return b.id - a.id });
-      setListData(newItem);
-    } else if (filterIndex === 2) {
-      const newItem = itemList.filter(v => v.type === "채용").sort((a, b) => { return b.id - a.id });
-      console.log(newItem)
-      setListData(newItem);
-    } else {
-      const newItem = itemList.sort((a, b) => { return b.id - a.id });
-      setListData(newItem);
-    }
-  }, [filterIndex])
+  // useEffect(() => {
+  //   if (filterIndex === 1) {
+  //     const newItem = itemList.filter(v => v.type === "공지").sort((a, b) => { return b.id - a.id });
+  //     setListData(newItem);
+  //   } else if (filterIndex === 2) {
+  //     const newItem = itemList.filter(v => v.type === "채용").sort((a, b) => { return b.id - a.id });
+  //     console.log(newItem)
+  //     setListData(newItem);
+  //   } else {
+  //     const newItem = itemList.sort((a, b) => { return b.id - a.id });
+  //     setListData(newItem);
+  //   }
+  // }, [filterIndex])
   const handleTableClick = (e: any, item: any) => {
     // debugger;
-    setModalState({ ...modalState, type: "view", key: Number(item.key) });
+    setModalState({ ...modalState, type: "view", key: Number(item.key), auth_passed:false });
   };
   const handleDelete = () => {
     try {
@@ -162,13 +162,12 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   };
   const handleRegister = () => {
     const bodyContent = stateToHTML(editorState.getCurrentContent());
+    // debugger;
     if (currentEditorInfo.title === "") {
       alert("제목을 입력하세요.");
-    } else if (currentEditorInfo.writer === "") {
-      alert("작성자를 입력하세요.");
-    } else if (bodyContent === "<p><br></p>") {
+    } else if (currentEditorInfo.body === "<p><br></p>") {
       alert("내용을 입력하세요.");
-      console.log(bodyContent);
+      // console.log(bodyContent);
     } else {
       const today = new Date();
       const date =
@@ -189,7 +188,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           type: currentEditorInfo.type,
           title: currentEditorInfo.title,
           writer: currentEditorInfo.writer,
-          body: bodyContent,
+          body: currentEditorInfo.body,
         })
           .then((res) => {
 
@@ -218,29 +217,30 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       setEditorState(EditorState.createEmpty());
       setCurrentEditorInfo({
         type: "announcement",
-        writer: "",
+        writer: "admin",
         title: "",
         body: "",
       });
     }
   };
-  const handleUpdate = (currentKey: number) => {
+  const handleUpdate = () => {
+    // debugger;
     const bodyContent = stateToHTML(editorState.getCurrentContent());
     if (currentEditorInfo.title === "") {
       alert("제목을 입력하세요.");
-    } else if (currentEditorInfo.writer === "") {
-      alert("작성자를 입력하세요.");
-    } else if (bodyContent === "<p><br></p>") {
+    } else if (currentEditorInfo.body === "<p><br></p>") {
       alert("내용을 입력하세요.");
-      console.log(bodyContent);
+      // console.log(bodyContent);
     } else {
       const today = new Date();
+
       const date =
         today.getFullYear() +
         "." +
         (today.getMonth() + 1) +
         "." +
         today.getDate();
+
       const maxKey = Math.max.apply(
         Math,
         listData.map(function (o) {
@@ -252,7 +252,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
         axios.put(IPinUSE + viewItem.key + "/", {
           type: currentEditorInfo.type,
           title: currentEditorInfo.title,
-          body: bodyContent,
+          body: currentEditorInfo.body,
         })
           .then((res) => {
 
@@ -283,7 +283,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       setEditorState(EditorState.createEmpty());
       setCurrentEditorInfo({
         type: "announcement",
-        writer: "",
+        writer: "admin",
         title: "",
         body: "",
       });
@@ -336,7 +336,10 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
 
   const handleChange = (value: any) => {
     setText(value);
-
+    setCurrentEditorInfo({
+      ...currentEditorInfo,
+      body: value,
+    });
   };
   const sortedByDate = listData.sort(
     (a: any, b: any) => (b.id > a.id && 1) || -1
@@ -354,9 +357,9 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       {/* recruit3 */}
       {(modalState.type === "") && <div className={styles["hm3-box1"]}>
         <div>
-          <div style={{ fontWeight: filterIndex === 0 ? "bold" : "normal" }} onClick={() => setFilterIndex(0)}>전체</div>
-          <div style={{ fontWeight: filterIndex === 1 ? "bold" : "normal" }} onClick={() => setFilterIndex(1)}>공지</div>
-          <div style={{ fontWeight: filterIndex === 2 ? "bold" : "normal" }} onClick={() => setFilterIndex(2)}>채용</div>
+          <div style={{ fontWeight: filterState === 0 ? "bold" : "normal" }} onClick={() => setFilter(0)}>전체</div>
+          <div style={{ fontWeight: filterState === 1 ? "bold" : "normal" }} onClick={() => setFilter(1)}>공지</div>
+          <div style={{ fontWeight: filterState === 2 ? "bold" : "normal" }} onClick={() => setFilter(2)}>채용</div>
         </div>
         <table>
           <thead>
@@ -461,6 +464,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                         // );
                         // setEditorState(editor_state);
                         setText(viewItem.body);
+                        // debugger;
                         setCurrentEditorInfo({
                           type: viewItem.type,
                           writer: viewItem.writer,
@@ -546,11 +550,11 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             className={styles["recruit-input"]}
             name="writer"
             type="text"
-            value={currentEditorInfo.writer}
-            onChange={(e) => {
+            value={"admin"}
+            onChange={() => {
               setCurrentEditorInfo({
                 ...currentEditorInfo,
-                writer: e.target.value,
+                writer: "admin",
               });
             }}
             placeholder="작성자를 입력해주세요."
@@ -587,7 +591,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             {modalState.type === "edit" && (
               <div
                 className={styles["edit-btn"]}
-                onClick={() => handleUpdate(viewItem.key)}
+                onClick={() => handleUpdate()}
               >
                 수정하기
               </div>
