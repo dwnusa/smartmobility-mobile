@@ -26,7 +26,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    ;
 
     >div:nth-child(1) {
       // border:1px red solid;
@@ -79,7 +78,7 @@
 
       tr {
         height: 5vw;
-        border-bottom: 1px black solid;
+        border-bottom: 0.5px rgba(0,0,0,0.2) solid;
       }
 
       >tbody {
@@ -109,7 +108,10 @@
       width: 80%;
       height: 8vw;
       margin: 3% 0 8% 0;
-
+      >input:nth-child(2){
+        // border:1px red solid;
+        max-width:40%;
+      }
       >div {
         display: flex;
         justify-content: center;

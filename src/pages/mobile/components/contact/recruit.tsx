@@ -357,9 +357,9 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       {/* recruit3 */}
       {(modalState.type === "") && <div className={styles["hm3-box1"]}>
         <div>
-          <div style={{ fontWeight: filterState === 0 ? "bold" : "normal" }} onClick={() => setFilter(0)}>전체</div>
-          <div style={{ fontWeight: filterState === 1 ? "bold" : "normal" }} onClick={() => setFilter(1)}>공지</div>
-          <div style={{ fontWeight: filterState === 2 ? "bold" : "normal" }} onClick={() => setFilter(2)}>채용</div>
+          <div style={{ fontWeight: filterState === 0 ? "bold" : "normal", opacity:filterState === 0 ? "1":"0.4" }} onClick={() => setFilter(0)}>전체</div>
+          <div style={{ fontWeight: filterState === 1 ? "bold" : "normal", opacity:filterState === 1 ? "1":"0.4" }} onClick={() => setFilter(1)}>공지</div>
+          <div style={{ fontWeight: filterState === 2 ? "bold" : "normal", opacity:filterState === 2 ? "1":"0.4" }} onClick={() => setFilter(2)}>채용</div>
         </div>
         <table>
           <thead>
@@ -373,7 +373,10 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             {filteredData.map(v =>
               <tr onClick={(e) => handleTableClick(e, v)}>
                 <td>{v.id === 9999 ? <div>{v.type === "announcement" ? "공지" : "채용"}</div> : v.id}</td>
-                <td>{v.title}</td>
+                <td>
+                  <div>{v.title}</div>
+                  <div style={{fontSize:"2.8vw", opacity:"0.5", fontFamily:"Monserrat"}}>{v.date}</div>
+                </td>
                 <td>{v.writer}</td>
               </tr>
             )}
