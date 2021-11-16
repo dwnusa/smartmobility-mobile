@@ -13,8 +13,8 @@ function Map3({ishm3Scroll}) {
       <NaverMap
         mapDivId={"maps-getting-started-uncontrolled"} // default: react-naver-map
         style={{
-          width: "60%", // 네이버지도 가로 길이
-          height: "80%", // 네이버지도 세로 길이
+          width: "100%", // 네이버지도 가로 길이
+          height: "100%", // 네이버지도 세로 길이
         }}
         defaultCenter={{ lat: lat, lng: lng }} // 지도 초기 위치
         defaultZoom={17} // 지도 초기 확대 배율
