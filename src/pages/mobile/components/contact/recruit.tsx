@@ -384,7 +384,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           </select>
           <input />
           <div>검색</div>
-          <div onClick={() => { setModalState({ ...modalState, type: "create", auth_passed: false, auth_process: true }); }}>글쓰기</div>
+          <div onClick={() => { setText(""); setModalState({ ...modalState, type: "create", key: false, auth_passed: false, auth_process: true }); }}>글쓰기</div>
         </div>
       </div>}
       {!modalState.auth_passed && (modalState.type === "view" ||
