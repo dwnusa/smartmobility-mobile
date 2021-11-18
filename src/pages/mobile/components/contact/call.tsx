@@ -12,7 +12,7 @@ function Call3({ ishm3Scroll, setCallExitModal }) {
     contents: "",
   })
   useEffect(() => {
-    if (item.name !== "" && item.phone !== "" && item.email !== "" && item.contents !== "") {
+    if (item.name == "" && item.phone == "" && item.email == "" && item.contents == "") {
       setCallExitModal(false);
     } else {
       setCallExitModal(true);
