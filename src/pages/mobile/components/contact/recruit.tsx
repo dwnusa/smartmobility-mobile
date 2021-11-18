@@ -402,7 +402,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                     setTempListData(listData);
                   } else {
                     const regex = new RegExp(searchKeyword, 'g');
-                    const matchedResult1 = listData.filter(v => v.body.match(regex));
+                    const matchedResult1 = listData.filter(v => v.body.match(regex) || v.title.match(regex));
                     setTempListData(matchedResult1);
                     setSearchKeyword("");
                   }
@@ -413,7 +413,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                     setTempListData(matchedResult2);
                   } else {
                     const regex = new RegExp(searchKeyword, 'g');
-                    const matchedResult1 = listData.filter(v => v.body.match(regex));
+                    const matchedResult1 = listData.filter(v => v.body.match(regex) || v.title.match(regex));
                     const searchTypeEng = searchType === "공지" ? "announcement" : "recruitment";
                     const matchedResult2 = matchedResult1.filter(v => v.type === searchTypeEng);
                     setTempListData(matchedResult2);
