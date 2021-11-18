@@ -116,7 +116,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   // }, [filterIndex])
   const handleTableClick = (e: any, item: any) => {
     // debugger;
-    setModalState({ ...modalState, type: "view", key: Number(item.key), auth_passed:false });
+    setModalState({ ...modalState, type: "view", key: Number(item.key), auth_passed: false });
   };
   const handleDelete = () => {
     try {
@@ -334,7 +334,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
 
   const [text, setText] = useState<string>("");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
-  const [searchType, setSearchType] = useState<string>("");
+  const [searchType, setSearchType] = useState<string>("전체");
 
   const handleChange = (value: any) => {
     setText(value);
@@ -344,9 +344,9 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
     });
   };
   const [tempListData, setTempListData] = useState([]);
-  useEffect(()=>{
+  useEffect(() => {
     setTempListData(listData);
-  },[listData])
+  }, [listData])
   const sortedByDate = tempListData.sort(
     (a: any, b: any) => (b.id > a.id && 1) || -1
   );
@@ -363,9 +363,9 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       {/* recruit3 */}
       {(modalState.type === "") && <div className={styles["hm3-box1"]}>
         <div>
-          <div style={{ fontWeight: filterState === 0 ? "bold" : "normal", opacity:filterState === 0 ? "1":"0.4" }} onClick={() => setFilter(0)}>전체</div>
-          <div style={{ fontWeight: filterState === 1 ? "bold" : "normal", opacity:filterState === 1 ? "1":"0.4" }} onClick={() => setFilter(1)}>공지</div>
-          <div style={{ fontWeight: filterState === 2 ? "bold" : "normal", opacity:filterState === 2 ? "1":"0.4" }} onClick={() => setFilter(2)}>채용</div>
+          <div style={{ fontWeight: filterState === 0 ? "bold" : "normal", opacity: filterState === 0 ? "1" : "0.4" }} onClick={() => setFilter(0)}>전체</div>
+          <div style={{ fontWeight: filterState === 1 ? "bold" : "normal", opacity: filterState === 1 ? "1" : "0.4" }} onClick={() => setFilter(1)}>공지</div>
+          <div style={{ fontWeight: filterState === 2 ? "bold" : "normal", opacity: filterState === 2 ? "1" : "0.4" }} onClick={() => setFilter(2)}>채용</div>
         </div>
         <table>
           <thead>
@@ -381,7 +381,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                 <td>{v.id === 9999 ? <div>{v.type === "announcement" ? "공지" : "채용"}</div> : v.id}</td>
                 <td>
                   <div>{v.title}</div>
-                  <div style={{fontSize:"2.8vw", opacity:"0.5", fontFamily:"Monserrat"}}>{v.date}</div>
+                  <div style={{ fontSize: "2.8vw", opacity: "0.5", fontFamily: "Monserrat" }}>{v.date}</div>
                 </td>
                 <td>{v.writer}</td>
               </tr>
@@ -389,63 +389,64 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           </tbody>
         </table>
         <div>
-          <select value={searchType} onChange={(e)=>setSearchType(e.target.value)}>
+          <select value={searchType} onChange={(e) => setSearchType(e.target.value)}>
             <option value="전체">전체</option>
             <option value="공지">공지</option>
             <option value="채용">채용</option>
           </select>
-          <input value={searchKeyword} onChange={(e)=>setSearchKeyword(e.target.value)} 
-          onKeyPress={(e)=>{
-            if (e.key==="Enter") {
-              if (searchType==="전체"){
-                if (searchKeyword === ""){
-                  setTempListData(listData);
+          <input value={searchKeyword} onChange={(e) => setSearchKeyword(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                if (searchType === "전체") {
+                  if (searchKeyword === "") {
+                    setTempListData(listData);
+                  } else {
+                    const regex = new RegExp(searchKeyword, 'g');
+                    const matchedResult1 = listData.filter(v => v.body.match(regex));
+                    setTempListData(matchedResult1);
+                    setSearchKeyword("");
+                  }
                 } else {
-                  const regex = new RegExp(searchKeyword, 'g');
-                  const matchedResult1 = listData.filter(v=>v.body.match(regex));
-                  setTempListData(matchedResult1);
-                  setSearchKeyword("");
-                }
-              } else {
-                if (searchKeyword === ""){
-                  const searchTypeEng = searchType === "공지" ? "announcement":"recruitment";
-                  const matchedResult2 = listData.filter(v=>v.type===searchTypeEng);
-                  setTempListData(matchedResult2);
-                } else {
-                  const regex = new RegExp(searchKeyword, 'g');
-                  const matchedResult1 = listData.filter(v=>v.body.match(regex));
-                  const searchTypeEng = searchType === "공지" ? "announcement":"recruitment";
-                  const matchedResult2 = matchedResult1.filter(v=>v.type===searchTypeEng);
-                  setTempListData(matchedResult2);
-                  setSearchKeyword("");
+                  if (searchKeyword === "") {
+                    const searchTypeEng = searchType === "공지" ? "announcement" : "recruitment";
+                    const matchedResult2 = listData.filter(v => v.type === searchTypeEng);
+                    setTempListData(matchedResult2);
+                  } else {
+                    const regex = new RegExp(searchKeyword, 'g');
+                    const matchedResult1 = listData.filter(v => v.body.match(regex));
+                    const searchTypeEng = searchType === "공지" ? "announcement" : "recruitment";
+                    const matchedResult2 = matchedResult1.filter(v => v.type === searchTypeEng);
+                    setTempListData(matchedResult2);
+                    setSearchKeyword("");
+                  }
                 }
               }
-            }}}/>
-          <div onClick={()=>{
-              if (searchType==="전체"){
-                if (searchKeyword === ""){
-                  setTempListData(listData);
-                } else {
-                  const regex = new RegExp(searchKeyword, 'g');
-                  const matchedResult1 = listData.filter(v=>v.body.match(regex));
-                  setTempListData(matchedResult1);
-                  setSearchKeyword("");
-                }
+            }} />
+          <div onClick={() => {
+            if (searchType === "전체") {
+              if (searchKeyword === "") {
+                setTempListData(listData);
               } else {
-                if (searchKeyword === ""){
-                  const searchTypeEng = searchType === "공지" ? "announcement":"recruitment";
-                  const matchedResult2 = listData.filter(v=>v.type===searchTypeEng);
-                  setTempListData(matchedResult2);
-                } else {
-                  const regex = new RegExp(searchKeyword, 'g');
-                  const matchedResult1 = listData.filter(v=>v.body.match(regex));
-                  const searchTypeEng = searchType === "공지" ? "announcement":"recruitment";
-                  const matchedResult2 = matchedResult1.filter(v=>v.type===searchTypeEng);
-                  setTempListData(matchedResult2);
-                  setSearchKeyword("");
-                }
+                const regex = new RegExp(searchKeyword, 'g');
+                const matchedResult1 = listData.filter(v => v.body.match(regex));
+                setTempListData(matchedResult1);
+                setSearchKeyword("");
+              }
+            } else {
+              if (searchKeyword === "") {
+                const searchTypeEng = searchType === "공지" ? "announcement" : "recruitment";
+                const matchedResult2 = listData.filter(v => v.type === searchTypeEng);
+                setTempListData(matchedResult2);
+              } else {
+                const regex = new RegExp(searchKeyword, 'g');
+                const matchedResult1 = listData.filter(v => v.body.match(regex));
+                const searchTypeEng = searchType === "공지" ? "announcement" : "recruitment";
+                const matchedResult2 = matchedResult1.filter(v => v.type === searchTypeEng);
+                setTempListData(matchedResult2);
+                setSearchKeyword("");
               }
             }
+          }
           }>
             검색
           </div>
