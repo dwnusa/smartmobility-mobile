@@ -95,7 +95,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             }
           })
           // debugger;
-          console.log(newData)
+          // console.log(newData)
           setListData(newData)
         });
     } catch (err) {

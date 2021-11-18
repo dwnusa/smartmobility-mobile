@@ -4,7 +4,6 @@ import styles from './call.module.scss';
 
 function Call3({ ishm3Scroll, setCallExitModal }) {
   const [checkState, setCheckState] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
   const [item, setItem] = useState({
     name: "",
     phone: "",
@@ -45,26 +44,6 @@ function Call3({ ishm3Scroll, setCallExitModal }) {
         </div>
         <div><div onClick={() => { alert('등록되었습니다.'); setItem({ name: "", phone: "", email: "", contents: "" }) }}>등록하기</div></div>
       </div>
-      {modalOpen && <div className={styles["hm3-box3"]}
-        onMouseDown={(e) => {
-          e.stopPropagation();
-        }}
-      >
-        <div className={styles["hm3-box3-confirm_process"]}>
-          <div>
-            페이지 이동시 지금까지 작성하신
-            <br />
-            내용이 모두 삭제됩니다.
-            <br />
-            페이지를 이동하시겠습니까?
-          </div>
-          <div>
-            <span onClick={() => setModalOpen(false)}>확인</span>
-            <span onClick={() => setModalOpen(false)}>취소</span>
-          </div>
-        </div>
-      </div>
-      }
     </>
   );
 }
