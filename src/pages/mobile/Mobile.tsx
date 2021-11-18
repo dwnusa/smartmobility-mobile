@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useRef, useEffect, useState } from 'react';
 import logoWhite from "media/logo-white.png";
 import * as cards from "media";
@@ -38,6 +40,7 @@ function Mobile({ isPc }: { isPc: boolean }) {
   // const [scrollDirection, setScrollDirection] = useState({ name: 'stop', value: 0 });
   const [ishm3Scroll, setIshm3Scroll] = useState(false);
   const [hm2ElScrollPos, setHm2ElScrollPos] = useState(false);
+  const [callExitModal, setCallExitModal] = useState(false);
   const hm1El = useRef<HTMLDivElement | null>(null);
   const hm2El = useRef<HTMLDivElement | null>(null);
   const hm3El = useRef<HTMLDivElement | null>(null);
@@ -85,9 +88,9 @@ function Mobile({ isPc }: { isPc: boolean }) {
           style={{ overflow: ishm2Scroll ? "scroll" : "hidden" }}
         >
           <div className={styles["hm3-cards-container"]} >
-            <img onClick={() => { if (pos.readyPage === 1) { setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 1, readyStack: 0 }); }} src={(pos.readyPage === 1) ? cards.home01active : cards.home01inactive} />
-            <img onClick={() => { if (pos.readyPage === 2) { setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 2 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 2, readyStack: 0 }); }} src={(pos.readyPage === 2) ? cards.home02active : cards.home02inactive} />
-            <img onClick={() => { if (pos.readyPage === 3) { setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 3 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 3, readyStack: 0 }); }} src={(pos.readyPage === 3) ? cards.home03active : cards.home03inactive} />
+            <img onClick={() => { if (pos.readyPage === 1) { if (pos.page===3 && pos.tab===2) {if (confirm("Exit?")) setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 })} else setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 1, readyStack: 0 }); }} src={(pos.readyPage === 1) ? cards.home01active : cards.home01inactive} />
+            <img onClick={() => { if (pos.readyPage === 2) { if (pos.page===3 && pos.tab===2) {if (confirm("Exit?")) setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 })} else setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 2 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 2, readyStack: 0 }); }} src={(pos.readyPage === 2) ? cards.home02active : cards.home02inactive} />
+            <img onClick={() => { if (pos.readyPage === 3) { if (pos.page===3 && pos.tab===2) {if (confirm("Exit?")) setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 })} else setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 3 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 3, readyStack: 0 }); }} src={(pos.readyPage === 3) ? cards.home03active : cards.home03inactive} />
           </div>
           <div className={styles["hm3-main-container"]}>
             <div className={styles["hm3-menu-items"]}>
@@ -101,7 +104,8 @@ function Mobile({ isPc }: { isPc: boolean }) {
                       // hm3El 의 스크롤 최상단일때 -> scrollIntoView 호출 함
                       hm4El.current.scrollIntoView({ behavior: 'smooth' });
                     }
-                    setPos({ ...pos, readyPage: 0, readyStack: 0, page: i, tab: 0, stack: 0 })
+                    if (pos.page===3 && pos.tab===2) {if (confirm("Exit?")) setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 })}
+                    else setPos({ ...pos, readyPage: 0, readyStack: 0, page: i, tab: 0, stack: 0 })
                     if (pos.page !== i) {
                     }
                   }}>
@@ -117,7 +121,8 @@ function Mobile({ isPc }: { isPc: boolean }) {
                     if (pos.page === 1 && i === 2) {
                       // alert("hone")
                     } else {
-                      setPos({ ...pos, readyPage: 0, readyStack: 0, tab: i, stack: 0 })
+                      if (pos.page===3 && pos.tab===2) {if (confirm("Exit?")) setPos({ ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 })}
+                      else setPos({ ...pos, readyPage: 0, readyStack: 0, tab: i, stack: 0 })
                     }
                   }}
                 >
@@ -145,7 +150,7 @@ function Mobile({ isPc }: { isPc: boolean }) {
 
               {(pos.page === 3) && pos.tab === 0 && <Recruit3 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
               {(pos.page === 3) && pos.tab === 1 && <Map3 ishm3Scroll={ishm3Scroll} />}
-              {(pos.page === 3) && pos.tab === 2 && <Call3 ishm3Scroll={ishm3Scroll} />}
+              {(pos.page === 3) && pos.tab === 2 && <Call3 ishm3Scroll={ishm3Scroll} setPos={setPos} pos={pos} />}
 
             </div>
           </div>

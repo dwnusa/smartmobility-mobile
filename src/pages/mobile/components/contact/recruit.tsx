@@ -333,6 +333,8 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   ];
 
   const [text, setText] = useState<string>("");
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
+  const [searchType, setSearchType] = useState<string>("");
 
   const handleChange = (value: any) => {
     setText(value);
@@ -341,7 +343,11 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       body: value,
     });
   };
-  const sortedByDate = listData.sort(
+  const [tempListData, setTempListData] = useState([]);
+  useEffect(()=>{
+    setTempListData(listData);
+  },[listData])
+  const sortedByDate = tempListData.sort(
     (a: any, b: any) => (b.id > a.id && 1) || -1
   );
   const filteredData = sortedByDate.filter((v: any) => {
@@ -383,13 +389,66 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           </tbody>
         </table>
         <div>
-          <select value={"전체"}>
+          <select value={searchType} onChange={(e)=>setSearchType(e.target.value)}>
             <option value="전체">전체</option>
             <option value="공지">공지</option>
             <option value="채용">채용</option>
           </select>
-          <input />
-          <div>검색</div>
+          <input value={searchKeyword} onChange={(e)=>setSearchKeyword(e.target.value)} 
+          onKeyPress={(e)=>{
+            if (e.key==="Enter") {
+              if (searchType==="전체"){
+                if (searchKeyword === ""){
+                  setTempListData(listData);
+                } else {
+                  const regex = new RegExp(searchKeyword, 'g');
+                  const matchedResult1 = listData.filter(v=>v.body.match(regex));
+                  setTempListData(matchedResult1);
+                  setSearchKeyword("");
+                }
+              } else {
+                if (searchKeyword === ""){
+                  const searchTypeEng = searchType === "공지" ? "announcement":"recruitment";
+                  const matchedResult2 = listData.filter(v=>v.type===searchTypeEng);
+                  setTempListData(matchedResult2);
+                } else {
+                  const regex = new RegExp(searchKeyword, 'g');
+                  const matchedResult1 = listData.filter(v=>v.body.match(regex));
+                  const searchTypeEng = searchType === "공지" ? "announcement":"recruitment";
+                  const matchedResult2 = matchedResult1.filter(v=>v.type===searchTypeEng);
+                  setTempListData(matchedResult2);
+                  setSearchKeyword("");
+                }
+              }
+            }}}/>
+          <div onClick={()=>{
+              if (searchType==="전체"){
+                if (searchKeyword === ""){
+                  setTempListData(listData);
+                } else {
+                  const regex = new RegExp(searchKeyword, 'g');
+                  const matchedResult1 = listData.filter(v=>v.body.match(regex));
+                  setTempListData(matchedResult1);
+                  setSearchKeyword("");
+                }
+              } else {
+                if (searchKeyword === ""){
+                  const searchTypeEng = searchType === "공지" ? "announcement":"recruitment";
+                  const matchedResult2 = listData.filter(v=>v.type===searchTypeEng);
+                  setTempListData(matchedResult2);
+                } else {
+                  const regex = new RegExp(searchKeyword, 'g');
+                  const matchedResult1 = listData.filter(v=>v.body.match(regex));
+                  const searchTypeEng = searchType === "공지" ? "announcement":"recruitment";
+                  const matchedResult2 = matchedResult1.filter(v=>v.type===searchTypeEng);
+                  setTempListData(matchedResult2);
+                  setSearchKeyword("");
+                }
+              }
+            }
+          }>
+            검색
+          </div>
           <div onClick={() => { setText(""); setModalState({ ...modalState, type: "create", key: false, auth_passed: false, auth_process: true }); }}>글쓰기</div>
         </div>
       </div>}
