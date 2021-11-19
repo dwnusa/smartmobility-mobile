@@ -153,19 +153,19 @@ function News() {
       newDiv2.removeEventListener("click", handleCreateClick);
     };
   }, []);
-  useEffect(() => {
-    const foundTableDom = document.querySelectorAll("table tbody tr");
-    if (foundTableDom) {
-      foundTableDom.forEach((e) =>
-        e.addEventListener("click", handleTableClick)
-      );
-    }
-    return () => {
-      foundTableDom.forEach((e) =>
-        e.removeEventListener("click", handleTableClick)
-      );
-    };
-  }, [listData, filterState]);
+  // useEffect(() => {
+  //   const foundTableDom = document.querySelectorAll("table tbody tr");
+  //   if (foundTableDom) {
+  //     foundTableDom.forEach((e) =>
+  //       e.addEventListener("click", handleTableClick)
+  //     );
+  //   }
+  //   return () => {
+  //     foundTableDom.forEach((e) =>
+  //       e.removeEventListener("click", handleTableClick)
+  //     );
+  //   };
+  // }, [listData, filterState]);
   const handleCreateClick = (e: any) => {
     if (modalState.auth_passed === true) {
       // debugger;
@@ -180,10 +180,11 @@ function News() {
       });
     }
   };
-  const handleTableClick = (e: any) => {
-    const tableRow = e.currentTarget;
-    const keyValue = tableRow.lastChild.textContent;
-    setModalState({ ...modalState, type: "view", key: Number(keyValue) });
+  const handleTableClick = (key) => {
+    // const tableRow = e.currentTarget;
+    // const keyValue = tableRow.lastChild.textContent;
+    // debugger;
+    setModalState({ ...modalState, type: "view", key: Number(key) });
   };
   const uploadImageCallBack = (file: any) => {
     return new Promise((resolve, reject) => {
@@ -207,29 +208,55 @@ function News() {
       color: "white",
       lineHeight: "40px",
       borderRadius: "20px",
+      width: "80%",
     };
-    if (props.value === 9999) return <div style={idStyle}>공지</div>;
+    if (props.value === 9999) {
+      return (
+        <div onClick={(e) => handleTableClick(props.record.key)}
+          style={{ height: "100%", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div style={idStyle}>공지</div>
+        </div>
+      )
+    } else {
+      return (
+        <div onClick={(e) => handleTableClick(props.record.key)}
+          style={{ height: "100%", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          {props.record.key}
+        </div>
+      )
+    };
   };
   const renderTitle = (props: any) => {
     const is9999 = props.record.id;
     const type = props.record.type;
-    if (is9999 === 9999) return <div>{props.value}</div>;
+    if (is9999 === 9999) return <div onClick={(e) => handleTableClick(props.record.key)}
+      style={{ height: "100%", width: "100%", display: "flex", alignItems: "center" }}>{props.value}</div>;
     else {
       if (type === "recruitment")
         return (
-          <div>
+          <div onClick={(e) => handleTableClick(props.record.key)}
+            style={{ height: "100%", width: "100%", display: "flex", alignItems: "center" }}>
             <span style={{ fontWeight: "bold" }}>{"채용"}</span>&nbsp;&emsp;
             {props.value}
           </div>
         );
       else if (type === "announcement")
         return (
-          <div>
+          <div onClick={(e) => handleTableClick(props.record.key)}
+            style={{ height: "100%", width: "100%", display: "flex", alignItems: "center" }}>
             <span style={{ fontWeight: "bold" }}>{"공지"}</span>&nbsp;&emsp;
             {props.value}
           </div>
         );
     }
+  };
+  const renderClick = (props: any) => {
+    return (
+      <div onClick={(e) => handleTableClick(props.record.key)}
+        style={{ height: "100%", width: "100%", display: "flex", alignItems: "center" }}>
+        {props.value}
+      </div>
+    )
   };
   const fields = [
     {
@@ -247,6 +274,7 @@ function News() {
       sortable: false,
     },
     {
+      render: renderClick,
       name: "writer",
       displayName: "작성자",
       inputFilterable: true,
@@ -254,13 +282,19 @@ function News() {
       sortable: false,
     },
     {
+      render: renderClick,
       name: "date",
       displayName: "작성일",
       inputFilterable: true,
       exactFilterable: false,
       sortable: false,
     },
-    { name: "key", displayName: "", visible: true },
+    {
+      render: renderClick,
+      name: "key",
+      displayName: "",
+      visible: true
+    },
   ];
   const handleRegister = () => {
     const bodyContent = stateToHTML(editorState.getCurrentContent());
