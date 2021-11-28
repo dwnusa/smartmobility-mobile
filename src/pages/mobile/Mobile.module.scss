@@ -30,22 +30,24 @@
   @include scroll-style-hidden();
 
   >img {
-    width: 30vw;
+    width: 22vw;
     position: absolute;
-    top: 3%;
-    left: 5%;
+    top: 5%;
+    left: 10%;
   }
 
   >span {
     color: white;
     // color: red;
-    font-size: 7vw;
+    font-size: 8vw;
     position: absolute;
     font-family: "Montserrat";
     font-weight: bold;
     // bottom: 90vh;
-    bottom: calc(var(--vh, 1vh) * 50);
-    left: 5%;
+    bottom: calc(var(--vh, 1vh) * 35);
+    // bottom: 0%;
+    left: 10%;
+    // color:red;
     // z-index: 3;
   }
 
@@ -62,7 +64,8 @@
     @include scroll-style-hidden();
     // scroll-snap-align: start;
     // margin-top: 10vh;
-    margin-top: calc(var(--vh, 1vh) * 55);
+    margin-top: calc(var(--vh, 1vh) * 70);
+    // margin-top: max(100px, 400px);
     height: calc(100% + 20px);
     border-radius: 20px 20px 0px 0px;
     box-sizing: border-box;
@@ -102,10 +105,10 @@
       .hm3-cards-container {
         // border:3px red solid;
         box-sizing: border-box;
-        background-image: url("../../media/MOBILE/line.png");
-        background-size: cover;
+        background-image: url("../../media/MOBILE/line2.png");
+        background-size: contain;
         background-repeat: no-repeat;
-        background-position-y: -10vw;
+        background-position-y: 20vw;
         scroll-snap-type: x mandatory;
         box-sizing: border-box;
         width: 100%;
@@ -264,7 +267,7 @@
   left: 0;
   // border: 5px blue solid;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -311,10 +314,10 @@
   }
 
   .hm3-box3-confirm_process {
-    width: 70vw;
+    width: 85vw;
     height: 40vw;
     background: white;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -342,11 +345,12 @@
       &:nth-child(2) {
         height: 30%;
         width: 100%;
-        border-top: 2px solid #CFCFCF;
+        border-top: 1px solid #CFCFCF;
 
         >span {
           width: 25%;
           height: 6vw;
+          font-weight: bold;
           // border:1px red solid;
           display: flex;
           justify-content: center;

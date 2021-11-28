@@ -1,11 +1,11 @@
 export { default as homeMobileBg } from "media/MOBILE/home-mobile-bg.png";
-export { default as home01inactive } from "media/MOBILE/home_01_inactive.jpg";
+export { default as home01inactive } from "media/MOBILE/home_01_inactive.png";
 export { default as home01active } from "media/MOBILE/home_01_active.png";
 
-export { default as home02inactive } from "media/MOBILE/home_02_inactive.jpg";
+export { default as home02inactive } from "media/MOBILE/home_02_inactive.png";
 export { default as home02active } from "media/MOBILE/home_02_active.png";
 
-export { default as home03inactive } from "media/MOBILE/home_03_inactive.jpg";
+export { default as home03inactive } from "media/MOBILE/home_03_inactive.png";
 export { default as home03active } from "media/MOBILE/home_03_active.png";
 
 export { default as aboutGreeting1 } from "media/about-greeting-1.png";

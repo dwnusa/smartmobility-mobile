@@ -5,6 +5,7 @@
   color: black;
   font-weight: 400;
   font-family: "Noto Sans KR";
+  height:40vw;
 }
 
 .m-call {
@@ -16,8 +17,10 @@
 
   input,
   textarea {
-    background: rgba(221, 221, 221, 0.4);
+    background: rgba(221, 221, 221, 0.3);
     border: 2px rgba(0, 0, 0, 0.2) solid;
+    border-radius:0px;
+
     // margin:0;
     padding: 1%;
     // border:1px red solid;
@@ -27,23 +30,36 @@
   }
 
   >div {
+    // border:1px red solid;
     display: flex;
     justify-content: space-between;
     margin: 2% 0%;
 
     >span {
-      // border:1px red solid;
       box-sizing: border-box;
       width: 25%;
       font-weight: bold;
     }
 
     >input {
-      width: 75%;
+      width: 73%;
     }
 
     >textarea {
-      width: 75%;
+      width: 73%;
+      height: 10vw;
+      resize: vertical;
+      color: black;
+      font-weight: 400;
+      font-family: "Noto Sans KR";
+    }
+  }
+
+  >div:nth-last-child(3) {
+    // border:1px blue solid;
+    justify-content:flex-end;
+    >textarea {
+      width: 72%;
       height: 30vw;
       resize: vertical;
       color: #848484;
@@ -81,6 +97,7 @@
 
       >span:nth-child(2) {
         // border:1px green solid;
+        margin-left:10px;
 
       }
     }
