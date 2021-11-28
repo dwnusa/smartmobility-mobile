@@ -41,8 +41,11 @@ function Map3({ishm3Scroll}) {
         </RenderAfterNavermapsLoaded>
       </div>
       <div className={styles["m-map-text"]}>
-        <div>02496 서울특별시 동대문구</div>
-        <div>망우로 12길 1, 7층</div>
+        <div>
+          <div>02496 서울특별시 동대문구</div>
+          <div>망우로 12길 1, 7층</div>
+        </div>
+        <br/>
         <div>smartmobilitylab@gmail.com</div>
         <div>02-6490-5316</div>
         <div>050-7534-5819</div>

@@ -49,9 +49,14 @@ function Mobile({ isPc }: { isPc: boolean }) {
   // const [coreHeight, setCoreHeight] = useState(window.innerHeight * 0.01);
   // console.log(window.innerHeight, coreHeight);
   useEffect(() => {
+    // setTimeout(function(){
+    //     // This hides the address bar:
+    //     window.scrollTo(0, 1);
+    // }, 0);
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, [])
+
   return (
     <>
       <div ref={hm1El}
