@@ -30,9 +30,9 @@ function Trafficsafety1({ishm3Scroll}) {
         </div>
       </div>
       <div className={styles["hm3-footer"]}>
-        주소 : 02496 서울특별시 동대문구 망우로 12길 1, 7층 TEL :
+        주소 : 02496 서울특별시 동대문구 망우로 12길 1, 7층 
         <br />
-        02-6490-5316 / FAX : 050-7534-5819
+        TEL : 02-6490-5316 / FAX : 050-7534-5819
         <br />
         <br />
         COPYRIGHT © 2020 SMARTMOBILITY. All Rights Reserved.

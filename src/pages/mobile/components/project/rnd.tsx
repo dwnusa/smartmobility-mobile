@@ -17,9 +17,9 @@ function RND2({ ishm3Scroll, setPos, pos }) {
           <img onClick={() => { if (pos.readyStack === 3) setPos({ ...pos, readyStack: 0, stack: 2 }); else setPos({ ...pos, readyStack: 3 }); }} src={pos.readyStack === 3 ? cards.m_rnd_card3_2 : cards.m_rnd_card3_1} />
         </div>
         <div className={styles["hm3-footer"]}>
-          주소 : 02496 서울특별시 동대문구 망우로 12길 1, 7층 TEL :
+          주소 : 02496 서울특별시 동대문구 망우로 12길 1, 7층 
           <br />
-          02-6490-5316 / FAX : 050-7534-5819
+          TEL : 02-6490-5316 / FAX : 050-7534-5819
           <br />
           <br />
           COPYRIGHT © 2020 SMARTMOBILITY. All Rights Reserved.
