@@ -56,14 +56,14 @@
   // border:1px red solid;
   // box-sizing:border-box;
   .hm2 {
-    // border: 2px blue solid;
-    // box-sizing: border-box;
+    // border: 4px blue solid;
+    box-sizing: border-box;
     overflow: scroll;
     @include scroll-style-hidden();
     // scroll-snap-align: start;
     // margin-top: 10vh;
     margin-top: calc(var(--vh, 1vh) * 55);
-    height: 100%;
+    height: calc(100% + 20px);
     border-radius: 20px 20px 0px 0px;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -80,12 +80,13 @@
 
     .hm2-body {
       // scroll-snap-type: y mandatory;
-      // border:1px red solid;
+      // border:4px yellow solid;
       box-sizing: border-box;
       position: absolute;
-      top: 40px;
+      // top: 40px;
+      padding-top:40px;
       width: 100%;
-      height: calc(100% - 40px);
+      height: 100%;
       overflow-y: auto;
       -ms-overflow-style: none;
       /* IE and Edge */
@@ -99,7 +100,7 @@
       box-sizing: border-box;
 
       .hm3-cards-container {
-        // border: 4px green solid;
+        // border:3px red solid;
         box-sizing: border-box;
         background-image: url("../../media/MOBILE/line.png");
         background-size: cover;
@@ -109,7 +110,7 @@
         box-sizing: border-box;
         width: 100%;
         // height: 45%;
-        height: 90vw;
+        height: 80vw;
         white-space: nowrap;
         overflow: scroll;
         @include scroll-style-hidden();
@@ -133,20 +134,23 @@
       }
 
       .hm3-main-container {
-        // border:15px red solid;
+        // border:3px blue solid;
         box-sizing: border-box;
         width: 100%;
-        height: 100%;
+        height: 103%;
         // overflow: hidden;
         overflow: scroll;
         @include scroll-style-hidden();
 
         .hm3-menu-items {
+          // border:3px red solid;
+          box-sizing: border-box;
           height: 6%;
           margin: 0px 6%;
-          border-bottom: 1px #9b9b9b solid;
+          border-bottom: 0.5px #9b9b9b solid;
           display: flex;
           justify-content: space-between;
+          align-items:flex-end;
 
           >div {
             -webkit-touch-callout: none;
@@ -165,11 +169,12 @@
             font-family: "Montserrat", sans-serif;
             color: #9b9b9b;
             padding: 0vw 0 0vw 0;
+            padding-bottom:10px;
             border-bottom: 2px transparent solid;
 
             &.active {
               color: black;
-              border-bottom: 2px black solid;
+              border-bottom: 1px black solid;
               font-weight: 500;
               // box-sizing: border-box;
             }
@@ -185,9 +190,12 @@
         .hm3-menu-subitems {
           height: 8%;
           margin: 0px 6%;
+          // border:2px blue solid;
+          box-sizing:border-box;
           display: flex;
           justify-content: flex-start;
-          align-items: center;
+          align-items: flex-start;
+          padding-top:17px;
 
           >div {
             -webkit-touch-callout: none;
@@ -236,7 +244,7 @@
         }
 
         .hm3-body-container {
-          // border:4px green solid;
+          // border:4px red solid;
           box-sizing: border-box;
           height: 86%;
           overflow: scroll;

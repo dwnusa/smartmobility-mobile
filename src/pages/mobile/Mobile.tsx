@@ -74,7 +74,7 @@ function Mobile({ isPc }: { isPc: boolean }) {
           better world!
         </span>
         <div ref={hm2El} className={styles["hm2"]} >
-          <div className={styles["hm2-handle"]}></div>
+          {/* <div className={styles["hm2-handle"]}></div> */}
           <div ref={hm3El}
             onScroll={() => {
               const fullHeight = hm3El.current.scrollHeight - hm3El.current.clientHeight;
