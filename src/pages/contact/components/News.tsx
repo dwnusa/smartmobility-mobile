@@ -482,8 +482,8 @@ function News() {
         initialSortDir={false}
         data={filteredData}
         fields={fields}
-        noRecordsMessage="There are no posts to display"
-        noFilteredRecordsMessage="No matched on the list"
+        noRecordsMessage="게시된 공지글이 없습니다."
+        noFilteredRecordsMessage="검색내역이 없습니다."
       />
       {(modalState.type === "view" || modalState.type === "delete") && (
         <div
