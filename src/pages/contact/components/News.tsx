@@ -457,24 +457,26 @@ function News() {
   return (
     <div className="news" ref={divEl}>
       <div className="news-filter">
-        <span
-          className={`news-filter-1 ${filterState === 0 && "active"}`}
-          onClick={() => setFilter(0)}
-        >
-          전체
-        </span>
-        <span
-          className={`news-filter-2 ${filterState === 1 && "active"}`}
-          onClick={() => setFilter(1)}
-        >
-          공지
-        </span>
-        <span
-          className={`news-filter-3 ${filterState === 2 && "active"}`}
-          onClick={() => setFilter(2)}
-        >
-          채용
-        </span>
+        <div>
+          <span
+            className={`news-filter-1 ${filterState === 0 && "active"}`}
+            onClick={() => setFilter(0)}
+          >
+            전체
+          </span>
+          <span
+            className={`news-filter-2 ${filterState === 1 && "active"}`}
+            onClick={() => setFilter(1)}
+          >
+            공지
+          </span>
+          <span
+            className={`news-filter-3 ${filterState === 2 && "active"}`}
+            onClick={() => setFilter(2)}
+          >
+            채용
+          </span>
+        </div>
       </div>
       <FilterableTable
         namespace="NewsPost"
