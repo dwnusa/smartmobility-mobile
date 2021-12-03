@@ -208,7 +208,7 @@ function News() {
       color: "white",
       lineHeight: "40px",
       borderRadius: "20px",
-      width: "80%",
+      width: "60%",
     };
     if (props.value === 9999) {
       return (
