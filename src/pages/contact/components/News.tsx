@@ -140,32 +140,20 @@ function News() {
     //   console.log('auth failed');
     // }
   }, [modalState])
-  useEffect(() => {
-    const foundFilterDom = document.getElementsByClassName("header-row")[0];
-    if (foundFilterDom) {
-      var newDiv2 = document.createElement("div");
-      newDiv2.innerHTML += "글쓰기";
-      newDiv2.setAttribute("id", "create-btn");
-      foundFilterDom.appendChild(newDiv2);
-      newDiv2.addEventListener("click", handleCreateClick);
-    }
-    return () => {
-      newDiv2.removeEventListener("click", handleCreateClick);
-    };
-  }, []);
   // useEffect(() => {
-  //   const foundTableDom = document.querySelectorAll("table tbody tr");
-  //   if (foundTableDom) {
-  //     foundTableDom.forEach((e) =>
-  //       e.addEventListener("click", handleTableClick)
-  //     );
+  //   const foundFilterDom = document.getElementsByClassName("header-row")[0];
+  //   if (foundFilterDom) {
+  //     var newDiv2 = document.createElement("div");
+  //     newDiv2.innerHTML += "글쓰기";
+  //     newDiv2.setAttribute("id", "create-btn");
+  //     foundFilterDom.appendChild(newDiv2);
+  //     newDiv2.addEventListener("click", handleCreateClick);
   //   }
   //   return () => {
-  //     foundTableDom.forEach((e) =>
-  //       e.removeEventListener("click", handleTableClick)
-  //     );
+  //     newDiv2.removeEventListener("click", handleCreateClick);
   //   };
-  // }, [listData, filterState]);
+  // }, []);
+
   const handleCreateClick = (e: any) => {
     if (modalState.auth_passed === true) {
       // debugger;
@@ -477,6 +465,9 @@ function News() {
             채용
           </span>
         </div>
+        <div onClick={(e)=>handleCreateClick(e)}>
+          글쓰기
+        </div>
       </div>
       <FilterableTable
         namespace="NewsPost"
@@ -682,6 +673,8 @@ function News() {
                       type: "",
                       key: false,
                       confirm_process: false,
+                      auth_process: false,
+                      auth_passed: false,
                     });
                     setCurrentEditorInfo({
                       type: "announcement",
