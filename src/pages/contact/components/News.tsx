@@ -465,7 +465,7 @@ function News() {
             채용
           </span>
         </div>
-        <div onClick={(e)=>handleCreateClick(e)}>
+        <div onClick={(e) => handleCreateClick(e)}>
           글쓰기
         </div>
       </div>
