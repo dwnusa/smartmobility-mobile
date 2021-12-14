@@ -85,8 +85,8 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
         .then((res) => {
           const newData = res.data.map(v => {
             return {
-              key: Number(v.id),
-              id: Number(v.bno),
+              key: Number(v.bno),
+              id: Number(v.id) == 1 ? 9999 : Number(v.bno),
               type: v.type.toLowerCase(),
               title: v.title,
               writer: v.writer,
@@ -127,8 +127,8 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
 
           const newData = res.data.map(v => {
             return {
-              key: Number(v.id),
-              id: Number(v.bno),
+              key: Number(v.bno),
+              id: Number(v.id),
               type: v.type.toLowerCase(),
               title: v.title,
               writer: v.writer,
@@ -252,6 +252,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
         axios.put(IPinUSE + viewItem.key + "/", {
           type: currentEditorInfo.type,
           title: currentEditorInfo.title,
+          writer: currentEditorInfo.writer,
           body: currentEditorInfo.body,
         })
           .then((res) => {
@@ -543,7 +544,11 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
                           const currentCheckerState = (viewItem.id === 9999);
                           const updatedState = currentCheckerState ? viewItem.key : 9999;
                           axios.put(IPinUSE + viewItem.key + "/", {
-                            bno: updatedState,
+                            id: updatedState === 9999 ? 1 : 0,
+                            type: viewItem.type,
+                            writer: viewItem.writer,
+                            title: viewItem.title,
+                            body: viewItem.body,
                           })
                             .then((res) => {
 
@@ -613,11 +618,11 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
             className={styles["recruit-input"]}
             name="writer"
             type="text"
-            value={"admin"}
-            onChange={() => {
+            value={currentEditorInfo.writer}
+            onChange={(e) => {
               setCurrentEditorInfo({
                 ...currentEditorInfo,
-                writer: "admin",
+                writer: e.target.value,
               });
             }}
             placeholder="작성자를 입력해주세요."

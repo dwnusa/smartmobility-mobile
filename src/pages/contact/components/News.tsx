@@ -42,12 +42,12 @@ function News() {
         .then((res) => {
           const newData = res.data.map(v => {
             return {
-              key: Number(v.id),
-              id: Number(v.bno),
-              type: v.type.toLowerCase(),
-              title: v.title,
-              writer: v.writer,
-              body: v.body,
+              key: Number(v.bno),
+              id: Number(v.id) == 1 ? 9999 : Number(v.bno),
+              type: v.type == null ? "announcement" : v.type.toLowerCase(),
+              title: v.title == null ? "null" : v.title,
+              writer: v.writer == null ? "null" : v.writer,
+              body: v.body == null ? "----" : v.body,
               date: v.date,
             }
           })
@@ -319,8 +319,8 @@ function News() {
 
             const newData = res.data.map(v => {
               return {
-                key: Number(v.id),
-                id: Number(v.bno),
+                key: Number(v.bno),
+                id: Number(v.id),
                 type: v.type.toLowerCase(),
                 title: v.title,
                 writer: v.writer,
@@ -392,7 +392,9 @@ function News() {
 
       try {
         axios.put(IPinUSE + viewItem.key + "/", {
+
           type: currentEditorInfo.type,
+          writer: currentEditorInfo.writer,
           title: currentEditorInfo.title,
           body: bodyContent,
         })
@@ -400,8 +402,8 @@ function News() {
 
             const newData = res.data.map(v => {
               return {
-                key: Number(v.id),
-                id: Number(v.bno),
+                key: Number(v.bno),
+                id: Number(v.id),
                 type: v.type.toLowerCase(),
                 title: v.title,
                 writer: v.writer,
@@ -769,8 +771,8 @@ function News() {
 
                               const newData = res.data.map(v => {
                                 return {
-                                  key: Number(v.id),
-                                  id: Number(v.bno),
+                                  key: Number(v.bno),
+                                  id: Number(v.id),
                                   type: v.type.toLowerCase(),
                                   title: v.title,
                                   writer: v.writer,
@@ -798,15 +800,20 @@ function News() {
                         try {
                           const currentCheckerState = (viewItem.id === 9999);
                           const updatedState = currentCheckerState ? viewItem.key : 9999;
+                          // debugger;
                           axios.put(IPinUSE + viewItem.key + "/", {
-                            bno: updatedState,
+                            id: updatedState === 9999 ? 1 : 0,
+                            type: viewItem.type,
+                            writer: viewItem.writer,
+                            title: viewItem.title,
+                            body: viewItem.body,
                           })
                             .then((res) => {
-
+                              // debugger;
                               const newData = res.data.map(v => {
                                 return {
-                                  key: Number(v.id),
-                                  id: Number(v.bno),
+                                  key: Number(v.bno),
+                                  id: Number(v.id),
                                   type: v.type.toLowerCase(),
                                   title: v.title,
                                   writer: v.writer,
