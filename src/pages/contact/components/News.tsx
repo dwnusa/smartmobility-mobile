@@ -320,7 +320,7 @@ function News() {
             const newData = res.data.map(v => {
               return {
                 key: Number(v.bno),
-                id: Number(v.id),
+                id: Number(v.id) === 1 ? 9999 : Number(v.bno),
                 type: v.type.toLowerCase(),
                 title: v.title,
                 writer: v.writer,
@@ -328,6 +328,9 @@ function News() {
                 date: v.date,
               }
             })
+            newData.sort(
+              (a: any, b: any) => (b.key - a.key)
+            );
             setListData(newData);
           });
       } catch (err) {
@@ -403,7 +406,7 @@ function News() {
             const newData = res.data.map(v => {
               return {
                 key: Number(v.bno),
-                id: Number(v.id),
+                id: Number(v.id) === 1 ? 9999 : Number(v.bno),
                 type: v.type.toLowerCase(),
                 title: v.title,
                 writer: v.writer,
@@ -433,8 +436,11 @@ function News() {
       });
     }
   };
+  // const sortedByDate = listData.sort(
+  //   (a: any, b: any) => (b.key > a.key && 1) || -1
+  // );
   const sortedByDate = listData.sort(
-    (a: any, b: any) => (b.key > a.key && 1) || -1
+    (a: any, b: any) => (b.key - a.key)
   );
   const filteredData = sortedByDate.filter((v: any) => {
     if (filterState == 1) return v.type === "announcement";
@@ -772,7 +778,7 @@ function News() {
                               const newData = res.data.map(v => {
                                 return {
                                   key: Number(v.bno),
-                                  id: Number(v.id),
+                                  id: Number(v.id) === 9999 ? 1 : Number(v.bno),
                                   type: v.type.toLowerCase(),
                                   title: v.title,
                                   writer: v.writer,
@@ -813,7 +819,7 @@ function News() {
                               const newData = res.data.map(v => {
                                 return {
                                   key: Number(v.bno),
-                                  id: Number(v.id),
+                                  id: Number(v.id) === 1 ? 9999 : Number(v.bno),
                                   type: v.type.toLowerCase(),
                                   title: v.title,
                                   writer: v.writer,

@@ -128,7 +128,7 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
           const newData = res.data.map(v => {
             return {
               key: Number(v.bno),
-              id: Number(v.id),
+              id: Number(v.id) == 1 ? 9999 : Number(v.bno),
               type: v.type.toLowerCase(),
               title: v.title,
               writer: v.writer,
@@ -194,8 +194,8 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
 
             const newData = res.data.map(v => {
               return {
-                key: Number(v.id),
-                id: Number(v.bno),
+                key: Number(v.bno),
+                id: Number(v.id) === 1 ? 9999 : Number(v.bno),
                 type: v.type.toLowerCase(),
                 title: v.title,
                 writer: v.writer,
@@ -249,7 +249,9 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
       );
 
       try {
+        // debugger;
         axios.put(IPinUSE + viewItem.key + "/", {
+          id: viewItem.id === 9999 ? 1 : 0,
           type: currentEditorInfo.type,
           title: currentEditorInfo.title,
           writer: currentEditorInfo.writer,
@@ -259,8 +261,8 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
 
             const newData = res.data.map(v => {
               return {
-                key: Number(v.id),
-                id: Number(v.bno),
+                key: Number(v.bno),
+                id: Number(v.id) == 1 ? 9999 : Number(v.bno),
                 type: v.type.toLowerCase(),
                 title: v.title,
                 writer: v.writer,
@@ -458,12 +460,12 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
         modalState.type === "delete" ||
         modalState.type === "edit" ||
         modalState.type === "announcement") && <div className={styles["hm3-box2"]}>
-          <div>{viewItem.title}</div>
-          <div>{viewItem.writer} | {viewItem.date}</div>
+          <div>{viewItem?.title}</div>
+          <div>{viewItem?.writer} | {viewItem.date}</div>
           <div
             // className="news-view main"
             dangerouslySetInnerHTML={{
-              __html: viewItem.body,
+              __html: viewItem?.body,
             }}
           ></div>
           <div>
@@ -554,8 +556,8 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
 
                               const newData = res.data.map(v => {
                                 return {
-                                  key: Number(v.id),
-                                  id: Number(v.bno),
+                                  key: Number(v.bno),
+                                  id: Number(v.id) == 1 ? 9999 : Number(v.bno),
                                   type: v.type.toLowerCase(),
                                   title: v.title,
                                   writer: v.writer,
