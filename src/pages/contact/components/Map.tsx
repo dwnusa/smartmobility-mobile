@@ -34,7 +34,7 @@ function Map() {
     <div className="map">
       <div className="map-naver">
         <RenderAfterNavermapsLoaded
-          ncpClientId={"mabgbbknk3"}
+          ncpClientId={"cc12woewbx"}
           error={<p>Maps Load Error</p>}
           loading={<p>Maps Loading...</p>}
         >

@@ -33,7 +33,7 @@ function Map3({ishm3Scroll}) {
     <div className={styles["m-map"]}>
       <div className={styles["m-map-naver"]}>
         <RenderAfterNavermapsLoaded
-          ncpClientId={"mabgbbknk3"}
+          ncpClientId={"cc12woewbx"}
           error={<p>Maps Load Error</p>}
           loading={<p>Maps Loading...</p>}
         >
