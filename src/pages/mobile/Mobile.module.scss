@@ -177,7 +177,7 @@
 
             &.active {
               color: black;
-              border-bottom: 1px black solid;
+              border-bottom: 2px black solid;
               font-weight: 500;
               // box-sizing: border-box;
             }
@@ -348,17 +348,17 @@
         border-top: 1px solid #CFCFCF;
 
         >span {
-          width: 25%;
-          height: 6vw;
+          width: 70px;
+          height: 23px;
           font-weight: bold;
           // border:1px red solid;
           display: flex;
           justify-content: center;
           align-items: center;
-          margin: 0% 4%;
+          margin: 0% 4px;
 
           &:nth-child(1) {
-            background: #0A347F;
+            background: #0032A0;
             color: white;
           }
 

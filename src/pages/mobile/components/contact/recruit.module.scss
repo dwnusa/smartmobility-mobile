@@ -119,11 +119,13 @@
                 align-items: center;
                 justify-content: center;
                 // border:1px red solid;
-                border-radius: 50px;
+                border-radius: 20px;
                 height: 60%;
                 color: white;
                 font-weight: bold;
                 background-color: #0032A0;
+                font-family: "Noto Sans KR";
+                font-size:14px;
               }
             }
           }
@@ -179,7 +181,7 @@
         }
 
         &:nth-child(4) {
-          margin-left: auto;
+          margin-left: 11px;
         }
       }
     }

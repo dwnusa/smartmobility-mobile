@@ -47,7 +47,7 @@ const itemList = [
   { key: 1, id: 1, type: "recruitment", title: "채용  |  [모빌리티 팀] UX 리서처 (신입/경력)", writer: "작성자", body: "홈페이지 개설 축하합니다!", date: "2021.4.08" },
   { key: 0, id: 0, type: "recruitment", title: "채용  |  [모빌리티 팀] UX 리서처 (신입/경력)", writer: "작성자", body: "홈페이지 개설 축하합니다!", date: "2021.4.08" },
 ];
-function Recruit3({ ishm3Scroll, setPos, pos }) {
+function Recruit3({ ishm3Scroll, setPos, pos, setCallExitModal }) {
   const [filterState, setFilter] = useState<number>(0);
   // const [filterIndex, setFilterIndex] = useState(0);
   const [modalOpened, setModalOpened] = useState(false);
@@ -350,6 +350,15 @@ function Recruit3({ ishm3Scroll, setPos, pos }) {
   useEffect(() => {
     setTempListData(listData);
   }, [listData])
+  useEffect(() => {
+    if (currentEditorInfo.writer=="" && currentEditorInfo.title=="" && currentEditorInfo.body=="") {
+      setCallExitModal(false);
+      console.log("setCallExitModal false")
+    } else {
+      setCallExitModal(true);
+      console.log("setCallExitModal true")
+    }
+  }, [currentEditorInfo])
   const sortedByDate = tempListData.sort(
     (a: any, b: any) => (b.id > a.id && 1) || -1
   );
