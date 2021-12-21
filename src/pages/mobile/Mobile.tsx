@@ -95,9 +95,24 @@ function Mobile({ isPc }: { isPc: boolean }) {
             style={{ overflow: ishm2Scroll ? "scroll" : "hidden" }}
           >
             <div className={styles["hm3-cards-container"]} >
-              <img onClick={() => { if (pos.readyPage === 1) { if (callExitModal && pos.page === 3 && (pos.tab === 2 || pos.tab === 0)) { if (callExitModal) setModalOpen({ state: true, jumpTo: { ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 1 } }) } else setPos({ ...pos, readyStack: 0, page: 2, tab: 0, stack: 1 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 1, readyStack: 0 }); }} src={(pos.readyPage === 1) ? cards.home01active : cards.home01inactive} />
-              <img onClick={() => { if (pos.readyPage === 2) { if (callExitModal && pos.page === 3 && (pos.tab === 2 || pos.tab === 0)) { if (callExitModal) setModalOpen({ state: true, jumpTo: { ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 2 } }) } else setPos({ ...pos, readyStack: 0, page: 2, tab: 0, stack: 2 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 2, readyStack: 0 }); }} src={(pos.readyPage === 2) ? cards.home02active : cards.home02inactive} />
-              <img onClick={() => { if (pos.readyPage === 3) { if (callExitModal && pos.page === 3 && (pos.tab === 2 || pos.tab === 0)) { if (callExitModal) setModalOpen({ state: true, jumpTo: { ...pos, readyPage: 0, readyStack: 0, page: 2, tab: 0, stack: 3 } }) } else setPos({ ...pos, readyStack: 0, page: 2, tab: 0, stack: 3 }); hm4El.current.scrollIntoView({ behavior: 'smooth' }) } else setPos({ ...pos, readyPage: 3, readyStack: 0 }); }} src={(pos.readyPage === 3) ? cards.home03active : cards.home03inactive} />
+              <img onClick={() => { 
+                  if (pos.readyPage === 1) {
+                    if (callExitModal && pos.page === 3 && (pos.tab === 2 || pos.tab === 0)) { 
+                      if (callExitModal) {
+                        setModalOpen({ state: true, jumpTo: { ...pos, readyPage: 0, readyStack: 0, page: 1, tab: 0, stack: 1 } }) 
+                      }
+                    } else {
+                      setPos({ ...pos, readyStack: 0, page: 1, tab: 0, stack: 1 })
+                    }; 
+                    hm4El.current.scrollIntoView({ behavior: 'smooth' }) 
+                  } else {
+                    setPos({ ...pos, readyPage: 1, readyStack: 0 }); 
+                  }
+                }} 
+                src={(pos.readyPage === 1) ? cards.home01active : cards.home01inactive} 
+              />
+              <img onClick={() => { setPos({ ...pos, readyPage: 2, readyStack: 0 }); }} src={(pos.readyPage === 2) ? cards.home02active : cards.home02inactive} />
+              <img onClick={() => { setPos({ ...pos, readyPage: 3, readyStack: 0 }); }} src={(pos.readyPage === 3) ? cards.home03active : cards.home03inactive} />
             </div>
             <div className={styles["hm3-main-container"]}>
               <div className={styles["hm3-menu-items"]}>
